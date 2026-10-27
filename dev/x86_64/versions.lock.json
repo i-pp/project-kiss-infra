@@ -1,0 +1,8 @@
+{
+  "parent": "project-kiss-aarch64-dev:phase1-20261027",
+  "parent_id": "sha256:ea44c479096d2aa12f67e8bf182872afaf41706a35b4b04556529e51a02beb65",
+  "ubuntu_snapshot": "20261027T090000Z",
+  "packages": {"qemu-system-x86": "1:10.2.1+ds-1ubuntu3.3"},
+  "download_limit_bytes": 268435456,
+  "llvm": "21.1.8"
+}

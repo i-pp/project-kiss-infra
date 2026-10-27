@@ -1,0 +1,40 @@
+name: project-kiss-dev-x86
+x-isolated: &isolated
+  pull_policy: never
+  user: "${LOCAL_UID:?}:${LOCAL_GID:?}"
+  environment:
+    CARGO_HOME: /work/cargo-home
+    PYTHONDONTWRITEBYTECODE: "1"
+  network_mode: none
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  cpus: 2
+  mem_limit: 4g
+  memswap_limit: 4g
+  pids_limit: 256
+  ulimits:
+    core: 0
+    fsize: 134217728
+  tmpfs:
+    - /tmp:rw,nosuid,nodev,size=268435456,mode=1777
+  volumes:
+    - ${DEV_ROOT:?}/dev/common:/src/dev/common:ro
+    - ${DEV_ROOT:?}/dev/x86_64:/src/dev/x86_64:ro
+    - ${DEV_ROOT:?}/dev/aarch64:/src/dev/aarch64:ro
+    - ${DEV_ROOT:?}/scripts/test-dev-targets.py:/src/scripts/test-dev-targets.py:ro
+    - ${DEV_ROOT:?}/scripts/test-dev-aarch64.py:/src/scripts/test-dev-aarch64.py:ro
+    - ${DEV_ROOT:?}/.cache/dev-x86_64:/work:rw
+    - ${DEV_ROOT:?}/logs/dev-targets:/logs:rw
+  logging:
+    driver: local
+    options:
+      max-size: 2m
+      max-file: "2"
+services:
+  dev:
+    <<: *isolated
+    image: ${DEV_IMAGE:?}
+  aarch64-regression:
+    <<: *isolated
+    image: project-kiss-aarch64-dev:phase1-20261027

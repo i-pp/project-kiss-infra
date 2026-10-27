@@ -439,3 +439,11 @@ python3 scripts/repair-coder-diagnostic.py
 LLVM/Clang/LLD 21.1.8、QEMU virt/PL011、GDB、Rust no_std、NEONのスモークテストはPASS。
 起動コード・UART・リンカは環境検証専用で、AceIS/Abissの正式実装とは区別する。
 構成、固定バージョン、保護確認、失敗履歴、再現手順と未検証範囲は[開発環境の記録](docs/dev-aarch64.md)を参照。
+
+## x86-64 / AArch64 共通開発検証への案内
+
+Phase 2Cで、LLVM 21.1.8を共用するx86-64開発用子イメージを追加した。
+共通LLVM C++ APIによる両ターゲットのオブジェクト生成・リンク・実行、x86-64ネイティブ/SSE2、QEMU Multiboot起動/GDB、既存AArch64回帰はPASS。
+実機のAVX2/AVX-512Fも実命令実行と独立比較がPASS。QEMU qemu64では未対応のため理由付きSKIP。
+構成・再現手順・結果・未検証事項は[両ターゲット開発検証](docs/dev-targets.md)を参照。
+起動コード類は環境検証専用で、AceISの正式仕様や独自バックエンドの完成とは扱わない。
