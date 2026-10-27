@@ -1,0 +1,14 @@
+{
+  "image": "ghcr.io/ggml-org/llama.cpp@sha256:0b332e21bec106548887f5747c0574bce63b8dd725f26d20382ff2711993ab15",
+  "llama_revision": "7aca0d2ea8d92b56911233b822db01f9fbb1ae50",
+  "model_repository": "ggml-org/gpt-oss-20b-GGUF",
+  "model_revision": "15dcfc7e7c608c6161507211ed43c5b590801b4b",
+  "model_file": "gpt-oss-20b-MXFP4.gguf",
+  "model_bytes": 12109566624,
+  "model_sha256": "27cd6c432c7672cb812a92f611cf3ba7bbc35928262bb1e1253ff4ee6ae35901",
+  "license": "Apache-2.0",
+  "contexts": [8192, 16384, 32768],
+  "max_repairs": 3,
+  "quality_initial_repetitions": 3,
+  "verifier_image": "sha256:d7db62585e135c5ef03be789fbf042ffebae4caa8482dd7aeb1d8e3b4cf0026c"
+}

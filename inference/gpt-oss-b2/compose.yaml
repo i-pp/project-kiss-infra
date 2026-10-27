@@ -1,0 +1,101 @@
+name: project-kiss-gpt-oss-b2
+
+services:
+  server:
+    image: ghcr.io/ggml-org/llama.cpp@sha256:0b332e21bec106548887f5747c0574bce63b8dd725f26d20382ff2711993ab15
+    pull_policy: never
+    user: "${LOCAL_UID:?Use scripts/gpt-oss-compose.sh}:${LOCAL_GID:?Use scripts/gpt-oss-compose.sh}"
+    group_add: ["${GPU_GID:?Use scripts/gpt-oss-compose.sh}"]
+    devices:
+      - /dev/kfd:/dev/kfd
+      - /dev/dri/renderD128:/dev/dri/renderD128
+    ports: ["127.0.0.1:8082:8080"]
+    networks: [local]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    read_only: true
+    cpus: 8
+    mem_limit: 24g
+    memswap_limit: 24g
+    pids_limit: 512
+    shm_size: 2g
+    ulimits:
+      core: 0
+      fsize: 67108864
+    tmpfs:
+      - /tmp:rw,nosuid,nodev,size=2g,mode=1777
+    environment:
+      HOME: /cache
+      XDG_CACHE_HOME: /cache
+    volumes:
+      - type: bind
+        source: ../../models/gpt-oss-20b
+        target: /model
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ../../.cache/gpt-oss-b2/runtime
+        target: /cache
+        bind:
+          create_host_path: false
+    command:
+      - --model
+      - /model/gpt-oss-20b-MXFP4.gguf
+      - --alias
+      - kiss-gpt-oss-20b-mxfp4
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8080"
+      - --ctx-size
+      - "${GPT_OSS_CONTEXT:-8192}"
+      - --parallel
+      - "1"
+      - --n-gpu-layers
+      - "99"
+      - --fit
+      - "off"
+      - --batch-size
+      - "256"
+      - --ubatch-size
+      - "128"
+      - --threads
+      - "8"
+      - --threads-batch
+      - "8"
+      - --cache-type-k
+      - f16
+      - --cache-type-v
+      - f16
+      - --flash-attn
+      - "on"
+      - --no-context-shift
+      - --jinja
+      - --reasoning-format
+      - deepseek
+      - --reasoning-effort
+      - low
+      - --metrics
+      - --offline
+      - --verbosity
+      - "4"
+      - --no-ui
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, --show-error, http://127.0.0.1:8080/health]
+      interval: 10s
+      timeout: 5s
+      start_period: 180s
+      retries: 3
+    restart: "no"
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "2"
+
+networks:
+  local:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.host_binding_ipv4: "127.0.0.1"
