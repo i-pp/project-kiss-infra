@@ -1,0 +1,6 @@
+*
+!Dockerfile
+!versions.lock.json
+!install.py
+!.cache/
+!.cache/ca-certificates.deb

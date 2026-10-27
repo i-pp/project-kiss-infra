@@ -1,0 +1,18 @@
+/* Environment validation only. RAM is checked against the emitted DTB. */
+ENTRY(_start)
+MEMORY { RAM (rwx) : ORIGIN = @ORIGIN@, LENGTH = @LENGTH@ }
+SECTIONS {
+  .text : { KEEP(*(.text.boot)) *(.text .text.*) } > RAM
+  .rodata : { *(.rodata .rodata.*) } > RAM
+  .data : { *(.data .data.*) } > RAM
+  .bss (NOLOAD) : {
+    . = ALIGN(16); __bss_start = .;
+    *(.bss .bss.*) *(COMMON)
+    . = ALIGN(16); __bss_end = .;
+  } > RAM
+  .stack (NOLOAD) : {
+    . = ALIGN(16); . += 0x10000; __stack_top = .;
+  } > RAM
+  /DISCARD/ : { *(.comment) *(.note*) *(.eh_frame*) }
+}
+ASSERT((__stack_top & 15) == 0, "SP must be 16-byte aligned")

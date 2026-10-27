@@ -1,0 +1,55 @@
+name: project-kiss-phase2
+
+services:
+  llama-server:
+    image: ghcr.io/ggml-org/llama.cpp@sha256:0b332e21bec106548887f5747c0574bce63b8dd725f26d20382ff2711993ab15
+    user: "${LOCAL_UID:?Use scripts/compose.sh}:${LOCAL_GID:?Use scripts/compose.sh}"
+    group_add:
+      - "${GPU_GID:?Use scripts/compose.sh}"
+    devices:
+      - /dev/kfd:/dev/kfd
+      - /dev/dri/renderD128:/dev/dri/renderD128
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - type: bind
+        source: ./models
+        target: /models
+        read_only: true
+        bind:
+          create_host_path: false
+    command:
+      - --model
+      - /models/${MODEL_FILE:-qwen2.5-0.5b-instruct-q4_k_m.gguf}
+      - --alias
+      - ${MODEL_ALIAS:-kiss-qwen2.5-0.5b}
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8080"
+      - --ctx-size
+      - "${CONTEXT_SIZE:-2048}"
+      - --parallel
+      - "1"
+      - --batch-size
+      - "256"
+      - --ubatch-size
+      - "128"
+      - --n-gpu-layers
+      - "99"
+      - --fit
+      - "off"
+      - --threads
+      - "16"
+      - --threads-batch
+      - "16"
+      - --verbosity
+      - "4"
+      - --no-ui
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, --show-error, http://127.0.0.1:8080/health]
+      interval: 10s
+      timeout: 5s
+      start_period: 120s
+      retries: 3
+    restart: unless-stopped

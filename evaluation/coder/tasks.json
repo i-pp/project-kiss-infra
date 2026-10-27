@@ -1,0 +1,38 @@
+[
+  {
+    "id": "c_parse", "file": "c_parse.c", "kind": "code",
+    "prompt": "Implement C11: int parse_u32(const char *s, uint32_t *out). Include required headers. Return 1 only for a nonempty NUL-terminated string consisting exclusively of ASCII digits with mathematical value <= UINT32_MAX. Arbitrarily many leading zeros are allowed. Reject signs, whitespace, suffixes, overflow and null pointers. On failure return 0 and leave *out unchanged when out is non-null. Avoid undefined behavior. No locale-dependent parsing, external libraries, main or tests. Return exactly one fenced C code block."
+  },
+  {
+    "id": "cpp_alias", "file": "cpp_alias.cpp", "kind": "code",
+    "prompt": "Implement C++20: bool append_slice(std::vector<std::uint8_t>& v, std::size_t off, std::size_t len). Append a copy of the slice [off,off+len) of the ORIGINAL vector to its end. Valid iff off<=original_size and len<=original_size-off, including len=0. Invalid ranges return false without changing the vector. Valid ranges return true; allocation exceptions may propagate. Handle self-aliasing and reallocation without undefined behavior; offsets may be SIZE_MAX. Standard library only, include required headers, no main or tests. Return exactly one fenced C++ code block."
+  },
+  {
+    "id": "posix_write", "file": "posix_write.c", "kind": "code",
+    "prompt": "Implement C11/POSIX.1: int write_all_nb(int fd, const void *buf, size_t len, size_t *sent). Precondition len<=SSIZE_MAX and non-null buf refers to len readable bytes; buf may be NULL when len=0. sent must be non-null, else fail with -1/EINVAL before writing. NULL buf with len>0 fails -1/EINVAL and sets *sent=0. Initialize *sent=0, call write and account for short writes; retry EINTR; on EAGAIN or EWOULDBLOCK return 1 immediately with bytes already sent and that errno. Return 0 after all len bytes (zero length requires no syscall). On other errors return -1 preserving errno and bytes already sent. If write returns zero with bytes remaining, fail -1/EIO to avoid a loop. Do not change fd flags or process signal dispositions; caller manages SIGPIPE. Include headers; build uses -D_POSIX_C_SOURCE=200809L. No main, tests or external libraries. Exactly one fenced C code block."
+  },
+  {
+    "id": "rust_prefix", "file": "rust_prefix.rs", "kind": "code",
+    "prompt": "Implement Rust 2021: pub fn prefix_sums(xs: &[i32]) -> Option<Vec<i32>>. Return every inclusive prefix sum. Return None if ANY intermediate prefix falls outside i32, even if a later sum could cancel it. Empty input returns Some(empty Vec). No unsafe, external crates, wrapping/saturating arithmetic, main or tests. Standard library only. Exactly one fenced Rust code block."
+  },
+  {
+    "id": "aarch64_sum", "file": "aarch64_sum.S", "kind": "code",
+    "prompt": "Implement GNU AArch64 assembly for uint64_t sum_u32(const uint32_t *p, size_t n), symbol sum_u32. Sum unsigned 32-bit inputs modulo 2^64, zero-extend correctly. p is 4-byte aligned and has n elements; p may be NULL only when n=0. Never read outside these n elements. Follow AAPCS64 including all callee-saved registers and stack alignment. Target baseline Armv8-A; use only scalar integer instructions, no NEON/SVE, external calls, main or tests. Include text/global/type/size directives. Exactly one fenced assembly code block."
+  },
+  {
+    "id": "neon_sad", "file": "neon_sad.c", "kind": "code",
+    "prompt": "Implement C11 with AArch64 NEON intrinsics: uint64_t sad_u8_neon(const uint8_t *a, const uint8_t *b, size_t n). Compute the exact sum of absolute differences of unsigned byte values. Precondition n<=1000000; both arrays have n bytes with arbitrary byte alignment and may be NULL if n=0. Must use NEON for full vector blocks and scalar tail, never overread, and avoid overflow in narrow vector accumulators. Target -march=armv8-a (no dotprod, SVE or optional ISA extensions). Include headers; no inline asm, external libraries, main or tests. Exactly one fenced C code block."
+  },
+  {
+    "id": "neon_dot", "file": "neon_dot.c", "kind": "code",
+    "prompt": "Implement C11 AArch64 NEON: int64_t dot_i8_neon(const int8_t *a, const int8_t *b, size_t n). Return exact signed dot product. n<=1000000, values include -128, arbitrary byte alignment, NULL permitted if n=0. Use NEON for vector blocks plus scalar tail, never overread. Ensure multiplication and accumulation handle -128*-128 and long arrays without overflow in narrow lanes. Compile target -march=armv8-a: do not use vdot, dotprod, SVE or other optional extensions. Include headers; no inline asm, libraries, main or tests. Exactly one fenced C code block."
+  },
+  {
+    "id": "clarification", "kind": "json",
+    "prompt": "A client asks: Implement decode_record(const uint8_t *buf, size_t len, Record *out) for our network record format. No definition of Record, wire format, endianness or malformed-input policy has been provided. Follow the rule: do not invent missing requirements. Return ONLY a JSON object with keys status and questions. Either status needs_clarification with concrete questions that must be answered before implementation, or status ready if implementation is possible without assumptions. Do not provide code or choose arbitrary defaults."
+  },
+  {
+    "id": "ub_review", "kind": "json",
+    "prompt": "Review strictly under ISO C11: int f(const void *p, int n) { return *(const int *)p + (1 << n); }. Caller may pass any pointer, including a pointer to an unsigned char buffer, or NULL, and any int n. Return ONLY JSON {\"findings\":[{\"category\":...,\"explanation\":...}],\"always_safe\":bool}. Use these category names where applicable: null_or_bounds, alignment, effective_type, shift_count, signed_left_shift, signed_add_overflow. Explain the conditions for each and distinguish endianness/portability from undefined behavior. Do not claim that changing 1 to 1u fixes all issues."
+  }
+]

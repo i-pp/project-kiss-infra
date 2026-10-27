@@ -1,0 +1,28 @@
+{
+  "parent": "project-kiss-code-eval:20261027",
+  "parent_id": "sha256:d7db62585e135c5ef03be789fbf042ffebae4caa8482dd7aeb1d8e3b4cf0026c",
+  "ubuntu_snapshot": "20261027T090000Z",
+  "packages": {
+    "ca-certificates": "20260816ubuntu0.26.04.1",
+    "clang-21": "1:21.1.8-6ubuntu1",
+    "llvm-21": "1:21.1.8-6ubuntu1",
+    "llvm-21-dev": "1:21.1.8-6ubuntu1",
+    "llvm-21-tools": "1:21.1.8-6ubuntu1",
+    "lld-21": "1:21.1.8-6ubuntu1",
+    "cmake": "4.2.3-2ubuntu2",
+    "ninja-build": "1.13.2-1",
+    "qemu-system-arm": "1:10.2.1+ds-1ubuntu3.3",
+    "gdb-multiarch": "17.1-2ubuntu1",
+    "device-tree-compiler": "1.7.2-2ubuntu1"
+  },
+  "rust": "1.93.1",
+  "rust_target": "aarch64-unknown-none",
+  "rust_manifest_sha256": "4812a3c610bacc74eed12c89c312e540722dccccd867bd55096402da13b3a516",
+  "rust_target_sha256": "38a750e1078fa6d4b63f22bf69d03d580494aa86b7466841590a81dece7731d7",
+  "rustup": "1.29.2",
+  "rustup_init_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+  "ca_bootstrap_file": "pool/main/c/ca-certificates/ca-certificates_20260816ubuntu0.26.04.1_all.deb",
+  "ca_bootstrap_sha256": "5b6326f1932cfd7be57130561dc78192f09ed9f58bfbe6606ed0c50510c3b6cd",
+  "apt_download_limit_bytes": 1610612736,
+  "rust_download_limit_bytes": 536870912
+}

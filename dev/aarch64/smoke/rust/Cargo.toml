@@ -1,0 +1,13 @@
+[package]
+name = "kiss-environment-smoke"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+panic = "abort"
+opt-level = 2
+debug = true
+
+[[bin]]
+name = "rust-smoke"
+path = "main.rs"

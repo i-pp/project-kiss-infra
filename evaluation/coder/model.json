@@ -1,0 +1,13 @@
+{
+  "repository": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+  "revision": "0ca51122012fe4a20dc82988ee58780b008ce4e3",
+  "license": "apache-2.0",
+  "architecture": "qwen3moe",
+  "layers": 48,
+  "file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+  "size_bytes": 17988419552,
+  "sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "quantization": "Q4_K_M; publisher retains small non-expert tensors at Q8_0",
+  "llama_cpp_commit": "7aca0d2ea8d92b56911233b822db01f9fbb1ae50",
+  "compatibility_source": "https://github.com/ggml-org/llama.cpp/blob/7aca0d2ea8d92b56911233b822db01f9fbb1ae50/src/models/qwen3moe.cpp"
+}
