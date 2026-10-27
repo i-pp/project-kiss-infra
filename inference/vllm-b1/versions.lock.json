@@ -1,0 +1,17 @@
+{
+  "image_tag": "vllm/vllm-openai-rocm:v0.32.0",
+  "image": "vllm/vllm-openai-rocm@sha256:14f6a575e1fb0a580b0f633c09e06f648709d60405b85f6a7ff3f80d49f39905",
+  "image_config_digest": "sha256:03f01e2ac1e94913e448025fa866f4925e34002a269878779e434bc793215e7f",
+  "compressed_layer_bytes": 11608971476,
+  "docker_image_size_bytes": 46775103527,
+  "verified_vllm": "0.32.0+rocm723",
+  "verified_torch": "2.13.0+git733fca1",
+  "verified_hip": "7.2.53211",
+  "verified_rocm": "7.2.3",
+  "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+  "license": "Apache-2.0",
+  "model_file": "model.safetensors",
+  "model_file_bytes": 3087467144,
+  "model_sha256": "c1b9b30e907950516ba3c646bdf570d8084c25a6410a0cdca80cf04b11bc13a8"
+}

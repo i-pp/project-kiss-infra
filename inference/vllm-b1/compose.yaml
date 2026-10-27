@@ -1,0 +1,91 @@
+name: project-kiss-vllm-b1
+
+x-runtime: &runtime
+  image: vllm/vllm-openai-rocm@sha256:14f6a575e1fb0a580b0f633c09e06f648709d60405b85f6a7ff3f80d49f39905
+  pull_policy: never
+  user: "${LOCAL_UID:?Use scripts/vllm-compose.sh}:${LOCAL_GID:?Use scripts/vllm-compose.sh}"
+  group_add: ["${GPU_GID:?Use scripts/vllm-compose.sh}"]
+  devices:
+    - /dev/kfd:/dev/kfd
+    - /dev/dri/renderD128:/dev/dri/renderD128
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  read_only: true
+  cpus: 8
+  mem_limit: 24g
+  memswap_limit: 24g
+  pids_limit: 512
+  shm_size: 2g
+  tmpfs:
+    - /tmp:rw,nosuid,nodev,size=2g,mode=1777
+  environment:
+    HOME: /cache
+    HF_HOME: /cache/huggingface
+    HF_HUB_OFFLINE: "1"
+    TRANSFORMERS_OFFLINE: "1"
+    HF_HUB_DISABLE_TELEMETRY: "1"
+    DO_NOT_TRACK: "1"
+    VLLM_NO_USAGE_STATS: "1"
+    VLLM_CACHE_ROOT: /cache/vllm
+    TRITON_CACHE_DIR: /cache/triton
+    TORCHINDUCTOR_CACHE_DIR: /cache/torchinductor
+    PYTHONDONTWRITEBYTECODE: "1"
+    OMP_NUM_THREADS: "8"
+  volumes:
+    - ../../.cache/vllm-b1/runtime:/cache
+    - ./gpu-check.py:/checks/gpu-check.py:ro
+  restart: "no"
+  logging:
+    driver: json-file
+    options:
+      max-size: 10m
+      max-file: "2"
+
+services:
+  gpu-check:
+    <<: *runtime
+    profiles: [check]
+    network_mode: none
+    entrypoint: [python3, /checks/gpu-check.py]
+  server:
+    <<: *runtime
+    ports: ["127.0.0.1:8081:8000"]
+    networks: [local]
+    volumes:
+      - ../../.cache/vllm-b1/runtime:/cache
+      - ../../models/Qwen2.5-Coder-1.5B-Instruct-BF16:/model:ro
+    command:
+      - /model
+      - --served-model-name
+      - kiss-vllm-qwen25-coder-1p5b
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8000"
+      - --dtype
+      - bfloat16
+      - --max-model-len
+      - "${VLLM_CONTEXT:-8192}"
+      - --max-num-seqs
+      - "1"
+      - --tensor-parallel-size
+      - "1"
+      - --gpu-memory-utilization
+      - "0.20"
+      - --max-num-batched-tokens
+      - "512"
+      - --enforce-eager
+      - --attention-backend
+      - TRITON_ATTN
+    healthcheck:
+      test: [CMD, python3, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      start_period: 180s
+      retries: 3
+
+networks:
+  local:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.host_binding_ipv4: "127.0.0.1"
