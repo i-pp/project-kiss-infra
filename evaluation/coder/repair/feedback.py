@@ -2,6 +2,31 @@
 import re
 
 
+def _candidate_diagnostics(output, filename):
+    # Case folding is scoped to severity, never Linux filenames or path prefixes.
+    if (not filename or filename in {'.', '..'} or '/' in filename or '\\' in filename
+            or any(ord(c) < 32 or ord(c) == 127 for c in filename)):
+        return []
+    location = r'(?:/candidate/)?'+re.escape(filename)+r':\d+(?::\d+)?'
+    pattern = re.compile(r'^'+location+r': (?i:fatal error|error|warning|note): (?P<message>[^\n]+)$')
+    selected = []
+    for line in output.splitlines():
+        match = pattern.fullmatch(line)
+        if match:
+            selected.append((line.removeprefix('/candidate/'), match['message']))
+    if filename.casefold().endswith('.rs'):
+        # Rust puts the error header before its location. Accept it only when
+        # the immediately following location belongs to this exact candidate.
+        rust = re.compile(r'^(?P<diagnostic>(?i:error(?:\[E\d+\])?): (?P<message>[^\n]+))'
+                          r'\n[ \t]*-->[ \t]+'+location+r'[ \t]*$', re.MULTILINE)
+        selected.extend((m['diagnostic'], m['message']) for m in rust.finditer('\n'.join(output.splitlines())))
+    # A candidate location alone does not make paths in the message public.
+    # Omit path/control-bearing messages rather than partially disclosing them.
+    return [line for line, message in selected
+            if '/' not in message and '\\' not in message
+            and not any(ord(c) < 32 or ord(c) == 127 for c in message)]
+
+
 def feedback(result, filename):
     if result.get('format_error'):
         return 'Output format failed. Return exactly one fenced code block containing the complete implementation, without prose.'
@@ -13,11 +38,7 @@ def feedback(result, filename):
     if phase == 'compile_candidate':
         # Only diagnostics emitted while compiling the candidate alone. Never
         # include a fixture line, assertion, reference value, or source excerpt.
-        pattern = re.compile(r'^(?:/candidate/)?'+re.escape(filename)+r':\d+(?::\d+)?: (?:fatal error|error|warning|note): [^\n]+$')
-        lines = [line.replace('/candidate/','') for line in failed.get('output','').splitlines()
-                 if pattern.fullmatch(line)]
-        if filename.endswith('.rs'):
-            lines += re.findall(r'^error(?:\[E\d+\])?: [^\n]+$',failed.get('output',''),re.MULTILINE)
+        lines = _candidate_diagnostics(failed.get('output',''), filename)
         return ('Candidate compilation failed under the required language/ISA and strict warnings.\n'
                 +'\n'.join(lines[:16])[:4000]
                 +'\nReturn the complete corrected implementation. Independent test source and answers are withheld.')
