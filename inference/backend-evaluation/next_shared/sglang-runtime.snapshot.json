@@ -1,0 +1,19 @@
+{
+  "image_ref": "rocm/sgl-dev@sha256:be68e8ebeb73195116dc3506b3fc96616f3668a5495f7bcb27ac6a30d2bae230",
+  "image_id": "sha256:be68e8ebeb73195116dc3506b3fc96616f3668a5495f7bcb27ac6a30d2bae230",
+  "source_commit": "ebfbd3ea35acf6e9facbe74e627d37c3542e5fc1",
+  "source_equivalence_scope": "four-selected-files-not-whole-commit",
+  "source_evidence_sha256": "a89def61d14a5259ee1cbe9835c7c3540c08d0e7d1e4e6e902b293d02eb01d89",
+  "dependency_versions": {
+    "amd-aiter": "0.0.0",
+    "triton": "3.7.0+amd.rocm7.2.0.git89002410",
+    "sglang": "0.5.23.dev1202+gebfbd3ea3",
+    "transformers": "5.19.0",
+    "compressed-tensors": "0.15.0",
+    "safetensors": "0.8.0",
+    "torch": "2.9.1+rocm7.2.4.lw.git39497456",
+    "rocm": "7.2.4"
+  },
+  "source_dependency_match_reviewed": false,
+  "bootstrap_complete_reviewed": false
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "project_root": "<PROJECT_ROOT>",
+  "model_dir": "<PROJECT_ROOT>/models/backend-next-int4/cyankiwi-Qwen3-Coder-Next-AWQ-4bit-c92cabfad08c",
+  "coordinator_runtime_relative": "<EXISTING_COORDINATOR_RUNTIME_RELATIVE_PATH>",
+  "review": {
+    "fixed_weight_acquisition_reviewed": false,
+    "human_host_docker_trial_reviewed": false,
+    "resident30b_unload_restore_reviewed": false,
+    "temporary_owned_internal_api_reviewed": false
+  },
+  "runtimes": {
+    "vllm": {
+      "image_ref": null,
+      "image_id": null,
+      "source_commit": "5df63a7203cdb9328d824a27b682e77c7b9928be",
+      "dependency_versions": {
+        "compressed-tensors": "0.17.0",
+        "torch": "<VERIFIED_INSTALLED_VERSION>",
+        "triton": "<VERIFIED_INSTALLED_VERSION>",
+        "rocm": "7.2.3",
+        "transformers": "<VERIFIED_INSTALLED_VERSION>"
+      },
+      "source_dependency_match_reviewed": false,
+      "bootstrap_complete_reviewed": false
+    },
+    "sglang": {
+      "image_ref": null,
+      "image_id": null,
+      "source_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+      "dependency_versions": {
+        "compressed-tensors": "0.15.0",
+        "torch": "<VERIFIED_INSTALLED_VERSION>",
+        "triton": "<VERIFIED_INSTALLED_VERSION>",
+        "rocm": "7.2.4",
+        "transformers": "<VERIFIED_INSTALLED_VERSION>"
+      },
+      "source_dependency_match_reviewed": false,
+      "bootstrap_complete_reviewed": false
+    }
+  }
+}

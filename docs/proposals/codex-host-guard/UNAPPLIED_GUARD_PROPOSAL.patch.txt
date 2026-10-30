@@ -1,0 +1,262 @@
+--- a/inference/backend-evaluation/host_trial/host_strata_trial.py
++++ b/inference/backend-evaluation/host_trial/host_strata_trial.py
+@@ -50,8 +50,22 @@
+     return path
+ 
+ 
+-def host_guard(orchestrator):
+-    if not sys.stdin.isatty():raise Blocked('HUMAN_HOST_TERMINAL_REQUIRED')
++# Explicit task scope only: the consumed profile is not a new model trial grant.
++CODEX_HOST_GUARD_APPROVAL='Sentinel_35abf940ab648191b4dceee7d8cb60ff'
++CODEX_HOST_TRIAL_SCOPE=('sglang','9f3d6953c389d9bca94020de8b8cdbcaedd4580d458cd78dda57af8073338d96')
++
++
++def require_codex_host_scope(scope):
++    if type(scope) is not tuple or scope!=CODEX_HOST_TRIAL_SCOPE:
++        raise Blocked('FIXED_CODEX_HOST_TRIAL_SCOPE_REQUIRED')
++    return scope
++
++
++def host_guard(orchestrator, *, codex_host_scope=None):
++    # Explicit intent, not proof of external Codex command approval. OS evidence
++    # below must independently confirm real HOST_CONTEXT on every operation.
++    if codex_host_scope is not None:require_codex_host_scope(codex_host_scope)
++    elif not sys.stdin.isatty():raise Blocked('HUMAN_HOST_TERMINAL_REQUIRED')
+     if os.getuid()==0:raise Blocked('NORMAL_NONROOT_HUMAN_USER_REQUIRED')
+     sys.path.insert(0,str(Path(orchestrator)/'src'))
+     from isolation_guard import environment
+@@ -59,6 +73,11 @@
+     if evidence.get('state')!='HOST_CONTEXT':raise Blocked('HUMAN_HOST_CONTEXT_REQUIRED: '+json.dumps(evidence))
+     if not hasattr(os,'pidfd_open') or not hasattr(signal,'pidfd_send_signal'):
+         raise Blocked('PIDFD_REQUIRED_FOR_OWNED_PROCESS_STOP')
++    if codex_host_scope is not None:
++        evidence={**evidence,'execution_contract':'fixed_codex_approved_host',
++                  'host_guard_approval':CODEX_HOST_GUARD_APPROVAL,
++                  'fixed_trial_scope':list(codex_host_scope),
++                  'external_command_approval':'REQUIRED_NOT_PROVEN_BY_SCRIPT'}
+     return evidence
+ 
+ 
+@@ -88,7 +107,11 @@
+         self.control_root=self.orchestrator/record['coordinator_runtime_relative']
+         self.mutated=False;self.lifecycle_unknown=False
+ 
+-    def guard(self):return host_guard(self.orchestrator)
++    def use_approved_codex_host_scope(self,backend,operator_sha256):
++        self.codex_host_scope=require_codex_host_scope((backend,operator_sha256))
++
++    def guard(self):
++        return host_guard(self.orchestrator,codex_host_scope=getattr(self,'codex_host_scope',None))
+ 
+     @contextmanager
+     def locked(self):
+--- /dev/null
++++ b/inference/backend-evaluation/host_trial/test_codex_host_guard.py
+@@ -0,0 +1,51 @@
++"""Pure OS-evidence fixtures: no host connection, container or backend import."""
++import os
++from pathlib import Path
++import signal
++import sys
++from types import SimpleNamespace
++import unittest
++from unittest.mock import patch
++import host_strata_trial as h
++
++class CodexHostGuardTests(unittest.TestCase):
++    def guard(self,state='HOST_CONTEXT',scope=None,tty=False):
++        fake=SimpleNamespace(environment=lambda:{'state':state})
++        with patch.dict(sys.modules,{'isolation_guard':fake}),patch.object(sys,'path',list(sys.path)),patch.object(sys.stdin,'isatty',return_value=tty),patch.object(os,'getuid',return_value=1000):
++            return h.host_guard(Path('/fixture/known-orchestrator'),codex_host_scope=scope)
++    def test_noninteractive_host_requires_explicit_fixed_scope(self):
++        with self.assertRaisesRegex(h.Blocked,'HUMAN_HOST_TERMINAL_REQUIRED'):self.guard()
++        out=self.guard(scope=h.CODEX_HOST_TRIAL_SCOPE)
++        self.assertEqual(out['state'],'HOST_CONTEXT')
++        self.assertEqual(out['external_command_approval'],'REQUIRED_NOT_PROVEN_BY_SCRIPT')
++    def test_sandbox_unknown_and_fake_tty_never_pass(self):
++        for state in ['SANDBOXED','UNKNOWN',None]:
++            for tty in [False,True]:
++                with self.subTest(state=state,tty=tty),self.assertRaisesRegex(h.Blocked,'HOST_CONTEXT_REQUIRED'):
++                    self.guard(state,scope=h.CODEX_HOST_TRIAL_SCOPE,tty=tty)
++    def test_environment_flags_cannot_authorize_noninteractive_or_fake_host(self):
++        with patch.dict(os.environ,{'CODEX_APPROVED_HOST':'1','HOST_CONTEXT':'1','TERM':'xterm'}):
++            with self.assertRaises(h.Blocked):self.guard()
++            with self.assertRaises(h.Blocked):self.guard('SANDBOXED',h.CODEX_HOST_TRIAL_SCOPE)
++    def test_other_backend_new_hash_and_boolean_scope_fail_before_import(self):
++        scopes=[True,{},list(h.CODEX_HOST_TRIAL_SCOPE),('vllm',h.CODEX_HOST_TRIAL_SCOPE[1]),('sglang','a'*64)]
++        for scope in scopes:
++            with self.subTest(scope=scope),self.assertRaisesRegex(h.Blocked,'FIXED_CODEX_HOST_TRIAL_SCOPE_REQUIRED'):
++                h.host_guard('/never/import',codex_host_scope=scope)
++    def test_root_and_missing_pidfd_still_block(self):
++        with patch.object(os,'getuid',return_value=0),self.assertRaisesRegex(h.Blocked,'NONROOT'):
++            h.host_guard('/never/import',codex_host_scope=h.CODEX_HOST_TRIAL_SCOPE)
++        fake=SimpleNamespace(environment=lambda:{'state':'HOST_CONTEXT'})
++        with patch.dict(sys.modules,{'isolation_guard':fake}),patch.object(sys,'path',list(sys.path)),patch.object(h,'os',SimpleNamespace(getuid=lambda:1000)),self.assertRaisesRegex(h.Blocked,'PIDFD_REQUIRED'):
++            h.host_guard('/fixture',codex_host_scope=h.CODEX_HOST_TRIAL_SCOPE)
++    def test_scope_is_instance_local_and_host_evidence_rechecked(self):
++        c=h.Coordinator.__new__(h.Coordinator);c.orchestrator=Path('/fixture')
++        other=h.Coordinator.__new__(h.Coordinator);other.orchestrator=c.orchestrator
++        c.use_approved_codex_host_scope(*h.CODEX_HOST_TRIAL_SCOPE)
++        self.assertFalse(hasattr(other,'codex_host_scope'))
++        fake=SimpleNamespace(environment=lambda:{'state':'HOST_CONTEXT'})
++        with patch.dict(sys.modules,{'isolation_guard':fake}),patch.object(sys,'path',list(sys.path)),patch.object(sys.stdin,'isatty',return_value=False),patch.object(os,'getuid',return_value=1000):
++            self.assertEqual(c.guard()['state'],'HOST_CONTEXT')
++            with self.assertRaises(h.Blocked):other.guard()
++            fake.environment=lambda:{'state':'SANDBOXED'}
++            with self.assertRaises(h.Blocked):c.guard()
+--- a/inference/backend-evaluation/next_shared/host_api_trial.py
++++ b/inference/backend-evaluation/next_shared/host_api_trial.py
+@@ -1,4 +1,4 @@
+-"""Human-host-only, one fixed backend/Next ACK trial; no daemon or generic executor."""
++"""One fixed backend/Next ACK trial; explicit approved host context only."""
+ import argparse
+ from contextlib import contextmanager
+ import hashlib
+@@ -684,19 +684,44 @@
+ 
+ def main():
+     p=argparse.ArgumentParser(description=__doc__)
+-    p.add_argument('--run-human-approved',action='store_true');p.add_argument('--backend',choices=['vllm','sglang'])
++    mode=p.add_mutually_exclusive_group()
++    mode.add_argument('--run-human-approved',action='store_true')
++    mode.add_argument('--run-codex-host-approved',action='store_true')
++    mode.add_argument('--check-codex-host-readonly',action='store_true')
++    p.add_argument('--backend',choices=['vllm','sglang'])
+     p.add_argument('--operator-json',type=Path);p.add_argument('--operator-sha256')
+     a=p.parse_args()
+-    if not a.run_human_approved:
++    codex_host=a.run_codex_host_approved or a.check_codex_host_readonly
++    if not a.run_human_approved and not codex_host:
+         print(json.dumps({'status':'PREPARED_INDIVIDUAL_APPROVAL_REQUIRED','generation_requests':0,'context':4096}));return 0
+     started=time.monotonic()
+     if a.backend is None:raise Blocked('FIXED_BACKEND_REQUIRED')
+-    if not sys.stdin.isatty():raise Blocked('HUMAN_HOST_TERMINAL_REQUIRED')
++    if codex_host:
++        # The guard-change approval does not authorize a new model trial/hash.
++        if a.backend!='sglang' or a.operator_sha256!=SEQUENTIAL_OPERATOR_SHA:
++            raise Blocked('FIXED_CODEX_HOST_TRIAL_SCOPE_REQUIRED')
++    elif not sys.stdin.isatty():raise Blocked('HUMAN_HOST_TERMINAL_REQUIRED')
+     install_sigterm_handler()
+     record=operator_record(a.operator_json,a.operator_sha256,backend=a.backend)
+     aiter_evidence=validate_aiter_retry(record,a.backend,a.operator_sha256)
+     Coordinator,private_dir,write,probe=helpers();c=Coordinator(record['project_root'],record)
+-    c.guard()  # No Docker/resource/GPU action before TTY and normal-host evidence.
++    if codex_host:c.use_approved_codex_host_scope(a.backend,a.operator_sha256)
++    evidence=c.guard()  # No socket/GPU action before real HOST_CONTEXT evidence.
++    if a.check_codex_host_readonly:
++        # Deliberately no attempt reservation, source-reader container, or trial.
++        driver=Docker(c.guard)
++        version=driver.command(['version','--format','{{.Server.Version}}']).strip()
++        image=driver.image(record['runtimes'][a.backend]['image_ref'])
++        if image.get('Id')!=record['runtimes'][a.backend]['image_id']:
++            raise Blocked('REVIEWED_IMAGE_ID_MISMATCH')
++        validate_network(driver.network(),read_network_profile(record))
++        states=c.idle()  # Existing deployment, coordinator status and HTTP GETs only.
++        print(json.dumps({'status':'READONLY_HOST_CONTEXT_CONNECTION_CHECKED_NOT_TRIAL',
++            'host_context':evidence.get('state'),'external_command_approval':'REQUIRED_NOT_PROVEN_BY_SCRIPT',
++            'docker_server_version':version,'fixed_image_id':image['Id'],'model_states':states,
++            'generation_requests':0,'model_lifecycle_requests':0,'container_mutations':0,
++            'attempt_reservations':0,'automatic_retry':False,'new_trial_authorized':False}))
++        return 0
+     if os.getuid()==0:raise Blocked('NONROOT_HUMAN_SESSION_REQUIRED')
+     root=private_dir(Path(record['project_root'])/'agents/local_llm/.runtime/backend-api-trials')
+     marker=approved_attempt_path(root,a.backend,a.operator_sha256)
+--- /dev/null
++++ b/inference/backend-evaluation/next_shared/test_codex_host_entry.py
+@@ -0,0 +1,46 @@
++"""Fixed CLI/consumed-attempt contracts; all socket/model work is mocked."""
++from contextlib import redirect_stdout
++import io
++import json
++from pathlib import Path
++import sys
++import tempfile
++from types import SimpleNamespace
++import unittest
++from unittest.mock import Mock,patch
++import host_api_trial as h
++
++class CodexHostEntryTests(unittest.TestCase):
++    def argv(self,mode='--check-codex-host-readonly',backend='sglang',digest=None):
++        return ['host_api_trial.py',mode,'--backend',backend,'--operator-json','fixture','--operator-sha256',digest or h.SEQUENTIAL_OPERATOR_SHA]
++    def test_unallowlisted_profile_blocked_before_record_or_host_work(self):
++        for backend,digest in [('vllm',h.SEQUENTIAL_OPERATOR_SHA),('sglang','a'*64)]:
++            with patch.object(sys,'argv',self.argv(backend=backend,digest=digest)),patch.object(h,'operator_record') as read,self.assertRaisesRegex(h.Blocked,'FIXED_CODEX_HOST_TRIAL_SCOPE_REQUIRED'):
++                h.main()
++            read.assert_not_called()
++    def test_modes_are_mutually_exclusive(self):
++        with patch.object(sys,'argv',self.argv()+['--run-human-approved']),redirect_stdout(io.StringIO()),patch.object(sys,'stderr',io.StringIO()),self.assertRaises(SystemExit):h.main()
++    def test_readonly_cannot_reserve_attempt_or_construct_trial_or_container(self):
++        c=SimpleNamespace(use_approved_codex_host_scope=Mock(),guard=Mock(return_value={'state':'HOST_CONTEXT'}),idle=Mock(return_value={'resident30b':'loaded'}))
++        record={'project_root':'/fixture','runtimes':{'sglang':{'image_ref':'sha256:fixture','image_id':'sha256:fixture'}}}
++        driver=SimpleNamespace(command=Mock(return_value='29.fixture\n'),image=Mock(return_value={'Id':'sha256:fixture'}),network=Mock(return_value={'fixed':True}))
++        no_work=Mock(side_effect=AssertionError('No model, reserve, filesystem output or source-container work'))
++        stream=io.StringIO()
++        with patch.object(sys,'argv',self.argv()),patch.object(sys.stdin,'isatty',return_value=False),patch.object(h,'install_sigterm_handler'),patch.object(h,'operator_record',return_value=record),patch.object(h,'validate_aiter_retry',return_value={}),patch.object(h,'helpers',return_value=(lambda *a:c,no_work,no_work,no_work)),patch.object(h,'Docker',return_value=driver),patch.object(h,'read_network_profile',return_value={'fixed':True}),patch.object(h,'validate_network') as network,patch.object(h,'Trial',no_work),patch.object(h,'reserve_approved_attempt',no_work),patch.object(h,'loader_static_preflight',no_work),redirect_stdout(stream):
++            self.assertEqual(h.main(),0)
++        data=json.loads(stream.getvalue());self.assertEqual(data['generation_requests'],0);self.assertFalse(data['new_trial_authorized'])
++        c.use_approved_codex_host_scope.assert_called_once_with('sglang',h.SEQUENTIAL_OPERATOR_SHA)
++        driver.command.assert_called_once_with(['version','--format','{{.Server.Version}}'])
++        driver.image.assert_called_once_with('sha256:fixture');c.idle.assert_called_once();no_work.assert_not_called()
++    def test_consumed_codex_scope_cannot_reenter_preflight_or_model_work(self):
++        with tempfile.TemporaryDirectory() as directory:
++            project=Path(directory);root=project/'agents/local_llm/.runtime/backend-api-trials';root.mkdir(parents=True)
++            h.reserve_approved_attempt(root,'sglang',h.SEQUENTIAL_OPERATOR_SHA,root/'prior')
++            marker=h.approved_attempt_path(root,'sglang',h.SEQUENTIAL_OPERATOR_SHA);original=marker.read_bytes()
++            c=SimpleNamespace(use_approved_codex_host_scope=Mock(),guard=Mock(return_value={'state':'HOST_CONTEXT'}))
++            def private(p):Path(p).mkdir(parents=True,exist_ok=True);return Path(p)
++            record={'project_root':str(project)}
++            no_work=Mock(side_effect=AssertionError('No trial/preflight'))
++            with patch.object(sys,'argv',self.argv('--run-codex-host-approved')),patch.object(sys.stdin,'isatty',return_value=False),patch.object(h,'os') as os_mock,patch.object(h,'install_sigterm_handler'),patch.object(h,'operator_record',return_value=record),patch.object(h,'validate_aiter_retry',return_value=None),patch.object(h,'helpers',return_value=(lambda *a:c,private,no_work,no_work)),patch.object(h,'Trial',no_work),patch.object(h,'loader_static_preflight',no_work),self.assertRaisesRegex(h.Blocked,'ALREADY_RESERVED'):
++                os_mock.getuid.return_value=1000;h.main()
++            self.assertEqual(marker.read_bytes(),original);no_work.assert_not_called()
+--- a/inference/backend-evaluation/next_shared/test_sglang_profile.py
++++ b/inference/backend-evaluation/next_shared/test_sglang_profile.py
+@@ -97,6 +97,12 @@
+         self.assertEqual(hashlib.sha256((ROOT/'vllm-ready.snapshot.json').read_bytes()).hexdigest(),state['vllm_ready_sanitized_fixture_sha256'])
+         jit=json.loads((ROOT/'jit-cache-state.fixture.json').read_text())
+         self.assertEqual(jit['source_host_api_trial_sha256'],state['host_api_trial_unchanged_sha256'])
+-        self.assertEqual(hashlib.sha256((ROOT/'host_api_trial.py').read_bytes()).hexdigest(),jit['proposed_host_api_trial_sha256'])
++        # Preserve the historical JIT artifact hash; the later guard approval is
++        # a separate source lineage, never a rewritten historical authorization.
++        guard=json.loads((ROOT/'codex-host-guard-state.fixture.json').read_text())
++        self.assertEqual(guard['source_host_api_trial_sha256'],jit['proposed_host_api_trial_sha256'])
++        self.assertEqual(guard['approval'],'Sentinel_35abf940ab648191b4dceee7d8cb60ff')
++        self.assertEqual(hashlib.sha256((ROOT/'host_api_trial.py').read_bytes()).hexdigest(),guard['current_host_api_trial_sha256'])
++        self.assertFalse(guard['new_trial_granted']);self.assertFalse(guard['mamba8_allowed'])
+ 
+ if __name__=='__main__':unittest.main()
+--- /dev/null
++++ b/inference/backend-evaluation/next_shared/codex-host-guard-state.fixture.json
+@@ -0,0 +1,13 @@
++{
++  "approval": "Sentinel_35abf940ab648191b4dceee7d8cb60ff",
++  "scope": [
++    "sglang",
++    "9f3d6953c389d9bca94020de8b8cdbcaedd4580d458cd78dda57af8073338d96"
++  ],
++  "source_host_api_trial_sha256": "e7d238a89d98bc52e0d1f9dcd603f8ee71a67d42f5efc998e70ab8debce38bf9",
++  "current_host_api_trial_sha256": "cdc00ed8432a52991499d9b4e3b19321394c8dc5ca96406a4e5be5988e60c754",
++  "current_host_strata_trial_sha256": "bf81b6bf9cf3400f604824882ac7b52769ba0f7a1f81ae6ee9f2ce02289b2b50",
++  "new_trial_granted": false,
++  "mamba8_allowed": false,
++  "global_policy_changed": false
++}
+--- /dev/null
++++ b/inference/backend-evaluation/next_shared/HOST_EXECUTION_CONTRACT.md
+@@ -0,0 +1,15 @@
++# Fixed Codex host execution contract
++
++Approval: `Sentinel_35abf940ab648191b4dceee7d8cb60ff` (2026-10-30). This permits a limited caller-contract change; it does not authorize a new model experiment or grant any OS permission.
++
++The default entry points retain human TTY mode. `host_api_trial.py` additionally accepts mutually exclusive explicit Codex host intent modes `--check-codex-host-readonly` and `--run-codex-host-approved`. Both require the exact SGLang operator hash `9f3d6953c389d9bca94020de8b8cdbcaedd4580d458cd78dda57af8073338d96`, the existing owner-only operator JSON and fixed model/image review, and the existing nonroot, real `HOST_CONTEXT` and pidfd guard. Scope is instance-local to that Coordinator, never selected via an environment variable or a fabricated TTY.
++
++A command must first be authorized through the dedicated native Codex session's official host-command approval route. The script cannot attest that approval merely from argv or OS evidence: the flags express intent and constrain work, not authenticate a grant. Managed launcher policy remains authoritative. If the resulting execution is `SANDBOXED` or `UNKNOWN`, stop without trying another shell, namespace, SSH, proxy, or pseudo-TTY. No permission, credential, service or global configuration is created by this change.
++
++The read-only mode performs Docker version/image/network reads and current coordinator/model idle status checks (existing GETs, including slots autoload=false). It returns before an attempt reservation, source-reader container, trial container or any model load/unload/generation; it does not require an unused trial attempt. These snapshots are not a reservation of future GPU capacity.
++
++The run mode retains the existing common lock/idle requirement, exact assets and runtime profile, finite budgets, one generation, ownership checks, cleanup and 30B restoration. The allowlisted historical attempt is already consumed and must be rejected before CPU source preflight or lifecycle actions. New Mamba8 configuration/hash is not allowlisted or authorized here. A future specifically approved experiment needs a new reviewed exact artifact/scope and fresh one-shot record, never reuse/deletion of the spent attempt.
++
++Nested isolation rule: creation of Docker/bwrap/unshare or other additional namespaces from a Codex sandbox remains prohibited. Only an officially approved command that actually executes in verified host context may request the fixed Docker trial. This is no permission to run arbitrary Docker commands, change container protections, expose its socket through MCP, expand network access, or alter host security settings. Other users of host_guard remain human-only unless they pass this exact supported instance scope explicitly; acquisition, Strata launchers, deployment/recovery scripts and services are not generalized by this change.
++
++No global AGENTS.md was changed. This component document records the narrow exception and preserves the existing protections. Current managed execution was not switched to host context. A new native session's first real check is read-only; its successful execution remains unverified until the parent receives that evidence.

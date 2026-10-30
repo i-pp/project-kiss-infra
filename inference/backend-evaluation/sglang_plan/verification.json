@@ -1,0 +1,14 @@
+{
+  "checked_utc": "2026-10-29T17:02:44.475773+00:00",
+  "offline_tests": 7,
+  "test_result": "PASS",
+  "backend_generations": 0,
+  "backend_launches": 0,
+  "files": {
+    "test_sglang_prepare.py": "2bbd950a27177a326541e63ee28b1ccac3e9c66ce7b7246f7ecf7c0081baf9fb",
+    "README.md": "9c07f47e2c99e7e9301aed67f9b508502db19366ec2fd7d2db15b580dd53601f",
+    "sglang_prepare.py": "e2da64aa1985e30b2a514a48cb4ca8e237541ee78e125ddec083e2996423e1fb",
+    "sglang-readiness.json": "31405ed1f48f838439d412c0af6690ae2b42101871385f6cab5a70e4421553b5"
+  },
+  "scope": "Preparation only; parent integrates shared runner; no live/model/service change"
+}

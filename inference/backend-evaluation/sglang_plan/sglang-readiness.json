@@ -1,0 +1,142 @@
+{
+  "schema": 1,
+  "backend": "sglang",
+  "source_version": "v0.5.22",
+  "gpu_target": "gfx1151",
+  "checked_utc": "2026-10-29T17:00:40.518981+00:00",
+  "status": "BLOCKED_NO_FEASIBLE_EXISTING_CONFIGURATION",
+  "environment_verdict": "NOT_RUN",
+  "model_quality_verdict": "UNASSESSED",
+  "generation_count": 0,
+  "executed_commands": [],
+  "runtime_launch_attempted": false,
+  "downloads_performed": false,
+  "sources": {
+    "amd_platform": {
+      "url": "https://docs.sglang.io/docs/hardware-platforms/amd_gpu",
+      "fact": "Dedicated gfx1151 image; Triton and AITER=0; generic Instinct image is not gfx1151 proof."
+    },
+    "quantization": {
+      "url": "https://docs.sglang.io/docs/advanced_features/quantization",
+      "fact": "GGUF AMD column is No; AMD MXFP4 path requires CDNA3/CDNA4/Aiter."
+    },
+    "gguf_source": {
+      "url": "https://github.com/sgl-project/sglang/blob/v0.5.22/python/sglang/srt/layers/quantization/gguf.py",
+      "fact": "Pinned HIP GGUF constructor warns unsupported; GGUF CUDA kernel imports are not supplied for HIP."
+    },
+    "gfx1151_build": {
+      "url": "https://github.com/sgl-project/sglang/blob/v0.5.22/docker/rocm-gfx1151.Dockerfile",
+      "fact": "Separate ROCm7.2.4/PyTorch2.9.1 build with gfx kernel gate patches and AITER disabled; not executed."
+    },
+    "coder_next": {
+      "url": "https://docs.sglang.io/cookbook/autoregressive/Qwen/Qwen3-Coder-Next",
+      "fact": "Architecture recipe exists, requires >=0.5.8; published benchmark uses two B200 GPUs, not EVO-X3."
+    },
+    "flash_next": {
+      "url": "https://docs.sglang.io/cookbook/autoregressive/Qwen/Qwen3.8-Flash-Next",
+      "fact": "Requires >=0.5.22; NVIDIA NVFP4 reference126GiB includes47.7GiB table; no gfx1151 result established here."
+    },
+    "gpt_oss": {
+      "url": "https://docs.sglang.io/cookbook/autoregressive/OpenAI/GPT-OSS",
+      "fact": "Native model recipe exists; 120B MXFP4 described for80GB-class GPU; not proof for RDNA3.5."
+    }
+  },
+  "profiles": [
+    {
+      "id": "qwen-coder-next",
+      "architecture": "Qwen3NextForCausalLM",
+      "current_asset_format": "GGUF Q4_K_M",
+      "current_asset_bytes": 48410992032,
+      "required_new_assets": "Compatible non-GGUF local checkpoint plus tokenizer/config; exact quantization/kernel combination not selected",
+      "capacity_note": "80B BF16 logical weights ~160GB before overhead (arithmetic estimate, not measured download size); a suitable lower precision and CPU/GPU split need separate proof",
+      "blockers": [
+        "GGUF_HIP_UNSUPPORTED",
+        "NO_VERIFIED_SGLANG_RUNTIME",
+        "NO_VERIFIED_GFX1151_RUNTIME",
+        "NO_AUTHORIZED_SERVER_START_PATH",
+        "COMPATIBLE_CHECKPOINT_ABSENT",
+        "GDN_MOE_RDNA_KERNEL_UNVERIFIED",
+        "GPU_DEVICES_NOT_EXPOSED_IN_CODEX"
+      ]
+    },
+    {
+      "id": "qwen38-flash-next",
+      "architecture": "Qwen4ExpForConditionalGeneration",
+      "current_asset_format": "GGUF GSQ-RCO Q2_0",
+      "current_asset_bytes": 66423878624,
+      "required_new_assets": "Compatible non-GGUF checkpoint and N-gram table; existing GGUF is not the documented SGLang export",
+      "capacity_note": "Official NVIDIA reference126GiB total is not an EVO-X3 fit proof. File-backed table solution is NVIDIA/Spark-specific evidence, not tested ROCm support",
+      "blockers": [
+        "GGUF_HIP_UNSUPPORTED",
+        "NO_VERIFIED_SGLANG_RUNTIME",
+        "NO_VERIFIED_GFX1151_RUNTIME",
+        "NO_AUTHORIZED_SERVER_START_PATH",
+        "COMPATIBLE_CHECKPOINT_ABSENT",
+        "QSA_GDN_PLE_RDNA_KERNEL_UNVERIFIED",
+        "UMA_CAPACITY_PLAN_UNVERIFIED",
+        "GPU_DEVICES_NOT_EXPOSED_IN_CODEX"
+      ]
+    },
+    {
+      "id": "gpt-oss-120b",
+      "architecture": "GptOssForCausalLM",
+      "current_asset_format": "GGUF MXFP4",
+      "current_asset_bytes": 63387346208,
+      "required_new_assets": "Non-GGUF supported checkpoint alone does not solve RDNA MXFP4 kernel incompatibility",
+      "capacity_note": "Documented MXFP4 AMD path targets CDNA3/4; BF16 logical117B weights ~234GB before overhead (estimate), above this host class",
+      "blockers": [
+        "GGUF_HIP_UNSUPPORTED",
+        "NO_VERIFIED_SGLANG_RUNTIME",
+        "NO_VERIFIED_GFX1151_RUNTIME",
+        "NO_AUTHORIZED_SERVER_START_PATH",
+        "COMPATIBLE_CHECKPOINT_ABSENT",
+        "MXFP4_CDNA_REQUIREMENT_NOT_MET",
+        "GPU_DEVICES_NOT_EXPOSED_IN_CODEX"
+      ]
+    }
+  ],
+  "execution_policy": {
+    "docker_operations_from_codex": false,
+    "new_namespaces": false,
+    "sudo_or_newgrp": false,
+    "host_setting_changes": false,
+    "new_credentials": false,
+    "unreviewed_remote_code": false,
+    "model_downloads": false,
+    "current_llamacpp_service_changes": false
+  },
+  "launch_draft": {
+    "status": "NOT_EXECUTABLE_UNTIL_PREREQUISITES_VERIFIED",
+    "native_argv_template": [
+      "python3",
+      "-m",
+      "sglang.launch_server",
+      "--model-path",
+      "<VERIFIED_LOCAL_NON_GGUF_CHECKPOINT>",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "30000",
+      "--tp",
+      "1",
+      "--context-length",
+      "32768",
+      "--max-running-requests",
+      "1",
+      "--attention-backend",
+      "triton"
+    ],
+    "environment": {
+      "SGLANG_USE_AITER": "0",
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1"
+    },
+    "notes": [
+      "No Docker or install command supplied; native runtime must exist in an approved top-level execution context.",
+      "No trust-remote-code, tool-server, Python execution, web search keys or model-side tools.",
+      "Do not run this against current GGUF. A template is not a successful hardware/weight proof.",
+      "Current resident restoration and memory/timeout governance belong to main runner; no independent generation here."
+    ]
+  },
+  "runtime_evidence_scope": "No verified local SGLang runtime. Current interpreter has no package; image inventory not independently available. Parent reports GPU devices ENOENT inside Codex."
+}

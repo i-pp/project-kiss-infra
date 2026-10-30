@@ -1,0 +1,12 @@
+{
+  "source_before_sha256": "90dfa6136c33ea0f01505d15782e83edd394fc0e78679287ed6612a1eab958ca",
+  "staged_after_sha256": "c48b1efc304e5496951261cc2c4ab07f51cecdd7c291bccc222526222d8a1ac4",
+  "patch_sha256": "31f4c64fde23535e2aaf792dd5edb2261d2e21e1068509dd02294abd42d29d5c",
+  "host_api_trial_unchanged_sha256": "338612a32a28c4ec6908397634f970fc3c537ad0469f5a4d77010e10c2084cb8",
+  "source_host_api_trial_sha256": "338612a32a28c4ec6908397634f970fc3c537ad0469f5a4d77010e10c2084cb8",
+  "vllm_ready_preserved_sha256": "386438441cb438da488c5e74706142be409865d393bfeed3b05f6c29ed8cc81c",
+  "sglang_candidate_registered": false,
+  "gpu_approved": false,
+  "vllm_ready_sanitized_fixture_sha256": "bb11cdaf0fba68384340855bc34f6dca7b103ca1c9a762f23e68932e7d1e1cbb",
+  "fixture_scope": "project_root/model_dir replaced by /fixture/project; original live candidate unchanged"
+}

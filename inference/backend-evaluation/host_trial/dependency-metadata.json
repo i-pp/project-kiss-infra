@@ -1,0 +1,110 @@
+[
+  {
+    "package": "numpy",
+    "version": "2.5.3",
+    "candidate_linux_py314_wheels": [
+      {
+        "name": "numpy-2.5.3-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+        "bytes": 16711928,
+        "sha256": "b0521d0f4aebb6e06189451025fa17a913287b13c03d5fe05c017333b654ea5b",
+        "url": "https://files.pythonhosted.org/packages/45/8f/9beacf79ca7c650688ad0baa80931adb988fe6e6e5d5903c23cc3dbd70eb/numpy-2.5.3-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+      },
+      {
+        "name": "numpy-2.5.3-cp314-cp314t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+        "bytes": 16746748,
+        "sha256": "93e1f5447e2b1e479d7bd74701e84746b86450cff1fc368b132d195e2b8f8211",
+        "url": "https://files.pythonhosted.org/packages/59/08/9df04103947b95e3b6b1f2ed1a70521f325647a31b82da6a2aae3a485508/numpy-2.5.3-cp314-cp314t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+      }
+    ],
+    "license": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+    "source": "https://pypi.org/pypi/numpy/2.5.3/json"
+  },
+  {
+    "package": "Jinja2",
+    "version": "3.1.6",
+    "candidate_linux_py314_wheels": [
+      {
+        "name": "jinja2-3.1.6-py3-none-any.whl",
+        "bytes": 134899,
+        "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67",
+        "url": "https://files.pythonhosted.org/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl"
+      }
+    ],
+    "license": null,
+    "source": "https://pypi.org/pypi/Jinja2/3.1.6/json"
+  },
+  {
+    "package": "regex",
+    "version": "2026.9.10",
+    "candidate_linux_py314_wheels": [
+      {
+        "name": "regex-2026.9.10-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+        "bytes": 803694,
+        "sha256": "05fb018cfe7144585fc83882405906ff84994a2d154afc2509ecc7752c51f864",
+        "url": "https://files.pythonhosted.org/packages/bb/64/9b56f69100d3afdbc9c4fa6e302764f9cb717fbc06a9d50558d98ca89cd2/regex-2026.9.10-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
+      },
+      {
+        "name": "regex-2026.9.10-cp314-cp314t-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+        "bytes": 821284,
+        "sha256": "1ad10a135fa0b4e4a462a61d07c6654d7518cfdb5cb8da08f9ff7d61384af1fe",
+        "url": "https://files.pythonhosted.org/packages/86/38/49f8d6fd34fc1a9c75b5b96364ebdde702a8144e5ed63d2213c58d454c27/regex-2026.9.10-cp314-cp314t-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
+      }
+    ],
+    "license": "Apache-2.0 AND CNRI-Python",
+    "source": "https://pypi.org/pypi/regex/2026.9.10/json"
+  },
+  {
+    "package": "PyYAML",
+    "version": "6.0.3",
+    "candidate_linux_py314_wheels": [
+      {
+        "name": "pyyaml-6.0.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+        "bytes": 794175,
+        "sha256": "c458b6d084f9b935061bc36216e8a69a7e293a2f1e68bf956dcd9e6cbcd143f5",
+        "url": "https://files.pythonhosted.org/packages/88/f9/16491d7ed2a919954993e48aa941b200f38040928474c9e85ea9e64222c3/pyyaml-6.0.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
+      },
+      {
+        "name": "pyyaml-6.0.3-cp314-cp314t-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+        "bytes": 839261,
+        "sha256": "00c4bdeba853cc34e7dd471f16b4114f4162dc03e6b7afcc2128711f0eca823c",
+        "url": "https://files.pythonhosted.org/packages/b1/5e/f77dc6b9036943e285ba76b49e118d9ea929885becb0a29ba8a7c75e29fe/pyyaml-6.0.3-cp314-cp314t-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
+      }
+    ],
+    "license": "MIT",
+    "source": "https://pypi.org/pypi/PyYAML/6.0.3/json"
+  },
+  {
+    "package": "tqdm",
+    "version": "4.70.1",
+    "candidate_linux_py314_wheels": [
+      {
+        "name": "tqdm-4.70.1-py3-none-any.whl",
+        "bytes": 80199,
+        "sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73",
+        "url": "https://files.pythonhosted.org/packages/a7/03/921a3d3c75785aca9ebfbfcabfbc3a1be12e2ab5265deb026d55a5a3f83e/tqdm-4.70.1-py3-none-any.whl"
+      }
+    ],
+    "license": "MPL-2.0 AND MIT",
+    "source": "https://pypi.org/pypi/tqdm/4.70.1/json"
+  },
+  {
+    "package": "MarkupSafe",
+    "version": "3.0.3",
+    "candidate_linux_py314_wheels": [
+      {
+        "name": "markupsafe-3.0.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+        "bytes": 23005,
+        "sha256": "457a69a9577064c05a97c41f4e65148652db078a3a509039e64d3467b9e7ef97",
+        "url": "https://files.pythonhosted.org/packages/41/3c/a36c2450754618e62008bf7435ccb0f88053e07592e6028a34776213d877/markupsafe-3.0.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
+      },
+      {
+        "name": "markupsafe-3.0.3-cp314-cp314t-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+        "bytes": 23598,
+        "sha256": "fed51ac40f757d41b7c48425901843666a6677e3e8eb0abcff09e4ba6e664f50",
+        "url": "https://files.pythonhosted.org/packages/50/09/c419f6f5a92e5fadde27efd190eca90f05e1261b10dbd8cbcb39cd8ea1dc/markupsafe-3.0.3-cp314-cp314t-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
+      }
+    ],
+    "license": "BSD-3-Clause",
+    "source": "https://pypi.org/pypi/MarkupSafe/3.0.3/json"
+  }
+]

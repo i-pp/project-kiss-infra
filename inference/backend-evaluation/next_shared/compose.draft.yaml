@@ -1,0 +1,81 @@
+# REVIEW ONLY. Human host deployment after runtime/data/maintenance approval.
+# No agent execution; no Docker socket; no model generation in this file.
+services:
+  sglang-next-smoke:
+    image: ${SGLANG_IMAGE_DIGEST:?Set reviewed image@sha256 digest}
+    pull_policy: never
+    entrypoint: [python3, -m, sglang.launch_server]
+    command:
+      - --model-path
+      - /models/next-int4
+      - --model-impl
+      - sglang
+      - --load-format
+      - safetensors
+      - --served-model-name
+      - aceis-next-int4-sglang-smoke
+      - --host
+      - 0.0.0.0
+      - --port
+      - "30000"
+      - --tp-size
+      - "1"
+      - --dtype
+      - bfloat16
+      - --context-length
+      - "4096"
+      - --max-running-requests
+      - "1"
+      - --max-total-tokens
+      - "4096"
+      - --chunked-prefill-size
+      - "512"
+      - --mem-fraction-static
+      - "0.80"
+      - --attention-backend
+      - triton
+      - --moe-runner-backend
+      - triton
+      - --cuda-graph-backend-decode
+      - disabled
+      - --cuda-graph-backend-prefill
+      - disabled
+      - --skip-server-warmup
+    environment:
+      SGLANG_USE_AITER: "0"
+      HF_HUB_OFFLINE: "1"
+      TRANSFORMERS_OFFLINE: "1"
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+      HOME: /tmp/aceis-home
+      XDG_CACHE_HOME: /tmp/aceis-cache
+      TRITON_CACHE_DIR: /tmp/aceis-triton
+    volumes:
+      - type: bind
+        source: ${NEXT_INT4_DIR:?Set verified fixed snapshot path}
+        target: /models/next-int4
+        read_only: true
+    networks: [existing-internal]
+    devices:
+      - /dev/kfd:/dev/kfd
+      - /dev/dri/renderD128:/dev/dri/renderD128
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    user: "${TRIAL_UID:?Set reviewed nonroot UID}:${TRIAL_GID:?Set reviewed GID}"
+    read_only: true
+    tmpfs: ["/tmp:rw,nosuid,nodev,size=2g"]
+    mem_limit: 32g
+    memswap_limit: 32g
+    pids_limit: 512
+    cpus: "8"
+    shm_size: 2g
+    init: true
+    restart: "no"
+    # Standard seccomp/IPC. No privileged, host IPC/network or unconfined profile.
+    # Common runner, before any human start, must own resource watchdog and rollback.
+networks:
+  existing-internal:
+    external: true
+    name: project-kiss-large-coder-b3_local
+# The human runner verifies actual Internal=true and ID from router-host-profile.
+# No host port publish. Only CID/image/network/EndpointID/IP-confirmed temporary route.

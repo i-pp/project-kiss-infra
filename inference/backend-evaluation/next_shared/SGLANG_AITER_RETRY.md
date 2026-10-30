@@ -1,0 +1,15 @@
+# SGLang: one AITER cache retry
+
+The fixed be68 image exited before model load and before any generation request. Its captured AITER core uses a HOME fallback for writable JIT output but, without AITER_JIT_DIR, imports the qualified package module. The fatal trace is ModuleNotFoundError for aiter.jit.module_aiter_core. A successful compiled module is not proven by the finish log alone.
+
+The additional finite trial sets AITER_JIT_DIR=/jit-cache/aiter in Docker environment before Python starts. Actual-image selected function bodies show this also inserts that directory into sys.path, builds under its build child, copies the generated module there, and switches to an unqualified import. Triton remains under /jit-cache/triton. SGLANG_USE_AITER=0 does not prevent the eager quantization registry from importing AITER.
+
+The existing 512 MiB exec tmpfs is shared, owner-only, and matches the nonroot container User. Its peak usage is unmeasured; ENOSPC or build/import failure is an environment failure, with no automatic expansion or second trial. No extra exec mount, host setting, image, download, permissions or credential is added. General /tmp remains noexec/nosuid/nodev. Security settings, 32 GiB memory+swap limit, 4096 context, 64 output tokens, startup 300 s, generation 90 s, whole trial 900 s including recovery, and one POST with no retry remain unchanged.
+
+A new fixed operator digest and source receipt bind this retry only. The old consumed attempt and result are unchanged. This retry retains the fixed initial baseline and 128 MiB net swap-growth budget for SGLang; it does not grant that exception to vLLM or Strata. Resource threshold checks still run before unloading 30B, during execution, and during owned cleanup. Restore runs only after owned resources are confirmed terminal/absent; uncertain outcomes remain blocked.
+
+Authorization: user continuation Sentinel_c374855f7b308191a87d9a41e921de2e, relayed by the parent, includes temporary llama stop and continued finite validation. Existing exec-cache and swap design approvals remain recorded. This does not authorize another retry or weaker security limits.
+
+The source inspection captured selected function bodies, module assignments, and full-file hashes for four fixed paths; it did not execute those sources and is not an import/inference PASS. This patch is verified offline; actual inference remains pending the single normal-host command. Codex cannot access the current Docker/coordinator sockets (previous EPERM); no alternate privilege route is used.
+
+Operation: run the prepared private wrapper with bash in a normal host terminal, never source it. It checks fixed script/module bytes and the API independently validates the private operator, source receipt, human-host guard, idle coordinator, common lock, resources and image/network identity. Logs/events/summary stay in <PROJECT_ROOT>/agents/local_llm/.runtime/backend-api-trials/sglang-<run-id>/. Do not rerun on an unclear outcome; inspect saved evidence first.

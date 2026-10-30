@@ -1,0 +1,87 @@
+{
+  "checked_at_utc": "2026-10-30T04:50:34.684695+00:00",
+  "mode": "PUBLIC_TEXT_METADATA_ONLY",
+  "repository": "rocm/sgl-dev",
+  "publisher_ui": "AMD Verified Publisher",
+  "tag": "v0.5.22-rocm724-gfx1151-20261029",
+  "immutable_image_ref": "rocm/sgl-dev@sha256:be68e8ebeb73195116dc3506b3fc96616f3668a5495f7bcb27ac6a30d2bae230",
+  "manifest_digest": "sha256:be68e8ebeb73195116dc3506b3fc96616f3668a5495f7bcb27ac6a30d2bae230",
+  "architecture": "amd64",
+  "os": "linux",
+  "compressed_bytes": 13667503350,
+  "compressed_ui": "12.73 GB",
+  "size_semantics": "sum of compressed layers; unpacked image/runtime/build cache bytes unknown",
+  "last_pushed": "2026-10-29T14:20:52.225952436Z",
+  "status": "active",
+  "urls": {
+    "tag_json": "https://hub.docker.com/v2/repositories/rocm/sgl-dev/tags/v0.5.22-rocm724-gfx1151-20261029",
+    "layer_history": "https://hub.docker.com/layers/rocm/sgl-dev/v0.5.22-rocm724-gfx1151-20261029/images/sha256-be68e8ebeb73195116dc3506b3fc96616f3668a5495f7bcb27ac6a30d2bae230",
+    "official_docs": "https://docs.sglang.io/docs/hardware-platforms/amd_gpu",
+    "fixed_recipe": "https://github.com/sgl-project/sglang/blob/baa9befa381511cd4d56f83980951e5a45fffc6d/docker/rocm-gfx1151.Dockerfile",
+    "source_license": "https://github.com/sgl-project/sglang/blob/baa9befa381511cd4d56f83980951e5a45fffc6d/LICENSE"
+  },
+  "public_history": {
+    "GPU_ARCH": "gfx1151",
+    "PYTORCH_VERSION": "2.9.1+rocm7.2.4.lw.git39497456",
+    "TRITON_VERSION": "3.5.1+rocm7.2.4.gita272dfa8",
+    "ROCM_VERSION": "7.2.4",
+    "AITER_COMMIT": "c16d44b93a528b2a4bfd6d8d3409116d465872a9",
+    "SGLANG_USE_AITER": "0",
+    "BUILD_SGL_KERNEL": "1",
+    "compressed_tensors_recipe_pin": "0.15.0",
+    "source_insertion": "COPY . /sgl-workspace/sglang",
+    "sglang_exact_commit_label": null
+  },
+  "fixed_source_candidate": {
+    "tag": "v0.5.22",
+    "commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+    "license": "Apache-2.0",
+    "base": "rocm/pytorch@sha256:7fe531fa185af260352fe7fbb3fa64ad749abe72adf0600a648c4692801b125a",
+    "matches_image_exact_commit": "NOT_PROVEN",
+    "image_license": "whole image includes dependency/base licenses; source Apache-2.0 is not whole-image attestation"
+  },
+  "next_compatibility": {
+    "level": "SOURCE_PATH_CANDIDATE_NOT_REAL_PASS",
+    "model": "cyankiwi/Qwen3-Coder-Next-AWQ-4bit",
+    "revision": "c92cabfad08cadb011dc169cabb3e6da621b0719",
+    "weight_schema": "MoE-only symmetric INT4 group32 compressed-tensors pack-quantized; ordinary linears BF16",
+    "source_checks": [
+      "HIP WNA16 MoE routes to CompressedTensorsWNA16TritonMoE",
+      "Qwen3Next native model and Triton GDN/FLA source present",
+      "gfx1151 recipe pins compressed-tensors 0.15.0 and AITER disabled"
+    ],
+    "unverified": [
+      "actual image SGLang commit/installed package versions",
+      "GDN and INT4 native/JIT kernels on EVO-X3",
+      "32GiB cgroup load peak and 90sec startup",
+      "standard-seccomp/private-IPC/nonroot/read-only execution"
+    ]
+  },
+  "metadata_access_limits": [
+    {
+      "target": "registry-1.docker.io/v2/rocm/sgl-dev/manifests/sha256:be68e8ebeb73195116dc3506b3fc96616f3668a5495f7bcb27ac6a30d2bae230",
+      "outcome": "UNAUTHORIZED",
+      "reason": "authentication required; small manifest/config JSON not obtained; no registry token or image layers fetched"
+    },
+    {
+      "target": "https://hub.docker.com/v2/repositories/rocm/sgl-dev/tags/v0.5.22-rocm724-gfx1151-20261029",
+      "route": "local urllib",
+      "outcome": "DNS_FAILURE",
+      "reason": "Temporary failure in name resolution; public browser JSON succeeded instead"
+    }
+  ],
+  "real_actions": {
+    "image_pull": 0,
+    "image_build": 0,
+    "image_run": 0,
+    "model_download": 0,
+    "inference": 0,
+    "service_change": 0
+  },
+  "pending": [
+    "human approval for fixed digest image acquisition",
+    "image config/provenance or post-acquisition CPU-only source/package attestation",
+    "unpacked bytes and free disk check",
+    "existing finite human-host API trial after prerequisites"
+  ]
+}

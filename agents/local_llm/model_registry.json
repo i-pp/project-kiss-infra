@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "profiles": [
+    {
+      "id": "qwen-coder-30b",
+      "model": "Qwen3-Coder-30B-A3B-Instruct",
+      "alias": "kiss-qwen3-coder-30b",
+      "quantization": "Q4_K_M",
+      "context": 32768,
+      "gpu_layers": 99,
+      "historical_quality": "Limited draft/review and connector roundtrip evidence; no general quality PASS",
+      "files": [
+        {
+          "name": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+          "bytes": 17988419552
+        }
+      ]
+    },
+    {
+      "id": "qwen-coder-next",
+      "model": "Qwen/Qwen3-Coder-Next",
+      "alias": "kiss-b3-qwen-coder-next",
+      "quantization": "Q4_K_M",
+      "context": 32768,
+      "gpu_layers": 28,
+      "historical_quality": "Diagnostic code PASS; strict format FAIL",
+      "files": [
+        {
+          "name": "Qwen3-Coder-Next-Q4_K_M-00001-of-00004.gguf",
+          "bytes": 15524827040,
+          "historical_sha256": "6bcfc9f9c37901eeb92172e2ab871224dab36a453d263bcb2547f737409534da"
+        },
+        {
+          "name": "Qwen3-Coder-Next-Q4_K_M-00002-of-00004.gguf",
+          "bytes": 14872168352,
+          "historical_sha256": "817def0691ee9d08bf3dc4444be7aed29c9e52091e8fa9d97901ce7e7f6f01d3"
+        },
+        {
+          "name": "Qwen3-Coder-Next-Q4_K_M-00003-of-00004.gguf",
+          "bytes": 14503294496,
+          "historical_sha256": "23aa634d47dca9b4ca3ea249384e6f01951b24c83cdc076f37f6f43d6c99883f"
+        },
+        {
+          "name": "Qwen3-Coder-Next-Q4_K_M-00004-of-00004.gguf",
+          "bytes": 3510702144,
+          "historical_sha256": "249c768cc5f130dc731567d6edcbdacc48e14dec9e02c5dbe2b2185d2c5bdb2b"
+        }
+      ],
+      "repository": "Qwen/Qwen3-Coder-Next-GGUF",
+      "revision": "b82fb7382639d97b38fa7672e526c760c2fb358e"
+    },
+    {
+      "id": "gpt-oss-120b",
+      "model": "openai/gpt-oss-120b",
+      "alias": "kiss-b3-gpt-oss-120b",
+      "quantization": "MXFP4",
+      "context": 32768,
+      "gpu_layers": 20,
+      "historical_quality": "Historical diagnostic C and AArch64 repair PASS; not live connected",
+      "files": [
+        {
+          "name": "gpt-oss-120b-MXFP4.gguf",
+          "bytes": 63387346208,
+          "historical_sha256": "582bd40f6886200101f4c4ed9f25f3fe80cc14c86e9e2b37746cd8904a0c622d"
+        }
+      ],
+      "repository": "ggml-org/gpt-oss-120b-GGUF",
+      "revision": "7200b74bea78b0a2964ef9f3897eefa401e890ff"
+    },
+    {
+      "id": "qwen38-flash-next",
+      "model": "Qwen/Qwen3.8-Flash-Next",
+      "alias": "kiss-b3-qwen38-flash-next",
+      "quantization": "GSQ-RCO Q2_0",
+      "context": 32768,
+      "gpu_layers": 36,
+      "historical_quality": "Both tested profiles code FAIL; research only",
+      "files": [
+        {
+          "name": "Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf",
+          "bytes": 37623740192,
+          "historical_sha256": "69820c02ec7d0b45ef2ebb19d6620299db749fe2aded7f39f93c6b88b199b720"
+        },
+        {
+          "name": "Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf",
+          "bytes": 28800138432,
+          "historical_sha256": "316b46f3a2dbd68c900f43136ab9449f9dcc3725dfd8c794847c204bc161e113"
+        }
+      ],
+      "repository": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+      "revision": "ed59f92082b1e93c0e96d60a8b11aab089b52f09"
+    }
+  ],
+  "source_lock": "inference/large-coder-b3/versions.lock.json",
+  "lifecycle_actions_enabled": false
+}

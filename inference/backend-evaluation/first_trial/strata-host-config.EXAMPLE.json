@@ -1,0 +1,15 @@
+{
+  "exe": "<VERIFIED_HIP_ENGINE_ENTRYPOINT>",
+  "cwd": "<PINNED_STRATA_SOURCE>",
+  "args": [
+    "--pack", "<NEW_VERIFIED_PACK_DIR>",
+    "--native", "<EXISTING_FLASH_SHARD1>",
+    "--ple-gguf", "<EXISTING_FLASH_SHARD2>",
+    "--expert-cache", "1024",
+    "--max-context", "8192",
+    "--prefill", "512"
+  ],
+  "tokenizer": "<NEW_VERIFIED_PACK_DIR>/tokenizer",
+  "model_name": "kiss-strata-qwen38-flash-next",
+  "mtp": false
+}

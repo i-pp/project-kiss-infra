@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "backend": "strata",
+  "profile": "qwen38-flash-next",
+  "source_commit": "5e8a4cca7d690ac60ca37eb09e7d0e010099ad6d",
+  "engine": {
+    "name": "strata-engine-0.1.52-linux-x86_64-hip-halo.tar.gz",
+    "version": "0.1.52",
+    "bytes": 169966238,
+    "sha256": "8e95a086515face5ce3a4d34d9ac3c485e45be5ff84a614e5b4ed66fc5efe18a",
+    "url": "https://github.com/Niko1221/Strata/releases/download/v0.2.7/strata-engine-0.1.52-linux-x86_64-hip-halo.tar.gz",
+    "project_license": "MIT",
+    "archive_third_party_notices": "NOT_READ_ARCHIVE_UNFETCHED"
+  },
+  "model_revision": "ed59f92082b1e93c0e96d60a8b11aab089b52f09",
+  "new_weight_download_bytes": 0,
+  "existing_input_sha_verified": true,
+  "recompute_existing_model_sha_now": false,
+  "execution_allowed": false,
+  "individual_software_execution_approval": "PENDING",
+  "human_gpu_bootstrap_required": true,
+  "prohibited": {
+    "new_namespace": true,
+    "host_escalation_from_codex": true,
+    "docker_from_codex": true,
+    "new_credentials": true,
+    "host_setting_changes": true,
+    "existing_cap_changes": true
+  },
+  "budget": {
+    "expert_cache_slots": 1024,
+    "slot_bytes": 1382400,
+    "gpu_cache_bytes": 1415577600,
+    "cpu_expert_arena_bytes": 33973862400,
+    "context": 8192,
+    "prefill": 512,
+    "max_output_tokens": 128,
+    "max_generations": 1,
+    "generation_retries": 0,
+    "mtp": false,
+    "vision": false,
+    "native_rss_soft_stop_gib": 48,
+    "host_available_after_unload_min_gib": 64,
+    "host_available_runtime_min_gib": 16,
+    "global_gpu_max_gib": 58,
+    "hard_memory_guarantee": false,
+    "existing_router_memory_cap_gib": 32,
+    "new_disk_budget_gib": 80,
+    "disk_growth_soft_stop_gib": 70,
+    "free_disk_before_min_gib": 100,
+    "disk_hard_quota_enforced": false,
+    "pack_seconds_cap": 1800,
+    "startup_seconds": 90,
+    "generation_seconds": 90,
+    "stop_seconds": 45,
+    "restore_seconds": 120,
+    "whole_post_unload_seconds_cap": 2145
+  },
+  "timing_basis": {
+    "upstream_pack_estimate_minutes": [
+      2,
+      5
+    ],
+    "local_pack_measured": false,
+    "prepare_verify_planning_minutes": [
+      10,
+      30
+    ],
+    "estimate_is_not_guarantee": true
+  },
+  "ram_note": "48GiB is a proposed monitored native-process budget, not a hard cap, not proof of fit, and not a change to existing32GiB router cap. UMA pools are not additive capacity.",
+  "disk_note": "~40GB is generated output, not download. Source writes one pack directly; no full duplicate or shard2 copy.80GiB is a proposed additional allocation budget, not measured peak or hard quota."
+}

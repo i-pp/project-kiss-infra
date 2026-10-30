@@ -1,0 +1,67 @@
+# HUMAN HOST MAINTENANCE ONLY. Prepared for review; never applied by Codex.
+name: project-kiss-aceis-router
+services:
+  router:
+    container_name: project-kiss-aceis-router
+    image: ghcr.io/ggml-org/llama.cpp@sha256:0b332e21bec106548887f5747c0574bce63b8dd725f26d20382ff2711993ab15
+    pull_policy: never
+    entrypoint: [/app/llama-server]
+    user: "${LOCAL_UID:?Set host UID}:${LOCAL_GID:?Set host GID}"
+    group_add: ["${GPU_GID:?Set existing render group}"]
+    devices: [/dev/kfd:/dev/kfd, /dev/dri/renderD128:/dev/dri/renderD128]
+    networks: [existing_internal]
+    ports: ["127.0.0.1:8080:8080"]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    read_only: true
+    cpus: 8
+    mem_limit: 32g
+    memswap_limit: 32g
+    pids_limit: 512
+    shm_size: 2g
+    ulimits:
+      core: 0
+      fsize: 67108864
+    tmpfs: ["/tmp:rw,nosuid,nodev,size=2g,mode=1777"]
+    environment:
+      HOME: /cache
+      XDG_CACHE_HOME: /cache
+      LLAMA_CACHE: /tmp/aceis-model-cache
+    volumes:
+      - type: bind
+        source: ${PROJECT_ROOT:?Set host repository root}/models
+        target: /models
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: ${PROJECT_ROOT:?Set host repository root}/.cache/large-coder-b3/runtime
+        target: /cache
+        bind: {create_host_path: false}
+      - type: bind
+        source: ${PROJECT_ROOT:?Set host repository root}/agents/local_llm/integration/router-presets.PROPOSAL.ini
+        target: /config/models.ini
+        read_only: true
+        bind: {create_host_path: false}
+    command:
+      - --models-preset
+      - /config/models.ini
+      - --models-max
+      - "1"
+      - --no-models-autoload
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8080"
+      - --offline
+      - --no-ui
+    labels:
+      io.aceis.purpose: approved-model-router-proposal
+      io.aceis.deployment: "${ROUTER_DEPLOYMENT_TOKEN:?Set by human maintenance script}"
+    restart: "no"
+    logging:
+      driver: json-file
+      options: {max-size: 10m, max-file: "2"}
+networks:
+  existing_internal:
+    external: true
+    name: project-kiss-large-coder-b3_local

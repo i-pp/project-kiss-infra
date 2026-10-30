@@ -1,0 +1,11 @@
+{
+  "source_host_api_trial_sha256": "338612a32a28c4ec6908397634f970fc3c537ad0469f5a4d77010e10c2084cb8",
+  "proposed_host_api_trial_sha256": "e7d238a89d98bc52e0d1f9dcd603f8ee71a67d42f5efc998e70ab8debce38bf9",
+  "source_fixed_assets_sha256": "c48b1efc304e5496951261cc2c4ab07f51cecdd7c291bccc222526222d8a1ac4",
+  "proposed_fixed_assets_sha256": "9ebd3aabb369c7d4ad1a69b9b91dc75ffddd9f7ad7cd2914314bbc19ba161eaa",
+  "base_fixtures_preserved": true,
+  "live_registered": false,
+  "approved": false,
+  "previous_proposed_host_api_trial_sha256": "e0f3f492f2b1d892bca42bb625968b2945d747db0f081a0ebbe6655909a4f0f7",
+  "pre_sg_swap_budget_host_api_trial_sha256": "f339ea1bbe1c116fcd08425c60339bbc5bd8cc03eca04a58f9dc9ec2bf8de6cc"
+}

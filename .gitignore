@@ -70,3 +70,14 @@ id_dsa
 id_ecdsa
 id_ed25519
 *.ppk
+
+# Recovery snapshot exclusions
+.runtime/
+evidence/
+.serena/
+*.tar
+*.tar.gz
+*.zip
+*.whl
+*.jpg
+*.png

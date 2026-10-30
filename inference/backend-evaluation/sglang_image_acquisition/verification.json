@@ -1,0 +1,28 @@
+{
+  "checked_at_utc": "2026-10-30T05:59:16.402280+00:00",
+  "status": "OFFLINE_TESTED_HUMAN_DEPLOYMENT_PENDING",
+  "tests_passed": 24,
+  "independent_review": "24 CPU fake tests PASS; all concrete findings resolved",
+  "image_ref": "rocm/sgl-dev@sha256:be68e8ebeb73195116dc3506b3fc96616f3668a5495f7bcb27ac6a30d2bae230",
+  "published_compressed_bytes": 13667503350,
+  "real_operations": {
+    "docker": 0,
+    "pull": 0,
+    "gpu": 0,
+    "container": 0,
+    "service": 0,
+    "inference": 0
+  },
+  "sha256": {
+    "test_acquire_sglang_host.py": "f794086c24a28d504d70178bff88635cee5a20a06671a5a5bab0611ed8e6d6f1",
+    "acquire_sglang_host.py": "c631b34b327918c17f4c66498de644033c8ee8e5e4e8259a720ed02bdc06f6ef",
+    "README.md": "0488fa7783f52097d6b937f827a53c893c149f1431fa1274c865f395185b50c0"
+  },
+  "tests": 25,
+  "root_followup": {
+    "project_filesystem_preflight_free_gib": 64,
+    "added_regressions": 1,
+    "independent_retest": 25,
+    "actual_operations": 0
+  }
+}

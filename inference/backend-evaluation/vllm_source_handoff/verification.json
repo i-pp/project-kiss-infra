@@ -1,0 +1,23 @@
+{
+  "checked_at_utc": "2026-10-30T05:58:23.177369+00:00",
+  "status": "PREPARED_CPU_SOURCE_HANDOFF_REAL_HOST_INSPECTION_PENDING",
+  "tests": 8,
+  "test_failures": 0,
+  "test_command": "python3 -B -m unittest discover -s vllm-source-handoff -p 'test_*.py' -q",
+  "no_flag_cli": "PREPARED_HUMAN_CPU_INSPECTION_REQUIRED_DOCKER0",
+  "actual_operations": {
+    "docker": 0,
+    "image_pull": 0,
+    "gpu": 0,
+    "model_generation": 0,
+    "service_changes": 0
+  },
+  "public_fixed_source_text_bytes": 391835,
+  "scope_limit": "Seven critical source fingerprints, not whole installed source attestation",
+  "sha256": {
+    "README.md": "2d9f49ae5811b1065bdd813b23dd8ae8e9862c12e236ecd4501c67af3228078e",
+    "inspect_vllm_source_host.py": "0afcc15d48f45a84c6bbf9305bed17f197043d6c349ea9c36308ddecbaa84c22",
+    "source_probe_manifest.json": "8954472659b90206ec5963212254dbfc3f4c717ff9c735246db5b734e382aba2",
+    "test_source_probe.py": "e1e937cd89a594fa24cc0d049fa97701ff221f9ac7c4249db6ff271e3f93aef9"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "status": "PREPARATION_ONLY_BLOCKED_GPU_DEVICE_AND_ENGINE",
+  "checked_utc": "2026-10-29T17:02:35.217010+00:00",
+  "backend": "strata",
+  "source": {
+    "repository": "Niko1221/Strata",
+    "release_tag": "v0.2.7",
+    "commit": "5e8a4cca7d690ac60ca37eb09e7d0e010099ad6d",
+    "engine_version": "0.1.52",
+    "control_version": "0.1.53",
+    "release_note": "Release page now labels 0.2.7.1; Linux x86_64 HIP engines stay0.1.52",
+    "engine_binary_build_id": "UNREAD_ARCHIVE_NOT_FETCHED",
+    "release_metadata_checked_utc": "2026-10-29T17:32:39.766593+00:00"
+  },
+  "packages": [
+    {
+      "name": "strata-engine-0.1.52-linux-x86_64-hip-halo.tar.gz",
+      "url": "https://github.com/Niko1221/Strata/releases/download/v0.2.7/strata-engine-0.1.52-linux-x86_64-hip-halo.tar.gz",
+      "sha256": "8e95a086515face5ce3a4d34d9ac3c485e45be5ff84a614e5b4ed66fc5efe18a",
+      "ui_rounded_size": "162 MB",
+      "exact_archive_bytes": 169966238,
+      "arch": "gfx1151"
+    },
+    {
+      "name": "strata-control-0.1.53-linux-x86_64.tar.gz",
+      "url": "https://github.com/Niko1221/Strata/releases/download/v0.2.7/strata-control-0.1.53-linux-x86_64.tar.gz",
+      "sha256": "6f746e48d3abfd2c660fe460336ece5c66caf75610771f819e279de6e7adfe65",
+      "ui_rounded_size": "94.8 MB",
+      "exact_archive_bytes": 99446914
+    }
+  ],
+  "weights": {
+    "profile": "qwen38-flash-next",
+    "repository": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+    "revision": "ed59f92082b1e93c0e96d60a8b11aab089b52f09",
+    "quantization": "Q2_0",
+    "shards": [
+      {
+        "name": "Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf",
+        "bytes": 37623740192,
+        "sha256": "69820c02ec7d0b45ef2ebb19d6620299db749fe2aded7f39f93c6b88b199b720"
+      },
+      {
+        "name": "Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf",
+        "bytes": 28800138432,
+        "sha256": "316b46f3a2dbd68c900f43136ab9449f9dcc3725dfd8c794847c204bc161e113"
+      }
+    ],
+    "historical_sha_matches_upstream_pin": true,
+    "full_sha_recomputed_this_check": true,
+    "local_names_and_sizes_match": true,
+    "additional_large_weight_download_needed": false,
+    "full_sha_verification_finished_utc": "2026-10-29T17:05:04.963363+00:00",
+    "full_sha_verification_seconds": 68.59175021501142
+  },
+  "compatibility": {
+    "qwen38-flash-next": "PINNED_ISTA_Q2_0_INPUT_REUSABLE_AFTER_PACK_PREPARATION",
+    "qwen-coder-next": "NO_VERIFIED_SUPPORTED_ARCHITECTURE_PATH",
+    "gpt-oss-120b": "NO_VERIFIED_SUPPORTED_ARCHITECTURE_PATH"
+  },
+  "preparation": {
+    "avx512f_detected": true,
+    "official_avx512_pack_extra_disk_approx_bytes": 40000000000,
+    "disk_free_bytes_at_check": 1451546644480,
+    "pack_peak_ram": "NOT_MEASURED; requires monitored host preparation",
+    "model_ram_reference_bytes": 40000000000,
+    "note": "Reference~34GB expert RAM plus~6GB other model memory; not an EVO-X3 measurement. Default exceeds existing32GiB container cap; no cap relaxation proposed.",
+    "mtp": false,
+    "vision": false,
+    "additional_mtp_download_bytes": 0,
+    "additional_vision_download_bytes": 0,
+    "automatic_installer_execution": false
+  },
+  "environment": {
+    "native_engine_found": false,
+    "dev_kfd_available": false,
+    "renderD128_available": false,
+    "host_toolkit_update_required": false,
+    "namespace_creation_allowed": false,
+    "host_escalated_gpu_execution_allowed": false,
+    "device_check_utc": "2026-10-29T17:05:48.203265+00:00"
+  },
+  "scope": {
+    "downloads": 0,
+    "new_software_executions": 0,
+    "model_loads": 0,
+    "generations": 0,
+    "host_changes": 0
+  },
+  "sources": {
+    "release_assets": "https://github.com/Niko1221/Strata/releases/expanded_assets/v0.2.7",
+    "source_setup": "https://github.com/Niko1221/Strata/blob/5e8a4cca7d690ac60ca37eb09e7d0e010099ad6d/setup.py",
+    "draft_switch": "https://github.com/Niko1221/Strata/blob/5e8a4cca7d690ac60ca37eb09e7d0e010099ad6d/strata_control/draft_layer.py",
+    "engine_manifest": "https://github.com/Niko1221/Strata/blob/v0.2.7/packaging/ENGINE-COMPONENT.md",
+    "hip_build": "https://github.com/Niko1221/Strata/blob/v0.2.7/packaging/build_hip_linux.sh",
+    "strata_server": "https://github.com/Niko1221/Strata/blob/v0.2.7/serve/server.py"
+  }
+}

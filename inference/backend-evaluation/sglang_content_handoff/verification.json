@@ -1,0 +1,23 @@
+{
+  "checked_at_utc": "2026-10-30T06:33:27.643260+00:00",
+  "status": "OFFLINE_PREPARED_HUMAN_CPU_RUN_PENDING",
+  "tests_passed": 14,
+  "independent_review": "14 CPU fake tests PASS; no remaining concrete findings",
+  "real_actions": {
+    "docker": 0,
+    "container": 0,
+    "gpu": 0,
+    "source_package_import": 0,
+    "generation": 0
+  },
+  "sha256": {
+    "source_probe_manifest.json": "a830fee756c7afb277e0fb313d3aadf9c408be21f20251955cade930d021f4c6",
+    "fingerprint-2.json": "ab8e5902066640bb5d01aa0668e0d21c9932f3950f0ada2261b4227a83cde92e",
+    "fingerprint-0.json": "b173e85b043baffd052f9a5b3c2cf92f6ca53f01d65f25cde70f8b086f40b0e6",
+    "fingerprint-1.json": "191867fd085e154846fcd0c81f94a0c9b1fd068a12ce754b0865e3cbc66ec7ce",
+    "fingerprint-3.json": "9a6ce0f86f13e392a1e8e6ae4324b55c377708ec5105fabf313f9ce9a086823a",
+    "inspect_sglang_content_host.py": "4b88d6496ff58768a590260f58a5346d0da3d50f7852b23db042b0482e243759",
+    "README.md": "432fa223b50f803a69efb05a4b5b2526bac4584fd9181f3c77629f95953e2813",
+    "test_content_probe.py": "21618839e3ddd3efd30b103692627a946b42dc0d8713280710b2c128b766bbc6"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "path": "sglang/srt/models/qwen3_next.py",
+  "bytes": 46686,
+  "sha256": "1e160562800a308c0409cf4b0633b107689b90e1c360c4b0a8eedbd0aab3515a",
+  "git_blob_sha1": "cf7444960a9987633ac1222a782f402f015556e2",
+  "origin_url": "https://github.com/sgl-project/sglang/blob/baa9befa381511cd4d56f83980951e5a45fffc6d/python/sglang/srt/models/qwen3_next.py"
+}

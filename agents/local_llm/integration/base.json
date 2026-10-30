@@ -1,0 +1,7 @@
+{
+  "target": "<ORCHESTRATOR_ROOT>/src/mcp_adapter.py",
+  "sha256": "b8e6f8d5104c64ae6518014e361cf0c69d8d953069d401fddf3fbd330bbd92b5",
+  "proposal_applied": false,
+  "syntax_check": "PASS",
+  "requires_owner_rebase_if_source_changed": true
+}

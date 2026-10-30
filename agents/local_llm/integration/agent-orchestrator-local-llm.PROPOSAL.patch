@@ -1,0 +1,115 @@
+--- a/src/mcp_adapter.py
++++ b/src/mcp_adapter.py
+@@ -10,6 +10,7 @@
+ import selectors
+ import stat
+ import sys
++import subprocess
+ import time
+ import uuid
+ 
+@@ -104,7 +105,7 @@
+     return result
+ 
+ 
+-def tool_definitions(writes=False):
++def tool_definitions(writes=False, local_llm=False):
+     identifier = {'type': 'string', 'pattern': UUID_PATTERN, 'maxLength': 36}
+     def tool(name, description, properties, required=(), read=True):
+         return {'name': name, 'description': description,
+@@ -121,6 +122,14 @@
+             'offset': {'type': 'integer', 'minimum': 0, 'maximum': 1000000}}),
+         tool('orchestrator_get_task', 'Read state and verification metadata. Task text and logs are not exported.',
+              {'task_id': identifier}, ['task_id'])]
++    if local_llm:
++        result.append(tool('aceis_local_llm_generate',
++            'Generate an UNVERIFIED local coding suggestion. No code execution or model loading.', {
++                'task': {'type': 'string', 'enum': ['draft', 'review']},
++                'prompt': {'type': 'string', 'minLength': 1, 'maxLength': 16384},
++                'max_tokens': {'type': 'integer', 'minimum': 1, 'maximum': 1024}},
++            ['task', 'prompt'], False))
++        result[-1]['annotations'].update(destructiveHint=False, idempotentHint=False)
+     if writes:
+         result += [
+             tool('orchestrator_submit_task', 'Queue one task under the operator-fixed workspace and acceptance policy. Reuse request_key after uncertain delivery.', {
+@@ -132,9 +141,9 @@
+ 
+ 
+ class Adapter:
+-    def __init__(self, root, allow_writes=False):
++    def __init__(self, root, allow_writes=False, allow_local_llm=False):
+         self.root = runtime_path(root)
+-        self.tools = tool_definitions(allow_writes)
++        self.tools = tool_definitions(allow_writes, allow_local_llm)
+         self.policy = None
+         if allow_writes:
+             path = self.root / 'mcp-task-policy.json'
+@@ -174,6 +183,14 @@
+             for k, default, low, high in [('limit', 20, 1, 50), ('offset', 0, 0, 1000000)]:
+                 v = arguments.get(k, default)
+                 if type(v) is not int or not low <= v <= high: raise Invalid('Invalid list bound')
++        elif name == 'aceis_local_llm_generate':
++            fields(arguments, ['task', 'prompt', 'max_tokens'], ['task', 'prompt'])
++            if arguments['task'] not in ['draft', 'review']: raise Invalid('Invalid local task')
++            prompt = arguments['prompt']
++            if not isinstance(prompt, str) or not prompt.strip() or len(prompt.encode()) > 16384:
++                raise Invalid('Invalid local prompt bound')
++            tokens = arguments.get('max_tokens', 256)
++            if type(tokens) is not int or not 1 <= tokens <= 1024: raise Invalid('Invalid local output bound')
+         elif name in ['orchestrator_get_task', 'orchestrator_cancel_task']:
+             fields(arguments, ['task_id'], ['task_id'])
+             if not uuid_value(arguments['task_id']): raise Invalid('Invalid task ID')
+@@ -192,6 +209,27 @@
+         if self.audit.tell() > AUDIT_LIMIT - 4096: raise OSError('Audit capacity reached')
+         self.record('begin', **facts)
+         try:
++            if name == 'aceis_local_llm_generate':
++                # Fixed operator-approved helper; no arbitrary command or model loading.
++                helper = Path('<PROJECT_ROOT>/agents/local_llm/extension.py')
++                info = helper.lstat()
++                if helper.is_symlink() or not stat.S_ISREG(info.st_mode) or info.st_uid != os.getuid():
++                    raise ValueError('Unsafe local helper')
++                completed = subprocess.run(['/usr/bin/python3', '-B', str(helper), '--call'],
++                    input=json.dumps({'name': name, 'arguments': arguments}, ensure_ascii=False),
++                    capture_output=True, text=True, timeout=90,
++                    env={'PATH': '/usr/bin:/bin', 'HOME': str(Path.home()), 'LANG': 'C.UTF-8'})
++                if len(completed.stdout.encode()) > 2*1024**2: raise ValueError('Local result bound exceeded')
++                result = json.loads(completed.stdout)
++                if type(result.get('isError')) is not bool or not isinstance(result.get('structuredContent'), dict):
++                    raise ValueError('Invalid local envelope')
++                if completed.returncode != (1 if result['isError'] else 0): raise ValueError('Local exit mismatch')
++                data = result['structuredContent']
++                data.update(verification_status='NOT_EXECUTED', code_executed=False, untrusted_advisory=True)
++                self.record('end', outcome='error_or_uncertain' if result['isError'] else 'returned', **facts)
++                content = {'call_id': call_id, 'data': data}
++                return {'content': [{'type': 'text', 'text': json.dumps(content)}],
++                        'structuredContent': content, 'isError': result['isError']}
+             if name == 'orchestrator_status':
+                 raw = self.daemon('status', {})
+                 data = {'paused': raw.get('paused') is True, 'stopping': raw.get('stopping') is True,
+@@ -217,10 +255,10 @@
+             self.record('end', outcome='returned', **facts)
+             content = {'call_id': call_id, 'data': data}
+             return {'content': [{'type': 'text', 'text': json.dumps(content)}], 'structuredContent': content, 'isError': False}
+-        except (OSError, EOFError, ValueError, RuntimeError, TypeError, KeyError):
++        except (OSError, EOFError, ValueError, RuntimeError, TypeError, KeyError, subprocess.SubprocessError):
+             self.record('end', outcome='error_or_uncertain', **facts)
+             # No daemon exception text, task content or local configuration crosses this boundary.
+-            body = {'call_id': call_id, 'code': 'DAEMON_ERROR_OR_UNCERTAIN',
++            body = {'call_id': call_id, 'code': 'LOCAL_LLM_ERROR_OR_UNCERTAIN' if name == 'aceis_local_llm_generate' else 'DAEMON_ERROR_OR_UNCERTAIN',
+                     'retry_same_request_key': name == 'orchestrator_submit_task'}
+             return {'content': [{'type': 'text', 'text': json.dumps(body)}], 'isError': True}
+ 
+@@ -371,9 +409,11 @@
+     parser = argparse.ArgumentParser(description='Local MCP stdio adapter; read-only tools by default')
+     parser.add_argument('--runtime', type=Path, required=True, help='Operator-fixed existing private runtime')
+     parser.add_argument('--allow-writes', action='store_true', help='Local tests only; requires runtime/mcp-task-policy.json')
++    parser.add_argument('--allow-local-llm', action='store_true',
++                        help='Separately approved bounded localhost inference; does not enable submit/cancel')
+     args = parser.parse_args()
+     os.umask(0o077)
+-    try: return serve(Adapter(args.runtime, args.allow_writes))
++    try: return serve(Adapter(args.runtime, args.allow_writes, args.allow_local_llm))
+     except (OSError, ValueError, TypeError):
+         print('Adapter startup refused: verify private runtime and operator policy.', file=sys.stderr)
+         return 1

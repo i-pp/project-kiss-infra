@@ -1,0 +1,4235 @@
+{
+  "commit": "5e8a4cca7d690ac60ca37eb09e7d0e010099ad6d",
+  "files": [
+    {
+      "path": "apps/desktop/scripts/app-close-matrix.py",
+      "bytes": 18930,
+      "git_blob_sha1": "31e65b98961f73e2fd210765093bd787e349b281"
+    },
+    {
+      "path": "apps/desktop/scripts/stage-control.py",
+      "bytes": 10325,
+      "git_blob_sha1": "b207a65846a2ebafce221e741ffd55f5ba582b03"
+    },
+    {
+      "path": "apps/host/audit-fixes/apply-chat.py",
+      "bytes": 8835,
+      "git_blob_sha1": "4fd71f2d9a417f5ae2fc21db9f3bfd56820e8174"
+    },
+    {
+      "path": "apps/host/audit-fixes/apply-engine.py",
+      "bytes": 12595,
+      "git_blob_sha1": "092ffdb75fae95f354e4504a16e20a84552b4580"
+    },
+    {
+      "path": "apps/host/audit-fixes/apply-finishing.py",
+      "bytes": 8981,
+      "git_blob_sha1": "6c4fcbcd6f93989d28f9bbc65b628f39b15e5c52"
+    },
+    {
+      "path": "apps/host/audit-fixes/apply-model.py",
+      "bytes": 15750,
+      "git_blob_sha1": "85c699f949ba9cc6d02a47068abb93d0b1537ed7"
+    },
+    {
+      "path": "apps/host/audit-fixes/apply-screens.py",
+      "bytes": 13573,
+      "git_blob_sha1": "cfb4dcc93e5e1aac99f45fd46b1339c6203b6634"
+    },
+    {
+      "path": "apps/host/audit-fixes/apply-shared.py",
+      "bytes": 9934,
+      "git_blob_sha1": "a986f3325cda78277ab812890893985f322afa58"
+    },
+    {
+      "path": "apps/host/audit-fixes/write-review.py",
+      "bytes": 21813,
+      "git_blob_sha1": "15bd0f3e0e84231e75d992750d9451943255e8cc"
+    },
+    {
+      "path": "apps/host/scripts/assets/make-chat-media.py",
+      "bytes": 2556,
+      "git_blob_sha1": "681fbad6af4e76bfa2045c1157b5f2fc5fcac07c"
+    },
+    {
+      "path": "apps/host/scripts/fr_sync.py",
+      "bytes": 6616,
+      "git_blob_sha1": "90bf8970af2b49da42dd0d7ebbf5bb8d206eb385"
+    },
+    {
+      "path": "apps/host/scripts/make-fix-locales.py",
+      "bytes": 17873,
+      "git_blob_sha1": "19ce9635cd78a062112b09a121220feb89447a9f"
+    },
+    {
+      "path": "apps/host/scripts/make-gh-locales.py",
+      "bytes": 20974,
+      "git_blob_sha1": "41898d2523bfbbca4ea1db7b39cffc95e6e41a69"
+    },
+    {
+      "path": "apps/host/scripts/make-tune-locales.py",
+      "bytes": 22302,
+      "git_blob_sha1": "6194510137fe286f8b47425f8552df181aef43d6"
+    },
+    {
+      "path": "apps/host/scripts/prepare-brand-assets.py",
+      "bytes": 7461,
+      "git_blob_sha1": "c3b03590126e4850dc0f85676142283caf902fb3"
+    },
+    {
+      "path": "bench/bench_vs_llama.py",
+      "bytes": 13286,
+      "git_blob_sha1": "bd9acc1654d706cb97be3e6988744330fc236b5e"
+    },
+    {
+      "path": "bench/results/2026-09-27-esp/esp_kl.py",
+      "bytes": 3584,
+      "git_blob_sha1": "5ec6d3ad476de52a08483f8e7bf9b2acf11605fa"
+    },
+    {
+      "path": "bench/results/2026-09-27-esp/esp_serve.py",
+      "bytes": 5756,
+      "git_blob_sha1": "4ec20059fbeee1c122d47bb6e37f93f322248300"
+    },
+    {
+      "path": "bench/results/2026-09-29-rtx3090-epyc-milan/data/strata-bench.py",
+      "bytes": 13769,
+      "git_blob_sha1": "ed92ede528619a35ed4adbe3e0389d6c6590eee1"
+    },
+    {
+      "path": "bench/results/2026-09-30-community-rtx-5090/benchmark.py",
+      "bytes": 7180,
+      "git_blob_sha1": "401bbc012dce95d6feed96b57c97fa2014cca1c5"
+    },
+    {
+      "path": "bench/results/2026-09-30-community-rtx-5090/monitor.py",
+      "bytes": 870,
+      "git_blob_sha1": "6f9f8082cb0e6f9c6b4840b088372c69d7907929"
+    },
+    {
+      "path": "bench/results/2026-10-01-community-2x-rtx-pro-4500/bench.py",
+      "bytes": 2907,
+      "git_blob_sha1": "ac97504003150539fd9c15d1e7f81caa2f721caf"
+    },
+    {
+      "path": "bench/results/2026-10-01-community-2x-rtx-pro-4500/spec-sweep/sweep.py",
+      "bytes": 4754,
+      "git_blob_sha1": "2fbfb462f624198f30c15402c4108e860b4527c8"
+    },
+    {
+      "path": "bench/results/2026-10-01-community-2x-titan-rtx/benchmark.py",
+      "bytes": 3547,
+      "git_blob_sha1": "ef26217425d07e50761d6910437fb21ac5c0e21f"
+    },
+    {
+      "path": "bench/results/2026-10-01-community-rtx-5090-5950x/run_bench.py",
+      "bytes": 3801,
+      "git_blob_sha1": "f0f5e4ab76aea3b2369261e8f1af95eed3ae5501"
+    },
+    {
+      "path": "bench/results/2026-10-01-ctx-ladder/aggregate.py",
+      "bytes": 13664,
+      "git_blob_sha1": "e58e92180aba2929c89256fa5d466c8240fa6959"
+    },
+    {
+      "path": "bench/results/2026-10-01-ctx-ladder/run.py",
+      "bytes": 13416,
+      "git_blob_sha1": "c8b632186f9aef534e520fcf3c79731641aee3fa"
+    },
+    {
+      "path": "bench/results/2026-10-02-community-2x-rtx-pro-4500-engine-0.1.36/bench.py",
+      "bytes": 2939,
+      "git_blob_sha1": "2e36965eed458f108abd258b17a9c9a691d20be7"
+    },
+    {
+      "path": "bench/results/2026-10-02-community-2x5060ti/speed_bench.py",
+      "bytes": 5649,
+      "git_blob_sha1": "c3c38d6850aa785161e5affe8690f57c06830e56"
+    },
+    {
+      "path": "bench/results/2026-10-02-community-rtx-5090-iq3s/bench.py",
+      "bytes": 7092,
+      "git_blob_sha1": "6df4bedc1a6e5b53519ce234850d824bfc858c8b"
+    },
+    {
+      "path": "bench/results/2026-10-02-community-rtx-5090-iq3s/conversation_cache_demo.py",
+      "bytes": 3700,
+      "git_blob_sha1": "3f301b6d3b54dc8dcc2a4211b8b5f04b55cfbb63"
+    },
+    {
+      "path": "bench/results/2026-10-02-community-rtx2080ti-11gb/bench_server.py",
+      "bytes": 11005,
+      "git_blob_sha1": "bf7abb3ef9c06e030d5c487f322ce15e81937347"
+    },
+    {
+      "path": "bench/results/2026-10-02-community-rtx2080ti-11gb/common.py",
+      "bytes": 5869,
+      "git_blob_sha1": "f24462b1cf667d369ef334b8f9709b65a4844c0b"
+    },
+    {
+      "path": "bench/results/2026-10-02-community-rtx2080ti-11gb/image_check.py",
+      "bytes": 5799,
+      "git_blob_sha1": "8cbb88a375bfe8f3e24747062851b4c8245bc881"
+    },
+    {
+      "path": "bench/results/2026-10-02-community-rtx2080ti-11gb/monitor.py",
+      "bytes": 1423,
+      "git_blob_sha1": "b1c81d28768c7ac896458193a1454517c4b9cbf9"
+    },
+    {
+      "path": "bench/results/2026-10-02-community-rtx2080ti-11gb/run_needles.py",
+      "bytes": 2836,
+      "git_blob_sha1": "d1a894264a8d2074882b110b13d401bde44ea9e6"
+    },
+    {
+      "path": "bench/results/2026-10-02-community-rtx2080ti-11gb/summarize.py",
+      "bytes": 4968,
+      "git_blob_sha1": "3211f7429356454d3e6449e265ce44b45d59559f"
+    },
+    {
+      "path": "bench/results/2026-10-02-community-rtx5090-1m-agent/bench_agent_workload.py",
+      "bytes": 5546,
+      "git_blob_sha1": "25aa04d1fc7a1ff64002ac6e4541c6661dcf9b71"
+    },
+    {
+      "path": "bench/results/2026-10-02-community-rx9070xt-windows/bench.py",
+      "bytes": 7215,
+      "git_blob_sha1": "783c9ff271f864fda8f9a226f9639d415982875a"
+    },
+    {
+      "path": "bench/results/2026-10-03-ashley-2080ti/IQ3_XXS-1x2080Ti/data/strata-bench.py",
+      "bytes": 15369,
+      "git_blob_sha1": "b8f0c0f0ad3abda8dfec626097a6132ae09f23c3"
+    },
+    {
+      "path": "bench/results/2026-10-03-community-2x-mi50/benchmark.py",
+      "bytes": 7132,
+      "git_blob_sha1": "cdb6e4cc06941dec6e6f4f20544ef29b8948fc02"
+    },
+    {
+      "path": "bench/results/2026-10-03-community-r9700-windows/benchmark.py",
+      "bytes": 20078,
+      "git_blob_sha1": "3e37786d5054273a10ff41236b929ace1dfa12f9"
+    },
+    {
+      "path": "bench/results/2026-10-03-community-rx7900xtx-rocm102-nightly/repeat-request.py",
+      "bytes": 655,
+      "git_blob_sha1": "aea144ec9c50fb077ea7b15cd0db1f515f638a2c"
+    },
+    {
+      "path": "bench/results/2026-10-03-dev-5090/IQ3_S-1x5090/data/strata-bench.py",
+      "bytes": 15292,
+      "git_blob_sha1": "bf5180309a39b25487945ba71cf013ba495b0456"
+    },
+    {
+      "path": "bench/results/2026-10-03-dev-5090/strata-bench.py",
+      "bytes": 15369,
+      "git_blob_sha1": "b8f0c0f0ad3abda8dfec626097a6132ae09f23c3"
+    },
+    {
+      "path": "bench/results/2026-10-03-rx6900xt-coder/benchmark.py",
+      "bytes": 16035,
+      "git_blob_sha1": "6a937bda34e90bee9dd0aa771b885465e7242e70"
+    },
+    {
+      "path": "bench/results/2026-10-03-rx6900xt-coder/check_code.py",
+      "bytes": 2749,
+      "git_blob_sha1": "e6162f86cc9beeea4843d328c99443a1a3316f47"
+    },
+    {
+      "path": "bench/results/2026-10-03-rx6900xt-coder/check_followup.py",
+      "bytes": 7365,
+      "git_blob_sha1": "c5d05307f2e586e3990c45d043c101ad67239e47"
+    },
+    {
+      "path": "bench/results/2026-10-03-windows-groups/benchmark.py",
+      "bytes": 16035,
+      "git_blob_sha1": "6a937bda34e90bee9dd0aa771b885465e7242e70"
+    },
+    {
+      "path": "bench/results/2026-10-03-windows-groups/check_code.py",
+      "bytes": 2749,
+      "git_blob_sha1": "e6162f86cc9beeea4843d328c99443a1a3316f47"
+    },
+    {
+      "path": "bench/results/2026-10-03-windows-groups/windows_processor_groups_affinity_probe.py",
+      "bytes": 10318,
+      "git_blob_sha1": "71c5b3f134577dc215d8c1eb69b0ebe8c7bb412f"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-2x-arc-pro-b60/data/bench.py",
+      "bytes": 3216,
+      "git_blob_sha1": "41b46ad7d5f15aa0c0d958218f8ade86d23311bf"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-2x-rtx3060/bench-0.1.39.py",
+      "bytes": 12652,
+      "git_blob_sha1": "b6a7dff17ad3f939b69f2dfae330957e92d1fd74"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-2x-rtx3060/bench.py",
+      "bytes": 12652,
+      "git_blob_sha1": "b6a7dff17ad3f939b69f2dfae330957e92d1fd74"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-2x-rtx3060/retry-512k.py",
+      "bytes": 2630,
+      "git_blob_sha1": "2517215ca5590e0138183732f7a3fdfbb3517144"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-4090-32gb-ram-512k/check.py",
+      "bytes": 2003,
+      "git_blob_sha1": "75d28f64f706cfcc887afba2abfe0c16866726a7"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-mi50/benchmark_mi50.py",
+      "bytes": 7441,
+      "git_blob_sha1": "3c0d1d22ad158f03850b7dbb019a198e98e904d4"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-mi50/monitor_mi50.py",
+      "bytes": 1231,
+      "git_blob_sha1": "45a9abff81a15ed61816e9d0fa4c17ba4c5682be"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-rtx-5090-9700x/benchmark.py",
+      "bytes": 8833,
+      "git_blob_sha1": "15fbacddb21819919210904a9812195a897e9a3d"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-rtx-5090-9700x/long/bench_long.py",
+      "bytes": 12819,
+      "git_blob_sha1": "f4e6e60bcd6fb9337a4d0a100cc93e5cd7b0931d"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-rx-6800-windows/ab.py",
+      "bytes": 12160,
+      "git_blob_sha1": "6a7da074622df19789f58342264de24d6935d2c3"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-rx-6800-windows/par.py",
+      "bytes": 3933,
+      "git_blob_sha1": "310c19b3859583e2a86fc47b22454481bbde1fd4"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-rx-6800-windows/run_all.py",
+      "bytes": 12499,
+      "git_blob_sha1": "8e4f002c62887a5149ba4adaf25c6feed4d911c3"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-rx-6800-windows/strata_eval.py",
+      "bytes": 18481,
+      "git_blob_sha1": "6f2520e07c1157fd8adb8283ef3e2d3aaea8a45a"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-rx-6800-windows/strata_eval2.py",
+      "bytes": 24092,
+      "git_blob_sha1": "2e2d73b94e3bc1e7f0c6baf8d57185093afcbae7"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-rx-7900-gre/scripts/sample_mem.py",
+      "bytes": 1793,
+      "git_blob_sha1": "d0a3ceb29dabaf32ff0e3749e93358bc580ec086"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-rx-7900-gre/scripts/summarize.py",
+      "bytes": 4259,
+      "git_blob_sha1": "390d95581f60cac06e94aa3a39a37165ebbc5d56"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-rx7900xtx-hipblaslt-100500/ab-driver.py",
+      "bytes": 13951,
+      "git_blob_sha1": "ecb10061b6ecbc50ef18749a5fe99ad54fff3791"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-v100-16gb-ram/benchmark.py",
+      "bytes": 7132,
+      "git_blob_sha1": "cdb6e4cc06941dec6e6f4f20544ef29b8948fc02"
+    },
+    {
+      "path": "bench/results/2026-10-04-community-v100-rtx4070-split/benchmark.py",
+      "bytes": 7132,
+      "git_blob_sha1": "cdb6e4cc06941dec6e6f4f20544ef29b8948fc02"
+    },
+    {
+      "path": "bench/results/2026-10-04-windows-mapped-release/benchmark.py",
+      "bytes": 22171,
+      "git_blob_sha1": "c2872000cb8f74e156e4ea74c7297fee6f6f8464"
+    },
+    {
+      "path": "bench/results/2026-10-04-windows-mapped-release/monitor_windows.py",
+      "bytes": 5622,
+      "git_blob_sha1": "e2b0c8bd813c6e775211e8d2d371afb6f109d821"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-2x-p40/scripts/bench.py",
+      "bytes": 33190,
+      "git_blob_sha1": "114efe80a190a5439e31215af24e2fd327e0c23f"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-2x-p40/scripts/summarize.py",
+      "bytes": 6037,
+      "git_blob_sha1": "a98af040e47b886e0f06c80f198e3513b0040d1b"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-2x-rtx-4060ti/benchmark.py",
+      "bytes": 7132,
+      "git_blob_sha1": "cdb6e4cc06941dec6e6f4f20544ef29b8948fc02"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-2x-rtx-4060ti/monitor.py",
+      "bytes": 870,
+      "git_blob_sha1": "6f9f8082cb0e6f9c6b4840b088372c69d7907929"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-2x-rx-6900xt/benchmark.py",
+      "bytes": 7132,
+      "git_blob_sha1": "cdb6e4cc06941dec6e6f4f20544ef29b8948fc02"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-2x-rx-6900xt/monitor.py",
+      "bytes": 1487,
+      "git_blob_sha1": "2870991bd9d157a3d045713eb9d94ee75f4bc281"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-arc-b65/benchmark.py",
+      "bytes": 11754,
+      "git_blob_sha1": "4f868af5f68f17a5c97e6060480028e350829ead"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-arc-b65/benchy-v1/benchmark.py",
+      "bytes": 8040,
+      "git_blob_sha1": "59db269f9f1bff2636ce9fe890eb51ca5e438176"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-arc-b65/build-stride-check.py",
+      "bytes": 1142,
+      "git_blob_sha1": "2ee97f4ea27e4427397c5a5e978469deed21ae5f"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-arc-b65/prepare-mtp.py",
+      "bytes": 994,
+      "git_blob_sha1": "4af366408d67bf76248c4616342e4d1127a5d0c5"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-arc-b65/summarize.py",
+      "bytes": 6111,
+      "git_blob_sha1": "5b1a90e6ebbb1130edaca494b0f71698134b09fd"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-e5-2673v3-rtx-4060ti/prompts.py",
+      "bytes": 1960,
+      "git_blob_sha1": "48390f90c4f577909fd70cd3fc72db66cb4086f2"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-e5-2673v3-rtx-4060ti/strata_bench.py",
+      "bytes": 3981,
+      "git_blob_sha1": "e91407a912c0baed0ed68aa60d9db8e4afc7ab5d"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-rtx-5090-9700x-iq3s/benchmark.py",
+      "bytes": 9329,
+      "git_blob_sha1": "fe70af5026dc853238031a405a57bd7eb3a7cc24"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-rx-6700-xt/benchmark.py",
+      "bytes": 7132,
+      "git_blob_sha1": "cdb6e4cc06941dec6e6f4f20544ef29b8948fc02"
+    },
+    {
+      "path": "bench/results/2026-10-05-community-rx-6700-xt/monitor_amd.py",
+      "bytes": 1437,
+      "git_blob_sha1": "9b7513efc9abf52ee62e89bf655cadd02000be2a"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-2x-p100/benchmark.py",
+      "bytes": 7132,
+      "git_blob_sha1": "cdb6e4cc06941dec6e6f4f20544ef29b8948fc02"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-2x-rtx-pro-4500-engine-0.1.40.1/bench.py",
+      "bytes": 2915,
+      "git_blob_sha1": "154d50dfd27de4ecb0d18054f11d7eab6cd61e3e"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-2x-rtx-pro-4500-engine-0.1.40.1/parlast.py",
+      "bytes": 3097,
+      "git_blob_sha1": "6d297717bf7fdda241465ce7f6f47979c0a39103"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-2x-rx-7900-gre/scripts/build_cfg.py",
+      "bytes": 1170,
+      "git_blob_sha1": "145cdc875042ba0175a78290d526a413265ac279"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-2x-rx-7900-gre/scripts/make_engine_log.py",
+      "bytes": 2569,
+      "git_blob_sha1": "91749880ceedb874810bbfebc00c43ee9e45a0c8"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-2x-rx-7900-gre/scripts/pcie-topology.py",
+      "bytes": 2058,
+      "git_blob_sha1": "f6dc1412326dfcb15129659430b94f8729b37563"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-2x-rx-7900-gre/scripts/sanitize.py",
+      "bytes": 2211,
+      "git_blob_sha1": "b482271a8ad902ddde3015c46004e3ca39b46223"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-4x-tesla-p100/strata_bench.py",
+      "bytes": 4614,
+      "git_blob_sha1": "b9200eaa94564967ebfd0d0f3b264869dba9b3e5"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-rtx-5060ti/benchmark.py",
+      "bytes": 8391,
+      "git_blob_sha1": "d96f8deffa3ef25cc30b3016ff74176f55c5a7ff"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-rtx-5060ti/monitor.py",
+      "bytes": 870,
+      "git_blob_sha1": "6f9f8082cb0e6f9c6b4840b088372c69d7907929"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-rtx-5090-laptop/benchmark.py",
+      "bytes": 10268,
+      "git_blob_sha1": "33f823beee8b99778ecfd1a738ba604d18939e50"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-rtx-5090-laptop/coding_check.py",
+      "bytes": 2835,
+      "git_blob_sha1": "c370816f29a7257a81f63fd29a52567654cd3e76"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-rtx-5090-laptop/monitor.py",
+      "bytes": 788,
+      "git_blob_sha1": "a8831f7ef59c0eb4e2f421b4f21f8d60b6cc0226"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-rtx4090-opt-ins/conc_bench.py",
+      "bytes": 12617,
+      "git_blob_sha1": "3233a43623faa9098a0fe1bdcd14cc2317a28679"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-rtx4090-toolcall-hotfix/probe_parser_corpus.py",
+      "bytes": 3580,
+      "git_blob_sha1": "b21ec54c70cf131fc71866b675a2ebcf4d0a8393"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-rtx4090-toolcall-hotfix/probe_restart_waiters.py",
+      "bytes": 6202,
+      "git_blob_sha1": "91b814a2f35063de77cd18bc45256955311ea2b9"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-rtx4090-toolcall-hotfix/probe_toolcall.py",
+      "bytes": 10784,
+      "git_blob_sha1": "a4dc1ebc3e6da7ce7f6433743b5e586160c262ee"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-rtxpro-v0140/plot-ngram.py",
+      "bytes": 3988,
+      "git_blob_sha1": "55ae6a91d1d241e41c498e09a338276301dcffeb"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-rtxpro-v0140/plot.py",
+      "bytes": 4827,
+      "git_blob_sha1": "db992abfb5d8d6247891bc84041ee329cff9fcec"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-rtxpro-v0140/replay.py",
+      "bytes": 6782,
+      "git_blob_sha1": "0243e4150ae41d4b0ec8dfb0cd941ea07249cd13"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-rx-6800m/strata-bench.py",
+      "bytes": 8797,
+      "git_blob_sha1": "d5dacbc4b4652feae74385ad0c6d120dca7a933d"
+    },
+    {
+      "path": "bench/results/2026-10-06-community-rx-6800m/strata-recall.py",
+      "bytes": 1482,
+      "git_blob_sha1": "06c65060642ca838405042a48116cc50d8e67aff"
+    },
+    {
+      "path": "bench/results/2026-10-06-q8-prefill8192-rtxpro/plot.py",
+      "bytes": 3601,
+      "git_blob_sha1": "f1336c4513cd56cfafb9cc0c6b38c08ad099f359"
+    },
+    {
+      "path": "bench/results/2026-10-07-community-arc-b65-v01402/benchmark.py",
+      "bytes": 12001,
+      "git_blob_sha1": "58604b70e2be2a9d79372f62fe9b9e3321a43180"
+    },
+    {
+      "path": "bench/results/2026-10-07-community-arc-b65-v01402/frozen-community.py",
+      "bytes": 11208,
+      "git_blob_sha1": "3a6a7385fcf406a401ac557e6bc0f995e028db47"
+    },
+    {
+      "path": "bench/results/2026-10-07-community-arc-b65-v01402/prepare-mtp.py",
+      "bytes": 994,
+      "git_blob_sha1": "4af366408d67bf76248c4616342e4d1127a5d0c5"
+    },
+    {
+      "path": "bench/results/2026-10-07-community-arc-b65-v01402/public-fixtures.py",
+      "bytes": 8544,
+      "git_blob_sha1": "8ffd249d6c15f9c6f5be2cc3ea4979031b90befd"
+    },
+    {
+      "path": "bench/results/2026-10-07-community-rtx-5080-docker-wsl2/benchmark.py",
+      "bytes": 7462,
+      "git_blob_sha1": "e87ae822c017e0b8ec59252fb1895981880ccf80"
+    },
+    {
+      "path": "bench/results/2026-10-07-community-rtx-5080-docker-wsl2/image-check.py",
+      "bytes": 2630,
+      "git_blob_sha1": "bcf24295e2f7f1a1b1064232d733612e73b5d3f2"
+    },
+    {
+      "path": "bench/results/2026-10-07-community-rtx-5080-docker-wsl2/monitor.py",
+      "bytes": 2390,
+      "git_blob_sha1": "b2664a33119cd7472e148b75d6c34f7bfb7d4476"
+    },
+    {
+      "path": "bench/results/2026-10-07-community-rtx-5080-docker-wsl2/probe-request.py",
+      "bytes": 918,
+      "git_blob_sha1": "f66f1cf0f1eec57529ae3faebd0a237e7106a10c"
+    },
+    {
+      "path": "bench/results/2026-10-07-community-rtx-5080-docker-wsl2/summarize-telemetry.py",
+      "bytes": 2312,
+      "git_blob_sha1": "d8fc3596a371bf31dead04e1ac26557a2a9e01d5"
+    },
+    {
+      "path": "bench/results/2026-10-07-community-rtx5090-pro4000-helper/bench_ladder.py",
+      "bytes": 1685,
+      "git_blob_sha1": "bb811549f75ceeb8fe7d1c908bccae7468ce6346"
+    },
+    {
+      "path": "bench/results/2026-10-07-community-v100-p100-helper/bench_report.py",
+      "bytes": 3854,
+      "git_blob_sha1": "d76f1768a9c57af15be80e4cef1e6d6eb6b30da8"
+    },
+    {
+      "path": "bench/results/2026-10-07-community-xtx-6800xt-1m-helper/bench.py",
+      "bytes": 6416,
+      "git_blob_sha1": "245b2f8ae29315956ef45e8c5547b36b295ae1fb"
+    },
+    {
+      "path": "bench/results/2026-10-07-community-xtx-6800xt-1m-helper/prepare_sources.py",
+      "bytes": 1600,
+      "git_blob_sha1": "55585f71a9fe935204352ce2986ac1822ef533af"
+    },
+    {
+      "path": "bench/results/2026-10-07-community-xtx-6800xt-1m-helper/quality.py",
+      "bytes": 5422,
+      "git_blob_sha1": "04fe865ba09577c8722a790a54b444b052710095"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-2x-rtx3080-20gb-ud-q4-k-xl-512k-pool/ab/ab.py",
+      "bytes": 6098,
+      "git_blob_sha1": "80aea0b2f11858aa8503c00d9c71c2b67d99e7ec"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-2x-rtx3080-20gb-ud-q4-k-xl-512k-pool/benchmark.py",
+      "bytes": 7180,
+      "git_blob_sha1": "401bbc012dce95d6feed96b57c97fa2014cca1c5"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-2x-rtx3080-20gb-ud-q4-k-xl-512k-pool/run_harness.py",
+      "bytes": 933,
+      "git_blob_sha1": "c0ba63cccb307423768005b443dbd6916abd8571"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-2x-titan-rtx-0.1.40.3/benchmark.py",
+      "bytes": 3547,
+      "git_blob_sha1": "ef26217425d07e50761d6910437fb21ac5c0e21f"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-2x-titan-rtx-0.1.40.3/needle_bench.py",
+      "bytes": 5858,
+      "git_blob_sha1": "10a3ca14f172a6319ed29933d3d06b06fd4d6a84"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-r9700-linux/configure.py",
+      "bytes": 1578,
+      "git_blob_sha1": "c6a72e4db4198ffd07e91f95cf9f117c497f079f"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-r9700-linux/harness/bench_engine.py",
+      "bytes": 9647,
+      "git_blob_sha1": "c623525ef8970eac94f0ef9f75396d3e0117a075"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-r9700-linux/harness/bench_incremental.py",
+      "bytes": 7859,
+      "git_blob_sha1": "3f3d0f4f493cce5073c8cbdb4248a44e659ecdac"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-r9700-linux/harness/resource_sampler.py",
+      "bytes": 2034,
+      "git_blob_sha1": "891381a1ecf517de8b14135319a8779d88f4cde5"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-r9700-linux/harness/run_pairs.py",
+      "bytes": 9227,
+      "git_blob_sha1": "7a151a0bc2b4eceabe11d04d5276ec556618efc2"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-r9700-linux/harness/single_gpu.py",
+      "bytes": 7320,
+      "git_blob_sha1": "773727736faa5d71150b8b3c2c4595ffec9b03a5"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-r9700-linux/verify_report.py",
+      "bytes": 13408,
+      "git_blob_sha1": "2ca5f4b4a54cade3982d32af8512b9ee963f1371"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-rtx-5090-laptop-engine-0.1.40.3/benchmark.py",
+      "bytes": 10268,
+      "git_blob_sha1": "33f823beee8b99778ecfd1a738ba604d18939e50"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-rtx-5090-laptop-engine-0.1.40.3/coding_check.py",
+      "bytes": 2835,
+      "git_blob_sha1": "c370816f29a7257a81f63fd29a52567654cd3e76"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-rtx-5090-laptop-engine-0.1.40.3/monitor.py",
+      "bytes": 788,
+      "git_blob_sha1": "a8831f7ef59c0eb4e2f421b4f21f8d60b6cc0226"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-rtx4070-iq2-xs/make_local_prompt.py",
+      "bytes": 2509,
+      "git_blob_sha1": "9833bddef83e57a2f9b24d9ec3e32642189fbf46"
+    },
+    {
+      "path": "bench/results/2026-10-08-community-rtx4070-iq2-xs/reproduce.py",
+      "bytes": 14382,
+      "git_blob_sha1": "45e36a0d641b81f3107430320b7feddb9566334d"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-2x-rx-6900xt-0.1.41/benchmark.py",
+      "bytes": 7132,
+      "git_blob_sha1": "cdb6e4cc06941dec6e6f4f20544ef29b8948fc02"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-2x-rx-6900xt-0.1.41/table.py",
+      "bytes": 625,
+      "git_blob_sha1": "8480896c61d8951dcec02bc88e6fa8074e47038c"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-4x-rx-7900-xt/arms2.py",
+      "bytes": 5156,
+      "git_blob_sha1": "4754d598703b5e0e08bcbf920cd3abd33eb578a0"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-4x-rx-7900-xt/bench.py",
+      "bytes": 3203,
+      "git_blob_sha1": "2bc24ac994dd6d33028d6bf0f25a2d9335448dc8"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-4x-rx-7900-xt/gen.py",
+      "bytes": 2048,
+      "git_blob_sha1": "b78113d678a6c79c51d1fd9e367e99b4421a5b80"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-gfx1151-ud-iq4xs-0.1.41/scripts/aggregate.py",
+      "bytes": 7367,
+      "git_blob_sha1": "8c9478f540424250817efbb0cb1bbc8219861140"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-gfx1151-ud-iq4xs-0.1.41/scripts/measure.py",
+      "bytes": 9227,
+      "git_blob_sha1": "dfb59e545ac960788f9b9c5d50fbdac13c9680df"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-gfx1151-ud-iq4xs-0.1.41/scripts/needle.py",
+      "bytes": 1185,
+      "git_blob_sha1": "c8bfd4788bab7c5541a0daa5078817dc76278683"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-gfx1151-ud-iq4xs-0.1.41/scripts/parallel.py",
+      "bytes": 4357,
+      "git_blob_sha1": "7b6a6c22e67c4e877724db5b83918ede36145e74"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-gfx1151-ud-iq4xs-0.1.41/scripts/quality.py",
+      "bytes": 1562,
+      "git_blob_sha1": "c3112fa6e488402ea220cbdf6ebd117280d57317"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-p4-prefill-roofline/analyze_roofline.py",
+      "bytes": 8472,
+      "git_blob_sha1": "6c49f868d91f3882cc1c213cd2510418829fcb56"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-p4-prefill-roofline/p4_prefill_runner.py",
+      "bytes": 3743,
+      "git_blob_sha1": "aa88944eda9c625fab1502b9b4e8d2f802eca524"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-radeon-pro-vii-16gb/benchmark_rpv.py",
+      "bytes": 7722,
+      "git_blob_sha1": "dc441de05f29ab640f82fc05c427a606ea5d479c"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-radeon-pro-vii-16gb/monitor_rpv.py",
+      "bytes": 3064,
+      "git_blob_sha1": "28a4d75680601a717f52c1efdbd67f5ef2fb0823"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-rtx-3060-0141/scripts/strata_bench_continue.py",
+      "bytes": 8804,
+      "git_blob_sha1": "ff9c89fd301cb3b9c51df87ab01ac610a3460fe0"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-rtx-3060-0141/scripts/strata_bench_finish_code.py",
+      "bytes": 8226,
+      "git_blob_sha1": "22c2d668aa9587b5a1c1a36801c2f209c20bce5b"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-rtx-3060-0141/scripts/strata_bench_iq3_extra_recall.py",
+      "bytes": 2730,
+      "git_blob_sha1": "7d0be82ac23d23d307698d2f31f6e87c66fba393"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-rtx-3060-0141/scripts/strata_bench_run.py",
+      "bytes": 52644,
+      "git_blob_sha1": "43f956344f3879125f24e24eb6cc58ef2ec4ef57"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-rtx-3060-0141/scripts/strata_bench_soak_retry.py",
+      "bytes": 3210,
+      "git_blob_sha1": "dcc3a190115dd6cf7ef49e96ffe6a3c68ddce228"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-rtx-3060-0141/scripts/strata_bench_summarize.py",
+      "bytes": 5727,
+      "git_blob_sha1": "3dd22865acecb5f975e2753210455964628f684a"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-rtx-3060-0141/scripts/strata_eval_subset.py",
+      "bytes": 4287,
+      "git_blob_sha1": "1ffc8e8c64622225fedcac5a233da8e2889439fb"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-rtx-5060-ti-e5-2680-v4/benchmark.py",
+      "bytes": 7180,
+      "git_blob_sha1": "401bbc012dce95d6feed96b57c97fa2014cca1c5"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-rtx-5080-4060ti-0.1.41/benchmark.py",
+      "bytes": 6066,
+      "git_blob_sha1": "e4c3b2083b224fca2551cd8572152a7cef866080"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-rtx-5080-4060ti-0.1.41/make_prompts.py",
+      "bytes": 3871,
+      "git_blob_sha1": "02775f66716844c7ad951ab12656160fab3f3275"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-rtx-5080-w7-2475x-ud-iq4xs-786k/bench_sweep.py",
+      "bytes": 6100,
+      "git_blob_sha1": "d76b2e601b770cfa49fe2e3112204ee1f7beef22"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-rtx-5080-w7-2475x-ud-iq4xs-786k/guard.py",
+      "bytes": 2531,
+      "git_blob_sha1": "5fe99f3442b0555972edc0704de0347f0f856f59"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-rtx-5080-w7-2475x-ud-iq4xs-786k/thread_bench.py",
+      "bytes": 6428,
+      "git_blob_sha1": "3f2edcd304ca3c91a8db827f6f35a0835d872b0d"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-rtx5090-9800x3d-swift-1m/replay.py",
+      "bytes": 20141,
+      "git_blob_sha1": "f2144a2df9963fcaa636e5c357c27522922ad533"
+    },
+    {
+      "path": "bench/results/2026-10-09-community-rtx5090-9800x3d-swift-1m/test_replay.py",
+      "bytes": 12324,
+      "git_blob_sha1": "6b35a867d8efd0929345643aaae0677eaaf6a6e9"
+    },
+    {
+      "path": "bench/results/2026-10-09-rope-yarn-long-context/plot.py",
+      "bytes": 3236,
+      "git_blob_sha1": "3cff64455b6f34d2ee006fd8547dea52e7bf9eb3"
+    },
+    {
+      "path": "bench/results/2026-10-09-rope-yarn-long-context/probe.py",
+      "bytes": 6257,
+      "git_blob_sha1": "460ead79db2fd935fd27427ae58af6ba691cb8f5"
+    },
+    {
+      "path": "bench/results/2026-10-10-community-rx-9060-xt/scripts/benchmark.py",
+      "bytes": 10916,
+      "git_blob_sha1": "12d30dba935dc5f71434e37f87d783ec29d96644"
+    },
+    {
+      "path": "bench/results/2026-10-10-community-rx-9060-xt/scripts/reproduce_direct.py",
+      "bytes": 4573,
+      "git_blob_sha1": "a9f55e56b06450ceaae68ba26dbac53c6987d4ac"
+    },
+    {
+      "path": "bench/results/2026-10-10-community-rx-9060-xt/scripts/summarize.py",
+      "bytes": 2967,
+      "git_blob_sha1": "15a019dada845dd2440c293ae99104ceac4819ce"
+    },
+    {
+      "path": "bench/results/2026-10-10-community-rx-9070/benchmark.py",
+      "bytes": 21275,
+      "git_blob_sha1": "d02b7283a21e75e8c2b9a7d890894cdd2887595b"
+    },
+    {
+      "path": "bench/results/2026-10-11-community-rtx3090-5600x-arena-async/strata_ab2.py",
+      "bytes": 19966,
+      "git_blob_sha1": "be2bdb8f1a712763162c8b5f1299fa6a6c6b5993"
+    },
+    {
+      "path": "bench/results/2026-10-11-community-rtx3090-5600x-arena-pin-by-need/strata_ab2.py",
+      "bytes": 19966,
+      "git_blob_sha1": "be2bdb8f1a712763162c8b5f1299fa6a6c6b5993"
+    },
+    {
+      "path": "bench/results/2026-10-11-gfx1100-qsa-scores/benchmark.py",
+      "bytes": 6831,
+      "git_blob_sha1": "e22d547ad5b3a30181ea051e45e458269437b340"
+    },
+    {
+      "path": "bench/results/2026-10-12-p40-sm61-kernels/bench.py",
+      "bytes": 2682,
+      "git_blob_sha1": "32ddc4ac455efc962617fd0486fb36832dc5e939"
+    },
+    {
+      "path": "bench/results/2026-10-12-p40-sm61-kernels/equal_check.py",
+      "bytes": 2313,
+      "git_blob_sha1": "fec1558fb5e924c42adb380874da8663b0db39f5"
+    },
+    {
+      "path": "bench/test_gfx906_qsa_query_swizzle_guard.py",
+      "bytes": 6054,
+      "git_blob_sha1": "58be3deb8b78f3c5cefe6cda32eeadc62801492c"
+    },
+    {
+      "path": "chat.py",
+      "bytes": 5102,
+      "git_blob_sha1": "668e18a0c35f5a37759aee51c3236befd147dbfc"
+    },
+    {
+      "path": "conftest.py",
+      "bytes": 1021,
+      "git_blob_sha1": "5617ecf7d00d5595844b038100b711eda472a714"
+    },
+    {
+      "path": "docker/fetch-engines.py",
+      "bytes": 7739,
+      "git_blob_sha1": "042d6e1cffbaa6e3f81544bb921f5367e800702b"
+    },
+    {
+      "path": "docs/media/make_figures.py",
+      "bytes": 9615,
+      "git_blob_sha1": "0af0a0e6f1230cfd4ddd10b7702c88fea40cb6b3"
+    },
+    {
+      "path": "highlight.py",
+      "bytes": 7008,
+      "git_blob_sha1": "7f276adba0bb7c2cbd44683c4f70fe60d43d8a09"
+    },
+    {
+      "path": "integrations/harness/_bridge.py",
+      "bytes": 6516,
+      "git_blob_sha1": "502a3f09b26c83634e2b0adfa4a944a3c00e55d0"
+    },
+    {
+      "path": "integrations/harness/bridge_e2e.py",
+      "bytes": 13067,
+      "git_blob_sha1": "31292b964c623902bec7fdf3fcfae1c69f130877"
+    },
+    {
+      "path": "integrations/harness/bridge_tests.py",
+      "bytes": 12776,
+      "git_blob_sha1": "9ebb4c42de6d8d871bbed8bdcc3f872bee7d548c"
+    },
+    {
+      "path": "integrations/harness/revise_once.py",
+      "bytes": 8675,
+      "git_blob_sha1": "c228f8b0cb765f0cd538faf9144c529919870976"
+    },
+    {
+      "path": "integrations/harness/tool_flow_e2e.py",
+      "bytes": 40371,
+      "git_blob_sha1": "d83e88939eb3faf327bf200a6df16eced063a099"
+    },
+    {
+      "path": "metal/setup_mac.py",
+      "bytes": 31250,
+      "git_blob_sha1": "774ac3b29dfe4281a813acbce407856549ae17d9"
+    },
+    {
+      "path": "metal/tests/serve_probe.py",
+      "bytes": 3324,
+      "git_blob_sha1": "5d50ff5b0c86d48054f58b0b78c2505142dbcc54"
+    },
+    {
+      "path": "metal/tools/chat_tokens.py",
+      "bytes": 1085,
+      "git_blob_sha1": "8bbf2c11aa8c2f32e18ff49aa32668c4acf8cc2f"
+    },
+    {
+      "path": "metal/tools/check_ref.py",
+      "bytes": 1531,
+      "git_blob_sha1": "71da929033175f0c93fdd03af2796d181399bae1"
+    },
+    {
+      "path": "metal/tools/gen_stubs.py",
+      "bytes": 8323,
+      "git_blob_sha1": "f70ea34d2944a1a91c79c8333bc063c34199ceeb"
+    },
+    {
+      "path": "metal/tools/gen_tq_lut.py",
+      "bytes": 1831,
+      "git_blob_sha1": "c94d23c0599e6ea48b406d077756fcb8b7337db8"
+    },
+    {
+      "path": "metal/tools/metal_repack.py",
+      "bytes": 10408,
+      "git_blob_sha1": "02af864af3f5e2ca796748ec801b49df0c6ec359"
+    },
+    {
+      "path": "metal/tools/stream_experts.py",
+      "bytes": 4349,
+      "git_blob_sha1": "4eedafbe616be3e328f4edb406a680987b03121a"
+    },
+    {
+      "path": "packaging/acceptance_matrix.py",
+      "bytes": 36704,
+      "git_blob_sha1": "e2db3d241cda39db735cf8f62802a31b3ae0a663"
+    },
+    {
+      "path": "packaging/binary_deps.py",
+      "bytes": 12350,
+      "git_blob_sha1": "ad9043c952a270dd7863032fd67d1833ba850f0d"
+    },
+    {
+      "path": "packaging/collect_libs.py",
+      "bytes": 8310,
+      "git_blob_sha1": "7ed3b7745f051e348599664d86609798b0bd77be"
+    },
+    {
+      "path": "packaging/feed_tool.py",
+      "bytes": 21863,
+      "git_blob_sha1": "3034918642d9771ead6c49847bc3c99b948587c0"
+    },
+    {
+      "path": "packaging/lock_wheels.py",
+      "bytes": 7339,
+      "git_blob_sha1": "30f8788ddc3d9506c21340ce6291edc3c4410603"
+    },
+    {
+      "path": "packaging/make_local_feed.py",
+      "bytes": 6171,
+      "git_blob_sha1": "4fb4bb394b56fd04a3698fb166e0c62679146b50"
+    },
+    {
+      "path": "packaging/monitor_bundle.py",
+      "bytes": 18916,
+      "git_blob_sha1": "1c27c2c7e09cc791117e3fc1c0685e2218a7e6b9"
+    },
+    {
+      "path": "packaging/package_engine.py",
+      "bytes": 21745,
+      "git_blob_sha1": "4d61fc5afd21e4aa4e967d26ff3755d7111defc3"
+    },
+    {
+      "path": "packaging/package_terminal.py",
+      "bytes": 28939,
+      "git_blob_sha1": "55b29b1ac3902d8f7c0749aec3f3f34a6ca5187d"
+    },
+    {
+      "path": "packaging/smoke_terminal.py",
+      "bytes": 11851,
+      "git_blob_sha1": "70c3e27b335399008dc42415f063a7224253eeed"
+    },
+    {
+      "path": "packaging/stage_tuning.py",
+      "bytes": 3492,
+      "git_blob_sha1": "b1e3e305caef4650980397dc612b2c55487fcb0e"
+    },
+    {
+      "path": "ref/load.py",
+      "bytes": 10250,
+      "git_blob_sha1": "0e4575accb0561e3a9bd6aedef871f11e4564b6d"
+    },
+    {
+      "path": "serve/__init__.py",
+      "bytes": 95,
+      "git_blob_sha1": "c3b0bdd92bda5df40861db1c9cef481fbe8b440a"
+    },
+    {
+      "path": "serve/cache_drop.py",
+      "bytes": 2648,
+      "git_blob_sha1": "18850bc0b1ec04e35728b6d255bcd44d925ef55d"
+    },
+    {
+      "path": "serve/cpu_affinity.py",
+      "bytes": 2713,
+      "git_blob_sha1": "c0671b4e45a2d2634b99e5428a00bdedc02d6f05"
+    },
+    {
+      "path": "serve/ds_pictures.py",
+      "bytes": 8781,
+      "git_blob_sha1": "236a61dcbb7f170bbe9733d24739d1c3489079fe"
+    },
+    {
+      "path": "serve/dsml.py",
+      "bytes": 11253,
+      "git_blob_sha1": "c885e9703251450a62cf5e52092068eb9d208183"
+    },
+    {
+      "path": "serve/fixtures/fake_sd_cli.py",
+      "bytes": 2379,
+      "git_blob_sha1": "3dd80a6b07e4996402d23bbabe10aa1b61cfa612"
+    },
+    {
+      "path": "serve/frontend.py",
+      "bytes": 87826,
+      "git_blob_sha1": "63e319b82c2fdbc8802ebfc248ffc7bf99170aba"
+    },
+    {
+      "path": "serve/images.py",
+      "bytes": 23345,
+      "git_blob_sha1": "a8a06cc7bb5e112ca79b576b74dda3b4a656c90e"
+    },
+    {
+      "path": "serve/keepawake.py",
+      "bytes": 3156,
+      "git_blob_sha1": "d656d37d6a3cb10f32270df75327062615fb9a93"
+    },
+    {
+      "path": "serve/launch_identity.py",
+      "bytes": 963,
+      "git_blob_sha1": "f405d8ed684ae99e94d88cd14e5b09601a341a02"
+    },
+    {
+      "path": "serve/lifeline.py",
+      "bytes": 14718,
+      "git_blob_sha1": "e3a52a541b470febd7806b4d3c0a97e421a0e603"
+    },
+    {
+      "path": "serve/loader_diag.py",
+      "bytes": 4484,
+      "git_blob_sha1": "a7ad135e24e3d723b4aca471eef7c7c35f9fda03"
+    },
+    {
+      "path": "serve/logit_bias.py",
+      "bytes": 4753,
+      "git_blob_sha1": "f9765bcf8699dd7fb8b2a8d992b10e2545bfd365"
+    },
+    {
+      "path": "serve/mcp.py",
+      "bytes": 34184,
+      "git_blob_sha1": "326249ec9ba63fe301d98edbd293cfa12e7964ee"
+    },
+    {
+      "path": "serve/mcp_fake_server.py",
+      "bytes": 7426,
+      "git_blob_sha1": "c4200b078e55ac2a4904da5f26c6622718571e4e"
+    },
+    {
+      "path": "serve/owner_guard.py",
+      "bytes": 2700,
+      "git_blob_sha1": "2d2046b95f262ce4ad52c6b624747a621ac228ba"
+    },
+    {
+      "path": "serve/prometheus.py",
+      "bytes": 9553,
+      "git_blob_sha1": "7c09192c945d66a1f60be323d3c7744cca1e07ee"
+    },
+    {
+      "path": "serve/ready.py",
+      "bytes": 1660,
+      "git_blob_sha1": "1d8c440c93135bc609db97d775d083735193442a"
+    },
+    {
+      "path": "serve/replicas.py",
+      "bytes": 16991,
+      "git_blob_sha1": "5a139efa8a7d773839506ad6241a7dcdccc88f1e"
+    },
+    {
+      "path": "serve/responses.py",
+      "bytes": 37781,
+      "git_blob_sha1": "d5ea4cd00bd04f96c069964aa41c51ae63c4dc61"
+    },
+    {
+      "path": "serve/runconfig.py",
+      "bytes": 9227,
+      "git_blob_sha1": "3448db06460edef4c5c8dc68821bdb8ce5d5d932"
+    },
+    {
+      "path": "serve/server.py",
+      "bytes": 561808,
+      "git_blob_sha1": "8c5213b1f809fd96f8d2025f6d36c926f477a7e2"
+    },
+    {
+      "path": "serve/session_save_retry.py",
+      "bytes": 3292,
+      "git_blob_sha1": "2e9368add8f1b27a7ed0f54d88d3c0cd720167d7"
+    },
+    {
+      "path": "serve/split.py",
+      "bytes": 22220,
+      "git_blob_sha1": "5b28394a1c48ed3002a5a90b084fa80e226b745b"
+    },
+    {
+      "path": "serve/structured.py",
+      "bytes": 11608,
+      "git_blob_sha1": "1809a0c35eb986b227f9e7c3ccab69731a3d71df"
+    },
+    {
+      "path": "serve/telemetry.py",
+      "bytes": 31745,
+      "git_blob_sha1": "f56da0907f0027b7e274b82924bb83b2525b87c5"
+    },
+    {
+      "path": "serve/test_admit_order.py",
+      "bytes": 5048,
+      "git_blob_sha1": "67766e557f4d44e335620f37f22264fac4327546"
+    },
+    {
+      "path": "serve/test_answer_speed.py",
+      "bytes": 1890,
+      "git_blob_sha1": "325472593de8978f4670d3b8254404bddd709d6e"
+    },
+    {
+      "path": "serve/test_anthropic_base_url.py",
+      "bytes": 4323,
+      "git_blob_sha1": "7170747e11419fda4a1eb438ac6c2dad15b69d57"
+    },
+    {
+      "path": "serve/test_cache_drop.py",
+      "bytes": 1666,
+      "git_blob_sha1": "0ffcb65302cb653889d0f58f553f967a18214b94"
+    },
+    {
+      "path": "serve/test_chat_tool_results.py",
+      "bytes": 5955,
+      "git_blob_sha1": "9c99b2ee6e3cceba407777c93457748e11184e17"
+    },
+    {
+      "path": "serve/test_chunked_body.py",
+      "bytes": 7506,
+      "git_blob_sha1": "1686352eb30ca661590b7d0c4afa3572407cad0f"
+    },
+    {
+      "path": "serve/test_context_overflow.py",
+      "bytes": 6855,
+      "git_blob_sha1": "ff26c0a12597ce52279d9775bf1717ace9ed3d37"
+    },
+    {
+      "path": "serve/test_control_cancel.py",
+      "bytes": 1711,
+      "git_blob_sha1": "2f6b35404f5e17dad9e1263703760cc4bb09ef55"
+    },
+    {
+      "path": "serve/test_detok.py",
+      "bytes": 12195,
+      "git_blob_sha1": "01b3e0fa3fe2b85cccb1aea8570205482ba6949e"
+    },
+    {
+      "path": "serve/test_draft_layer.py",
+      "bytes": 2276,
+      "git_blob_sha1": "986972400840cab482b415fdb5ef3f9ceb583695"
+    },
+    {
+      "path": "serve/test_ds_pictures.py",
+      "bytes": 10589,
+      "git_blob_sha1": "a997d5c5e7547b579e6b41fddfdb1d0e615ac7ce"
+    },
+    {
+      "path": "serve/test_dsv41.py",
+      "bytes": 41839,
+      "git_blob_sha1": "e47224d9f52dbc942bc33b9cf597586b646320cf"
+    },
+    {
+      "path": "serve/test_effort_paths.py",
+      "bytes": 12195,
+      "git_blob_sha1": "405f5f5f07ab84a528f7a96af6b20b4fd08cce1d"
+    },
+    {
+      "path": "serve/test_env_to_user.py",
+      "bytes": 3095,
+      "git_blob_sha1": "270a1c4669f0d4410a0e601f770ab7c6b20cb3bf"
+    },
+    {
+      "path": "serve/test_exif_orientation.py",
+      "bytes": 1595,
+      "git_blob_sha1": "5eafa0ae58d4aa0c83fed5e34360cf65a0adbed4"
+    },
+    {
+      "path": "serve/test_family_name.py",
+      "bytes": 1352,
+      "git_blob_sha1": "44deb841560e2909f382f5380ec9913aac8b7b4d"
+    },
+    {
+      "path": "serve/test_fatal_recovery.py",
+      "bytes": 6038,
+      "git_blob_sha1": "bdd378bc2f33d2962c3d06e7b0d0e9c63dfe2ee4"
+    },
+    {
+      "path": "serve/test_frontend.py",
+      "bytes": 20322,
+      "git_blob_sha1": "24412ce37af8204ba5f9ac38bd325ea51ad99c3e"
+    },
+    {
+      "path": "serve/test_gpu_roles_server.py",
+      "bytes": 3483,
+      "git_blob_sha1": "ef2add1161eb742a70f04eb65ae05a97bb19059c"
+    },
+    {
+      "path": "serve/test_images.py",
+      "bytes": 16650,
+      "git_blob_sha1": "95ad7fbe9ef470b1e05f4f8fc9be0b79959b612c"
+    },
+    {
+      "path": "serve/test_keepawake.py",
+      "bytes": 3687,
+      "git_blob_sha1": "55176ce2eeca799491b8a91e265eb8cb3eae191b"
+    },
+    {
+      "path": "serve/test_lifecycle.py",
+      "bytes": 9221,
+      "git_blob_sha1": "3aaae11f0126dcb0d3099843885b91bf9a964b01"
+    },
+    {
+      "path": "serve/test_lifeline.py",
+      "bytes": 9814,
+      "git_blob_sha1": "f7b4b53f2a498c89915372477becde7ebcf436d5"
+    },
+    {
+      "path": "serve/test_logit_bias.py",
+      "bytes": 7096,
+      "git_blob_sha1": "0291552231d143448ae2c43dcfd0e72d42b5d9ac"
+    },
+    {
+      "path": "serve/test_logprobs.py",
+      "bytes": 30286,
+      "git_blob_sha1": "a21237db78296b512576ea3480e050eb26eee4d1"
+    },
+    {
+      "path": "serve/test_logprobs_parallel.py",
+      "bytes": 5617,
+      "git_blob_sha1": "cc494aa3e433623a353c31379f03177f41db1893"
+    },
+    {
+      "path": "serve/test_mcp.py",
+      "bytes": 28590,
+      "git_blob_sha1": "055089d9f7296e92423b748c8604e98b02e376fe"
+    },
+    {
+      "path": "serve/test_mcp_media.py",
+      "bytes": 15636,
+      "git_blob_sha1": "25a53bf31590540e0c0425161109a2e486f602d9"
+    },
+    {
+      "path": "serve/test_model_card_sampling.py",
+      "bytes": 4357,
+      "git_blob_sha1": "ee491506bc62e8280db17367fd9918adf98b7a33"
+    },
+    {
+      "path": "serve/test_monitor.py",
+      "bytes": 13983,
+      "git_blob_sha1": "6c64b1115f832b8e2081060a766b270f0451474a"
+    },
+    {
+      "path": "serve/test_native_tool_parser.py",
+      "bytes": 9404,
+      "git_blob_sha1": "342137adf854f1438b2f465273d7dea725226e94"
+    },
+    {
+      "path": "serve/test_parallel.py",
+      "bytes": 42778,
+      "git_blob_sha1": "627cdc98b95099bac298716bfff37003269a6d47"
+    },
+    {
+      "path": "serve/test_parallel_yield.py",
+      "bytes": 21349,
+      "git_blob_sha1": "eeabe383ae934cd6603aed73ba4b09c0e2e3b22d"
+    },
+    {
+      "path": "serve/test_parser_call_scan.py",
+      "bytes": 3042,
+      "git_blob_sha1": "a448451477d1a71af521bad50f779752be1a9ee5"
+    },
+    {
+      "path": "serve/test_parser_hold.py",
+      "bytes": 2790,
+      "git_blob_sha1": "519f8192ca7313bc977b66c86a8e110a01fd0104"
+    },
+    {
+      "path": "serve/test_parser_track.py",
+      "bytes": 5940,
+      "git_blob_sha1": "53f7ef76c51caa44c482a640ab86b475753f1ebf"
+    },
+    {
+      "path": "serve/test_pool_cores.py",
+      "bytes": 1996,
+      "git_blob_sha1": "ca0c94ca9b5fe3e9fa752ef047d1b47d2aa99663"
+    },
+    {
+      "path": "serve/test_prometheus.py",
+      "bytes": 9080,
+      "git_blob_sha1": "c9f2d08946bb1a3691d1a30d6d321da945fd32d1"
+    },
+    {
+      "path": "serve/test_prompt_encoder.py",
+      "bytes": 8979,
+      "git_blob_sha1": "897ddd6755e7643c64b7062dab86ca07a4581b13"
+    },
+    {
+      "path": "serve/test_q36_config.py",
+      "bytes": 2111,
+      "git_blob_sha1": "981ae5f36f7139bbfa8d074d575d15afa0c19ad8"
+    },
+    {
+      "path": "serve/test_queue_keepalive.py",
+      "bytes": 3196,
+      "git_blob_sha1": "d7d356561e4bcb8e59d74404e101969a0fd52e9d"
+    },
+    {
+      "path": "serve/test_quiet_cancel.py",
+      "bytes": 10142,
+      "git_blob_sha1": "55b4022ce79379246311e2d305febb464e0003e3"
+    },
+    {
+      "path": "serve/test_ready_timeout.py",
+      "bytes": 7118,
+      "git_blob_sha1": "009d9ecc4d442bc490b35e68bfd0a2564b090d4e"
+    },
+    {
+      "path": "serve/test_reasoning_loop_recovery.py",
+      "bytes": 13031,
+      "git_blob_sha1": "c00fc1bee7a1e063b4da8b959f01966e966284f8"
+    },
+    {
+      "path": "serve/test_reasoning_rescue.py",
+      "bytes": 14111,
+      "git_blob_sha1": "2c374e40892813282bce8da743d290dbf9085e4f"
+    },
+    {
+      "path": "serve/test_reasoning_tools.py",
+      "bytes": 10174,
+      "git_blob_sha1": "46ef8fc0a64c8e6f65cf79bbb54466b910889d5b"
+    },
+    {
+      "path": "serve/test_replicas.py",
+      "bytes": 15112,
+      "git_blob_sha1": "95f1a12e656519a3112976e642f280a732a96a49"
+    },
+    {
+      "path": "serve/test_request_accounting.py",
+      "bytes": 12474,
+      "git_blob_sha1": "55ff054085b53fcd65400feda3726b0cc9672341"
+    },
+    {
+      "path": "serve/test_request_hardening.py",
+      "bytes": 9798,
+      "git_blob_sha1": "37eb849c8e606f0051c857ed8999fc4684f5fa72"
+    },
+    {
+      "path": "serve/test_responses.py",
+      "bytes": 51141,
+      "git_blob_sha1": "866582c34044be62e98cc6561aef40cd062f97ab"
+    },
+    {
+      "path": "serve/test_restart_waiters.py",
+      "bytes": 8845,
+      "git_blob_sha1": "99c28d0062ed59a8e6853d1b3e385003430e4090"
+    },
+    {
+      "path": "serve/test_runconfig.py",
+      "bytes": 9111,
+      "git_blob_sha1": "bb171196982710e8f7074e4f6b3a3f99e015e4a2"
+    },
+    {
+      "path": "serve/test_security.py",
+      "bytes": 21813,
+      "git_blob_sha1": "0fb695e72f2a80f8366dfac6dd030237a36ab83e"
+    },
+    {
+      "path": "serve/test_server.py",
+      "bytes": 353619,
+      "git_blob_sha1": "09c88024865fe6c2da47ca0ab942770b5d839a6f"
+    },
+    {
+      "path": "serve/test_session_save_retry.py",
+      "bytes": 10794,
+      "git_blob_sha1": "60adc4da7a29c6c44c3e8840d86f501b11f0f3f4"
+    },
+    {
+      "path": "serve/test_slot_alloc.py",
+      "bytes": 4559,
+      "git_blob_sha1": "b2b4d35bef7500d25157c98ea468dcff80e0e9e4"
+    },
+    {
+      "path": "serve/test_slots.py",
+      "bytes": 22001,
+      "git_blob_sha1": "84af157f5521111ac2c9db440aeba81a84d9e2c8"
+    },
+    {
+      "path": "serve/test_split.py",
+      "bytes": 12836,
+      "git_blob_sha1": "a12164363bd1a3f8a1eaa046dd1676edb9d5af35"
+    },
+    {
+      "path": "serve/test_structured.py",
+      "bytes": 14774,
+      "git_blob_sha1": "f0e2c74aedea40c100350511538f56f4d56136e4"
+    },
+    {
+      "path": "serve/test_tool_call_envelope.py",
+      "bytes": 6143,
+      "git_blob_sha1": "cf3275b381b620bcfbb3caf032280bfb267f0f46"
+    },
+    {
+      "path": "serve/test_tool_call_unclosed.py",
+      "bytes": 4718,
+      "git_blob_sha1": "38c2be655ab77999281b4186111e30bd4eeaa3a3"
+    },
+    {
+      "path": "serve/test_tool_name_alias.py",
+      "bytes": 13208,
+      "git_blob_sha1": "5efc83657e7a096b8db729446ceb96c626470ef3"
+    },
+    {
+      "path": "serve/test_tool_name_space.py",
+      "bytes": 1881,
+      "git_blob_sha1": "32182e82d4676145571d5ddc59d3eafadf0f39ff"
+    },
+    {
+      "path": "serve/test_vision_busy.py",
+      "bytes": 2225,
+      "git_blob_sha1": "9e7195265692a1179666e9a2de9a5dbedf2a9435"
+    },
+    {
+      "path": "serve/test_vision_elastic.py",
+      "bytes": 6836,
+      "git_blob_sha1": "fa16426cda0c645f354281c86ad0cdfcf1793dcb"
+    },
+    {
+      "path": "serve/test_vision_elastic_http.py",
+      "bytes": 6977,
+      "git_blob_sha1": "78b6df73a7fe6ac98287ba5b730a890c3b82c37b"
+    },
+    {
+      "path": "serve/test_vision_start_error.py",
+      "bytes": 3323,
+      "git_blob_sha1": "7e5fc22ec01842d7c00a459f702e7f4b51fa564b"
+    },
+    {
+      "path": "serve/test_vision_token_limit.py",
+      "bytes": 2764,
+      "git_blob_sha1": "5cb69d512470d9dbaa2ef219efbd4da197c0df35"
+    },
+    {
+      "path": "serve/test_vision_tool_image.py",
+      "bytes": 3226,
+      "git_blob_sha1": "eab440c314750f6bd186714fd9f8abe953edea33"
+    },
+    {
+      "path": "serve/test_vision_workdir.py",
+      "bytes": 1711,
+      "git_blob_sha1": "2bba189c663540a61f81dad5b557d53efe06db3a"
+    },
+    {
+      "path": "serve/test_vram.py",
+      "bytes": 6192,
+      "git_blob_sha1": "e1abe0b6b61883ff7de0f5eef052dcdc0fec0e1e"
+    },
+    {
+      "path": "serve/test_web_api_key.py",
+      "bytes": 4130,
+      "git_blob_sha1": "08e77d4122f4f8cbb124f29c6fde333bad9f0124"
+    },
+    {
+      "path": "serve/test_web_badges.py",
+      "bytes": 1235,
+      "git_blob_sha1": "fcfb8860d520b7cc0425dba18ef9ccbfe4ed7823"
+    },
+    {
+      "path": "serve/test_web_follow.py",
+      "bytes": 2612,
+      "git_blob_sha1": "5157ef988f32ad19fd6f9d50687218fa169f960a"
+    },
+    {
+      "path": "serve/test_web_history.py",
+      "bytes": 6257,
+      "git_blob_sha1": "15854f2e40ddc4dc6c1e15c0b6fd0fe78ccc6e44"
+    },
+    {
+      "path": "serve/test_web_i18n.py",
+      "bytes": 4684,
+      "git_blob_sha1": "5285337398c8a0ed4d538779303119d986c5d5e2"
+    },
+    {
+      "path": "serve/test_web_load_unload.py",
+      "bytes": 3109,
+      "git_blob_sha1": "f6118e7d4881496270c9bf9894f56c6d859c0f09"
+    },
+    {
+      "path": "serve/test_web_math.py",
+      "bytes": 5278,
+      "git_blob_sha1": "2c5a2b83bc640527ce774e769a8881087dbb8f9c"
+    },
+    {
+      "path": "serve/test_web_preview.py",
+      "bytes": 3580,
+      "git_blob_sha1": "b61acd807f9bc37a2de274d6b74928f169f48790"
+    },
+    {
+      "path": "serve/test_web_sampling.py",
+      "bytes": 3390,
+      "git_blob_sha1": "b502ace2f5b4b0065a8f421fb20e9ce9954a5f5e"
+    },
+    {
+      "path": "serve/test_winjob.py",
+      "bytes": 3632,
+      "git_blob_sha1": "d7b3df6b3154d9de32268f73e12f28496c87d4fd"
+    },
+    {
+      "path": "serve/webfiles.py",
+      "bytes": 1658,
+      "git_blob_sha1": "d79b107d47eae9125c34b4672cb6d415230c5aab"
+    },
+    {
+      "path": "serve/winjob.py",
+      "bytes": 5327,
+      "git_blob_sha1": "11db01c25283d32f091ef39535576ca15bee4759"
+    },
+    {
+      "path": "setup.py",
+      "bytes": 628231,
+      "git_blob_sha1": "73471f68f37130086fb9032de21bf6798009c5a1"
+    },
+    {
+      "path": "strata.py",
+      "bytes": 1783,
+      "git_blob_sha1": "b40230272aee46b49f744c72a63c5673ef422974"
+    },
+    {
+      "path": "strata_cli/__init__.py",
+      "bytes": 1124,
+      "git_blob_sha1": "a3db1cc19bc30ae8dce9171bf97fd85f7dc7af8f"
+    },
+    {
+      "path": "strata_cli/bench.py",
+      "bytes": 74913,
+      "git_blob_sha1": "a324f94c19018667685cf628491e24788d413283"
+    },
+    {
+      "path": "strata_cli/bench_facts.py",
+      "bytes": 28518,
+      "git_blob_sha1": "026b5c49f020c473db7553453e6e05f996c4c6b8"
+    },
+    {
+      "path": "strata_cli/bench_standard.py",
+      "bytes": 75740,
+      "git_blob_sha1": "5b224414ff12f6c6599860c5741a89d78e02c272"
+    },
+    {
+      "path": "strata_cli/cli.py",
+      "bytes": 130438,
+      "git_blob_sha1": "019284408e383899a8542b746d7a29f548d302a9"
+    },
+    {
+      "path": "strata_cli/client.py",
+      "bytes": 28899,
+      "git_blob_sha1": "90c9a7c4feff15ce074532cb20b74b142fe8cfa8"
+    },
+    {
+      "path": "strata_cli/connections.py",
+      "bytes": 12998,
+      "git_blob_sha1": "f5b8088bb53d13c4aaf11159bd3dc3a23e6c0785"
+    },
+    {
+      "path": "strata_cli/consoleinfo.py",
+      "bytes": 8297,
+      "git_blob_sha1": "d13dabcb19bc201a2846c0b4f7f4919c288365b1"
+    },
+    {
+      "path": "strata_cli/dashboard.py",
+      "bytes": 50334,
+      "git_blob_sha1": "eef030f18dbe7824d6f74fceaf41ff018c21e86d"
+    },
+    {
+      "path": "strata_cli/detail_dashboard.py",
+      "bytes": 38680,
+      "git_blob_sha1": "3f64b797e6bcd90dd68fbfa8c1a3cfd9d1d4051f"
+    },
+    {
+      "path": "strata_cli/drafting_cmd.py",
+      "bytes": 5208,
+      "git_blob_sha1": "716893ae78882c357be98943ee650aba7da97b5c"
+    },
+    {
+      "path": "strata_cli/handover.py",
+      "bytes": 9467,
+      "git_blob_sha1": "dc07b3ad2973aac460c1e2d9f22e600eccbf58c0"
+    },
+    {
+      "path": "strata_cli/launch/__init__.py",
+      "bytes": 79,
+      "git_blob_sha1": "75dcedf580b07a2375669ba8eba944947f32c8b9"
+    },
+    {
+      "path": "strata_cli/launch/access.py",
+      "bytes": 20301,
+      "git_blob_sha1": "f39202e919091c268f712588e1cd5505629b28a5"
+    },
+    {
+      "path": "strata_cli/launch/adopt.py",
+      "bytes": 7546,
+      "git_blob_sha1": "8c01a3c74ba46a4835b856fe8217d7137465a928"
+    },
+    {
+      "path": "strata_cli/launch/app.py",
+      "bytes": 21876,
+      "git_blob_sha1": "8c52bd3c46a206807727fe516ec423f78e7a7b49"
+    },
+    {
+      "path": "strata_cli/launch/catalog.py",
+      "bytes": 29372,
+      "git_blob_sha1": "bddc41d977b528ef3bb3bbb2ec05cb49114038f5"
+    },
+    {
+      "path": "strata_cli/launch/check.py",
+      "bytes": 7931,
+      "git_blob_sha1": "5edd85150c892b2f9e8e09b09686354762db8dbc"
+    },
+    {
+      "path": "strata_cli/launch/cmd.py",
+      "bytes": 58668,
+      "git_blob_sha1": "6bb6caf95712dd0e3accdb1c6996812ad367abe3"
+    },
+    {
+      "path": "strata_cli/launch/harness.py",
+      "bytes": 18307,
+      "git_blob_sha1": "dc4e2de9b75747c5ac004ff4301a54965bc2f3a8"
+    },
+    {
+      "path": "strata_cli/launch/library.py",
+      "bytes": 2741,
+      "git_blob_sha1": "39b7ec17d9ae2a44f60996512e754fd2fae4f9cd"
+    },
+    {
+      "path": "strata_cli/launch/modelstate.py",
+      "bytes": 9855,
+      "git_blob_sha1": "05218491152583dcf951abc61efbcd4c92a6030b"
+    },
+    {
+      "path": "strata_cli/launch/monitor_ext.py",
+      "bytes": 16928,
+      "git_blob_sha1": "85c311d721841ec6c23fc6be214d2ec5f14da19e"
+    },
+    {
+      "path": "strata_cli/launch/params.py",
+      "bytes": 14519,
+      "git_blob_sha1": "93da4021d1978eca605679497e4aac15e21c6cef"
+    },
+    {
+      "path": "strata_cli/launch/runner.py",
+      "bytes": 135729,
+      "git_blob_sha1": "d14619861539c919468fc9ee3205675f813c8d38"
+    },
+    {
+      "path": "strata_cli/launch/screens.py",
+      "bytes": 84754,
+      "git_blob_sha1": "96054165102470016fbfd0b850b18cd77483f739"
+    },
+    {
+      "path": "strata_cli/launch/settings.py",
+      "bytes": 18379,
+      "git_blob_sha1": "0f57fb6d680bfa250997628f7869eacdce17def5"
+    },
+    {
+      "path": "strata_cli/launch/store.py",
+      "bytes": 5428,
+      "git_blob_sha1": "479693fea225ffbdf0df44ac63ecac353023a006"
+    },
+    {
+      "path": "strata_cli/launch/widgets.py",
+      "bytes": 8529,
+      "git_blob_sha1": "ebacd931b13a09f331e120d1bc2ebb055792cfbd"
+    },
+    {
+      "path": "strata_cli/logs.py",
+      "bytes": 6459,
+      "git_blob_sha1": "595645f824a1fc94d39bee1ebbed2ef008329cb8"
+    },
+    {
+      "path": "strata_cli/monitor.py",
+      "bytes": 27412,
+      "git_blob_sha1": "4b9bc0d53164f14d5fdb896f983996928c881e84"
+    },
+    {
+      "path": "strata_cli/monitor_commands.py",
+      "bytes": 13810,
+      "git_blob_sha1": "7db98a1cda90054ede37543756c5c847dc8518c9"
+    },
+    {
+      "path": "strata_cli/nav.py",
+      "bytes": 3869,
+      "git_blob_sha1": "b4a9d800034f161316c27adbca6a748269a277d7"
+    },
+    {
+      "path": "strata_cli/overview.py",
+      "bytes": 24635,
+      "git_blob_sha1": "76125aecad83e336d0ccda479fa673a52e07c359"
+    },
+    {
+      "path": "strata_cli/render.py",
+      "bytes": 46342,
+      "git_blob_sha1": "df0fa8164a9208f585aa215f3b188208f278da48"
+    },
+    {
+      "path": "strata_cli/tune_commands.py",
+      "bytes": 24928,
+      "git_blob_sha1": "758badef5fff539538e45a6abefe9a510bc8facf"
+    },
+    {
+      "path": "strata_cli/update_cmd.py",
+      "bytes": 15726,
+      "git_blob_sha1": "196d5eaa1a3965f8ea71c61ed7bcb089d5236b2a"
+    },
+    {
+      "path": "strata_control/__init__.py",
+      "bytes": 78,
+      "git_blob_sha1": "a105e3f283f5e8aa40b5de686e5b41c2daa10f36"
+    },
+    {
+      "path": "strata_control/acquisition.py",
+      "bytes": 2882,
+      "git_blob_sha1": "a61e6b4adcdbf6692ec0146cb2530f4e1d5a336f"
+    },
+    {
+      "path": "strata_control/atomic.py",
+      "bytes": 1726,
+      "git_blob_sha1": "44871817d0580c7eca701026ac228cb16a84aa26"
+    },
+    {
+      "path": "strata_control/autotune.py",
+      "bytes": 53945,
+      "git_blob_sha1": "083f23591e72e5d00ffb7087ca393eaddf49a54b"
+    },
+    {
+      "path": "strata_control/benchmarking.py",
+      "bytes": 21486,
+      "git_blob_sha1": "9d89149f0357b91d9298b375147084c871e3c83d"
+    },
+    {
+      "path": "strata_control/calibration.py",
+      "bytes": 38843,
+      "git_blob_sha1": "a0d8e0271a345b6a50ca4cb18d573110d8f9b49d"
+    },
+    {
+      "path": "strata_control/calibration_jobs.py",
+      "bytes": 18466,
+      "git_blob_sha1": "29bf9f3195f6dd55e4fae8433d9e54a57a2a40f4"
+    },
+    {
+      "path": "strata_control/components.py",
+      "bytes": 32661,
+      "git_blob_sha1": "d39ddbf29d7f5c13e12298bdf627df1e76c71456"
+    },
+    {
+      "path": "strata_control/discovery.py",
+      "bytes": 19491,
+      "git_blob_sha1": "f919655c8cd50ae7762d13095cd36ca3a975f02f"
+    },
+    {
+      "path": "strata_control/doctor.py",
+      "bytes": 13255,
+      "git_blob_sha1": "610b505d45b1eb0ea0cf12a25279113d0e481231"
+    },
+    {
+      "path": "strata_control/draft_layer.py",
+      "bytes": 2842,
+      "git_blob_sha1": "f96866e910759da2c29dd1113d47862fe5bd28e5"
+    },
+    {
+      "path": "strata_control/drafting.py",
+      "bytes": 14453,
+      "git_blob_sha1": "0e5bd7672de2aca896c5421cbd887409cc0c3b23"
+    },
+    {
+      "path": "strata_control/drafting_fetch.py",
+      "bytes": 5460,
+      "git_blob_sha1": "eee25f392b1525bf63d15e353d9b106c80207ee9"
+    },
+    {
+      "path": "strata_control/dsv41_context.py",
+      "bytes": 3829,
+      "git_blob_sha1": "b1d2a0ca397fa2fe715ff644ba1bf600ff52dc78"
+    },
+    {
+      "path": "strata_control/dsv41_engine.py",
+      "bytes": 16096,
+      "git_blob_sha1": "94125fae833c776de861e786a46e9c128f54c222"
+    },
+    {
+      "path": "strata_control/dsv41_fit.py",
+      "bytes": 35366,
+      "git_blob_sha1": "ef7f354d89acce59f7b4bdfb2945d9e0b293360d"
+    },
+    {
+      "path": "strata_control/dsv41_sets.py",
+      "bytes": 4337,
+      "git_blob_sha1": "19af9223f2ac560d474a8722d1da158ba7698fbf"
+    },
+    {
+      "path": "strata_control/engine_component.py",
+      "bytes": 54628,
+      "git_blob_sha1": "6798cf2451e9049c5ce63788986b491f4f446b2d"
+    },
+    {
+      "path": "strata_control/feed.py",
+      "bytes": 24321,
+      "git_blob_sha1": "eb0e783520ac4955ad398c5356a6432e9dbe18e6"
+    },
+    {
+      "path": "strata_control/folders.py",
+      "bytes": 4758,
+      "git_blob_sha1": "29134a73ac8773d5fb6fb466aaad27b7ce1b29c4"
+    },
+    {
+      "path": "strata_control/gguf_preflight.py",
+      "bytes": 9813,
+      "git_blob_sha1": "ed83b1eb0f0422974c7c27216dc7d6ffc548bc88"
+    },
+    {
+      "path": "strata_control/gpu_fit.py",
+      "bytes": 14522,
+      "git_blob_sha1": "9a34002e3f50873ce2767eeaf12aabc3a1cbf6af"
+    },
+    {
+      "path": "strata_control/gpu_roles.py",
+      "bytes": 22458,
+      "git_blob_sha1": "47438ddd0e5a0d12e9077012021cadf65c8590fb"
+    },
+    {
+      "path": "strata_control/hipblaslt_tuning.py",
+      "bytes": 14114,
+      "git_blob_sha1": "a6f613136c68ec1dc48e9e29ce2fc7995fc00811"
+    },
+    {
+      "path": "strata_control/journal.py",
+      "bytes": 25943,
+      "git_blob_sha1": "972fce9ef2124c71bfb9b60555e267921ad322fd"
+    },
+    {
+      "path": "strata_control/longpath.py",
+      "bytes": 5890,
+      "git_blob_sha1": "369308c454ba26c1abbba5d2f85f6f9f17896f61"
+    },
+    {
+      "path": "strata_control/loopback.py",
+      "bytes": 1088,
+      "git_blob_sha1": "969c8db28bdc7c42cc247d2b61040e2368e72459"
+    },
+    {
+      "path": "strata_control/mac_fit.py",
+      "bytes": 12823,
+      "git_blob_sha1": "a273c741692797d3db5b9621491a8073a0889d3a"
+    },
+    {
+      "path": "strata_control/management.py",
+      "bytes": 35537,
+      "git_blob_sha1": "c1af625233fe94c073cca20df272252e77a7a5a0"
+    },
+    {
+      "path": "strata_control/models.py",
+      "bytes": 46933,
+      "git_blob_sha1": "e830d844239197085beafa3803353d935d1b9fa9"
+    },
+    {
+      "path": "strata_control/models_move.py",
+      "bytes": 24308,
+      "git_blob_sha1": "8929ab9b1236245d645e9a69aee8afa520dfbdea"
+    },
+    {
+      "path": "strata_control/offline.py",
+      "bytes": 8298,
+      "git_blob_sha1": "70dba4c8d240e28f39bdceb87e67441af3bc00ff"
+    },
+    {
+      "path": "strata_control/owner_transport.py",
+      "bytes": 7759,
+      "git_blob_sha1": "aa495d2b659810efe747e15eaa537d0089a2d34b"
+    },
+    {
+      "path": "strata_control/paths.py",
+      "bytes": 945,
+      "git_blob_sha1": "db7b578f0590bd9b928aa90fce083f8d9db0fec6"
+    },
+    {
+      "path": "strata_control/posix_owner.py",
+      "bytes": 4144,
+      "git_blob_sha1": "a6f20d779744905ee3a7e3d849471723b9b5c07c"
+    },
+    {
+      "path": "strata_control/preset_marks.py",
+      "bytes": 4841,
+      "git_blob_sha1": "f8c1dba986c9e61eea1623d2497f689bc259ec4b"
+    },
+    {
+      "path": "strata_control/presets.py",
+      "bytes": 24776,
+      "git_blob_sha1": "27446803ad2c04ab4e5d654179d58a2a1680aa6e"
+    },
+    {
+      "path": "strata_control/private_files.py",
+      "bytes": 26817,
+      "git_blob_sha1": "b272d1bb5345543f139cc3d3e00cd04a29dc317c"
+    },
+    {
+      "path": "strata_control/procs.py",
+      "bytes": 17275,
+      "git_blob_sha1": "7050064b00c4d2e6af2fbf54c9d8f47014b113f8"
+    },
+    {
+      "path": "strata_control/profiles.py",
+      "bytes": 16581,
+      "git_blob_sha1": "c5ea6a56a2aa62e2f60d032492e516c88337ff29"
+    },
+    {
+      "path": "strata_control/progress_words.py",
+      "bytes": 6701,
+      "git_blob_sha1": "dddf46fb3915c4d60546ab6640c3c19b49dde0a5"
+    },
+    {
+      "path": "strata_control/readiness.py",
+      "bytes": 6503,
+      "git_blob_sha1": "859cb668ad17bd9f2fea2e8d98c2810bb011c439"
+    },
+    {
+      "path": "strata_control/recipes.py",
+      "bytes": 22023,
+      "git_blob_sha1": "2c85631a638beaa1f9361702576fba56eddbb349"
+    },
+    {
+      "path": "strata_control/runtime.py",
+      "bytes": 75012,
+      "git_blob_sha1": "1988dae3adde93bdab50eec07f288a17939a05f4"
+    },
+    {
+      "path": "strata_control/signing.py",
+      "bytes": 13813,
+      "git_blob_sha1": "be242424823dbf042032b3d4326628590c40de6a"
+    },
+    {
+      "path": "strata_control/speed_switches.py",
+      "bytes": 9868,
+      "git_blob_sha1": "8f9871cdfd965f475317614db97fa2fa3543dd68"
+    },
+    {
+      "path": "strata_control/targets.py",
+      "bytes": 2262,
+      "git_blob_sha1": "f6b82b19f3d1cb86abc4eb1bfa70ef020d9aa1c5"
+    },
+    {
+      "path": "strata_control/time_skip.py",
+      "bytes": 33006,
+      "git_blob_sha1": "564e188cd7cf10001c54737e50d0dd81a7fdbf0e"
+    },
+    {
+      "path": "strata_control/tls.py",
+      "bytes": 4455,
+      "git_blob_sha1": "8c27ee54a92b93e7e88e2712dff773dc3e165e2f"
+    },
+    {
+      "path": "strata_control/transfer.py",
+      "bytes": 13377,
+      "git_blob_sha1": "0ffbd9dc59db47ef1f4e2e8f918f58163af24e8c"
+    },
+    {
+      "path": "strata_control/tune_api.py",
+      "bytes": 14721,
+      "git_blob_sha1": "7cb330eb46dfd727d61599ee7c2f03e7e92f42e2"
+    },
+    {
+      "path": "strata_control/tune_apply.py",
+      "bytes": 17552,
+      "git_blob_sha1": "6025b5a72e1e880cede92c27117c3245e18fba4f"
+    },
+    {
+      "path": "strata_control/tune_engine.py",
+      "bytes": 26487,
+      "git_blob_sha1": "b794b7aa68713d9ca5c0765dcd0c3675b4ccaac2"
+    },
+    {
+      "path": "strata_control/tune_history.py",
+      "bytes": 10672,
+      "git_blob_sha1": "5fa9b0e587666afd46aa50534ad47352ded7afe1"
+    },
+    {
+      "path": "strata_control/tune_knobs.py",
+      "bytes": 28269,
+      "git_blob_sha1": "1573bd760be90cf82f6bfd4e1bdf56bcd87f5cb8"
+    },
+    {
+      "path": "strata_control/tune_machine.py",
+      "bytes": 14404,
+      "git_blob_sha1": "7410f444b04ec43474aacb96191be680b8f73c6a"
+    },
+    {
+      "path": "strata_control/tune_session.py",
+      "bytes": 24070,
+      "git_blob_sha1": "b32ad80637e92399c641c3eabe2041d515622748"
+    },
+    {
+      "path": "strata_control/tuning.py",
+      "bytes": 40608,
+      "git_blob_sha1": "8d3661772457d9b82c2e4180b7751ea138485b3a"
+    },
+    {
+      "path": "strata_control/updater.py",
+      "bytes": 80956,
+      "git_blob_sha1": "995e0c64118f561d34db8d1a59401504b94873bc"
+    },
+    {
+      "path": "strata_control/user_args.py",
+      "bytes": 6474,
+      "git_blob_sha1": "f2f6c108f0a6e90bb37661981331b63b270e598a"
+    },
+    {
+      "path": "strata_control/vision_reader.py",
+      "bytes": 8968,
+      "git_blob_sha1": "7ae7b72835716f12d53d340a48eaea0dc5b87619"
+    },
+    {
+      "path": "strata_control/vram_fit.py",
+      "bytes": 8668,
+      "git_blob_sha1": "7ae12dc26224f8aebc86eb51edd0e48030fae25a"
+    },
+    {
+      "path": "strata_control/winproc.py",
+      "bytes": 6561,
+      "git_blob_sha1": "4cafce633fc6425691f63b0a96d83ad3abbf0e5c"
+    },
+    {
+      "path": "sycl/serve/server_intel.py",
+      "bytes": 14934,
+      "git_blob_sha1": "8310bc7619c227234498b1408ad4baf811dbfe29"
+    },
+    {
+      "path": "sycl/serve/xe_telemetry.py",
+      "bytes": 5571,
+      "git_blob_sha1": "137667e9aa55fe5d149b88d963f3779ad636ead6"
+    },
+    {
+      "path": "sycl/setup_intel.py",
+      "bytes": 35168,
+      "git_blob_sha1": "617ea2771a3aacda0f7ab54c16b3e8a523fec7ac"
+    },
+    {
+      "path": "sycl/tools/fixups.py",
+      "bytes": 29837,
+      "git_blob_sha1": "b26e2bc9ec307e64dd66deeb02ada9dda03c6c96"
+    },
+    {
+      "path": "sycl/tools/gpustat.py",
+      "bytes": 8599,
+      "git_blob_sha1": "fa7a73abcf1c32185e2fc873ba79436014a6ab5f"
+    },
+    {
+      "path": "sycl/tools/merge_upstream.py",
+      "bytes": 2426,
+      "git_blob_sha1": "307035a2108941eab324357c0e840d74f1184eb5"
+    },
+    {
+      "path": "tests/desktop/test_app_version.py",
+      "bytes": 1494,
+      "git_blob_sha1": "cfb807f7c2c6a9483e63a019329bfe37205e088b"
+    },
+    {
+      "path": "tests/desktop/test_control_install.py",
+      "bytes": 31552,
+      "git_blob_sha1": "d306de27b50c4267b4be46a3f35df7fb72215599"
+    },
+    {
+      "path": "tests/desktop/test_fetch_node.py",
+      "bytes": 2418,
+      "git_blob_sha1": "b67c359efedc7a6b976741da8eb02c056c3b4fcf"
+    },
+    {
+      "path": "tests/desktop/test_nsis_layout.py",
+      "bytes": 9568,
+      "git_blob_sha1": "c51310bef1588156fc737b34448a69ed9963703b"
+    },
+    {
+      "path": "tests/desktop/test_tester_readme.py",
+      "bytes": 3527,
+      "git_blob_sha1": "a0d9fb6a7daebc4ea719f8507a380f649b5f8a1e"
+    },
+    {
+      "path": "tests/sycl/test_setup_intel_prefill.py",
+      "bytes": 2262,
+      "git_blob_sha1": "0c7a742a2037603a6befc8c08daff711777e1770"
+    },
+    {
+      "path": "tests/terminal/launch_previews.py",
+      "bytes": 8159,
+      "git_blob_sha1": "e94f830a615e9d46d3008ad28f8f3423b8ea623f"
+    },
+    {
+      "path": "tests/terminal/launch_support.py",
+      "bytes": 2912,
+      "git_blob_sha1": "a693c9c4a28c5f923a4ef7c6590df7466d2cb1cf"
+    },
+    {
+      "path": "tests/terminal/lifecycle_matrix.py",
+      "bytes": 36668,
+      "git_blob_sha1": "07b18e5296ff4e8baba8ef29d3c2c16ef76a5713"
+    },
+    {
+      "path": "tests/terminal/ssh_disconnect.py",
+      "bytes": 3976,
+      "git_blob_sha1": "7e7e08e080e1e75c28771fff6a27dec2997d465c"
+    },
+    {
+      "path": "tests/terminal/test_app_isolation.py",
+      "bytes": 3900,
+      "git_blob_sha1": "1534d98b099367b9b96cf8adec7dd871c2739eb9"
+    },
+    {
+      "path": "tests/terminal/test_app_prerelease_version.py",
+      "bytes": 1862,
+      "git_blob_sha1": "16ab59279fce1e48a32b9620ddb618df886dab07"
+    },
+    {
+      "path": "tests/terminal/test_archive_gaps.py",
+      "bytes": 7638,
+      "git_blob_sha1": "efe7cec8b2d9dae82791056aeb27a7bf2f0eff82"
+    },
+    {
+      "path": "tests/terminal/test_bench.py",
+      "bytes": 42638,
+      "git_blob_sha1": "b90d751d1c7a31703df511b2a0fbb809b14cf73b"
+    },
+    {
+      "path": "tests/terminal/test_bench_community_amd.py",
+      "bytes": 4517,
+      "git_blob_sha1": "2aa53068a8eb804d7581e740302c5eb4702edb77"
+    },
+    {
+      "path": "tests/terminal/test_bench_facts_amd.py",
+      "bytes": 8124,
+      "git_blob_sha1": "353f432feae259591d63408b4fe79c219b719565"
+    },
+    {
+      "path": "tests/terminal/test_bench_standard.py",
+      "bytes": 67741,
+      "git_blob_sha1": "ae2641002b12614a24f6a5dfc3500ad39f813b41"
+    },
+    {
+      "path": "tests/terminal/test_bundle_imports.py",
+      "bytes": 5047,
+      "git_blob_sha1": "a12b2b75574610401bb11ee344f55022401a1be4"
+    },
+    {
+      "path": "tests/terminal/test_bundle_tools_paths.py",
+      "bytes": 4616,
+      "git_blob_sha1": "64e4b6d516da63a75f8e07cbfd9cbb1548074090"
+    },
+    {
+      "path": "tests/terminal/test_calibration.py",
+      "bytes": 42578,
+      "git_blob_sha1": "5ebc74ac76b220548dec4ddf4a04ee963b63c65b"
+    },
+    {
+      "path": "tests/terminal/test_chat_highlight.py",
+      "bytes": 3137,
+      "git_blob_sha1": "d34fe3d34af6cc85080f12e4241ab731ae18b40a"
+    },
+    {
+      "path": "tests/terminal/test_cloudflared_find.py",
+      "bytes": 8101,
+      "git_blob_sha1": "62645467da0b0f46c06387aa8359258dd6021561"
+    },
+    {
+      "path": "tests/terminal/test_cmake_script_policies.py",
+      "bytes": 1389,
+      "git_blob_sha1": "cad4e98da0e3806bfccbff548d43004bb9571af0"
+    },
+    {
+      "path": "tests/terminal/test_component_start.py",
+      "bytes": 14546,
+      "git_blob_sha1": "e9d95f99e3abdebc7ca9ec1af137e47af7945e69"
+    },
+    {
+      "path": "tests/terminal/test_connections.py",
+      "bytes": 18154,
+      "git_blob_sha1": "9d829f00a9c865320286229a7f85f463a3b7c3fa"
+    },
+    {
+      "path": "tests/terminal/test_cpu_topology.py",
+      "bytes": 2318,
+      "git_blob_sha1": "a1c54d8e6974258c773784cc6426df99a3773a62"
+    },
+    {
+      "path": "tests/terminal/test_data_dir_choice.py",
+      "bytes": 10875,
+      "git_blob_sha1": "39038ce631fd28a49abb56dcb425a7829e75f4b8"
+    },
+    {
+      "path": "tests/terminal/test_default_object_access.py",
+      "bytes": 2052,
+      "git_blob_sha1": "b2f9ae7048bc5e4442e4dbb1c604f7d2efa4d087"
+    },
+    {
+      "path": "tests/terminal/test_discovery.py",
+      "bytes": 17142,
+      "git_blob_sha1": "05e0b318e2fd139518f138eb3a9b81ab37b3823c"
+    },
+    {
+      "path": "tests/terminal/test_disk_space.py",
+      "bytes": 2602,
+      "git_blob_sha1": "cac8943641644a246309a2fdf07ce53fc4d3b1cb"
+    },
+    {
+      "path": "tests/terminal/test_docker_fetch.py",
+      "bytes": 4077,
+      "git_blob_sha1": "5dc0dea78e4f83a5ff2e0ce4f0981f4fd3354bd2"
+    },
+    {
+      "path": "tests/terminal/test_docker_files.py",
+      "bytes": 17145,
+      "git_blob_sha1": "295e0349ec815e20038a12c37155fb02495dff89"
+    },
+    {
+      "path": "tests/terminal/test_download_integrity.py",
+      "bytes": 18530,
+      "git_blob_sha1": "64b27654e228b4eb14382646c7af081c77181118"
+    },
+    {
+      "path": "tests/terminal/test_drafting.py",
+      "bytes": 28304,
+      "git_blob_sha1": "f1fdb311e351930c39902950763b2eb04a10b8cd"
+    },
+    {
+      "path": "tests/terminal/test_drain.py",
+      "bytes": 2923,
+      "git_blob_sha1": "01bdd1de0445d9afa860b22714e35038799a9c97"
+    },
+    {
+      "path": "tests/terminal/test_dsv41_async_t.py",
+      "bytes": 1635,
+      "git_blob_sha1": "75c6cd57e1b33cd260f2d75397690f9643f95dfe"
+    },
+    {
+      "path": "tests/terminal/test_dsv41_context.py",
+      "bytes": 9692,
+      "git_blob_sha1": "95bc5c8658e5510a289f02ed2542d68fb18a2c80"
+    },
+    {
+      "path": "tests/terminal/test_dsv41_engine.py",
+      "bytes": 12917,
+      "git_blob_sha1": "3158422e061ce936ce18c107ab5328e90d8f113a"
+    },
+    {
+      "path": "tests/terminal/test_dsv41_fit.py",
+      "bytes": 4356,
+      "git_blob_sha1": "18b4bd387deb6dfdc212ae2c25f2961b49420d53"
+    },
+    {
+      "path": "tests/terminal/test_dsv41_import_preview.py",
+      "bytes": 5176,
+      "git_blob_sha1": "f0f4f3b4a40cef5aa6d9bfe802d1d315419f0e9c"
+    },
+    {
+      "path": "tests/terminal/test_dsv41_own_files_and_mmproj.py",
+      "bytes": 6910,
+      "git_blob_sha1": "07cedcd18f28f3a737ac6c7721a1d2c65514edde"
+    },
+    {
+      "path": "tests/terminal/test_dsv41_prefill_chunk.py",
+      "bytes": 1989,
+      "git_blob_sha1": "7159cdea93af6ef5e6bd754fc09996b0993f66f7"
+    },
+    {
+      "path": "tests/terminal/test_dsv41_tui_items.py",
+      "bytes": 15017,
+      "git_blob_sha1": "d9920a4c0539c1dd159e37bdb9ce5ab62d6f19bb"
+    },
+    {
+      "path": "tests/terminal/test_dsv41_tune.py",
+      "bytes": 3978,
+      "git_blob_sha1": "30b28a0d91da232bb1d1f8babbd62f4bb7cedcfc"
+    },
+    {
+      "path": "tests/terminal/test_dsv41_upgrade.py",
+      "bytes": 9255,
+      "git_blob_sha1": "dc726ceb85fab4891019a895c7932b6bed61e449"
+    },
+    {
+      "path": "tests/terminal/test_engine_component.py",
+      "bytes": 25092,
+      "git_blob_sha1": "6f9fc56746e5b2a1d0e630e01a0573dd654d1224"
+    },
+    {
+      "path": "tests/terminal/test_engine_deps.py",
+      "bytes": 6810,
+      "git_blob_sha1": "ff6dac5d106bc6b28c182d9d82e368a9ad686dec"
+    },
+    {
+      "path": "tests/terminal/test_engine_manifest.py",
+      "bytes": 23648,
+      "git_blob_sha1": "46375ffd7ccf7d1f68c22c5f547dde46d59c540d"
+    },
+    {
+      "path": "tests/terminal/test_engine_smoke.py",
+      "bytes": 2916,
+      "git_blob_sha1": "402082585dee66a1d6eb0ac840971aab8d5a5111"
+    },
+    {
+      "path": "tests/terminal/test_file_in_use.py",
+      "bytes": 2467,
+      "git_blob_sha1": "f3346ed709d8b552078d46887381fbc237f93fa4"
+    },
+    {
+      "path": "tests/terminal/test_flow2_022.py",
+      "bytes": 21101,
+      "git_blob_sha1": "c2e5e29a6adcf8f1cbeb2a501b425420052b21d3"
+    },
+    {
+      "path": "tests/terminal/test_folders_home.py",
+      "bytes": 1348,
+      "git_blob_sha1": "94cf103db61c04fa8f49b6890e1296fa1501ddc3"
+    },
+    {
+      "path": "tests/terminal/test_gfx_selection.py",
+      "bytes": 7821,
+      "git_blob_sha1": "9a8dcf1e017038650db5f694e499843fc8518b8b"
+    },
+    {
+      "path": "tests/terminal/test_gpu_fit.py",
+      "bytes": 9217,
+      "git_blob_sha1": "88e0016788f9db6d6d64bd6ac6a600f5d5f209be"
+    },
+    {
+      "path": "tests/terminal/test_gpu_roles.py",
+      "bytes": 6209,
+      "git_blob_sha1": "99dc8c31cceb63b7dfe379b35d5bee5afb24bbf2"
+    },
+    {
+      "path": "tests/terminal/test_handover.py",
+      "bytes": 8855,
+      "git_blob_sha1": "8fc7f22e95442ca798d77336fc8c4b2c18e55dec"
+    },
+    {
+      "path": "tests/terminal/test_hipblaslt_tuning.py",
+      "bytes": 20183,
+      "git_blob_sha1": "999ef2b2f7d6a614cf059d463ac544b3df711c96"
+    },
+    {
+      "path": "tests/terminal/test_import_projector.py",
+      "bytes": 4687,
+      "git_blob_sha1": "f17bda8cba466453c858c5e0bdc9872517401c57"
+    },
+    {
+      "path": "tests/terminal/test_install_engine_file.py",
+      "bytes": 4219,
+      "git_blob_sha1": "333803a56ac082a78d7edfcf69dc50d2b1875105"
+    },
+    {
+      "path": "tests/terminal/test_install_scripts_env.py",
+      "bytes": 4664,
+      "git_blob_sha1": "ec5fe6512a583876dc49281f3f0e0bf589e16029"
+    },
+    {
+      "path": "tests/terminal/test_issues_022.py",
+      "bytes": 23627,
+      "git_blob_sha1": "7efd7322d15296ad2970ee615e72b8fc523c5dfc"
+    },
+    {
+      "path": "tests/terminal/test_launch.py",
+      "bytes": 83124,
+      "git_blob_sha1": "d3f4b35ad2cce8be6618ac6a382478e6afa19253"
+    },
+    {
+      "path": "tests/terminal/test_launch_dsv41.py",
+      "bytes": 10106,
+      "git_blob_sha1": "b329ec9bf7b587616a3fea6b318b1c5a012a757f"
+    },
+    {
+      "path": "tests/terminal/test_launch_engine_first.py",
+      "bytes": 14948,
+      "git_blob_sha1": "397249c55029519586e58ef3cea0f6eaf64f8c98"
+    },
+    {
+      "path": "tests/terminal/test_launch_identity.py",
+      "bytes": 2808,
+      "git_blob_sha1": "b5645972362c2e4675bf8d79659b5a02d461b137"
+    },
+    {
+      "path": "tests/terminal/test_launch_install.py",
+      "bytes": 12248,
+      "git_blob_sha1": "7a8d011ff4f36edc0f777e776e89d58ad5297a07"
+    },
+    {
+      "path": "tests/terminal/test_launch_monitor.py",
+      "bytes": 8593,
+      "git_blob_sha1": "6fa802db1752ace639e1b2d9483e43e9684d5315"
+    },
+    {
+      "path": "tests/terminal/test_launch_old_gpus.py",
+      "bytes": 2728,
+      "git_blob_sha1": "f54203fbf941d592e5efc6495231a78f28033a3d"
+    },
+    {
+      "path": "tests/terminal/test_launch_own_log.py",
+      "bytes": 1454,
+      "git_blob_sha1": "85eb1f995c0b9c16996cacda72f6b5dae46be1e4"
+    },
+    {
+      "path": "tests/terminal/test_launch_show_key_setup.py",
+      "bytes": 3465,
+      "git_blob_sha1": "b9efe00a9a874143797fdd0d70326124c4285f8f"
+    },
+    {
+      "path": "tests/terminal/test_launch_speed.py",
+      "bytes": 17283,
+      "git_blob_sha1": "ab53d1f0d2eb91390202fb638d39140fa54c0b04"
+    },
+    {
+      "path": "tests/terminal/test_launch_tui.py",
+      "bytes": 43917,
+      "git_blob_sha1": "4aaf5eb7163e0e7ec628d6ea54389a3e6ce59e00"
+    },
+    {
+      "path": "tests/terminal/test_launch_tui_walk.py",
+      "bytes": 17375,
+      "git_blob_sha1": "fa8eab9eba063d165ec5350fdf68583ea66d8be0"
+    },
+    {
+      "path": "tests/terminal/test_lifecycle_matrix.py",
+      "bytes": 1345,
+      "git_blob_sha1": "fdf0fedc5c5c1264751540944a34e9d56e474f7b"
+    },
+    {
+      "path": "tests/terminal/test_loader_diag.py",
+      "bytes": 3247,
+      "git_blob_sha1": "f5d55f8602c3a5bb7e0ccc5d8c36ee1785a39d28"
+    },
+    {
+      "path": "tests/terminal/test_logs.py",
+      "bytes": 8876,
+      "git_blob_sha1": "a0a5e2efb9bb9365867c96a557090a17727de528"
+    },
+    {
+      "path": "tests/terminal/test_longpath.py",
+      "bytes": 8516,
+      "git_blob_sha1": "720ef28ae48ca000294e5c92a7eff03c11410040"
+    },
+    {
+      "path": "tests/terminal/test_loopback.py",
+      "bytes": 1695,
+      "git_blob_sha1": "43f4d3f82bccf2545c9da4af170f47d58a6f89e0"
+    },
+    {
+      "path": "tests/terminal/test_make_guard.py",
+      "bytes": 10515,
+      "git_blob_sha1": "cfa0e7e8fd8e3532f72a842be6913d3a0e6ab94e"
+    },
+    {
+      "path": "tests/terminal/test_migration.py",
+      "bytes": 11396,
+      "git_blob_sha1": "5aea687b1a68a52bfd2ae746289868ef1022644c"
+    },
+    {
+      "path": "tests/terminal/test_mixed_vendors.py",
+      "bytes": 8494,
+      "git_blob_sha1": "50f3e4df064afa0ecad74e4cb3afef9d82810a41"
+    },
+    {
+      "path": "tests/terminal/test_model_folder_case.py",
+      "bytes": 3357,
+      "git_blob_sha1": "ea807557b1bff04c7ca40237798903ab8e16fe27"
+    },
+    {
+      "path": "tests/terminal/test_model_id_dot.py",
+      "bytes": 1312,
+      "git_blob_sha1": "f196e1f928d27dbcb2bb28a1527ca95082b6a17f"
+    },
+    {
+      "path": "tests/terminal/test_models.py",
+      "bytes": 17164,
+      "git_blob_sha1": "b4f62a017009f0dbdb02fc566d320fc15a086b6a"
+    },
+    {
+      "path": "tests/terminal/test_models_move.py",
+      "bytes": 19899,
+      "git_blob_sha1": "b11fec0b444a05d4bf8e6e8c4d9aa33b1011bf1d"
+    },
+    {
+      "path": "tests/terminal/test_monitor_bundle.py",
+      "bytes": 29327,
+      "git_blob_sha1": "312fb7a879b5bd3b4cf8d02432fe16a60869ef92"
+    },
+    {
+      "path": "tests/terminal/test_monitor_classic.py",
+      "bytes": 13403,
+      "git_blob_sha1": "39057d64de2ccb6448549c718ceab29d5162e4a0"
+    },
+    {
+      "path": "tests/terminal/test_no_acquisition.py",
+      "bytes": 20076,
+      "git_blob_sha1": "196b5fa9c860b4fb30ed793b1570925b10d2d1d8"
+    },
+    {
+      "path": "tests/terminal/test_overview.py",
+      "bytes": 9051,
+      "git_blob_sha1": "fe40925f869917d4c8ac6e440a5771e70489c255"
+    },
+    {
+      "path": "tests/terminal/test_own_files.py",
+      "bytes": 16626,
+      "git_blob_sha1": "e4f0de8b9ab031842bad199e943e7f99582e318a"
+    },
+    {
+      "path": "tests/terminal/test_owner_transport.py",
+      "bytes": 9513,
+      "git_blob_sha1": "11282dd40b888ad8bfed15e46e8dd374ac2b911f"
+    },
+    {
+      "path": "tests/terminal/test_pack_gguf_engram.py",
+      "bytes": 5162,
+      "git_blob_sha1": "448d1c97c87998c48aa6fd2296b69676d7f620ca"
+    },
+    {
+      "path": "tests/terminal/test_packaging_pins.py",
+      "bytes": 6382,
+      "git_blob_sha1": "b38a75c731d1f61579636d599dbad4656d614703"
+    },
+    {
+      "path": "tests/terminal/test_picture_reader_package.py",
+      "bytes": 4286,
+      "git_blob_sha1": "d80c6563c436c08d5035883b7691d0fcdc0b940c"
+    },
+    {
+      "path": "tests/terminal/test_posix_owner.py",
+      "bytes": 3465,
+      "git_blob_sha1": "85b01e96db72d7e97c4198303d254f1ece089d50"
+    },
+    {
+      "path": "tests/terminal/test_private_files.py",
+      "bytes": 10073,
+      "git_blob_sha1": "3cf723ff2a4f8122dce8e5c481ae95f3b2831a5f"
+    },
+    {
+      "path": "tests/terminal/test_procs.py",
+      "bytes": 9627,
+      "git_blob_sha1": "2891ee5cc22a20c799d695dde531373880f39abe"
+    },
+    {
+      "path": "tests/terminal/test_profiles.py",
+      "bytes": 26384,
+      "git_blob_sha1": "469769348c8bef6f2ddfe31f20df5f5f32cb8aa2"
+    },
+    {
+      "path": "tests/terminal/test_progress_words.py",
+      "bytes": 9411,
+      "git_blob_sha1": "16b1bb8dcfb52fc03da19eda360e73f03abb8fdb"
+    },
+    {
+      "path": "tests/terminal/test_read_small_retry.py",
+      "bytes": 1942,
+      "git_blob_sha1": "561b10829febfebf2f6029d91fc58420e9b0225a"
+    },
+    {
+      "path": "tests/terminal/test_ready.py",
+      "bytes": 3063,
+      "git_blob_sha1": "efcfa697095d4be348a98a807508a11cdb2daa26"
+    },
+    {
+      "path": "tests/terminal/test_recipes.py",
+      "bytes": 19780,
+      "git_blob_sha1": "c652f5b4c161f24a706e0c79f4ddc2b0bffad826"
+    },
+    {
+      "path": "tests/terminal/test_release_config.py",
+      "bytes": 3461,
+      "git_blob_sha1": "8e563cd829cac796bca183842060b2a869412e3c"
+    },
+    {
+      "path": "tests/terminal/test_release_keys.py",
+      "bytes": 2637,
+      "git_blob_sha1": "8c87afa28477b21f2b16bbc76087dad688ad9286"
+    },
+    {
+      "path": "tests/terminal/test_release_matrix.py",
+      "bytes": 12479,
+      "git_blob_sha1": "d6aab311440e833f971c8c0e64083c3ea584de00"
+    },
+    {
+      "path": "tests/terminal/test_round8_fixes.py",
+      "bytes": 19992,
+      "git_blob_sha1": "d3e9db4727e6e12a342fe3ca2f07ce24545da800"
+    },
+    {
+      "path": "tests/terminal/test_runtime.py",
+      "bytes": 80787,
+      "git_blob_sha1": "04dd6953fad16de4f6c8274f0ec01a8483350f39"
+    },
+    {
+      "path": "tests/terminal/test_setup_arm64.py",
+      "bytes": 3303,
+      "git_blob_sha1": "7f51056a586dfef12930d2471eeed6ab57119b53"
+    },
+    {
+      "path": "tests/terminal/test_setup_failure_words.py",
+      "bytes": 5664,
+      "git_blob_sha1": "fa558935cd02b8b9a0a9b31fe0770324d2aaed4c"
+    },
+    {
+      "path": "tests/terminal/test_sh_stream_windows.py",
+      "bytes": 5046,
+      "git_blob_sha1": "5921710b2e355e12050ce548da83bd931c285c10"
+    },
+    {
+      "path": "tests/terminal/test_shared_models_folder.py",
+      "bytes": 4124,
+      "git_blob_sha1": "c6357619246e71b3b998a195f189f3062a1b4f99"
+    },
+    {
+      "path": "tests/terminal/test_size_label.py",
+      "bytes": 932,
+      "git_blob_sha1": "39eb5cf329ea5ff8bad8c8abee3df241888c7f0d"
+    },
+    {
+      "path": "tests/terminal/test_speed_switches.py",
+      "bytes": 18584,
+      "git_blob_sha1": "b7b596a88962c5808800e477f0f284c5ee12803a"
+    },
+    {
+      "path": "tests/terminal/test_state_paths.py",
+      "bytes": 2191,
+      "git_blob_sha1": "9c9122c759847b50ae2ba56e04347799486c4945"
+    },
+    {
+      "path": "tests/terminal/test_sycl_build_script.py",
+      "bytes": 3046,
+      "git_blob_sha1": "71d93ee405038568be3c419493695a69ba52e50b"
+    },
+    {
+      "path": "tests/terminal/test_sycl_package.py",
+      "bytes": 6612,
+      "git_blob_sha1": "80d6f904aa72b13b07852408f97bffee95715a44"
+    },
+    {
+      "path": "tests/terminal/test_terminal.py",
+      "bytes": 90841,
+      "git_blob_sha1": "5f4c74ed35d5bcd7d9e4ebe1bf959bf9a24d6734"
+    },
+    {
+      "path": "tests/terminal/test_terminal_commit.py",
+      "bytes": 3104,
+      "git_blob_sha1": "cf2ec95a9ad9d14f4172da3b9bd9c4419d5e9c0b"
+    },
+    {
+      "path": "tests/terminal/test_terminal_polish.py",
+      "bytes": 2580,
+      "git_blob_sha1": "fe99d9539496671f1ecc0911311b718af519f34c"
+    },
+    {
+      "path": "tests/terminal/test_tls_trust.py",
+      "bytes": 5593,
+      "git_blob_sha1": "33daf5d72f5e7de7b9511e9c3ed8e4dec49a421a"
+    },
+    {
+      "path": "tests/terminal/test_troubleshooting_page.py",
+      "bytes": 4370,
+      "git_blob_sha1": "f6ef6506bd673a7c4661fab5ac4088d89943345f"
+    },
+    {
+      "path": "tests/terminal/test_tui2_023_install.py",
+      "bytes": 4530,
+      "git_blob_sha1": "e9f6ee180a45fdefa32c0e01e66d18fb991e40dd"
+    },
+    {
+      "path": "tests/terminal/test_tui2_023_messages.py",
+      "bytes": 3641,
+      "git_blob_sha1": "5dd38ff1164926803f078e862cf30cebe68ca4f6"
+    },
+    {
+      "path": "tests/terminal/test_tui2_023_old_launcher.py",
+      "bytes": 2830,
+      "git_blob_sha1": "f021c8e213199b6093ad36c00fbd309da818a525"
+    },
+    {
+      "path": "tests/terminal/test_tui2_023_plan.py",
+      "bytes": 5061,
+      "git_blob_sha1": "ef65ae1f83cd65ff8e945be87eb78942333875e5"
+    },
+    {
+      "path": "tests/terminal/test_tui2_023_shards.py",
+      "bytes": 1782,
+      "git_blob_sha1": "0f51817202a8de42fa13c5f45e139809d2ebbe0e"
+    },
+    {
+      "path": "tests/terminal/test_tui2_023_versions.py",
+      "bytes": 4902,
+      "git_blob_sha1": "f0085ccf0163f80ec456092eabe705459119b6d3"
+    },
+    {
+      "path": "tests/terminal/test_tui3.py",
+      "bytes": 14609,
+      "git_blob_sha1": "7858e34040288dcda64997a552e6634723e1d91f"
+    },
+    {
+      "path": "tests/terminal/test_tui_stress.py",
+      "bytes": 7167,
+      "git_blob_sha1": "fb3ede830d2e6ffbb4548e4d9bfd6612c40922ad"
+    },
+    {
+      "path": "tests/terminal/test_tui_stress_launch.py",
+      "bytes": 11361,
+      "git_blob_sha1": "3a5a8ec1a4df55ab98be2438fc5ca06b46655ed6"
+    },
+    {
+      "path": "tests/terminal/test_tui_stress_screens.py",
+      "bytes": 10015,
+      "git_blob_sha1": "e5d8564eeeed6f3a5fb442d2ae5a75866f4be7fa"
+    },
+    {
+      "path": "tests/terminal/test_tuiqa_browser.py",
+      "bytes": 4050,
+      "git_blob_sha1": "46bf765b9d6a4ee2ba14fa71e12220c01e6f9b7b"
+    },
+    {
+      "path": "tests/terminal/test_tuiqa_connect_cli.py",
+      "bytes": 5522,
+      "git_blob_sha1": "120df27b47c373d0cba941bf1d2c6f1ba7efb9b9"
+    },
+    {
+      "path": "tests/terminal/test_tuiqa_launch.py",
+      "bytes": 10100,
+      "git_blob_sha1": "fa456f395b76fe1732a21f4c51a6d5fe36527087"
+    },
+    {
+      "path": "tests/terminal/test_tuiqa_monitor.py",
+      "bytes": 14846,
+      "git_blob_sha1": "6d71405c78be3e2fbb4004ce49d04b5b69eae6ab"
+    },
+    {
+      "path": "tests/terminal/test_tuiqa_version.py",
+      "bytes": 3103,
+      "git_blob_sha1": "b2087ff6f85f4efa7a24b8fda28d82a2506986ab"
+    },
+    {
+      "path": "tests/terminal/test_tuiqa_wizard.py",
+      "bytes": 11326,
+      "git_blob_sha1": "8bcb14866d0bdc3cc57f66feca6a87007477c26c"
+    },
+    {
+      "path": "tests/terminal/test_update_feed.py",
+      "bytes": 23542,
+      "git_blob_sha1": "983177d51bc94c6cb0ec992476955910764598c9"
+    },
+    {
+      "path": "tests/terminal/test_update_feed_memory.py",
+      "bytes": 1695,
+      "git_blob_sha1": "2d156ea73c4ca80e559aa2ebf6ecf3e8878bc78d"
+    },
+    {
+      "path": "tests/terminal/test_update_rules_022.py",
+      "bytes": 7009,
+      "git_blob_sha1": "3611161435fe85b94076e6fa25eef6424f1e0570"
+    },
+    {
+      "path": "tests/terminal/test_updater.py",
+      "bytes": 51571,
+      "git_blob_sha1": "267506a44faf62cf917641828a1c6b2c63862734"
+    },
+    {
+      "path": "tests/terminal/test_vision_gguf_meta.py",
+      "bytes": 1365,
+      "git_blob_sha1": "b590ecfb277e82080bbd4602f293ebe18bc4ce5f"
+    },
+    {
+      "path": "tests/terminal/test_visual_detail.py",
+      "bytes": 6035,
+      "git_blob_sha1": "0e6195bafa20c421dbf02f6ad1260fee750a9951"
+    },
+    {
+      "path": "tests/terminal/test_vram_fit.py",
+      "bytes": 7705,
+      "git_blob_sha1": "6b84b2c93349eba351962fea8767f9bcd452b04d"
+    },
+    {
+      "path": "tests/terminal/test_wsl_amd_note.py",
+      "bytes": 3323,
+      "git_blob_sha1": "bb73de5db1c27a5b0bb498f04e29e12a432beef3"
+    },
+    {
+      "path": "tests/terminal/update_fixture.py",
+      "bytes": 6781,
+      "git_blob_sha1": "7f6e328009bade2ab9fbcf7243c57b1c899597a8"
+    },
+    {
+      "path": "tests/time_skip/test_apply_attempt.py",
+      "bytes": 2063,
+      "git_blob_sha1": "973b2aa51ee3fdb4c1223ac4b5c2fae3610b43fb"
+    },
+    {
+      "path": "tests/time_skip/test_atomic.py",
+      "bytes": 2484,
+      "git_blob_sha1": "caa7414c6f8dbddb95ee76a2a1d411c1c4f0e1dd"
+    },
+    {
+      "path": "tests/time_skip/test_time_skip.py",
+      "bytes": 19524,
+      "git_blob_sha1": "989d662984639b1b1d6b4cc9c183b6f295f1e1d8"
+    },
+    {
+      "path": "tests/tuning/stub_engine.py",
+      "bytes": 1875,
+      "git_blob_sha1": "3321cbc4245355cf311ad9d54097a04e8e3a4444"
+    },
+    {
+      "path": "tests/tuning/stub_session.py",
+      "bytes": 3861,
+      "git_blob_sha1": "bcfac4a5ce0fefa62ba709f77de6ca8291529b5a"
+    },
+    {
+      "path": "tests/tuning/test_autotune.py",
+      "bytes": 24985,
+      "git_blob_sha1": "533c8bc84f35cc320fe230cb7159fe0100f37ced"
+    },
+    {
+      "path": "tests/tuning/test_components.py",
+      "bytes": 23754,
+      "git_blob_sha1": "61be9437d60b9a80bf9258a25fc1848046943bbc"
+    },
+    {
+      "path": "tests/tuning/test_offline.py",
+      "bytes": 9030,
+      "git_blob_sha1": "e7039c2a9a8afbd513759c8fb8b5619e3e619c23"
+    },
+    {
+      "path": "tests/tuning/test_preset_persistence.py",
+      "bytes": 7046,
+      "git_blob_sha1": "8731add201fcf3bf2575250355faabaf9d8b543c"
+    },
+    {
+      "path": "tests/tuning/test_presets.py",
+      "bytes": 11530,
+      "git_blob_sha1": "9bdbebaf53141f4c19c8e017d4124d796541ea91"
+    },
+    {
+      "path": "tests/tuning/test_session.py",
+      "bytes": 6275,
+      "git_blob_sha1": "7aa391f56fc029830797c9750191bf150051fb42"
+    },
+    {
+      "path": "tests/tuning/test_tune_api.py",
+      "bytes": 10727,
+      "git_blob_sha1": "5c00c85c5a5217cd8560d7023f23c151b67960d8"
+    },
+    {
+      "path": "tests/tuning/test_tune_apply.py",
+      "bytes": 19341,
+      "git_blob_sha1": "1bde24cc8b8267159187da9328f50650db696112"
+    },
+    {
+      "path": "tests/tuning/test_tune_engine.py",
+      "bytes": 13409,
+      "git_blob_sha1": "342a46bb32d12434faa1626318c82092c79ffb8c"
+    },
+    {
+      "path": "tests/tuning/test_tune_history.py",
+      "bytes": 11996,
+      "git_blob_sha1": "00de9b952a2bad0b61b1e8bc84a6a821049909a7"
+    },
+    {
+      "path": "tests/tuning/test_tuning.py",
+      "bytes": 22327,
+      "git_blob_sha1": "583fe466f22078e7cd98a93a62c2fbe72b5af780"
+    },
+    {
+      "path": "tools/_paths.py",
+      "bytes": 2186,
+      "git_blob_sha1": "097b7d1cf81aeb3f66613252e882d89b8ea5bbd4"
+    },
+    {
+      "path": "tools/ab_engine.py",
+      "bytes": 6474,
+      "git_blob_sha1": "adb6dc282f60710b4ec877b8173db7598c26b593"
+    },
+    {
+      "path": "tools/agent_turns_bench.py",
+      "bytes": 12668,
+      "git_blob_sha1": "198ebcc81977b36594ef13c6521bbadc20023c1d"
+    },
+    {
+      "path": "tools/batch_groups_cache_test.py",
+      "bytes": 3843,
+      "git_blob_sha1": "22a27a49312f87c73c9df3c8683d9311531e7a33"
+    },
+    {
+      "path": "tools/batch_interleave_test.py",
+      "bytes": 18251,
+      "git_blob_sha1": "ef1c40a8597765b51a3319b43afe8eaa773bce74"
+    },
+    {
+      "path": "tools/batch_test.py",
+      "bytes": 8975,
+      "git_blob_sha1": "78060b3dc3f059841a64628d775474d7e12eb3f6"
+    },
+    {
+      "path": "tools/bench_eviction.py",
+      "bytes": 17670,
+      "git_blob_sha1": "ba6acf346fad518cf8d7da9c488bf849b49676ca"
+    },
+    {
+      "path": "tools/build_standard_corpus.py",
+      "bytes": 13956,
+      "git_blob_sha1": "970eba03322ea46feb1b9554b4324f6a8bc82e42"
+    },
+    {
+      "path": "tools/calibrate.py",
+      "bytes": 28429,
+      "git_blob_sha1": "f2408ae0d79884b00c13145cf9b4b229b260eb1b"
+    },
+    {
+      "path": "tools/cancel_park_test.py",
+      "bytes": 4090,
+      "git_blob_sha1": "8f3f8f7acc76ead11d52ee5a123a4865e317ebcd"
+    },
+    {
+      "path": "tools/canonical_xcheck.py",
+      "bytes": 40698,
+      "git_blob_sha1": "e83819b38d54de9c1688f5b47108475bedc52267"
+    },
+    {
+      "path": "tools/check_cuda_spills.py",
+      "bytes": 23319,
+      "git_blob_sha1": "47254058c7310c02aa35d4d395e6d5636601e5f2"
+    },
+    {
+      "path": "tools/check_isa_guard.py",
+      "bytes": 12367,
+      "git_blob_sha1": "83cd18f1bf928bdb4734f304e53444f83fcc0a37"
+    },
+    {
+      "path": "tools/collect_profile_traces.py",
+      "bytes": 4126,
+      "git_blob_sha1": "cd32febd0dd0b359868dc08c43e674abbd197c33"
+    },
+    {
+      "path": "tools/conversation_cache_disabled.py",
+      "bytes": 10910,
+      "git_blob_sha1": "cf8140432593332465ea95a466a0481f1fd95d83"
+    },
+    {
+      "path": "tools/conversation_cache_growth.py",
+      "bytes": 9874,
+      "git_blob_sha1": "f52cef835ea20f8d026d0a668571ac26466881d2"
+    },
+    {
+      "path": "tools/conversation_cache_http_smoke.py",
+      "bytes": 5854,
+      "git_blob_sha1": "bd1df98cc8b88d5c072b92d69627ffd04996b7d7"
+    },
+    {
+      "path": "tools/conversation_cache_isolation.py",
+      "bytes": 7657,
+      "git_blob_sha1": "c0f0d52b26a842b6a0e3e27b5026bf3919e5cd65"
+    },
+    {
+      "path": "tools/conversation_cache_parity.py",
+      "bytes": 14015,
+      "git_blob_sha1": "6e7b4fcad67fb6c0946afe62ebac6076b7cce98d"
+    },
+    {
+      "path": "tools/conversation_cache_soak.py",
+      "bytes": 9874,
+      "git_blob_sha1": "fc9bb0e5aaab23967b68eaa87246a6afc2804814"
+    },
+    {
+      "path": "tools/conversation_restore_speed.py",
+      "bytes": 9372,
+      "git_blob_sha1": "980c4b7ee3c2b30b827d3aeeb512f442ab4fb8f1"
+    },
+    {
+      "path": "tools/dflash2/analyze2.py",
+      "bytes": 2996,
+      "git_blob_sha1": "7db05068d5caf99fe30d323feb7736ab6e0c470e"
+    },
+    {
+      "path": "tools/dflash2/dflash2_ref.py",
+      "bytes": 9365,
+      "git_blob_sha1": "6702a8c6151548dc601c2aa0f2ce0b286df64139"
+    },
+    {
+      "path": "tools/dflash2/final_tables.py",
+      "bytes": 3187,
+      "git_blob_sha1": "9caa872bdb10af335327fc438c886fb8f2aaac78"
+    },
+    {
+      "path": "tools/dflash2/mk_parity_case.py",
+      "bytes": 3803,
+      "git_blob_sha1": "a812270c4ea7191eff9fad7ed67af39cbc6b024e"
+    },
+    {
+      "path": "tools/dflash2/mk_prompts.py",
+      "bytes": 3019,
+      "git_blob_sha1": "78910f51e48c027f0d64dd0a806e0ea2113569c2"
+    },
+    {
+      "path": "tools/dflash2/orch.py",
+      "bytes": 2801,
+      "git_blob_sha1": "fda18f5968b673f8828c14ce0994a78b0fa00f71"
+    },
+    {
+      "path": "tools/dflash2/q8test.py",
+      "bytes": 2278,
+      "git_blob_sha1": "30f2a154505f2731492312a81d100338179ff314"
+    },
+    {
+      "path": "tools/dflash2/run_all2.py",
+      "bytes": 2246,
+      "git_blob_sha1": "bc30dd72d0036be2452b38d8846579fe69e9dc20"
+    },
+    {
+      "path": "tools/dflash2/run_eval.py",
+      "bytes": 3714,
+      "git_blob_sha1": "77056a023c863c6b6f81f1fd211151f7f4610f23"
+    },
+    {
+      "path": "tools/dflash2/test_port.py",
+      "bytes": 2445,
+      "git_blob_sha1": "335363bda3caf2a4083c7142e138e061daac7d63"
+    },
+    {
+      "path": "tools/dflash2_pack.py",
+      "bytes": 7407,
+      "git_blob_sha1": "841873843eb878f3d59516895e533e4db2651bd4"
+    },
+    {
+      "path": "tools/draft_vocab.py",
+      "bytes": 6751,
+      "git_blob_sha1": "b3cc9fc5e5a3c382f58d5e5c134c6366dcbc9a59"
+    },
+    {
+      "path": "tools/dsv41/compare.py",
+      "bytes": 2782,
+      "git_blob_sha1": "32925f669475f07e2dc17f143915fbb27578da16"
+    },
+    {
+      "path": "tools/dsv41/dense_requant.py",
+      "bytes": 4982,
+      "git_blob_sha1": "e424e3ca37f6a53ccc1003a96a9ac277a6ef9079"
+    },
+    {
+      "path": "tools/dsv41/drafter_pack.py",
+      "bytes": 10834,
+      "git_blob_sha1": "a7f54ad4de03d0474f2b11f559edd6b11d5bee0f"
+    },
+    {
+      "path": "tools/dsv41/dspark_ref.py",
+      "bytes": 17815,
+      "git_blob_sha1": "858146ca026d7caf27f059adf0c3a749b70109d8"
+    },
+    {
+      "path": "tools/dsv41/dumpcmp.py",
+      "bytes": 8568,
+      "git_blob_sha1": "8d28adc01a20646efc110c4b1b4f91b02fb07e45"
+    },
+    {
+      "path": "tools/dsv41/dumpscan.py",
+      "bytes": 1990,
+      "git_blob_sha1": "dcab698a7a9000d46536651ffe7ac316b3e38fd9"
+    },
+    {
+      "path": "tools/dsv41/dumpscan_y.py",
+      "bytes": 2249,
+      "git_blob_sha1": "bee2602595afee4a58073436ca2408d580b79d5a"
+    },
+    {
+      "path": "tools/dsv41/engram_fold.py",
+      "bytes": 8983,
+      "git_blob_sha1": "58850f3522c247510bad68cdb88aa476fbd0185d"
+    },
+    {
+      "path": "tools/dsv41/engram_hash.py",
+      "bytes": 6184,
+      "git_blob_sha1": "ce97aed65b176ec7e0f913e08b8f3f8cebf75d6a"
+    },
+    {
+      "path": "tools/dsv41/engram_iq4nl_bench.py",
+      "bytes": 28460,
+      "git_blob_sha1": "88eedf76dd4732e461c45230cbd07b1041ecc64b"
+    },
+    {
+      "path": "tools/dsv41/ista_intake.py",
+      "bytes": 14980,
+      "git_blob_sha1": "257cc326bc49abce3c737730559ccc059d1307d6"
+    },
+    {
+      "path": "tools/dsv41/make_imatrix.py",
+      "bytes": 1513,
+      "git_blob_sha1": "1827ee775eb3b58548e0a64c37856989f2307c8f"
+    },
+    {
+      "path": "tools/dsv41/mkimg.py",
+      "bytes": 2456,
+      "git_blob_sha1": "eba5740d328a3dcb9872ff7cb3bc4d19582a8c1c"
+    },
+    {
+      "path": "tools/dsv41/mkprompts.py",
+      "bytes": 2568,
+      "git_blob_sha1": "bf467e86fd329567facf02c2199e9e25ce4b5022"
+    },
+    {
+      "path": "tools/dsv41/pack_gguf.py",
+      "bytes": 56362,
+      "git_blob_sha1": "4a44d1ccaf8038d531fd0a7ebdeffb096f6abd3e"
+    },
+    {
+      "path": "tools/dsv41/ref.py",
+      "bytes": 21582,
+      "git_blob_sha1": "46f5417600fa050250916383a034a0e10a0c1a7c"
+    },
+    {
+      "path": "tools/dsv41/ref_gguf.py",
+      "bytes": 14268,
+      "git_blob_sha1": "e9d0421465fba71ca029ce5992b86786b172f171"
+    },
+    {
+      "path": "tools/dsv41/requant_gguf.py",
+      "bytes": 22161,
+      "git_blob_sha1": "f84bb08cea66a32747e39160740a0b5cccf36d39"
+    },
+    {
+      "path": "tools/dsv41/serve_prompts.py",
+      "bytes": 3703,
+      "git_blob_sha1": "e9a363d97f02e04f1e8d58a5414549f947209fb2"
+    },
+    {
+      "path": "tools/dsv41/slot_keep_test.py",
+      "bytes": 24559,
+      "git_blob_sha1": "8e3ec36534ea4a64f32f25b5c562cc251fe2ce60"
+    },
+    {
+      "path": "tools/dsv41/smoke.py",
+      "bytes": 4353,
+      "git_blob_sha1": "3a3e195623b6abdaa83fdf31154eecd759b8065b"
+    },
+    {
+      "path": "tools/dsv41/st.py",
+      "bytes": 2729,
+      "git_blob_sha1": "a47f70fd5aa6780577ac5effcfca7869bc924589"
+    },
+    {
+      "path": "tools/dsv41/test_prompt_skip.py",
+      "bytes": 2632,
+      "git_blob_sha1": "719c9c07efda93c3ed8540164b49802af331e6aa"
+    },
+    {
+      "path": "tools/dsv41/tok.py",
+      "bytes": 1643,
+      "git_blob_sha1": "228332b32bb7f04d3844898849c0d6e7db94e579"
+    },
+    {
+      "path": "tools/dsv41/tq_convert.py",
+      "bytes": 8102,
+      "git_blob_sha1": "dbc4e40437f4da6d626de1162872ded6bee10137"
+    },
+    {
+      "path": "tools/dsv41/tune.py",
+      "bytes": 8322,
+      "git_blob_sha1": "fd3aa8b66cf93330380fdca0d07100d32a2142dc"
+    },
+    {
+      "path": "tools/dsv41/vision_pack.py",
+      "bytes": 10324,
+      "git_blob_sha1": "61db7ce5e785f046c8594e297d78d38a54038549"
+    },
+    {
+      "path": "tools/dsv41/win/cachesim.py",
+      "bytes": 12499,
+      "git_blob_sha1": "b6c171afb5b432a2bfcaf2116e72c46c8b737d9b"
+    },
+    {
+      "path": "tools/dsv41/win/h100sim.py",
+      "bytes": 4512,
+      "git_blob_sha1": "e362375d9508091c98baa30b734d861008bb4531"
+    },
+    {
+      "path": "tools/dsv41/win/predsim.py",
+      "bytes": 4593,
+      "git_blob_sha1": "42b59a94b56b6a4e77cb29a0c30b14474cd017b1"
+    },
+    {
+      "path": "tools/early_close_test.py",
+      "bytes": 2021,
+      "git_blob_sha1": "ea3b77a7483ec097df189f6017acffc76fa5ee01"
+    },
+    {
+      "path": "tools/embd_bf16_pack.py",
+      "bytes": 5901,
+      "git_blob_sha1": "a633b33234bdbb5bfca711016aa70d851f5a10e2"
+    },
+    {
+      "path": "tools/gguf_reader.py",
+      "bytes": 8105,
+      "git_blob_sha1": "5a5a05eb312bd0b8bd49f7da9645519d8a98bc39"
+    },
+    {
+      "path": "tools/gguf_writer.py",
+      "bytes": 10227,
+      "git_blob_sha1": "8ad3cd6ef5616661b04d6f020096a7f28c367e4a"
+    },
+    {
+      "path": "tools/harness_reuse_probe.py",
+      "bytes": 5056,
+      "git_blob_sha1": "fc6bd0a4883c70a052b3d44f94a458677ab72f62"
+    },
+    {
+      "path": "tools/hf_pin_fetch.py",
+      "bytes": 2357,
+      "git_blob_sha1": "5387b44b68da84ff3ba251e0c356cfe1dce2eb70"
+    },
+    {
+      "path": "tools/hip/bench_prefill.py",
+      "bytes": 3842,
+      "git_blob_sha1": "8edb11f6bf9f09321fca0c391f38b38595f290a9"
+    },
+    {
+      "path": "tools/hip/dll_closure.py",
+      "bytes": 4692,
+      "git_blob_sha1": "4a56f6a3259a1753ccfc70b5ac6c9a104392e438"
+    },
+    {
+      "path": "tools/hip/package_windows.py",
+      "bytes": 12057,
+      "git_blob_sha1": "63ac0991f0dea146092780d1d2642184500f56d4"
+    },
+    {
+      "path": "tools/idle_gpu_ab.py",
+      "bytes": 15178,
+      "git_blob_sha1": "bb9add869a2662efceebe6a5200354e1df2ad993"
+    },
+    {
+      "path": "tools/image/install.py",
+      "bytes": 5056,
+      "git_blob_sha1": "64709697538ca8b068abca9819a8f8d8f670b71d"
+    },
+    {
+      "path": "tools/image/qimage.py",
+      "bytes": 10641,
+      "git_blob_sha1": "560a38be3f3afc4b35181e80d4dd8a14ed67e8c3"
+    },
+    {
+      "path": "tools/image/sdcpp_native/apply.py",
+      "bytes": 4573,
+      "git_blob_sha1": "343b9b25f686ab053c37c89fc40508df8113a142"
+    },
+    {
+      "path": "tools/iq_fixture.py",
+      "bytes": 7541,
+      "git_blob_sha1": "8cfcf921983a94053581d55acc1487bc80eb9b8f"
+    },
+    {
+      "path": "tools/iq_pack.py",
+      "bytes": 43958,
+      "git_blob_sha1": "b33723a08cb1275343c2ff75a099e7fad766770b"
+    },
+    {
+      "path": "tools/logit_bias_english_example.py",
+      "bytes": 3623,
+      "git_blob_sha1": "f9f710eba40efdb1a6bfd7d78d834309d03367f7"
+    },
+    {
+      "path": "tools/logit_bias_http_probe.py",
+      "bytes": 5195,
+      "git_blob_sha1": "312cda14f8e0227630ec1696b2fe9e9b238b93e2"
+    },
+    {
+      "path": "tools/make_profile.py",
+      "bytes": 6386,
+      "git_blob_sha1": "ba041879df6e26726252e297f5d6a454937a2206"
+    },
+    {
+      "path": "tools/make_profile_mix.py",
+      "bytes": 2985,
+      "git_blob_sha1": "9e1aaaaf45d1165f7f25f3146d43008d214f17cc"
+    },
+    {
+      "path": "tools/minimal_cli_smoke.py",
+      "bytes": 6163,
+      "git_blob_sha1": "b48e531ba7c017475ec86d470527de414ed999d8"
+    },
+    {
+      "path": "tools/minimal_server_smoke.py",
+      "bytes": 3425,
+      "git_blob_sha1": "b4bebcd3720c0adfc98e430ad6635bc26adc8336"
+    },
+    {
+      "path": "tools/monitor_soak.py",
+      "bytes": 16548,
+      "git_blob_sha1": "cef6feddc1f574545f870744789307af71b7a34a"
+    },
+    {
+      "path": "tools/mtp_fetch.py",
+      "bytes": 24748,
+      "git_blob_sha1": "8968dfa509581b657537da0047683b9fffb5cef1"
+    },
+    {
+      "path": "tools/mtp_pack.py",
+      "bytes": 9654,
+      "git_blob_sha1": "022d2ea8ff55184cb91a4f2089b092f110d9301c"
+    },
+    {
+      "path": "tools/mtp_rt.py",
+      "bytes": 4957,
+      "git_blob_sha1": "6276e4c85cee702aa4a2e6ba681a9dade4862bc1"
+    },
+    {
+      "path": "tools/needle_bench.py",
+      "bytes": 5858,
+      "git_blob_sha1": "10a3ca14f172a6319ed29933d3d06b06fd4d6a84"
+    },
+    {
+      "path": "tools/nvfp4_convert.py",
+      "bytes": 5864,
+      "git_blob_sha1": "31eb8a6aa7631b40254446c4a5e3ddb2e74345af"
+    },
+    {
+      "path": "tools/nvfp4_local_pack.py",
+      "bytes": 35702,
+      "git_blob_sha1": "a9752e4a0899342261c2e66db46280b8ca12aed1"
+    },
+    {
+      "path": "tools/nvfp4_verify.py",
+      "bytes": 5862,
+      "git_blob_sha1": "fc7ed8412c699ff9a13a7e2fe57834c127069463"
+    },
+    {
+      "path": "tools/nvfp4_verify_gguf.py",
+      "bytes": 8154,
+      "git_blob_sha1": "45bddfea31c8bf82b6d46c37d8c27540945d9429"
+    },
+    {
+      "path": "tools/pack_index.py",
+      "bytes": 14422,
+      "git_blob_sha1": "02678acb0dd2558671e54d6094a852f72c126326"
+    },
+    {
+      "path": "tools/pack_layer.py",
+      "bytes": 5766,
+      "git_blob_sha1": "1fdf1148f30751da623311cee737b1d81119c04d"
+    },
+    {
+      "path": "tools/parking_test.py",
+      "bytes": 4456,
+      "git_blob_sha1": "299958253408f7a4435820aa7126b380dfd5ea74"
+    },
+    {
+      "path": "tools/piped_read_join_bench.py",
+      "bytes": 11282,
+      "git_blob_sha1": "59ab8054cf513696972d578709442be685c301c7"
+    },
+    {
+      "path": "tools/ple_fp8_pack.py",
+      "bytes": 5337,
+      "git_blob_sha1": "63132731483fb2b4b2881d9dc45a915e4ed86da1"
+    },
+    {
+      "path": "tools/portable_monitor_pty_smoke.py",
+      "bytes": 5006,
+      "git_blob_sha1": "840b08adf5f5cea2b5a4280e08dd7e41aa2d20e4"
+    },
+    {
+      "path": "tools/portable_monitor_smoke.py",
+      "bytes": 12393,
+      "git_blob_sha1": "49315d1c7528ded07a2f2c44123ac6c720acf795"
+    },
+    {
+      "path": "tools/q8_dense_gguf.py",
+      "bytes": 7902,
+      "git_blob_sha1": "e39f2351124c617175094c2f21f40d6a3a9de355"
+    },
+    {
+      "path": "tools/quant_bound.py",
+      "bytes": 3220,
+      "git_blob_sha1": "cce03b00189f57cae7cf4d43cf046636d104a66b"
+    },
+    {
+      "path": "tools/quant_formats.py",
+      "bytes": 6415,
+      "git_blob_sha1": "367934b65fe7f5427ab3e0d0fa17c679aa9ddf76"
+    },
+    {
+      "path": "tools/quant_quality.py",
+      "bytes": 17140,
+      "git_blob_sha1": "10065e3a0ae1a1393d6196b2d996de045b5281c5"
+    },
+    {
+      "path": "tools/quantscope.py",
+      "bytes": 16964,
+      "git_blob_sha1": "de0da24709a98cd86481fd5bb61e81bbbfe4e0e0"
+    },
+    {
+      "path": "tools/qwen35/compare_dumps.py",
+      "bytes": 3212,
+      "git_blob_sha1": "7b94a04084750977fd7934ed4db7a1634c84d048"
+    },
+    {
+      "path": "tools/qwen35/kl.py",
+      "bytes": 5329,
+      "git_blob_sha1": "2ec18d574497e3c3b15b406b06cd43d64ada5d60"
+    },
+    {
+      "path": "tools/qwen35/make_big_picture.py",
+      "bytes": 1181,
+      "git_blob_sha1": "98ef33bfd0f76c185673d9bfadf1698054e5c099"
+    },
+    {
+      "path": "tools/qwen35/parity.py",
+      "bytes": 6253,
+      "git_blob_sha1": "640415f360288657767b8f5ec003bca1f1618619"
+    },
+    {
+      "path": "tools/qwen35/q36_batch_gate.py",
+      "bytes": 5417,
+      "git_blob_sha1": "5e79bb14a7ef73f0849c07880400872a23b0d57f"
+    },
+    {
+      "path": "tools/qwen35/q36_cmp_gate.py",
+      "bytes": 604,
+      "git_blob_sha1": "078f96a75dd4ace75a0ca2749f41bf39cec34dc7"
+    },
+    {
+      "path": "tools/qwen35/q36_harness.py",
+      "bytes": 5778,
+      "git_blob_sha1": "48a6e4bda9343ac3127755c3be9c208fd95f4595"
+    },
+    {
+      "path": "tools/qwen35/q36_interleave_probe.py",
+      "bytes": 3316,
+      "git_blob_sha1": "f838671eef9d55791decadfb5bd024d526464a96"
+    },
+    {
+      "path": "tools/qwen35/q36_lgcmp.py",
+      "bytes": 813,
+      "git_blob_sha1": "fbf62b5354b2d30ff8dad7acc0f7eab70b9ce744"
+    },
+    {
+      "path": "tools/qwen35/q36_multilingual_prompts.py",
+      "bytes": 2548,
+      "git_blob_sha1": "4147d10a7d2b111f0c1a5d3446c058d7cd6b83bb"
+    },
+    {
+      "path": "tools/qwen35/q36_par_bench.py",
+      "bytes": 4963,
+      "git_blob_sha1": "f9718114b6e44f17649a04c873621ae9f3e4c79d"
+    },
+    {
+      "path": "tools/qwen35/q36_proto_edge.py",
+      "bytes": 4987,
+      "git_blob_sha1": "a7d623f11b39df58e7a9e5038559a5cbb072e472"
+    },
+    {
+      "path": "tools/qwen35/q36_serve_handoff.py",
+      "bytes": 2592,
+      "git_blob_sha1": "96b60ce0c917a0e3a4d51269a9c64b77be458f47"
+    },
+    {
+      "path": "tools/qwen35/q36_serve_par.py",
+      "bytes": 3369,
+      "git_blob_sha1": "fe6f4a0619b98075e523e3f9acf75a26e0b38ac2"
+    },
+    {
+      "path": "tools/qwen35/q36_solo_gate.py",
+      "bytes": 1300,
+      "git_blob_sha1": "09caadab5cbafb3cf6fe12d067aeef8de4219a79"
+    },
+    {
+      "path": "tools/qwen35/q36_venc.py",
+      "bytes": 992,
+      "git_blob_sha1": "2520a03fb596d934c9f0bb66e0b621f90cb309e4"
+    },
+    {
+      "path": "tools/qwen35/q36_vision_cmp.py",
+      "bytes": 8457,
+      "git_blob_sha1": "932291eb66de404ff632bd167a8df53e91fa8310"
+    },
+    {
+      "path": "tools/qwen35/q36_vision_proto.py",
+      "bytes": 4887,
+      "git_blob_sha1": "d64ccea22b4ea855112f890292f55836429740b4"
+    },
+    {
+      "path": "tools/qwen35/q36_vision_serve.py",
+      "bytes": 1518,
+      "git_blob_sha1": "5bb59c1ee1ef295ab89b052ab640c34486fed12a"
+    },
+    {
+      "path": "tools/qwen35/q36_vram_refusal.py",
+      "bytes": 3002,
+      "git_blob_sha1": "b0b65b4a5230d1b28020e2da647920a84b2bcc11"
+    },
+    {
+      "path": "tools/replay_cache_policy.py",
+      "bytes": 5762,
+      "git_blob_sha1": "db0105455041623a902d7d2b5c950a765498c709"
+    },
+    {
+      "path": "tools/research_run.py",
+      "bytes": 7300,
+      "git_blob_sha1": "ec02c40a0b9d5ab8b96393b850e646b5232b03a0"
+    },
+    {
+      "path": "tools/serve_load.py",
+      "bytes": 8206,
+      "git_blob_sha1": "aa4be73dd933d151cec35f418a08cbfda2d56d7f"
+    },
+    {
+      "path": "tools/session_pressure_test.py",
+      "bytes": 4099,
+      "git_blob_sha1": "babce6d311e9b46921164f155af59facf9070b79"
+    },
+    {
+      "path": "tools/split_mtp_batch_parity.py",
+      "bytes": 3702,
+      "git_blob_sha1": "e976fbb8fb872baad0fb5ee195942301d89cd40b"
+    },
+    {
+      "path": "tools/split_serve_check.py",
+      "bytes": 14763,
+      "git_blob_sha1": "f441bdb0bd395a3c53073bb5913d111fb0178afd"
+    },
+    {
+      "path": "tools/stop_resend_test.py",
+      "bytes": 4276,
+      "git_blob_sha1": "d481554eb591fb842203eb058cc64fa9e5c79b96"
+    },
+    {
+      "path": "tools/strata_bench.py",
+      "bytes": 60181,
+      "git_blob_sha1": "806273db3c0878c311888d699f0d372aa5f9aa84"
+    },
+    {
+      "path": "tools/strata_inspect.py",
+      "bytes": 10205,
+      "git_blob_sha1": "425954a1adec2481a5701445f3553ad08937c031"
+    },
+    {
+      "path": "tools/strata_mcp.py",
+      "bytes": 163647,
+      "git_blob_sha1": "c6e282468828c7d3f38450c271d0134b5819eac2"
+    },
+    {
+      "path": "tools/strata_pack.py",
+      "bytes": 21775,
+      "git_blob_sha1": "f289b2f3a25c22404d1fea2f58979048f1c0068a"
+    },
+    {
+      "path": "tools/strata_tokenizer.py",
+      "bytes": 28010,
+      "git_blob_sha1": "33452af86ef072766a105655872e0235562db97c"
+    },
+    {
+      "path": "tools/test_bench_eviction.py",
+      "bytes": 7446,
+      "git_blob_sha1": "08161fea371724c85a3ff6850eae406d7b93404f"
+    },
+    {
+      "path": "tools/test_bench_host.py",
+      "bytes": 1550,
+      "git_blob_sha1": "be0d67d09118c0c2772bed7ebc9891db44be0d8e"
+    },
+    {
+      "path": "tools/test_calibrate.py",
+      "bytes": 27906,
+      "git_blob_sha1": "7ffe1fb63bbb91fe923cb349997f8d9235fa2b0e"
+    },
+    {
+      "path": "tools/test_check_cuda_spills.py",
+      "bytes": 6839,
+      "git_blob_sha1": "17147a6f690b0071e3d94dbcd987f2b883289719"
+    },
+    {
+      "path": "tools/test_check_isa_guard.py",
+      "bytes": 3428,
+      "git_blob_sha1": "dd192303b1d1501d68d071b615955777150a2e0e"
+    },
+    {
+      "path": "tools/test_conversation_cache_disabled.py",
+      "bytes": 5639,
+      "git_blob_sha1": "59c3e68512de15b31e2f45ba669099015edddb71"
+    },
+    {
+      "path": "tools/test_conversation_cache_growth.py",
+      "bytes": 3941,
+      "git_blob_sha1": "f89f2be82a1fd24c383612efacfacf39af48a7f3"
+    },
+    {
+      "path": "tools/test_conversation_cache_http_smoke.py",
+      "bytes": 3118,
+      "git_blob_sha1": "50211a87d78fa3c7d2de44269745a5e6ba08814d"
+    },
+    {
+      "path": "tools/test_conversation_cache_isolation.py",
+      "bytes": 4233,
+      "git_blob_sha1": "d87e9287cbc070f702fe676aeda7b244f64e4863"
+    },
+    {
+      "path": "tools/test_conversation_cache_parity.py",
+      "bytes": 8497,
+      "git_blob_sha1": "b9a790134cfb05a30359a73a6883c7507a517e4b"
+    },
+    {
+      "path": "tools/test_conversation_cache_soak.py",
+      "bytes": 4107,
+      "git_blob_sha1": "7ac12a6d7f72aa3e94c5405669e9f75a5a61b0e4"
+    },
+    {
+      "path": "tools/test_conversation_restore_speed.py",
+      "bytes": 1644,
+      "git_blob_sha1": "d5a14892acb0fbcf10ee34594d196e705826824a"
+    },
+    {
+      "path": "tools/test_cyrillic_paths.py",
+      "bytes": 2325,
+      "git_blob_sha1": "1be52b0db8938b0e51b87be89ecdb45dd9eee948"
+    },
+    {
+      "path": "tools/test_dflash2_pack.py",
+      "bytes": 6783,
+      "git_blob_sha1": "fff1057ae92c0779aee4bcb06bae9d5ad8bf4119"
+    },
+    {
+      "path": "tools/test_dll_closure.py",
+      "bytes": 7476,
+      "git_blob_sha1": "5d4e4ca9b366b11a2b7a77266bbb0c5ee8ebc736"
+    },
+    {
+      "path": "tools/test_docker_entrypoint.py",
+      "bytes": 15182,
+      "git_blob_sha1": "78af88f17348add4f7313addee0a1efd1250d516"
+    },
+    {
+      "path": "tools/test_draft_vocab.py",
+      "bytes": 1853,
+      "git_blob_sha1": "2375a223104374eb2e3ae218330c9fdfc34dcb5f"
+    },
+    {
+      "path": "tools/test_effort_end_args.py",
+      "bytes": 3368,
+      "git_blob_sha1": "d6d555513c5ee35afafe7c474936169c8629ac9a"
+    },
+    {
+      "path": "tools/test_gfx906_build_files.py",
+      "bytes": 2336,
+      "git_blob_sha1": "1c634757c0a5ea8193781f12e9bbe0d4b28fff3d"
+    },
+    {
+      "path": "tools/test_gguf_paths.py",
+      "bytes": 1702,
+      "git_blob_sha1": "1a73ffff96ce4dddc55bf2eaccf9336d8aa478a8"
+    },
+    {
+      "path": "tools/test_gguf_reader_malformed.py",
+      "bytes": 7275,
+      "git_blob_sha1": "98358f0299cc8af48b6bbdd21a2a566d141799f3"
+    },
+    {
+      "path": "tools/test_gguf_tqp.py",
+      "bytes": 1453,
+      "git_blob_sha1": "338eda96b22d44c14aeb6d78d78b409329a48697"
+    },
+    {
+      "path": "tools/test_iq_pack.py",
+      "bytes": 41877,
+      "git_blob_sha1": "f1faeabe47040192cd9c7befa74638af1576633b"
+    },
+    {
+      "path": "tools/test_make_profile.py",
+      "bytes": 4441,
+      "git_blob_sha1": "f9c36202c0f32a4903c0e89cb56fda0c57e70782"
+    },
+    {
+      "path": "tools/test_make_profile_mix.py",
+      "bytes": 2187,
+      "git_blob_sha1": "956cb7ddf79e41faafac822db5b7f57571407f7c"
+    },
+    {
+      "path": "tools/test_mtp_fetch.py",
+      "bytes": 17900,
+      "git_blob_sha1": "9133f810868fa71b31abf9b5c105ee1d0d45bc47"
+    },
+    {
+      "path": "tools/test_nvfp4_local_pack.py",
+      "bytes": 7032,
+      "git_blob_sha1": "b32c50e162512c4f201f0205a96a2be7d231cd91"
+    },
+    {
+      "path": "tools/test_picture_defaults.py",
+      "bytes": 5290,
+      "git_blob_sha1": "8f141de524ee4bb19c3af696004da5dc93ae1553"
+    },
+    {
+      "path": "tools/test_pool_plan.py",
+      "bytes": 5929,
+      "git_blob_sha1": "7ae2e84293238ad977e9181708ffbb50f9a30f7a"
+    },
+    {
+      "path": "tools/test_qimage.py",
+      "bytes": 10725,
+      "git_blob_sha1": "fdc81d6afd619fa5f8eb62505676e0161c66820f"
+    },
+    {
+      "path": "tools/test_research_run.py",
+      "bytes": 3671,
+      "git_blob_sha1": "0f5aa02fdf92262248d3abbe7242910f2137a976"
+    },
+    {
+      "path": "tools/test_setup_amd.py",
+      "bytes": 45897,
+      "git_blob_sha1": "fa2847b5a8f1e8752099ae888288fcfcea40eb71"
+    },
+    {
+      "path": "tools/test_setup_bench_tips.py",
+      "bytes": 4551,
+      "git_blob_sha1": "f549ed1127b575d718b26e5bf78100055dd7a8d0"
+    },
+    {
+      "path": "tools/test_setup_build_dir.py",
+      "bytes": 3907,
+      "git_blob_sha1": "b69add3d535d6f323d36796c0e9ad3dfe724a95c"
+    },
+    {
+      "path": "tools/test_setup_choices.py",
+      "bytes": 40667,
+      "git_blob_sha1": "2643d4346c999c871d17497bc5e174ab7e0bc359"
+    },
+    {
+      "path": "tools/test_setup_component_start.py",
+      "bytes": 4830,
+      "git_blob_sha1": "e9104db23bcf5a1f17924ab5a31b41a8280ca2ce"
+    },
+    {
+      "path": "tools/test_setup_compute_mode.py",
+      "bytes": 1166,
+      "git_blob_sha1": "a649385141aee7879ae02bd8680f896a967ac107"
+    },
+    {
+      "path": "tools/test_setup_config.py",
+      "bytes": 16504,
+      "git_blob_sha1": "25c9457dbb68bb2f3ddcc791c4b9bcb8456d3438"
+    },
+    {
+      "path": "tools/test_setup_configs.py",
+      "bytes": 2455,
+      "git_blob_sha1": "1ef0194712658ae2bd47ae1c7d38f94d21b4a9ff"
+    },
+    {
+      "path": "tools/test_setup_cuda_repo.py",
+      "bytes": 6113,
+      "git_blob_sha1": "1c59cf74200082d612f96e1b8cdb71bbda9416e9"
+    },
+    {
+      "path": "tools/test_setup_dl_fix.py",
+      "bytes": 6666,
+      "git_blob_sha1": "713302e0eb7904f72f0baf117488cef43d0b458a"
+    },
+    {
+      "path": "tools/test_setup_download.py",
+      "bytes": 27061,
+      "git_blob_sha1": "fc2e3236ccc0a76718fc571a4ff5187dfeee8381"
+    },
+    {
+      "path": "tools/test_setup_download_length.py",
+      "bytes": 5765,
+      "git_blob_sha1": "2ad726b6f7ed228d495bc61ceef58b480fde8b32"
+    },
+    {
+      "path": "tools/test_setup_draft_vocab.py",
+      "bytes": 8114,
+      "git_blob_sha1": "33a7638f8e61254a38967e723c5119ea760e2b50"
+    },
+    {
+      "path": "tools/test_setup_dsv41.py",
+      "bytes": 46919,
+      "git_blob_sha1": "c6470140c2711b354476e4b0d2d2c372d03bf240"
+    },
+    {
+      "path": "tools/test_setup_engine_hash.py",
+      "bytes": 19584,
+      "git_blob_sha1": "2c09a8f2d0e65885ad400026de8e2385313aa0c5"
+    },
+    {
+      "path": "tools/test_setup_engine_keep.py",
+      "bytes": 4652,
+      "git_blob_sha1": "8b5c634ab7a4a7512e6a162bd65c12a83df98de3"
+    },
+    {
+      "path": "tools/test_setup_feed_engine.py",
+      "bytes": 4261,
+      "git_blob_sha1": "8b961633c3b73a24bf62f848c36c0981c1717784"
+    },
+    {
+      "path": "tools/test_setup_find_tool.py",
+      "bytes": 2875,
+      "git_blob_sha1": "419efa7aa2fa099ecfb23a0ab069204de065948d"
+    },
+    {
+      "path": "tools/test_setup_golden.py",
+      "bytes": 11469,
+      "git_blob_sha1": "2ac754e39baafc9021b89b7d8915860fbba16d81"
+    },
+    {
+      "path": "tools/test_setup_gpu_fit.py",
+      "bytes": 5623,
+      "git_blob_sha1": "efbbc837e7272e6f43e16011e734fe0a22001ac7"
+    },
+    {
+      "path": "tools/test_setup_gyro.py",
+      "bytes": 7280,
+      "git_blob_sha1": "ae8b40cb74122955b49102a959471c32ba4923da"
+    },
+    {
+      "path": "tools/test_setup_hotfix_tag.py",
+      "bytes": 2943,
+      "git_blob_sha1": "fc22e39a4483ffbe9e0ee7061e97427288658dfc"
+    },
+    {
+      "path": "tools/test_setup_hybrid.py",
+      "bytes": 6658,
+      "git_blob_sha1": "bc1d08a52744f2e1b00e4bc224d55567a02522bd"
+    },
+    {
+      "path": "tools/test_setup_llama_archive.py",
+      "bytes": 8320,
+      "git_blob_sha1": "9a7bda52b12fa0e5a548073415381d3b12a40c12"
+    },
+    {
+      "path": "tools/test_setup_lowram.py",
+      "bytes": 4556,
+      "git_blob_sha1": "403c00cff699d56f7383bf696bc4347e3613eefc"
+    },
+    {
+      "path": "tools/test_setup_mac.py",
+      "bytes": 25940,
+      "git_blob_sha1": "463a9a7269fc91f921dc82e8fed555fe585ce550"
+    },
+    {
+      "path": "tools/test_setup_menu.py",
+      "bytes": 12489,
+      "git_blob_sha1": "d6b0e939880ed144aecb145a1da80641829eab8c"
+    },
+    {
+      "path": "tools/test_setup_model_pins.py",
+      "bytes": 13109,
+      "git_blob_sha1": "c684863d21e45072979f182b49c6269202ff9d15"
+    },
+    {
+      "path": "tools/test_setup_modelscope.py",
+      "bytes": 7253,
+      "git_blob_sha1": "50301d465d06fb592d9bf203262f5d012886d91e"
+    },
+    {
+      "path": "tools/test_setup_nvfp4.py",
+      "bytes": 15231,
+      "git_blob_sha1": "9c2d0419a6786bb1d2d2dc15ed298fc3aed582a0"
+    },
+    {
+      "path": "tools/test_setup_oldcpu.py",
+      "bytes": 4108,
+      "git_blob_sha1": "7233f6d6a6eada334b4104c10c6aec206d868275"
+    },
+    {
+      "path": "tools/test_setup_older_gpus.py",
+      "bytes": 18854,
+      "git_blob_sha1": "99ec6bcf999a53cebe5cd24a4826e7226c2aebcc"
+    },
+    {
+      "path": "tools/test_setup_ownfiles.py",
+      "bytes": 5061,
+      "git_blob_sha1": "d9faf4118090392ae9fcec49c209dab66af70d0d"
+    },
+    {
+      "path": "tools/test_setup_page_file.py",
+      "bytes": 8125,
+      "git_blob_sha1": "287f51e3c6836b45957f6ad270fff84aa4ce10fb"
+    },
+    {
+      "path": "tools/test_setup_parallel.py",
+      "bytes": 3266,
+      "git_blob_sha1": "d654bdfde8ed62f05c4ce5a178afa0be4dd13504"
+    },
+    {
+      "path": "tools/test_setup_pcie.py",
+      "bytes": 1863,
+      "git_blob_sha1": "a412fab3f95df87461d785c6bd61a5652d84efff"
+    },
+    {
+      "path": "tools/test_setup_pins.py",
+      "bytes": 23054,
+      "git_blob_sha1": "f0be55ba00be9bae8dd706d13df36756db7cf61a"
+    },
+    {
+      "path": "tools/test_setup_prompts.py",
+      "bytes": 4539,
+      "git_blob_sha1": "edfe0171af015febc85f5a514046f9a8b332e8c4"
+    },
+    {
+      "path": "tools/test_setup_qwen36.py",
+      "bytes": 19900,
+      "git_blob_sha1": "b71cab233e15ebe77de00abd177cdb100d8d0f95"
+    },
+    {
+      "path": "tools/test_setup_remote_opt.py",
+      "bytes": 4562,
+      "git_blob_sha1": "5fb8ad6be35e38fd9238fb414f42e1cdcad126ad"
+    },
+    {
+      "path": "tools/test_setup_rerun_size.py",
+      "bytes": 5378,
+      "git_blob_sha1": "82f42ff61839c5e84ec70e4db39a68744508e998"
+    },
+    {
+      "path": "tools/test_setup_risk.py",
+      "bytes": 28201,
+      "git_blob_sha1": "99d6cfe3025808e0d80c49175fde445283dcb602"
+    },
+    {
+      "path": "tools/test_setup_rocm_pins.py",
+      "bytes": 8559,
+      "git_blob_sha1": "69f0d4ffa2c2c013dc2395aed0e27e6786a18370"
+    },
+    {
+      "path": "tools/test_setup_rope.py",
+      "bytes": 7233,
+      "git_blob_sha1": "743fd0450cfcf500cc0b0cfc7540fd2c7cf06b8f"
+    },
+    {
+      "path": "tools/test_setup_shard_check.py",
+      "bytes": 1813,
+      "git_blob_sha1": "d502bdae6c2b858c6f3a791947aeb511a7cadb67"
+    },
+    {
+      "path": "tools/test_setup_small_card.py",
+      "bytes": 6513,
+      "git_blob_sha1": "b63ba63e448ef2a3fcbbac7aa644468a165cf4f5"
+    },
+    {
+      "path": "tools/test_setup_stale_stamp.py",
+      "bytes": 7995,
+      "git_blob_sha1": "a7c98d797bfb3c973229fcb1886cddb8b357519c"
+    },
+    {
+      "path": "tools/test_setup_stall_note.py",
+      "bytes": 1165,
+      "git_blob_sha1": "93d02a5da4bb3ded5e837c282cf4f931e03c718a"
+    },
+    {
+      "path": "tools/test_setup_start_gpus_amd.py",
+      "bytes": 1470,
+      "git_blob_sha1": "d428fe8c9c3f566971365b722ee5a41fc9889504"
+    },
+    {
+      "path": "tools/test_setup_strix_halo.py",
+      "bytes": 31717,
+      "git_blob_sha1": "dc2469872c296bb55d0f45daab0851b9ce447398"
+    },
+    {
+      "path": "tools/test_setup_sycl.py",
+      "bytes": 17685,
+      "git_blob_sha1": "98dac7aa73ce29c261a1932731b51d02a4b0834d"
+    },
+    {
+      "path": "tools/test_setup_unsloth.py",
+      "bytes": 51152,
+      "git_blob_sha1": "2d32c13976ba1223ebf7148116d74ea7d4bba6b3"
+    },
+    {
+      "path": "tools/test_setup_update.py",
+      "bytes": 7846,
+      "git_blob_sha1": "bebac3b3261a96b76704f90863091af1bba1d8e0"
+    },
+    {
+      "path": "tools/test_setup_update_gpu.py",
+      "bytes": 2099,
+      "git_blob_sha1": "52a75392476aaf6c21646cc85c981c7bd07e63b7"
+    },
+    {
+      "path": "tools/test_shards.py",
+      "bytes": 9211,
+      "git_blob_sha1": "302fe498fd8c2eb1b00dee36706dd8bfa7198feb"
+    },
+    {
+      "path": "tools/test_source_nul_bytes.py",
+      "bytes": 2479,
+      "git_blob_sha1": "1f054ebc36e993b13f7d3edd81e4cd6d050eeea3"
+    },
+    {
+      "path": "tools/test_strata_bench.py",
+      "bytes": 24683,
+      "git_blob_sha1": "ec223e59f1f723afb2c13aa1afee2ef6bab397e6"
+    },
+    {
+      "path": "tools/test_strata_inspect.py",
+      "bytes": 2653,
+      "git_blob_sha1": "247e46debc6d1ad32486bef3933c89594e07f197"
+    },
+    {
+      "path": "tools/test_strata_mcp.py",
+      "bytes": 62098,
+      "git_blob_sha1": "fab2199f8c41debf0548ab4508ca0f3c2d610b92"
+    },
+    {
+      "path": "tools/test_strata_tokenizer.py",
+      "bytes": 18751,
+      "git_blob_sha1": "e3cb498c2ffe75aa4b77133f8594912bc2ad5fcd"
+    },
+    {
+      "path": "tools/test_sycl_build_guard.py",
+      "bytes": 3431,
+      "git_blob_sha1": "d9882940ae5d0513035f4560965bd3adb81cb5cb"
+    },
+    {
+      "path": "tools/test_tokenizer_plain_spans.py",
+      "bytes": 4423,
+      "git_blob_sha1": "1e601707bf23464b7078e80a139e63eaf7c7722a"
+    },
+    {
+      "path": "tools/test_user_args.py",
+      "bytes": 11154,
+      "git_blob_sha1": "83878cb9449a62dfdbd167cd36e5057a4011ed5d"
+    },
+    {
+      "path": "tools/test_vision_reader.py",
+      "bytes": 14269,
+      "git_blob_sha1": "4936b89b894d1f65a36178430675e0afa2a0b342"
+    },
+    {
+      "path": "tools/test_windows_amd_gpu.py",
+      "bytes": 4543,
+      "git_blob_sha1": "e6802d58df93771ece8e4939346d0601a85f4843"
+    },
+    {
+      "path": "tools/tqenc.py",
+      "bytes": 12209,
+      "git_blob_sha1": "c76a42d676a577b835f8e8b1d909f299a5e9f3be"
+    },
+    {
+      "path": "tools/trellis/blockldl.py",
+      "bytes": 2804,
+      "git_blob_sha1": "e1ff3c2e1a64ce08140fb88532f3f693913b237c"
+    },
+    {
+      "path": "tools/trellis/build_swap.py",
+      "bytes": 10521,
+      "git_blob_sha1": "89ab4ad56f6253e93694643f43fbca1fd08872b3"
+    },
+    {
+      "path": "tools/trellis/fetch_orig.py",
+      "bytes": 2825,
+      "git_blob_sha1": "0483964cb861e420f7b969d62d9cb47cf0a90789"
+    },
+    {
+      "path": "tools/trellis/gyro_column_profile.py",
+      "bytes": 3253,
+      "git_blob_sha1": "cd212dc279a67d4fdce1d7d1913a5a238c861a56"
+    },
+    {
+      "path": "tools/trellis/gyro_error_profile.py",
+      "bytes": 5034,
+      "git_blob_sha1": "97c6b11b83acb714b1e80f8a3f2417580eae5f79"
+    },
+    {
+      "path": "tools/trellis/gyro_reencode.py",
+      "bytes": 5462,
+      "git_blob_sha1": "e0a66d95b7ca497a21b6fb1118dcd9036c489125"
+    },
+    {
+      "path": "tools/trellis/gyro_vs_original.py",
+      "bytes": 5100,
+      "git_blob_sha1": "d27629449a7814412e31a5170dc8ca00fced1778"
+    },
+    {
+      "path": "tools/trellis/hf_slice.py",
+      "bytes": 3797,
+      "git_blob_sha1": "6e61866016a35d1af06605508a04923361a38f30"
+    },
+    {
+      "path": "tools/trellis/make_corpus.py",
+      "bytes": 8674,
+      "git_blob_sha1": "44f584363bf55990079ffd331d5afa210c2908a0"
+    },
+    {
+      "path": "tools/trellis/merge_dumps.py",
+      "bytes": 1477,
+      "git_blob_sha1": "629f709d09438b3e8f19d00467043accdb9b4b5c"
+    },
+    {
+      "path": "tools/trellis/pilot.py",
+      "bytes": 12124,
+      "git_blob_sha1": "f28b2ce726fb4a06bfedbc2926ce992b4de2787d"
+    },
+    {
+      "path": "tools/trellis/pilot_summary.py",
+      "bytes": 2018,
+      "git_blob_sha1": "76c3c80c96469731ddaf843817b4c291335a5c73"
+    },
+    {
+      "path": "tools/trellis/proxy_diag_error.py",
+      "bytes": 5016,
+      "git_blob_sha1": "49968d1d17b966c62a2430774ce445f7b909c913"
+    },
+    {
+      "path": "tools/trellis/proxy_ldl.py",
+      "bytes": 5161,
+      "git_blob_sha1": "d26a918f7f8583a99876006ba26775c73a9c6a02"
+    },
+    {
+      "path": "tools/trellis/run_parts.py",
+      "bytes": 3947,
+      "git_blob_sha1": "c1014acbdca97ee8ff5aac34d68832fad9bc8be9"
+    },
+    {
+      "path": "tools/trellis/sanity_greedy.py",
+      "bytes": 2901,
+      "git_blob_sha1": "c6e2bc2ece07dfa8d28926cc728eb5cbf68278a0"
+    },
+    {
+      "path": "tools/trellis/swap_compare.py",
+      "bytes": 3772,
+      "git_blob_sha1": "81ccee24b599136664663dc4c0df0e53c0d5584a"
+    },
+    {
+      "path": "tools/trellis/test_blockldl.py",
+      "bytes": 1712,
+      "git_blob_sha1": "85dabee9838ef4ba5113b45a4c64ef93a1f5cab9"
+    },
+    {
+      "path": "tools/trellis/test_tqenc_py.py",
+      "bytes": 2434,
+      "git_blob_sha1": "79d55585b35f8ea376dcf75433399d7367f5381c"
+    },
+    {
+      "path": "tools/web_i18n.py",
+      "bytes": 7882,
+      "git_blob_sha1": "f40f8c27cf0325ce809d116f8380af8ba711aa70"
+    }
+  ]
+}

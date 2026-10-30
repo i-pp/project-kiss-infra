@@ -1,0 +1,48 @@
+--- a/inference/backend-evaluation/next_shared/host_api_trial.py
++++ b/inference/backend-evaluation/next_shared/host_api_trial.py
+@@ -65,7 +65,7 @@
+ class Unknown(RuntimeError):pass
+ 
+ 
+-def server_argv(backend):
++def server_argv(backend,record=None):
+     if backend=='vllm':
+         return ['vllm','serve','/models/next-int4','--served-model-name',MODEL_ALIAS,
+                 '--host','0.0.0.0','--port','30000','--load-format','safetensors',
+@@ -74,7 +74,7 @@
+                 '--gdn-prefill-backend','triton','--enforce-eager','--max-model-len','4096',
+                 '--max-num-seqs','1','--max-num-batched-tokens','512','--gpu-memory-utilization','0.80']
+     if backend=='sglang':
+-        return ['python3','-m','sglang.launch_server','--model-path','/models/next-int4',
++        argv=['python3','-m','sglang.launch_server','--model-path','/models/next-int4',
+                 '--model-impl','sglang','--load-format','safetensors','--served-model-name',MODEL_ALIAS,
+                 '--host','0.0.0.0','--port','30000','--tp-size','1','--dtype','bfloat16',
+                 '--context-length','4096','--max-running-requests','1','--max-total-tokens','4096',
+@@ -82,6 +82,9 @@
+                 '--attention-backend','triton','--moe-runner-backend','triton',
+                 '--cuda-graph-backend-decode','disabled','--cuda-graph-backend-prefill','disabled',
+                 '--skip-server-warmup']
++        if (record or {}).get('review',{}).get('sglang_sequential_loader_profile')=='one-thread-v1':
++            argv+=['--model-loader-extra-config','{"enable_multithread_load":false,"num_threads":1}']
++        return argv
+     raise Blocked('FIXED_BACKEND_REQUIRED')
+ 
+ 
+@@ -155,7 +158,7 @@
+         if len(ids)!=1 or not re.fullmatch('[0-9a-f]{64}',ids[0]):raise Unknown('CONTAINER_DISCOVERY_AMBIGUOUS')
+         return json.loads(self.command(['container','inspect',ids[0]]))[0]
+     def create(self,identity,record,backend):
+-        argv=server_argv(backend)
++        argv=server_argv(backend,record)
+         args=['container','create','--pull=never','--name',identity['name'],
+               '--label',LABEL+'token='+identity['token'],'--label',LABEL+'owner='+identity['owner'],
+               '--label',LABEL+'backend='+backend,'--memory','32g','--memory-swap','32g',
+@@ -222,7 +225,7 @@
+         for key,value in expected.items():
+             entries=[e for e in env if e.startswith(key+'=')]
+             if entries!=[key+'='+value]:raise Blocked('FIXED_AITER_STARTUP_ENVIRONMENT_MISMATCH')
+-    argv=server_argv(backend)
++    argv=server_argv(backend,record)
+     if (config.get('Entrypoint')!=[argv[0]] or config.get('Cmd')!=argv[1:]
+         or config.get('User')!=str(os.getuid())+':'+str(os.getgid()) or os.getuid()==0
+         or config.get('Healthcheck',{}).get('Test')!=['NONE']):

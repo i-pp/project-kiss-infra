@@ -1,0 +1,32 @@
+{
+  "qwen-coder-next": {
+    "version": 3,
+    "tensor_count": 375,
+    "metadata_count": 44,
+    "general.architecture": "qwen3next",
+    "general.name": "Qwen3 Coder Next 0129",
+    "bytes_addressed_through": 5935517,
+    "tensor_bodies_read": false,
+    "model_imported": false
+  },
+  "qwen38-flash-next": {
+    "version": 3,
+    "tensor_count": 1223,
+    "metadata_count": 73,
+    "general.architecture": "qwen4exp",
+    "general.name": "Qwen3.8-Flash-Next GSQ-RCO",
+    "bytes_addressed_through": 10947028,
+    "tensor_bodies_read": false,
+    "model_imported": false
+  },
+  "gpt-oss-120b": {
+    "version": 3,
+    "tensor_count": 687,
+    "metadata_count": 36,
+    "general.architecture": "gpt-oss",
+    "general.name": "gpt-oss-120b",
+    "bytes_addressed_through": 12980359,
+    "tensor_bodies_read": false,
+    "model_imported": false
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "project_root": "/fixture/project",
+  "model_dir": "/fixture/project/models/backend-next-int4/cyankiwi-Qwen3-Coder-Next-AWQ-4bit-c92cabfad08c",
+  "coordinator_runtime_relative": ".runtime/development-poc-e32-c00a7a45",
+  "review": {
+    "fixed_weight_acquisition_reviewed": true,
+    "human_host_docker_trial_reviewed": true,
+    "resident30b_unload_restore_reviewed": true,
+    "temporary_owned_internal_api_reviewed": true
+  },
+  "runtimes": {
+    "vllm": {
+      "image_ref": "vllm/vllm-openai-rocm@sha256:14f6a575e1fb0a580b0f633c09e06f648709d60405b85f6a7ff3f80d49f39905",
+      "image_id": "sha256:14f6a575e1fb0a580b0f633c09e06f648709d60405b85f6a7ff3f80d49f39905",
+      "source_commit": "5df63a7203cdb9328d824a27b682e77c7b9928be",
+      "dependency_versions": {
+        "torch": "2.13.0+git733fca1",
+        "triton": "3.8.0+git669b31ac",
+        "transformers": "5.19.0",
+        "compressed-tensors": "0.17.0",
+        "rocm": "7.2.3"
+      },
+      "source_dependency_match_reviewed": true,
+      "bootstrap_complete_reviewed": true
+    },
+    "sglang": {
+      "image_ref": null,
+      "image_id": null,
+      "source_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+      "dependency_versions": {
+        "compressed-tensors": "0.15.0",
+        "torch": "<VERIFIED_INSTALLED_VERSION>",
+        "triton": "<VERIFIED_INSTALLED_VERSION>",
+        "rocm": "7.2.4",
+        "transformers": "<VERIFIED_INSTALLED_VERSION>"
+      },
+      "source_dependency_match_reviewed": false,
+      "bootstrap_complete_reviewed": false
+    }
+  }
+}

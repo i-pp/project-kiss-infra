@@ -1,0 +1,15 @@
+--- a/inference/backend-evaluation/next_shared/host_api_trial.py
++++ b/inference/backend-evaluation/next_shared/host_api_trial.py
+@@ -496,7 +496,11 @@
+                 if self.clock()>=end:return False
+                 self.sleep(.2)
+             # Terminal inspect is required before remove; no --force and no broad pruning.
+-            self.log('owned_container_terminal',cid=cid,state=state.get('Status'))
++            self.log('owned_container_terminal',cid=cid,state=state.get('Status'),
++                     exit_code=state.get('ExitCode') if type(state.get('ExitCode')) is int else None,
++                     oom_killed=state.get('OOMKilled') if type(state.get('OOMKilled')) is bool else None,
++                     finished_at=state.get('FinishedAt')[:64] if type(state.get('FinishedAt')) is str else None,
++                     terminal_state_fields_present={key:key in state for key in ('ExitCode','OOMKilled','FinishedAt')})
+             try:
+                 tail=self.driver.logs(cid,timeout=min(3,max(.1,end-self.clock())))
+                 self.write(self.run/'server-log-tail.json',{'container_id':cid,'untrusted_text':True,

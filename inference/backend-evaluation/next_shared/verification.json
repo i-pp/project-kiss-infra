@@ -1,0 +1,52 @@
+{
+  "verified_at_utc": "2026-10-30T07:17:22.318822+00:00",
+  "status": "OFFLINE_IMPLEMENTATION_REVIEWED_REAL_RUNTIME_PENDING",
+  "test_command": "python3 -B -m unittest discover -s inference/backend-evaluation/next_shared -p 'test_*.py' -q",
+  "tests_passed": 55,
+  "tests_failed": 0,
+  "independent_review": {
+    "agent": "/root/sglang_feasibility/review_host_api_offline",
+    "tests_passed": 38,
+    "remaining_specific_findings": [],
+    "followup_review": {
+      "agent": "/root/strata_feasibility",
+      "tests_passed": 40,
+      "remaining_specific_findings": [],
+      "scope": [
+        "generation_lock_released_before_weight_transfer",
+        "fixed_installed_project_scope"
+      ]
+    },
+    "final_gpu_runner_review": {
+      "agent": "/root/vllm_source_handoff",
+      "tests_passed": 55,
+      "remaining_major_findings": [],
+      "log_capture_limit_is_not_strict_input_bound": true
+    }
+  },
+  "real_actions": {
+    "docker": 0,
+    "gpu": 0,
+    "model_download": 0,
+    "package_install": 0,
+    "generation": 0,
+    "service_changes": 0
+  },
+  "pending": [
+    "CONCRETE_FIXED_VLLM_GPU_START_APPROVAL",
+    "HUMAN_HOST_FINITE_TRIAL",
+    "SGLANG_ACTUAL_REVISION_PROFILE_REVIEW_AND_GPU_APPROVAL",
+    "GFX1151_NATIVE_JIT_AND_MEMORY_FEASIBILITY"
+  ],
+  "sha256": {
+    "fixed_trial_assets.py": "90dfa6136c33ea0f01505d15782e83edd394fc0e78679287ed6612a1eab958ca",
+    "acquire_next_host.py": "f6c60e7f203d07138ce40e37bfb8b48cab73aec6ec68d6ef33089652a6a3f267",
+    "host_api_trial.py": "338612a32a28c4ec6908397634f970fc3c537ad0469f5a4d77010e10c2084cb8",
+    "test_host_api_trial.py": "d0572c693e0c963174b43a44c6ff272662dc5438169782a53b49450067df60cf",
+    "candidate.json": "6329d7d44fea2260336e2fbfca45e0022fcf60e7b66704f8e137820a066ffd19",
+    "operator-private.template.json": "a809f9177d4da8d37d99bbdba37d165433dd193780365350fc9f6702ab3f9b33",
+    "HOST_TRIAL.md": "49eae1fe7b58b63654bf11a65b3669554c0e9ab4d6c38971ce15cdb840504798",
+    "ACQUISITION.md": "97f93f04fc3857fec3301630ac4f0e9cdf7a31cb5e43940bf10de27a3f5404d5",
+    "APPROVAL_PROPOSAL.md": "01cff18475ee199e44fff35c661563a31e87bfb2151bee41a16f2c888f30acd2"
+  }
+}

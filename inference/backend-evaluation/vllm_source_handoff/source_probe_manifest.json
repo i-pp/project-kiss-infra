@@ -1,0 +1,49 @@
+{
+  "source_commit": "5df63a7203cdb9328d824a27b682e77c7b9928be",
+  "files": [
+    {
+      "path": "vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors.py",
+      "bytes": 51351,
+      "sha256": "4832a1ba12f4619f65e5526cba8b7319a0f3d464af0014ddc0260d5f0eeb5ed1",
+      "origin_url": "https://raw.githubusercontent.com/vllm-project/vllm/5df63a7203cdb9328d824a27b682e77c7b9928be/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors.py"
+    },
+    {
+      "path": "vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe.py",
+      "bytes": 8020,
+      "sha256": "3194ac5984376b2f70262da6d1ead4b485901bf34c72e842912cd1d7302005bd",
+      "origin_url": "https://raw.githubusercontent.com/vllm-project/vllm/5df63a7203cdb9328d824a27b682e77c7b9928be/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe.py"
+    },
+    {
+      "path": "vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe_wna16.py",
+      "bytes": 21550,
+      "sha256": "3b4121ff16cdf06b1543807f39095534b5dce9e85e4b8f3cdff5b292154d91e7",
+      "origin_url": "https://raw.githubusercontent.com/vllm-project/vllm/5df63a7203cdb9328d824a27b682e77c7b9928be/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe_wna16.py"
+    },
+    {
+      "path": "vllm/model_executor/layers/fused_moe/oracle/int_wna16.py",
+      "bytes": 63608,
+      "sha256": "2bd8da998250fe0642680fe783d1a7770444fb2e7fa03e97a30ced9311eeeca1",
+      "origin_url": "https://raw.githubusercontent.com/vllm-project/vllm/5df63a7203cdb9328d824a27b682e77c7b9928be/vllm/model_executor/layers/fused_moe/oracle/int_wna16.py"
+    },
+    {
+      "path": "vllm/model_executor/layers/fused_moe/experts/triton_moe.py",
+      "bytes": 30538,
+      "sha256": "ee6b83b108a0460e6308e35447434165d0778a053aa39f0c6c8ed7f36a3ddbab",
+      "origin_url": "https://raw.githubusercontent.com/vllm-project/vllm/5df63a7203cdb9328d824a27b682e77c7b9928be/vllm/model_executor/layers/fused_moe/experts/triton_moe.py"
+    },
+    {
+      "path": "vllm/model_executor/layers/mamba/gdn/qwen_gdn_linear_attn.py",
+      "bytes": 77728,
+      "sha256": "3fbf257fef7f303b0082fdbedce4394df74b78ad9a594157079c89632b5c221e",
+      "origin_url": "https://raw.githubusercontent.com/vllm-project/vllm/5df63a7203cdb9328d824a27b682e77c7b9928be/vllm/model_executor/layers/mamba/gdn/qwen_gdn_linear_attn.py"
+    },
+    {
+      "path": "vllm/engine/arg_utils.py",
+      "bytes": 139040,
+      "sha256": "c10281277fd9a90dc8b22670db4f1af53708c5caa2aefee7aa861fa579329219",
+      "origin_url": "https://raw.githubusercontent.com/vllm-project/vllm/5df63a7203cdb9328d824a27b682e77c7b9928be/vllm/engine/arg_utils.py"
+    }
+  ],
+  "checked_at_utc": "2026-10-30T05:54:49.456942+00:00",
+  "not_whole_source_attestation": true
+}

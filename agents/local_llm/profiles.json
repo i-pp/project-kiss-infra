@@ -1,0 +1,69 @@
+{
+  "resident": {
+    "model": "kiss-qwen3-coder-30b",
+    "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+    "endpoint": "http://127.0.0.1:8080/v1",
+    "context": 32768,
+    "roles": [
+      "draft",
+      "review"
+    ],
+    "status": "LIVE_CODEX_AND_CHATGPT_ROUNDTRIP_VERIFIED",
+    "advisory_only": true,
+    "code_execution": false,
+    "new_b4_evaluation": "BLOCKED_NESTED_ISOLATION_FORBIDDEN"
+  },
+  "repair_candidate": {
+    "model": "ggml-org/gpt-oss-120b-GGUF",
+    "quantization": "MXFP4",
+    "context": 32768,
+    "gpu_layers": "20/37",
+    "reasoning": "low",
+    "historical_evidence": [
+      "<PROJECT_ROOT>/logs/gpt-oss-120b-diagnostic-once/20261029T033924Z/report.md",
+      "<PROJECT_ROOT>/logs/gpt-oss-120b-aarch64-diagnostic-once/20261029T040901Z/report.md"
+    ],
+    "status": "HISTORICAL_REPAIR_PASS_NOT_CONNECTED",
+    "endpoint": null,
+    "automatic_model_loading": false,
+    "current_management_route": "BLOCKED_NO_APPROVED_ROUTE_WITHOUT_ADDITIONAL_ISOLATION"
+  },
+  "research_only": [
+    {
+      "model": "Qwen3-Coder-Next",
+      "quantization": "Q4_K_M",
+      "historical_code": "PASS",
+      "historical_format": "FAIL"
+    },
+    {
+      "model": "Qwen3.8-Flash-Next",
+      "quantization": "GSQ-RCO Q2_0",
+      "historical_code": "FAIL",
+      "historical_format": "PASS"
+    }
+  ],
+  "new_real_model_requests_in_this_task": {
+    "maximum": 2,
+    "executed": 2,
+    "automatic_retries": 0
+  },
+  "chatgpt_inference": "LIVE_SINGLE_CONNECTOR_ROUNDTRIP_VERIFIED",
+  "chatgpt_call_id": "607930eb-fcf4-435c-b70d-b45942f01def",
+  "parent_connector_requests": {
+    "maximum": 1,
+    "executed": 1,
+    "automatic_retries": 0
+  },
+  "selected_models": {
+    "status": "HTTP_IMPLEMENTED_HUMAN_DEPLOYMENT_PENDING",
+    "ids": [
+      "qwen-coder-30b",
+      "gpt-oss-120b",
+      "qwen-coder-next"
+    ],
+    "mcp_server_catalog_count": 7,
+    "outer_catalog_refresh": "VERIFIED_UI_READ4_WRITE3_AND_LIVE_TUNNEL_SEVEN",
+    "human_deployment_confirmed": false,
+    "new_generation_requests": 0
+  }
+}

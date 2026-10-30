@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "repo": "cyankiwi/Qwen3-Coder-Next-AWQ-4bit",
+  "revision": "c92cabfad08cadb011dc169cabb3e6da621b0719",
+  "license_declared": "apache-2.0",
+  "source_tag": "v0.5.22",
+  "source_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+  "metadata_source": "https://huggingface.co/api/models/cyankiwi/Qwen3-Coder-Next-AWQ-4bit?blobs=true",
+  "metadata_note": "Public text API and fixed config only. No weights or safetensors header fetched. Hashes are upstream metadata, not independently verified bytes.",
+  "selected_reason": "Routed MoE INT4 group32, all ordinary attention/shared-expert/router linears and lm_head retained BF16; avoids HIP-unsupported dense WNA16 Marlin path.",
+  "required_files": [
+    {
+      "name": "model-00001-of-00010.safetensors",
+      "bytes": 5002291600,
+      "sha256": "38346174c2fa8ef4a39bf6aad5ae43c3f098a14c92300834fde6d6e0ee9cff9d"
+    },
+    {
+      "name": "model-00002-of-00010.safetensors",
+      "bytes": 5002906672,
+      "sha256": "85ee28f274855d20371d07655b77b821b1524c66f1270dd226615e5e241ccd89"
+    },
+    {
+      "name": "model-00003-of-00010.safetensors",
+      "bytes": 5002469336,
+      "sha256": "d5b0825db924deaa583ca25c4c95f777ae98dc9522a39478fd024e949cf475a8"
+    },
+    {
+      "name": "model-00004-of-00010.safetensors",
+      "bytes": 5002480424,
+      "sha256": "3a8ed95928c07be635a501a977aa0d6da7c3b458719368303fee4aae915a8895"
+    },
+    {
+      "name": "model-00005-of-00010.safetensors",
+      "bytes": 5002930304,
+      "sha256": "67ba44e47240e145e8fbfc857a504df0c75301f617a2cee02e38692d032f38ab"
+    },
+    {
+      "name": "model-00006-of-00010.safetensors",
+      "bytes": 4991069776,
+      "sha256": "532b7d3e9be96cdfe6398194be73340524224a1c02370ee24430e392b37bdc48"
+    },
+    {
+      "name": "model-00007-of-00010.safetensors",
+      "bytes": 5002893904,
+      "sha256": "5ede3407647ee761e9e2f2cd6e7df224ee0ebd0a89c5c1a010495a257c7641aa"
+    },
+    {
+      "name": "model-00008-of-00010.safetensors",
+      "bytes": 5002470896,
+      "sha256": "93cb84f225732180ff1b75d3cd2190c466e88424986d12e4bbb37b9677fbe684"
+    },
+    {
+      "name": "model-00009-of-00010.safetensors",
+      "bytes": 5002930168,
+      "sha256": "2065d4eb0add6733cdc1cfb162a281a61232e3877c60b09724da6f880ed0edf9"
+    },
+    {
+      "name": "model-00010-of-00010.safetensors",
+      "bytes": 3232721048,
+      "sha256": "befce0f17c85de8c9dc9f4fead748533b8d7d77225e08872fa260fb3715d17f9"
+    },
+    {
+      "name": "added_tokens.json",
+      "bytes": 707,
+      "git_blob_sha1": "b54f9135e44c1e81047e8d05cb027af8bc039eed",
+      "sha256": "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680"
+    },
+    {
+      "name": "chat_template.jinja",
+      "bytes": 6068,
+      "git_blob_sha1": "1ac848e36c5e24a7f31f64b5631eb8890ffe916f",
+      "sha256": "c79a833039a43602150cce0902403d6e376c50930c1b2a139b2964e1f0c322a0"
+    },
+    {
+      "name": "config.json",
+      "bytes": 21844,
+      "git_blob_sha1": "01bb45d4b040e760f27f663065c77e0313ca168a",
+      "sha256": "28f84aa4ce8d230d59f9789eb167734034d9517f0a127fbf1ef1b8b0f3baa5a1"
+    },
+    {
+      "name": "generation_config.json",
+      "bytes": 214,
+      "git_blob_sha1": "022ede02b13f6204bb4994da82c1d9d627abe288",
+      "sha256": "37a3c1ef63516ca489c575f0db1c0405ddc0c3dbaca9ed987344c966c37aeef5"
+    },
+    {
+      "name": "merges.txt",
+      "bytes": 1671839,
+      "git_blob_sha1": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0",
+      "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3"
+    },
+    {
+      "name": "special_tokens_map.json",
+      "bytes": 613,
+      "git_blob_sha1": "ac23c0aaa2434523c494330aeb79c58395378103",
+      "sha256": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd"
+    },
+    {
+      "name": "tokenizer.json",
+      "bytes": 7032399,
+      "git_blob_sha1": "90c73275ae7b61cd2b6c4f263018057d516f0c95",
+      "sha256": "19564a48c4f71a2a1b937cce34c737a1e662b171c5f5d7edf641a15cd896f07d"
+    },
+    {
+      "name": "tokenizer_config.json",
+      "bytes": 11681,
+      "git_blob_sha1": "46884e3ddb4376bd1319321ac71a0a442d4258d0",
+      "sha256": "fc76878832c668e3f0f8be66e6239a475b9093d2fe5cef97c242369779e6c6e6"
+    },
+    {
+      "name": "vocab.json",
+      "bytes": 2776833,
+      "git_blob_sha1": "4783fe10ac3adce15ac8f358ef5462739852c569",
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    {
+      "name": "model.safetensors.index.json",
+      "bytes": 21565735,
+      "sha256": "1676e69c5ebbbba8b3ee983adf6fc469dc9afd976ff2e69a5cd49f563b5dc711"
+    }
+  ],
+  "weights_bytes": 48245164128,
+  "required_bytes": 48278252061,
+  "runtime_base": "rocm/pytorch@sha256:7fe531fa185af260352fe7fbb3fa64ad749abe72adf0600a648c4692801b125a",
+  "runtime_completed_image": null,
+  "runtime_size_bytes": null,
+  "blockers": [
+    "NEW_WEIGHT_ACQUISITION_PENDING",
+    "HUMAN_GFX1151_RUNTIME_DEPLOYMENT_PENDING",
+    "GDN_AND_INT4_KERNEL_REAL_RUN_UNVERIFIED",
+    "LOAD_PEAK_RAM_UNMEASURED",
+    "MAINTENANCE_AND_RESTORE_OWNER_REQUIRED"
+  ],
+  "launched": false,
+  "generations": 0,
+  "metadata_sha256_note": "Nine raw text files read via browser DOM in bounded chunks; computed Git blob SHA1 and bytes matched fixed upstream metadata before SHA256 computation. Eleven LFS SHA256 values come from upstream metadata. No weight bytes fetched."
+}

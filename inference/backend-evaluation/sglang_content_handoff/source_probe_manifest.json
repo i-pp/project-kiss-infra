@@ -1,0 +1,34 @@
+{
+  "source_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+  "files": [
+    {
+      "path": "sglang/srt/layers/quantization/compressed_tensors/compressed_tensors.py",
+      "bytes": 58497,
+      "sha256": "3f375cc9e90c23134e6186edf61eef97462b93c4bd68f699163c95285d82a1e2",
+      "git_blob_sha1": "9950075c4bc86dc4fadf48f35b462d6912d28a2a",
+      "origin_url": "https://github.com/sgl-project/sglang/blob/baa9befa381511cd4d56f83980951e5a45fffc6d/python/sglang/srt/layers/quantization/compressed_tensors/compressed_tensors.py"
+    },
+    {
+      "path": "sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_wNa16_moe.py",
+      "bytes": 27584,
+      "sha256": "ff1aab0c527e6c8b4be22e2d0c374fb90a8888cc0c83cd273002c7dd6f6454d2",
+      "git_blob_sha1": "9d182e066d835e539f05c7351c537947d6fdb5c0",
+      "origin_url": "https://github.com/sgl-project/sglang/blob/baa9befa381511cd4d56f83980951e5a45fffc6d/python/sglang/srt/layers/quantization/compressed_tensors/schemes/compressed_tensors_wNa16_moe.py"
+    },
+    {
+      "path": "sglang/srt/models/qwen3_next.py",
+      "bytes": 46686,
+      "sha256": "1e160562800a308c0409cf4b0633b107689b90e1c360c4b0a8eedbd0aab3515a",
+      "git_blob_sha1": "cf7444960a9987633ac1222a782f402f015556e2",
+      "origin_url": "https://github.com/sgl-project/sglang/blob/baa9befa381511cd4d56f83980951e5a45fffc6d/python/sglang/srt/models/qwen3_next.py"
+    },
+    {
+      "path": "sglang/kernels/ops/attention/triton_gdn_fused_proj.py",
+      "bytes": 23624,
+      "sha256": "7ea2b50bc075f20c8d08ef89a36836e18d761f37b1e01179ec7d02409da167a7",
+      "git_blob_sha1": "dba707f25e54b1e02380f90d9c8f7120399b16d7",
+      "origin_url": "https://github.com/sgl-project/sglang/blob/baa9befa381511cd4d56f83980951e5a45fffc6d/python/sglang/kernels/ops/attention/triton_gdn_fused_proj.py"
+    }
+  ],
+  "not_whole_source_attestation": true
+}

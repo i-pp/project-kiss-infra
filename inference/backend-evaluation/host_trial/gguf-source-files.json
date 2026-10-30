@@ -1,0 +1,120 @@
+{
+  "commit": "3cf03257f219afbe7334045ff7c6a06ac68c627d",
+  "files": [
+    {
+      "path": "gguf-py/examples/reader.py",
+      "bytes": 1626,
+      "git_blob_sha1": "703b782b5fa6672020492918fa498a77f0e96dfa"
+    },
+    {
+      "path": "gguf-py/examples/writer.py",
+      "bytes": 1080,
+      "git_blob_sha1": "731873a7d666ca5a58dfb95a42bb809fe92fe747"
+    },
+    {
+      "path": "gguf-py/gguf/__init__.py",
+      "bytes": 219,
+      "git_blob_sha1": "243defc4c1ca42d3713017d8902592f54ac849cd"
+    },
+    {
+      "path": "gguf-py/gguf/constants.py",
+      "bytes": 233683,
+      "git_blob_sha1": "27c126b3656b37cd4cca385b42c8c53b6d902a8d"
+    },
+    {
+      "path": "gguf-py/gguf/gguf.py",
+      "bytes": 478,
+      "git_blob_sha1": "651a81eb828248728f854c85c1a437b52892f275"
+    },
+    {
+      "path": "gguf-py/gguf/gguf_reader.py",
+      "bytes": 16321,
+      "git_blob_sha1": "bf3e083800b01c822989c096f0d875dc750ab022"
+    },
+    {
+      "path": "gguf-py/gguf/gguf_writer.py",
+      "bytes": 70929,
+      "git_blob_sha1": "56cc65a70a0d03c50bf98907627b1bedc28e1993"
+    },
+    {
+      "path": "gguf-py/gguf/lazy.py",
+      "bytes": 12015,
+      "git_blob_sha1": "a39f22321597311ad54d03d360e155ae309ff5fd"
+    },
+    {
+      "path": "gguf-py/gguf/metadata.py",
+      "bytes": 39318,
+      "git_blob_sha1": "d5836cc68d7a96cd267e70800994bb3cc7bfcad0"
+    },
+    {
+      "path": "gguf-py/gguf/quants.py",
+      "bytes": 64946,
+      "git_blob_sha1": "80966b6ef1518a45b86745d94eb70d05c3c5490f"
+    },
+    {
+      "path": "gguf-py/gguf/scripts/gguf_convert_endian.py",
+      "bytes": 7681,
+      "git_blob_sha1": "31618acfc79eac3d8cd3c8111550f6cf8f21147b"
+    },
+    {
+      "path": "gguf-py/gguf/scripts/gguf_dump.py",
+      "bytes": 23104,
+      "git_blob_sha1": "8177dff386c7ee1e130ed0a013c2d297ee866439"
+    },
+    {
+      "path": "gguf-py/gguf/scripts/gguf_editor_gui.py",
+      "bytes": 64438,
+      "git_blob_sha1": "293316afed4e497ce3e426243d9fbd30193f5c30"
+    },
+    {
+      "path": "gguf-py/gguf/scripts/gguf_hash.py",
+      "bytes": 3725,
+      "git_blob_sha1": "3ef98992197e987d8aefc8fb5f5bf9c787e9d06a"
+    },
+    {
+      "path": "gguf-py/gguf/scripts/gguf_new_metadata.py",
+      "bytes": 10231,
+      "git_blob_sha1": "c67436bad4af6dfcf662b23aff3d3a5bb1d26257"
+    },
+    {
+      "path": "gguf-py/gguf/scripts/gguf_set_metadata.py",
+      "bytes": 4145,
+      "git_blob_sha1": "f5809c35c887086f8055e828719041f8ae3ea749"
+    },
+    {
+      "path": "gguf-py/gguf/tensor_mapping.py",
+      "bytes": 134036,
+      "git_blob_sha1": "d2dfeece59522ffb417f70939cf94ee157591eee"
+    },
+    {
+      "path": "gguf-py/gguf/utility.py",
+      "bytes": 13534,
+      "git_blob_sha1": "154351d8ed63c50f8a66cc0bb9152ec020414077"
+    },
+    {
+      "path": "gguf-py/gguf/vocab.py",
+      "bytes": 42431,
+      "git_blob_sha1": "d93b94f2d792147276be21db004dbd8d4edef82c"
+    },
+    {
+      "path": "gguf-py/tests/__init__.py",
+      "bytes": 29,
+      "git_blob_sha1": "d23ff9cb7380c5e0f9e246398f2ad0bee49e6981"
+    },
+    {
+      "path": "gguf-py/tests/test_gguf_reader_validation.py",
+      "bytes": 1271,
+      "git_blob_sha1": "98f30a969608320017ab5f67efb3e51044020b06"
+    },
+    {
+      "path": "gguf-py/tests/test_metadata.py",
+      "bytes": 15628,
+      "git_blob_sha1": "b77c563ff25efddbd958744cf7fbc743a495a083"
+    },
+    {
+      "path": "gguf-py/tests/test_quants.py",
+      "bytes": 10526,
+      "git_blob_sha1": "9aa7c4ae2a5e1e84096e2617f9b29baed5eec539"
+    }
+  ]
+}
