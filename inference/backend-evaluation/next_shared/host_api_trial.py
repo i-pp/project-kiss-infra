@@ -18,6 +18,7 @@ import uuid
 from sglang_swap_budget import SGLangBudget,BudgetBlocked,MAX_GROWTH
 from paging_telemetry import PagingTelemetry
 from owned_memory_telemetry import OwnedMemoryTelemetry
+from container_log_capture import capture as capture_container_logs
 
 from fixed_trial_assets import (Blocked,GIB,NETWORK,helpers,model_metadata_unchanged,
                                install_sigterm_handler,operator_record,private_read,safe_path,verify_weights)
@@ -111,6 +112,10 @@ def server_argv(backend,record=None):
                 '--skip-server-warmup']
         if (record or {}).get('review',{}).get('sglang_sequential_loader_profile')=='one-thread-v1':
             argv+=['--model-loader-extra-config','{"enable_multithread_load":false,"num_threads":1}']
+        mamba_profile=(record or {}).get('review',{}).get('sglang_mamba_cache_profile')
+        if mamba_profile is not None:
+            if mamba_profile!='cache8-v1':raise Blocked('FIXED_MAMBA8_PROFILE_REQUIRED')
+            argv+=['--max-mamba-cache-size','8']
         return argv
     raise Blocked('FIXED_BACKEND_REQUIRED')
 
@@ -123,7 +128,11 @@ def server_environment(backend,record=None):
         base.update(VLLM_ROCM_USE_AITER='0',VLLM_GDN_DECODE_KERNEL='triton',
                     VLLM_NO_USAGE_STATS='1',VLLM_DO_NOT_TRACK='1',VLLM_PLUGINS='')
     elif backend=='sglang':
+        # Fixed image inherits /root/.cargo/bin; UID1000 cannot traverse /root.
+        base['PATH']='/opt/venv/bin:/opt/rocm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
         base['SGLANG_USE_AITER']='0'
+        base['SGLANG_JIT_CACHE_DIR']='/jit-cache/sglang'
+        base['TORCHINDUCTOR_CACHE_DIR']='/jit-cache/inductor'
         if aiter_retry_profile(record):base['AITER_JIT_DIR']='/jit-cache/aiter'
     else:raise Blocked('FIXED_BACKEND_REQUIRED')
     return base
@@ -209,7 +218,7 @@ class Docker:
     def kill(self,cid,timeout=5):return self.command(['container','kill',cid],timeout=timeout)
     def remove(self,cid,timeout=5):return self.command(['container','rm',cid],timeout=timeout)
     def logs(self,cid,timeout=3):
-        return self.command(['container','logs','--timestamps','--tail','120',cid],timeout=timeout,include_stderr=True)
+        return capture_container_logs(self,cid,timeout)
 
 
 def match_owned(row,identity,backend,record,allow_new_cid=False):
@@ -496,11 +505,17 @@ class Trial:
                 if self.clock()>=end:return False
                 self.sleep(.2)
             # Terminal inspect is required before remove; no --force and no broad pruning.
-            self.log('owned_container_terminal',cid=cid,state=state.get('Status'))
+            self.log('owned_container_terminal',cid=cid,state=state.get('Status'),
+                     exit_code=state.get('ExitCode') if type(state.get('ExitCode')) is int else None,
+                     oom_killed=state.get('OOMKilled') if type(state.get('OOMKilled')) is bool else None,
+                     finished_at=state.get('FinishedAt')[:64] if type(state.get('FinishedAt')) is str else None,
+                     terminal_state_fields_present={key:key in state for key in ('ExitCode','OOMKilled','FinishedAt')})
             try:
                 tail=self.driver.logs(cid,timeout=min(3,max(.1,end-self.clock())))
+                capture=tail if isinstance(tail,dict) else {'stdout':tail,'stderr':'',
+                    'complete_stream':False,'truncated':True,'incomplete_reason':'LEGACY_DRIVER_CAPTURE'}
                 self.write(self.run/'server-log-tail.json',{'container_id':cid,'untrusted_text':True,
-                    'terminal_before_read':True,'text':tail[-131072:],'truncated':len(tail)>131072})
+                    'terminal_before_read':True,**capture})
             except Exception as exc:self.log('owned_logs_unavailable',reason=type(exc).__name__)
             try:self.driver.remove(cid,timeout=min(5,max(.1,end-self.clock())))
             except (Unknown,Blocked):pass
@@ -578,7 +593,20 @@ class Trial:
         try:
             self.c.guard()
             with self.c.locked():
-                self.c.guard();self.c.idle();self.before=self.probe();self.safety(start=True)
+                self.c.guard();self.c.idle()
+                self.log('policy_preflight_start')
+                try:
+                    policy=self.policy('draft')
+                    if not policy.get('system') or not policy.get('metadata'):raise Blocked('COMMON_POLICY_MISSING')
+                    self.write(self.run/'policy-preflight.json',{'status':'VERIFIED','metadata':policy['metadata'],
+                               'post_policy_revalidation_required':True})
+                except Exception as exc:
+                    self.write(self.run/'policy-preflight-failure.json',{'error_class':type(exc).__name__,
+                               'code':getattr(exc,'code',None),'diagnostics':getattr(exc,'diagnostics',None),
+                               'generation_requests':0,'model_lifecycle_requests':0})
+                    raise
+                self.log('policy_preflight_verified')
+                self.before=self.probe();self.safety(start=True)
                 self.driver.monitor=self.monitor_rpc
                 self.driver.deadline=self.start_time+WHOLE-185
                 try:

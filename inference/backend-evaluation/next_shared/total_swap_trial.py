@@ -6,8 +6,10 @@ from total_swap_limits import AUTHORIZATION
 from total_swap_monitor import self_diagnostics
 
 class TotalSwapTrial(h.Trial):
+    OPERATOR_SHA=h.SEQUENTIAL_OPERATOR_SHA
+    TRIAL_AUTHORIZATION=AUTHORIZATION
     def __init__(self,record,backend,coordinator,driver,http,probe,run,write,policy,*,monitor,**kwargs):
-        if backend!='sglang' or kwargs.get('operator_sha256')!=h.SEQUENTIAL_OPERATOR_SHA:
+        if backend!='sglang' or kwargs.get('operator_sha256')!=self.OPERATOR_SHA:
             raise h.Blocked('TOTAL_SWAP_SCOPE_FIXED_UNUSED_SGLANG_ONLY')
         self.monitor=monitor;self.original_write=write;self.logical_checks=0;self.last_sample_id=None;self.seen_sample_ids=set();self.releasing=False
         super().__init__(record,backend,coordinator,driver,http,monitor.raw,run,self.scoped_write,policy,**kwargs)
@@ -15,7 +17,8 @@ class TotalSwapTrial(h.Trial):
     def scoped_write(self,path,payload):
         if path.name=='resource-policy.json':
             payload.pop('swap_growth_limit_bytes',None)
-            payload.update(approval=AUTHORIZATION,continuation_authorization=AUTHORIZATION,
+            payload.update(approval=self.TRIAL_AUTHORIZATION,continuation_authorization=self.TRIAL_AUTHORIZATION,
+                operator_scope_sha256=self.OPERATOR_SHA,swap_authorization=AUTHORIZATION,
                 host_swap_total_policy=self.monitor.policy(),growth_stop_rule_enabled=False,
                 probe_period_seconds=.2,psi_numeric_stops='UNAPPROVED_NOT_ENABLED')
         if path.name=='summary.json':
@@ -30,7 +33,7 @@ class TotalSwapTrial(h.Trial):
             payload.update(host_swap_total_policy=self.monitor.diagnostics(),
                 logical_resource_checks=self.logical_checks,resource_sample_basis='unique physical sample IDs observed by trial',
                 native_process_diagnostics=self_diagnostics(),audit_directory=str(self.run),
-                original_gpu_operator_sha256=h.SEQUENTIAL_OPERATOR_SHA,swap_authorization=AUTHORIZATION)
+                original_gpu_operator_sha256=self.OPERATOR_SHA,swap_authorization=AUTHORIZATION,trial_authorization=self.TRIAL_AUTHORIZATION)
             if not self.create_intent and not self.c.mutated:payload.setdefault('cleanup_confirmed',True)
         self.original_write(path,payload)
     def safety(self,start=False,force=False):

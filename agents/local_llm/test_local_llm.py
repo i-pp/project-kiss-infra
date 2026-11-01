@@ -182,8 +182,9 @@ class TransportTests(unittest.TestCase):
     def test_fixed_loopback_no_proxy_or_authorization(self, connection):
         response = Mock(status=200); response.read.return_value = b'{"status":"ok"}'
         connection.return_value.getresponse.return_value = response
-        with patch.dict(os.environ, {"HTTP_PROXY": "http://unapproved.invalid", "OPENAI_API_KEY": "fixture"}):
-            self.assertEqual(llm.HttpApi().request("GET", "/health"), {"status": "ok"})
+        # This test covers resident routing, independently of live router receipts.
+        with tempfile.TemporaryDirectory() as runtime, patch.dict(os.environ, {"HTTP_PROXY": "http://unapproved.invalid", "OPENAI_API_KEY": "fixture"}):
+            self.assertEqual(llm.HttpApi(runtime=Path(runtime)).request("GET", "/health"), {"status": "ok"})
         connection.assert_called_once_with("127.0.0.1", 8080, timeout=5)
         headers = connection.return_value.request.call_args.args[3]
         self.assertNotIn("Authorization", headers)

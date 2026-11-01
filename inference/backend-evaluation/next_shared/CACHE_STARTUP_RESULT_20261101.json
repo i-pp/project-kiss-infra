@@ -1,0 +1,23 @@
+{
+  "status": "MEASURED_COMPLETED",
+  "generation_requests": 0,
+  "cold_full_sha_seconds": 179.85463239600358,
+  "warm_cache_verification_seconds": 0.0008101939965854399,
+  "warm_model_bytes_hashed": 0,
+  "warm_container_start_to_api_ready_seconds": 117.8605892830019,
+  "warm_weights_load_log_seconds": 12.06,
+  "warm_engine_profile_kv_warmup_log_seconds": 64.33,
+  "gpu_initialization_seconds": null,
+  "phase_overlap": "server durations may overlap; GPU init alone unavailable",
+  "warm_whole_seconds": 134.27823577500385,
+  "previous_whole_seconds": 336.61731667799904,
+  "previous_generation_requests": 1,
+  "previous_api_call_seconds": 7.849973896001757,
+  "comparison_caveat": "Previous run generated one ACK; page/JIT caches and cold-start effects differ. Whole-time difference is not attributable exclusively to SHA caching.",
+  "cleanup_confirmed": true,
+  "restored_only30b": true,
+  "source_metadata_unchanged": true,
+  "test_summary": "28 CPU tests passed; independent integration review completed; real startup comparison has zero generation.",
+  "scope": "New maintained warm_cache_startup entrypoint; historical finite launchers and UNKNOWN records untouched.",
+  "backup_portability": "local_llm.py POLICY_PROJECT is sanitized to <ORCHESTRATOR_ROOT> in this backup only; configure approved canonical root locally before use. Running source/configuration was not changed."
+}
