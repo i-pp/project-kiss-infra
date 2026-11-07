@@ -1,0 +1,196 @@
+"""Bounded standalone CLI for a private local inference service.
+
+It does not depend on AceIS daemon/MCP and does not expose a network listener.
+The current compatibility transport is the existing owner-only Router socket.
+"""
+import argparse
+import http.client
+import json
+import os
+from pathlib import Path
+import re
+import socket
+import stat
+import sys
+import time
+
+MODELS = ['flash', 'coder-next', 'gpt-oss-120b']
+MAX_RESPONSE = 2 * 1024**2
+
+
+class ClientError(Exception):
+    def __init__(self, message, identifier=None):
+        super().__init__(message)
+        self.job_id = identifier
+
+
+class ClientCancelled(KeyboardInterrupt):
+    def __init__(self, identifier):
+        self.job_id = identifier
+
+
+class Connection(http.client.HTTPConnection):
+    def __init__(self, path, timeout=3):
+        super().__init__('localhost', timeout=timeout)
+        self.path = path
+    def connect(self):
+        self.sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        self.sock.settimeout(self.timeout)
+        self.sock.connect(str(self.path))
+
+
+def checked_socket(path):
+    path = Path(path)
+    if not path.is_absolute() or any(p.is_symlink() for p in [path, *path.parents]):
+        raise ClientError('absolute non-symlink socket path required')
+    parent, entry = path.parent.stat(), path.lstat()
+    if (parent.st_uid != os.getuid() or stat.S_IMODE(parent.st_mode) != 0o700
+            or entry.st_uid != os.getuid() or stat.S_IMODE(entry.st_mode) != 0o600
+            or not stat.S_ISSOCK(entry.st_mode)):
+        raise ClientError('owner-only directory0700/socket0600 required')
+    return path
+
+
+def request(path, method, route, body=None):
+    conn = Connection(checked_socket(path))
+    try:
+        conn.request(method, route, None if body is None else json.dumps(body).encode(),
+                     {'Content-Type':'application/json'})
+        response = conn.getresponse()
+        raw = response.read(MAX_RESPONSE + 1)
+        if len(raw) > MAX_RESPONSE:
+            raise ClientError('response exceeds bound')
+        out = json.loads(raw)
+        if not isinstance(out, dict):
+            raise ClientError('invalid service response')
+        if response.status >= 400:
+            raise ClientError(str(out.get('error') or 'service unavailable'))
+        return out
+    finally:
+        conn.close()
+
+
+def job_id(value):
+    if not isinstance(value, str) or not re.fullmatch('[0-9a-f]{32}', value):
+        raise ClientError('invalid job identifier')
+    return value
+
+
+def ask(path, model, text, max_tokens=512, timeout=180, call=request, sleep=time.sleep):
+    if model not in MODELS or type(max_tokens) is not int or not 1 <= max_tokens <= 1024:
+        raise ClientError('invalid model/output bound')
+    if type(timeout) is not int or not 1 <= timeout <= 300:
+        raise ClientError('timeout must be1..300')
+    if not isinstance(text, str) or not text.strip() or len(text.encode()) > 8192:
+        raise ClientError('input must be1..8192 UTF-8 bytes and fit the server context budget')
+    body = {'model':model,'messages':[{'role':'user','content':text}],
+            'max_tokens':max_tokens,'timeout_seconds':timeout}
+    # A submission failure might follow accepted work. Never replay it.
+    try:
+        submitted = call(path,'POST','/v1/jobs',body)
+        identifier = job_id(submitted.get('id'))
+    except (ClientError,OSError,ValueError,http.client.HTTPException) as exc:
+        raise ClientError('submission outcome unknown; do not automatically resubmit',
+                          getattr(exc,'job_id',None)) from None
+    start = time.monotonic()
+    try:
+        while time.monotonic() - start < timeout + 5:
+            out = call(path,'GET','/v1/jobs/'+identifier)
+            if out.get('id') != identifier or out.get('model') != model:
+                raise ClientError('job identity mismatch')
+            status = out.get('status')
+            if status == 'completed':
+                generated = out.get('result')
+                if not isinstance(generated,dict) or not isinstance(generated.get('content'),str):
+                    raise ClientError('invalid completion')
+                return {'model':model,'job_id':identifier,'status':'completed',
+                        'content':generated['content'],'finish_reason':generated.get('finish_reason'),
+                        'prompt_tokens':generated.get('prompt_tokens'),
+                        'completion_tokens':generated.get('completion_tokens'),
+                        'unverified_advice':True,'code_executed':False,'automatic_retry':False}
+            if status in ['failed','cancelled']:
+                raise ClientError('job '+status)
+            if status not in ['queued','running']:
+                raise ClientError('unknown job state')
+            sleep(.2)
+        raise ClientError('local wait deadline exceeded', identifier)
+    except (ClientError,OSError,ValueError,http.client.HTTPException) as exc:
+        if isinstance(exc,ClientError):
+            if exc.job_id is None:exc.job_id=identifier
+            raise
+        raise ClientError('job outcome unknown; query or cancel the received job ID',identifier) from None
+    except KeyboardInterrupt:
+        # Exactly one best-effort cancellation; do not claim stop confirmation.
+        try:call(path,'DELETE','/v1/jobs/'+identifier)
+        except (OSError,ValueError,ClientError,http.client.HTTPException):pass
+        raise ClientCancelled(identifier) from None
+
+
+def main(argv=None):
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--socket',default=os.environ.get('LOCAL_INFERENCE_SOCKET',
+        '/run/user/'+str(os.getuid())+'/aceis-inference/service.sock'),
+        help='operator-chosen existing private UDS; no TCP or credentials created')
+    sub=p.add_subparsers(dest='command',required=True)
+    sub.add_parser('status')
+    sub.add_parser('models')
+    r=sub.add_parser('repair',help='bounded pure-function repair; no arbitrary shell or original-file writes')
+    r.add_argument('--source',required=True);r.add_argument('--cases',required=True)
+    r.add_argument('--workdir',required=True);r.add_argument('--model',choices=MODELS,default='gpt-oss-120b')
+    r.add_argument('--attempts',type=int,default=2)
+    get=sub.add_parser('get');get.add_argument('job_id')
+    cancel=sub.add_parser('cancel');cancel.add_argument('job_id')
+    q=sub.add_parser('ask');q.add_argument('--model',choices=MODELS,default='gpt-oss-120b')
+    source=q.add_mutually_exclusive_group(required=True);source.add_argument('--prompt');source.add_argument('--input',help='UTF-8 file, or - for stdin')
+    q.add_argument('--max-tokens',type=int,default=512);q.add_argument('--timeout',type=int,default=180)
+    q.add_argument('--output',help='create a new JSON file; never overwrite')
+    args=p.parse_args(argv)
+    if args.command=='repair':
+        from .repair import main as repair_main
+        return repair_main(['--socket',args.socket,'--source',args.source,'--cases',args.cases,
+                            '--workdir',args.workdir,'--model',args.model,'--attempts',str(args.attempts)])
+    try:
+        if args.command=='status':
+            out=request(args.socket,'GET','/health')
+            # Keep endpoint paths, container IDs and private telemetry out of CLI status.
+            out={'status':out.get('status'),'models':MODELS,
+                 'flash_resident':out.get('gpu',{}).get('flash_resident'),
+                 'selected_model':out.get('gpu',{}).get('ollama_selected'),
+                 'queue_depth':out.get('queue_depth'),'npu_status':out.get('npu',{}).get('status')}
+        elif args.command=='models':
+            out=request(args.socket,'GET','/v1/models')
+        elif args.command=='get':
+            identifier=job_id(args.job_id)
+            raw=request(args.socket,'GET','/v1/jobs/'+identifier)
+            out={k:raw.get(k) for k in ['id','model','status','error']}
+            generated=raw.get('result')
+            if isinstance(generated,dict):
+                out['result']={k:generated.get(k) for k in ['content','finish_reason','prompt_tokens','completion_tokens']}
+            out['unverified_advice']=True;out['code_executed']=False
+        elif args.command=='cancel':
+            identifier=job_id(args.job_id)
+            raw=request(args.socket,'DELETE','/v1/jobs/'+identifier)
+            out={'job_id':identifier,'status':raw.get('status'),'stop_confirmed':False,'automatic_retry':False}
+        else:
+            if args.output and os.path.lexists(args.output):
+                raise ClientError('output already exists; request was not submitted')
+            if args.prompt is not None:text=args.prompt
+            elif args.input=='-':text=sys.stdin.buffer.read(8193).decode('utf-8')
+            else:
+                with open(args.input,'rb') as f:text=f.read(8193).decode('utf-8')
+            out=ask(args.socket,args.model,text,args.max_tokens,args.timeout)
+        raw=json.dumps(out,ensure_ascii=False,indent=2)+'\n'
+        if args.command=='ask' and args.output:
+            with open(args.output,'x',encoding='utf-8') as f:f.write(raw)
+        else:sys.stdout.write(raw)
+        return 0
+    except (ClientError,OSError,ValueError,http.client.HTTPException) as exc:
+        print(json.dumps({'status':'error_or_uncertain','error':str(exc)[:180],
+                          'job_id':getattr(exc,'job_id',None) or (locals().get('out') or {}).get('job_id'),
+                          'automatic_retry':False}),file=sys.stderr)
+        return 1
+    except KeyboardInterrupt as exc:
+        print(json.dumps({'status':'cancellation_requested_or_uncertain','job_id':getattr(exc,'job_id',None),'stop_confirmed':False}),file=sys.stderr)
+        return 130
+
+if __name__=='__main__':raise SystemExit(main())
