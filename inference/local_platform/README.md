@@ -122,3 +122,8 @@ see [restricted project tools](workspace-client.md). This is a separate opt-in
 client module, not a new server listener, production writeback or arbitrary-shell
 agent. The controlled repository-regression acceptance includes both initial
 framework failures and the final matched120B/Coder Next results.
+
+Correct test-design ability remains unmeasured by the fixed-test repair demo.
+The [test-quality evaluation design](test-quality-evaluation.md) prioritizes
+independent expected values, coverage and mutation detection over speed, as a
+separate follow-up without expanding current P0 permissions.

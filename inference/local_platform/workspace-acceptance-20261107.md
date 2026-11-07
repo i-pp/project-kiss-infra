@@ -120,7 +120,11 @@ Both warm cases had sub-millisecond reported model-load durations per request.
 The configured models use their existing different GPU-layer/reasoning settings
 and produced different token counts; workflow time is not same-token throughput.
 This single simple task shows equal accepted code and a faster warm Next workflow
-under these settings, not a general coding-performance conclusion.
+under these settings, not a general coding-performance conclusion. Accuracy takes
+priority over speed. Neither model authored the fixed tests, so this does not
+evaluate the user's most important criterion: creating correct tests from a
+specification. The separate [evaluation design](test-quality-evaluation.md) covers
+independent expected values, normal/boundary/error coverage and mutation detection.
 
 Counting:one unique planned task, exercised on two models, with an extra warm
 Next repeat. All three final-v4 executions completed; the three earlier executions
