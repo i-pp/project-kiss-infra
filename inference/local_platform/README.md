@@ -114,3 +114,11 @@ The Unix-socket unit test needs a host execution context that permits a private
 local socket. The pure validator and repair tests use no model or network.
 See `acceptance-20261107.md` for the separate repair acceptance and limits, and
 `development-scope.md` for the requirements before broader repository/tool access.
+
+## Selected project modules
+
+For manifest-scoped project files and mandatory containerized post-edit tests,
+see [restricted project tools](workspace-client.md). This is a separate opt-in
+client module, not a new server listener, production writeback or arbitrary-shell
+agent. The controlled repository-regression acceptance includes both initial
+framework failures and the final matched120B/Coder Next results.
