@@ -1,0 +1,16 @@
+# Template only. Review absolute paths and pin a built worker before installation.
+[Unit]
+Description=AceIS optional private RyzenAI classifier
+
+[Service]
+Type=simple
+WorkingDirectory=%h/workspace/aceis-npu-service-20261107
+RuntimeDirectory=aceis-npu
+RuntimeDirectoryMode=0700
+UMask=0077
+# Use a fresh per-invocation run directory. The parent directory must already exist.
+ExecStart=/usr/bin/python3 -m inference.aceis_npu_service.service --worker %h/.cache/aceis-npu-build/worker --sdk %h/develop/npu/ryzen-ai-1.8.0 --xrt %h/develop/npu/ryzen-ai-1.8.0/xrt-2.25.37/opt/xilinx/xrt --model %h/develop/npu/ryzen-ai-1.8.0/cpp-test/samples/quicktest/test_model.onnx --run-dir %h/.cache/aceis-npu-runs/${INVOCATION_ID} --socket %t/aceis-npu/service.sock
+Restart=no
+KillMode=control-group
+TimeoutStopSec=8
+# No Install section: no auto-start is requested or installed by this template.
