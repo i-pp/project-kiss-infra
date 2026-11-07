@@ -1,6 +1,6 @@
 # NPU build provenance and future container distribution
 
-Status: **private design and working-host build only**. No registry push, public image, driver installation, device-permission change, or container NPU acceptance has occurred. A new private user service is deployed and tested separately; existing services remain unchanged.
+Status: **private design and working-host build only**. The future free Docker Hub proposal is a separate local-LLM + NPU development foundation, not publication of AceIS itself. Current AceIS work continues independently; this document provides technical/redistribution research for that separate idea and does not authorize publishing this repository, implementation or any runtime image. No registry push, public image, driver installation, device-permission change, or container NPU acceptance has occurred. A new private user service is deployed and tested separately; existing services remain unchanged.
 
 ## What was actually built
 
