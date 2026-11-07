@@ -21,6 +21,7 @@ from this repository root, with Python 3.11+ on Linux:
 SOCKET="$XDG_RUNTIME_DIR/aceis-inference/service.sock"
 python3 -B -m inference.local_platform.cli --socket "$SOCKET" status
 python3 -B -m inference.local_platform.cli --socket "$SOCKET" models
+python3 -B -m inference.local_platform.cli --socket "$SOCKET" capabilities
 python3 -B -m inference.local_platform.cli --socket "$SOCKET" ask \
   --model gpt-oss-120b --prompt 'Explain one cause of a Python KeyError.' \
   --max-tokens 256 --timeout 180 --output /NEW/answer.json
@@ -74,7 +75,26 @@ in source or test data. There is no automatic original-file writeback or commit.
 The product-independent contract is [API.md](API.md). It uses HTTP/JSON over the
 operator's owner-only Unix socket, with one GPU queue for all three models. A
 missing NPU is reported separately and does not stop GPU requests. NPU inference
-is still a separate service contract, not a GPU generation route.
+uses an independent classification lane through the same private API, while the
+separate NPU service owns its worker and recovery:
+
+```sh
+WORKDIR=$(mktemp -d)
+python3 - <<'PYGEN' > "$WORKDIR/classify.json"
+import json
+print(json.dumps({'model':'ryzenai-quicktest-10class',
+                  'input':[float(i%251)/250 for i in range(3072)]}))
+PYGEN
+python3 -B -m inference.local_platform.cli --socket "$SOCKET" classify \
+  --input "$WORKDIR/classify.json"
+```
+
+This synthetic input tests plumbing, not label accuracy. The client validates
+VitisAI/NPU identity and explicitly preserves mixed CPU/NPU scope. The model has
+no validated application labels/preprocessing. Classification never queues behind
+GPU generation or silently falls back to CPU. Busy returns429, unavailable or an
+uncertain outcome503, and no request is replayed. Ctrl-C ends waiting without
+claiming NPU stop. See `npu-api-acceptance-20261107.md` for actual acceptance.
 
 This acceptance used one EVO-X3 as logical server and client. Two physical PCs,
 WSL, LAN authentication and a remote transport are **not yet verified**. This
@@ -92,4 +112,5 @@ python3 -B -m unittest inference.local_platform.test_cli \
 
 The Unix-socket unit test needs a host execution context that permits a private
 local socket. The pure validator and repair tests use no model or network.
-See `acceptance-20261107.md` for the separate hardware-backed result and limits.
+See `acceptance-20261107.md` for the separate repair acceptance and limits, and
+`development-scope.md` for the requirements before broader repository/tool access.

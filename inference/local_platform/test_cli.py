@@ -60,6 +60,37 @@ class TestCLI(unittest.TestCase):
             finally:s.close()
 
 
+class TestClassificationCLI(unittest.TestCase):
+    def result(self):
+        return {'status':'ready','backend':'ryzenai','model':'ryzenai-quicktest-10class',
+                'provider':'VitisAI','execution_target':'npu','execution_verified':True,
+                'execution_scope':'mixed_npu_cpu','verification_kind':'ort_warmup_profile',
+                'logits':[0]*10,'class_index':0,'latency_ms':1.0}
+    def invoke(self,raw,response):
+        import io,json
+        from .cli import main
+        with tempfile.TemporaryDirectory() as parent:
+            file=Path(parent)/'input.json';file.write_text(json.dumps(raw))
+            with patch('inference.local_platform.cli.request',return_value=response) as call, patch('sys.stdout',new_callable=io.StringIO) as out, patch('sys.stderr',new_callable=io.StringIO) as err:
+                code=main(['--socket','/unused','classify','--input',str(file)])
+                return code,call.call_args_list,out.getvalue(),err.getvalue()
+    def test_one_request_preserves_mixed_identity_no_accuracy_claim(self):
+        import json
+        code,calls,out,err=self.invoke({'input':[0]*3072},self.result())
+        self.assertEqual(code,0);self.assertEqual(len(calls),1)
+        self.assertEqual(calls[0].args[1:3],('POST','/v1/classify'))
+        self.assertEqual(calls[0].kwargs,{'timeout':13})
+        value=json.loads(out);self.assertFalse(value['application_accuracy_verified'])
+        self.assertEqual(value['execution_scope'],'mixed_npu_cpu')
+    def test_bad_input_sends_nothing(self):
+        code,calls,out,err=self.invoke({'input':[True]*3072},self.result())
+        self.assertEqual(code,1);self.assertEqual(calls,[])
+    def test_cpu_result_rejected_without_retry(self):
+        data=self.result();data['execution_target']='cpu'
+        code,calls,out,err=self.invoke({'input':[0]*3072},data)
+        self.assertEqual(code,1);self.assertEqual(len(calls),1)
+
+
 class TestKnownOutcome(unittest.TestCase):
     def test_poll_error_preserves_received_job_identifier(self):
         def call(path,method,route,body=None):

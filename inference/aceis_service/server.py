@@ -16,6 +16,7 @@ import threading
 import time
 from .backends import Backends
 from .core import Controller, MODELS, ServiceError
+from .npu_bridge import classify as npu_classify, NPUUnavailable, NPUBusy, MAX_BODY as NPU_MAX_BODY, MODEL as NPU_MODEL
 
 
 class UnixHTTPConnection(http.client.HTTPConnection):
@@ -39,8 +40,10 @@ def npu_health(path):
         if len(data) > 8192:
             raise ValueError()
         result = json.loads(data)
-        return {k: result.get(k) for k in ['status', 'backend', 'model', 'execution_target', 'execution_verified', 'provider']}
-    except (OSError, ValueError, http.client.HTTPException):
+        if not isinstance(result,dict):
+            raise ValueError('invalid NPU health')
+        return {k: result.get(k) for k in ['status', 'backend', 'model', 'execution_target', 'execution_verified', 'provider', 'execution_scope', 'verification_kind']}
+    except (OSError, ValueError, RecursionError, http.client.HTTPException):
         return {'status': 'unavailable'}
     finally:
         if 'c' in locals():
@@ -52,6 +55,9 @@ class Server(socketserver.ThreadingMixIn, socketserver.UnixStreamServer):
     block_on_close = False
     request_queue_size = 16
     slots = threading.BoundedSemaphore(16)
+    def __init__(self, *args, **kwargs):
+        self.npu_slot = threading.BoundedSemaphore(1)
+        super().__init__(*args, **kwargs)
     def process_request(self, request, client_address):
         if not self.slots.acquire(blocking=False):
             self.shutdown_request(request)
@@ -87,22 +93,25 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(raw)
     def guard(self):
-        if self.headers.get('Origin') or self.headers.get('Transfer-Encoding'):
+        if self.headers.get('Origin') is not None or self.headers.get('Transfer-Encoding') is not None:
             raise ValueError('browser origin and transfer encoding are not accepted')
         if self.headers.get('Host', 'localhost') not in {'localhost', '127.0.0.1'}:
             raise ValueError('invalid host')
-    def body(self):
+    def body(self, maximum=32768):
         if len(self.headers.get_all('Content-Length', [])) != 1:
             raise ValueError('one Content-Length required')
         size = int(self.headers['Content-Length'])
-        if not 0 < size <= 32768:
-            raise ValueError('body must be 1..32768 bytes')
+        if not 0 < size <= maximum:
+            raise ValueError('body exceeds route bound')
         if self.headers.get('Content-Type', '').split(';')[0] != 'application/json':
             raise ValueError('application/json required')
         data = self.rfile.read(size)
         if len(data) != size:
             raise ValueError('incomplete body')
-        return json.loads(data)
+        try:
+            return json.loads(data)
+        except RecursionError:
+            raise ValueError('JSON nesting exceeds bound') from None
     def do_GET(self):
         try:
             self.guard()
@@ -116,6 +125,14 @@ class Handler(http.server.BaseHTTPRequestHandler):
                                'fault': ctl.fault, 'resources': ctl.latest, 'gpu': health,
                                'queue_depth': ctl.queue.qsize(), 'active': active_id,
                                'npu': npu_health(self.server.config.get('npu_socket'))})
+            elif self.path == '/v1/capabilities':
+                self.response(200, {'api_version':1, 'transport':'owner-only Unix socket',
+                    'gpu':{'models':sorted(MODELS),'max_concurrent_generation':1,
+                           'context_limit':8192,'max_output_tokens':1024},
+                    'npu':{'configured':bool(self.server.config.get('npu_socket')),
+                           'model':NPU_MODEL,'input_shape':[1,3,32,32],'input_elements':3072,
+                           'input_dtype':'float32','output_classes':10,'max_concurrent_classification':1,
+                           'max_request_bytes':NPU_MAX_BODY,'application_accuracy_verified':False}})
             elif self.path == '/v1/models':
                 self.response(200, {'models': sorted(MODELS), 'context_limit': 8192,
                                     'max_output_tokens': 1024, 'max_large_models_loaded': 1})
@@ -131,8 +148,19 @@ class Handler(http.server.BaseHTTPRequestHandler):
     def do_POST(self):
         try:
             self.guard()
-            body = self.body()
+            body = self.body(NPU_MAX_BODY if self.path == '/v1/classify' else 32768)
             ctl = self.server.controller
+            if self.path == '/v1/classify':
+                if ctl.stop.is_set():
+                    raise NPUUnavailable('service is stopping')
+                if not self.server.npu_slot.acquire(blocking=False):
+                    raise NPUBusy('NPU classifier busy')
+                try:
+                    result = npu_classify(self.server.config.get('npu_socket'),body)
+                finally:
+                    self.server.npu_slot.release()
+                self.response(200,result)
+                return
             if self.path == '/v1/recover':
                 if body != {}:
                     raise ValueError('empty object required')
@@ -155,6 +183,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
             self.response(200 if job.status == 'completed' else 503, job.public())
         except ValueError as exc:
             self.response(400, {'error': str(exc)[:160]})
+        except NPUBusy:
+            self.response(429, {'error':'NPU classifier busy'})
+        except NPUUnavailable:
+            self.response(503, {'error':'NPU unavailable or outcome unknown; not retried'})
         except ServiceError as exc:
             self.response(503, {'error': str(exc)[:160]})
         except (OSError, http.client.HTTPException):
