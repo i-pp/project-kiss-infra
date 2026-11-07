@@ -33,7 +33,7 @@ therefore establishes the service, not automatic production-MCP wiring.
 
 ## Performed checks
 
-`python3 -m unittest inference.aceis_service.test_service -v`:24 tests passed on
+`python3 -m unittest inference.aceis_service.test_service -v`:26 core/backend/HTTP tests passed on
 EVO-X3. These cover input bounds, malformed types, single-lane queue/cancellation,
 resource latch/recovery, UDS HTTP, Origin/Host checks, actual RAM/VRAM release
 barriers with injected telemetry, changed-container rejection, restart readiness,
@@ -73,6 +73,12 @@ providers, and a subsequent Flash request completed. Normal foreground SIGTERM
 returned exit0 with VRAM about0.862 GiB and GPU use0%. Flash remained resident
 through successful Next/120B switches and was intentionally recreated after
 cancellation.
+
+An additional live fault injection terminated only the owned native Flash engine
+while its tokenizer wrapper remained alive. Health became not-ready, automatic
+bounded recovery replaced both wrapper and engine in3.39s, and a subsequent
+Flash64-token request completed. Engine health now verifies the native child in
+the owned session/group, rather than treating a living wrapper as readiness.
 
 ## systemd acceptance
 
@@ -123,3 +129,6 @@ checks independent availability, not simultaneous failure recovery under pressur
   were not removed. No packages/drivers/BIOS settings were installed or changed.
 - No image/release was published and no PR was merged. Future Docker Hub
   reproducibility and redistribution prerequisites are in `distribution-notes.md`.
+
+Extended unattended acceptance is tracked in private issue3:
+https://github.com/i-pp/project-kiss-infra/issues/3

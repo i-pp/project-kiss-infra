@@ -22,6 +22,7 @@ class Backends:
         self.cid = None
         self.address = None
         self.flash = None
+        self.engine_pid = None
         self.flash_lines = queue.Queue(maxsize=64)
         self.lock = threading.RLock()
         self.active_model = None
@@ -192,8 +193,10 @@ class Backends:
     def _start_flash(self, check):
         if self.closing:
             raise ServiceError('service closing')
-        if self.flash is not None and self.flash.poll() is None:
+        if self.flash_alive():
             return
+        if self.flash is not None:
+            self._abort()
         check()
         self.wait_idle(check)
         check()
@@ -217,8 +220,12 @@ class Backends:
                     pass
         threading.Thread(target=drain, daemon=True).start()
         ready = self.read_flash(time.monotonic() + 90, check)
-        if ready != {'ready': True}:
+        if (not isinstance(ready, dict) or ready.get('ready') is not True
+                or type(ready.get('engine_pid')) is not int or ready['engine_pid'] <= 0):
             raise ServiceError('Flash readiness protocol mismatch')
+        self.engine_pid = ready['engine_pid']
+        if not self.flash_alive():
+            raise ServiceError('Flash engine identity unavailable')
         self.flash_base = snapshot()
 
     def read_flash(self, deadline, check):
@@ -342,6 +349,7 @@ class Backends:
             with self.lock:
                 if self.flash is process:
                     self.flash = None
+                    self.engine_pid = None
         if self.cid:
             try:
                 info = self.inspect_owned()
@@ -358,6 +366,15 @@ class Backends:
         self.closing = True
         self.abort()
 
+    def flash_alive(self):
+        if self.flash is None or self.flash.poll() is not None or self.engine_pid is None:
+            return False
+        try:
+            fields = Path(f'/proc/{self.engine_pid}/stat').read_text().rsplit(')', 1)[1].split()
+            return fields[0] != 'Z' and int(fields[2]) == self.flash.pid and int(fields[3]) == self.flash.pid
+        except (OSError, ValueError, IndexError):
+            return False
+
     def health(self):
-        return {'flash_resident': self.flash is not None and self.flash.poll() is None,
+        return {'flash_resident': self.flash_alive(),
                 'ollama_selected': self.active_model, 'container_id': self.cid}

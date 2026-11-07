@@ -24,7 +24,7 @@ def main():
     try:
         for line in engine.stdout:
             if line.startswith('READY'):
-                print(json.dumps({'ready': True}), flush=True)
+                print(json.dumps({'ready': True, 'engine_pid': engine.pid}), flush=True)
                 break
         else:
             raise RuntimeError('Strata exited before READY')

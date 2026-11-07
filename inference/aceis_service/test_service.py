@@ -227,5 +227,19 @@ class FaultTest(unittest.TestCase):
         import signal
         self.assertEqual([c.args[1] for c in kill.call_args_list],[signal.SIGTERM,signal.SIGKILL])
 
+class EngineHealthTest(unittest.TestCase):
+    def test_wrapper_alive_does_not_hide_missing_engine(self):
+        from .backends import Backends
+        from unittest.mock import Mock
+        b=Backends({'state_dir':'/tmp/test'},'/tmp/config');b.flash=Mock();b.flash.pid=12345;b.flash.poll.return_value=None;b.engine_pid=23456
+        with patch('inference.aceis_service.backends.Path.read_text',side_effect=FileNotFoundError()):
+            self.assertFalse(b.health()['flash_resident'])
+    def test_zombie_engine_not_ready(self):
+        from .backends import Backends
+        from unittest.mock import Mock
+        b=Backends({'state_dir':'/tmp/test'},'/tmp/config');b.flash=Mock();b.flash.pid=12345;b.flash.poll.return_value=None;b.engine_pid=23456
+        with patch('inference.aceis_service.backends.Path.read_text',return_value='23456 (strata) Z 12345 12345 12345 0'):
+            self.assertFalse(b.flash_alive())
+
 if __name__=='__main__':
     unittest.main()
