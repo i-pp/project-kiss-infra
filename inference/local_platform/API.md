@@ -1,7 +1,8 @@
 # Local inference v1 contract
 
-This documents the implemented, product-independent GPU API at PR1 head
-`b433d4727e99fd69f8857a13d970da314b418720`. Existing `aceis-*` deployment names
+This documents the product-independent GPU/NPU API. It preserves the GPU v1
+contract at PR1 head `b433d4727e99fd69f8857a13d970da314b418720` and adds
+capability discovery plus independent NPU classification. Existing `aceis-*` deployment names
 are compatibility identifiers. Codex, OpenAI and MCP emulation is not required.
 The `/v1/chat/completions` compatibility route is not the standard client path and
 is not a complete OpenAI API. No native Ollama endpoint is exposed to clients.
@@ -11,8 +12,9 @@ is not a complete OpenAI API. No native Ollama endpoint is exposed to clients.
 - HTTP/1.0 JSON over an absolute owner-only Unix socket; parent0700/socket0600.
 - Server verifies peer UID with Linux SO_PEERCRED. This is a same-user boundary,
   not separate-user authorization or a remote bearer-token scheme.
+- GPU POST bodies are<=32768B; only `/v1/classify` permits<=100000B.
 - Host must be `localhost` or `127.0.0.1` without a port. No Origin header or
-  Transfer-Encoding. JSON POST has exactly one Content-Length and body<=32768B.
+  Transfer-Encoding. JSON POST has exactly one Content-Length.
 - Results use `Cache-Control: no-store`. There is no prompt/completion request log.
   Engine logs are a separate operational boundary.
 - No new TCP listener, credential, public sharing or persistent remote access.
@@ -20,6 +22,15 @@ is not a complete OpenAI API. No native Ollama endpoint is exposed to clients.
   raw Ollama API as a substitute for the guarded endpoint.
 
 ## Routes
+
+`GET /v1/capabilities` returns API version1, the three GPU models and their
+single generation lane, and the optional independent NPU classification contract:
+model `ryzenai-quicktest-10class`, input shape `[1,3,32,32]`,3072 float32 values,
+ten output classes, one concurrent classification and100000B body limit.
+`configured` reports a configured endpoint, not readiness. The classifier is for
+plumbing verification; `application_accuracy_verified:false` is deliberate. Read
+`/health` for current readiness and actual provider/execution scope.
+
 
 `GET /v1/models` returns HTTP200:
 
@@ -90,11 +101,51 @@ new large model. Deadlines and cancellation do not retry user work. Resources,
 stop ownership and bounded recovery are enforced on the server, not entrusted to
 the client. Multiple pending clients are bounded, not parallel GPU execution.
 
-The independent NPU service owns `/health` and `/v1/classify` on its own private
-Unix socket. That classification route is not implemented on this GPU endpoint.
-Provider/model/execution_verified are distinct evidence; no silent CPU success
-is represented as NPU success. Future unified discovery must preserve this failure
-independence and explicitly version any incompatible schema.
+## Independent NPU classification
+
+`POST /v1/classify` on this same guarded endpoint accepts only:
+
+```json
+{"model":"ryzenai-quicktest-10class","input":[3072]}
+```
+
+The array above is a shape illustration, not a valid request. Supply exactly3072
+finite numbers in float32 range, optionally omitting the fixed model ID. Bool,
+NaN/infinity, unknown fields and arbitrary model IDs are rejected. Values are
+rounded to float32 before compact upstream serialization. There is no image URL,
+upload or implicit preprocessing. Body<=100000B. The current model's labels,
+training provenance, application preprocessing and accuracy are not established.
+It must not drive real-world classification decisions.
+
+The bridge verifies the configured NPU socket's0700 parent/0600 socket, ownership,
+non-symlink path and connected peer UID. One separate nonqueueing classification
+slot forwards exactly one request; another caller gets429. Connect<=1s plus a
+bounded response budget gives<=12s total; a timer shuts down only that connection.
+Responses are<=16KiB and must identify ready RyzenAI/VitisAI, verified NPU target,
+`ort_warmup_profile` verification and explicit `mixed_npu_cpu` or `npu_compute`
+scope. Ten finite logits, matching argmax and finite nonnegative latency are
+validated. Only documented result fields leave the bridge.
+
+A200 result contains status, backend, model, provider, execution_target,
+execution_verified, execution_scope, verification_kind, logits, class_index and
+latency_ms. `execution_verified` is warmup ORT-provider execution evidence, not
+per-request hardware counters or accuracy. Mixed NPU/CPU work is never relabeled
+as all-NPU work. An explicitly CPU-mode backend fails this NPU route rather than
+silently succeeding as NPU.
+
+Invalid input/header/route body bound returns400; local or upstream busy429;
+missing/not-ready backend, invalid identity/output or uncertain timeout503. No
+backend error paths/logs are echoed. No retry, autoload, CPU fallback, NPU worker
+kill or NPU supervision is performed here. Closing the client connection stops
+waiting, not proven NPU execution; the independent worker has its own10s deadline.
+An uncertain outcome must not be automatically replayed.
+
+The GPU queue, fault latch and model lifecycle are not used by classification.
+An NPU failure does not trip GPU readiness. A GPU provider fault does not by itself
+stop a ready NPU, although stopping the whole Router stops admission to both.
+Both consume shared system memory; this small forwarding change is not a general
+resource-optimized concurrent scheduler. The NPU service keeps its own runtime
+limits/recovery and continues to expose its private direct contract independently.
 
 ## Compatibility discipline and deferred work
 

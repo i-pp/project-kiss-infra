@@ -51,8 +51,8 @@ def checked_socket(path):
     return path
 
 
-def request(path, method, route, body=None):
-    conn = Connection(checked_socket(path))
+def request(path, method, route, body=None, timeout=3):
+    conn = Connection(checked_socket(path),timeout=timeout)
     try:
         conn.request(method, route, None if body is None else json.dumps(body).encode(),
                      {'Content-Type':'application/json'})
@@ -134,6 +134,9 @@ def main(argv=None):
     sub=p.add_subparsers(dest='command',required=True)
     sub.add_parser('status')
     sub.add_parser('models')
+    sub.add_parser('capabilities')
+    classify=sub.add_parser('classify',help='independent NPU plumbing classifier; not application accuracy')
+    classify.add_argument('--input',required=True,help='JSON model/input file, at most100000 bytes')
     r=sub.add_parser('repair',help='bounded pure-function repair; no arbitrary shell or original-file writes')
     r.add_argument('--source',required=True);r.add_argument('--cases',required=True)
     r.add_argument('--workdir',required=True);r.add_argument('--model',choices=MODELS,default='gpt-oss-120b')
@@ -157,6 +160,17 @@ def main(argv=None):
                  'flash_resident':out.get('gpu',{}).get('flash_resident'),
                  'selected_model':out.get('gpu',{}).get('ollama_selected'),
                  'queue_depth':out.get('queue_depth'),'npu_status':out.get('npu',{}).get('status')}
+        elif args.command=='classify':
+            with open(args.input,'rb') as f:data=f.read(100001)
+            if len(data)>100000:raise ClientError('classification input exceeds bound')
+            from inference.aceis_service.npu_bridge import validate_input, validate_result, NPUUnavailable
+            payload=validate_input(json.loads(data))
+            try:out=validate_result(request(args.socket,'POST','/v1/classify',payload,timeout=13))
+            except NPUUnavailable:raise ClientError('classification identity/output invalid; not retried') from None
+            out['application_accuracy_verified']=False
+            out['automatic_retry']=False
+        elif args.command=='capabilities':
+            out=request(args.socket,'GET','/v1/capabilities')
         elif args.command=='models':
             out=request(args.socket,'GET','/v1/models')
         elif args.command=='get':
@@ -190,7 +204,8 @@ def main(argv=None):
                           'automatic_retry':False}),file=sys.stderr)
         return 1
     except KeyboardInterrupt as exc:
-        print(json.dumps({'status':'cancellation_requested_or_uncertain','job_id':getattr(exc,'job_id',None),'stop_confirmed':False}),file=sys.stderr)
+        print(json.dumps({'status':'client_wait_interrupted' if args.command=='classify' else 'cancellation_requested_or_uncertain',
+                          'job_id':getattr(exc,'job_id',None),'stop_confirmed':False,'automatic_retry':False}),file=sys.stderr)
         return 130
 
 if __name__=='__main__':raise SystemExit(main())
