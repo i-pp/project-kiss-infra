@@ -1,0 +1,26 @@
+[Unit]
+Description=AceIS owned local GPU inference Router
+After=docker.service
+StartLimitIntervalSec=600
+StartLimitBurst=2
+
+[Service]
+Type=simple
+# Substitute CHECKOUT and CONFIG with confirmed absolute local paths.
+WorkingDirectory=CHECKOUT
+ExecStart=/usr/bin/python3 -B -m inference.aceis_service.server --config CONFIG
+UMask=0077
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=HF_HUB_OFFLINE=1
+Environment=TRANSFORMERS_OFFLINE=1
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=150
+TimeoutStopSec=60
+KillMode=control-group
+NoNewPrivileges=true
+TasksMax=768
+MemoryMax=40G
+
+[Install]
+WantedBy=default.target
