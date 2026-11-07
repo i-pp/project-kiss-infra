@@ -33,7 +33,7 @@ This passes the smallest positive float32 subnormal and maximum finite float32 t
 
 - `GET /health`: 200 when the owned worker is alive and the warmup ORT profile proves the requested EP executed. Otherwise 503. It reports `execution_target`, `execution_scope`, `verification_kind`, internal CPU/DPU partition counts, model hash, ORT version, and profile hash.
 - `POST /v1/classify`: JSON `{"model":"ryzenai-quicktest-10class","input":[...3072 finite float32 values...]}`. Response adds `logits`, `class_index`, and `latency_ms` for the worker's inference call. No image upload or automatic normalization is provided.
-- HTTP 400 invalid input; 403 browser Origin; 413 over 100,000 bytes; 415 wrong content type; 429 another inference is active; 503 owned worker failure or its ten-second deadline. No request queue, retry, autoload, or implicit CPU fallback.
+- HTTP 400 invalid input; 403 browser Origin; 413 over 100,000 bytes; 415 wrong content type; 429 another inference is active; 503 owned worker failure or its ten-second deadline. No inference queue, per-request retry, autoload, or implicit CPU fallback; process-level bounded recovery is described below.
 - `--provider CPU` is an explicit diagnostic mode. It reports `execution_target=cpu`, `execution_scope=cpu_only`; it is never reported as NPU.
 - The socket parent must be owned by the current user and mode 0700; the socket is mode 0600. No TCP listener, new credential, external service, or tunnel is created. A preexisting socket is never deleted on startup.
 - At most eight HTTP handler threads, one inference, 5-second connection read timeout. Health remains independent of inference serialization. Inputs and logits are not request-logged.
@@ -44,7 +44,7 @@ This passes the smallest positive float32 subnormal and maximum finite float32 t
 
 Prerequisites already retained on this test host: Ryzen AI SDK 1.8.0, its ONNX Runtime 1.27.0 C headers/libraries, its matching Peano, local XRT 2.25.37, an accessible `/dev/accel/accel0`, and a compiler. No host package, driver, BIOS, permission, or global environment changes are made here. The system XRT 2.21.75 is not substituted for the local SDK runtime.
 
-From the repository root, with no conflicting NPU workload:
+From the repository root, with no conflicting NPU workload. On the configured EVO-X3 host, stop the owned `aceis-npu.service` before a foreground experiment; do not start two copies:
 
 ```bash
 SDK="$HOME/develop/npu/ryzen-ai-1.8.0"
@@ -63,7 +63,7 @@ python3 -m inference.aceis_npu_service.service \
   --run-dir "$RUN" --socket "$XDG_RUNTIME_DIR/aceis-npu/service.sock"
 ```
 
-Leave this foreground process in an owned terminal, or use the optional user-unit template after reviewing its paths. Ctrl-C or SIGTERM to **this service PID** stops its worker process group and removes its own socket. Do not use broad `pkill` commands. Startup has one warmup and a 180-second timeout. Startup failure closes the owned worker and exits instead of switching to CPU. A dead worker after startup returns not-ready; there is no restart loop.
+Leave this foreground process in an owned terminal, or use the optional user-unit template after reviewing its paths. Ctrl-C or SIGTERM to **this service PID** stops its worker process group and removes its own socket. Do not use broad `pkill` commands. Startup has one warmup and a 180-second timeout. Startup failure closes the owned worker and exits instead of switching to CPU. A dead worker after startup returns not-ready; the process exits nonzero so an external supervisor can apply a bounded restart policy.
 
 The worker gets a minimal, explicit environment: private HOME, cache, tmp, and working directory; local XRT then SDK ORT then matching Peano library order. It does not modify the retained SDK. `run-dir` must be a fresh directory. Binaries, SDKs, model, raw profiles, compiler caches, and private logs belong outside Git.
 
@@ -79,7 +79,7 @@ curl --max-time 12 --unix-socket "$XDG_RUNTIME_DIR/aceis-npu/service.sock" \
   http://localhost/v1/classify
 ```
 
-Router integration: configure only its optional NPU socket path. The GPU Router must not load the NPU model, supervise the NPU worker, or make GPU readiness depend on NPU readiness. NPU downtime is local to classification. GPU and NPU share system memory, so any co-load acceptance must record memory headroom and active workloads. No installed unit, enabled service, production Router modification, or auto-start is implied by this source template.
+Router integration: configure only its optional NPU socket path. The GPU Router must not load the NPU model, supervise the NPU worker, or make GPU readiness depend on NPU readiness. NPU downtime is local to classification. GPU and NPU share system memory, so any co-load acceptance must record memory headroom and active workloads. The source template itself does not install a unit or change the Router. The separately recorded EVO-X3 deployment uses a new user unit, without modifying existing services.
 
 ## Confirm actual hardware execution
 
@@ -118,3 +118,21 @@ Do not bypass missing device access, relax kernel tracing/security settings, ins
 ## Implementation and review record
 
 The implementation worker was launched with requested model `gpt-6.1-sol`. Actual runtime model metadata could not be independently inspected. Independent runtime-safety review identified and repaired group-cleanup, pipe-write deadline and trace-path exactness issues; the final regression suite and C++ parser fixture were rerun. This is engineering provenance, not proof of model-generated correctness.
+
+## EVO-X3 private deployment and recovery
+
+A new `aceis-npu.service` user unit was installed only after verifying that no unit or file with that name existed. It runs the pinned self-built worker from a private application directory, uses the worktree's reviewed Python source and retained SDK read-only, and stores each launch's private logs/cache under a fresh `${INVOCATION_ID}` directory. The unit is active/enabled, `WantedBy=default.target`, `Restart=on-failure`, `RestartSec=5`, `StartLimitIntervalSec=300`, `StartLimitBurst=2`, and `KillMode=control-group`. There are at most two starts in five minutes, so a bad runtime cannot spin indefinitely. Do not repeatedly reset this guard to hide an unresolved failure.
+
+The user's existing `Linger=yes` was read and left unchanged. Enablement and lingering configure user-manager startup after boot, but **a physical host reboot was not performed**, to preserve other work. The recovery test killed only this service's owned worker at 08:15:18.679438 UTC; not-ready was observed and fresh NPU health returned at 08:15:27.713116 UTC (about 9.03 seconds). Main PID changed, `NRestarts=1`, and classification after recovery returned HTTP 200 with identical logits (2.41 ms worker call). Existing GPU/Router services are not restarted by the test. A manual `systemctl --user stop aceis-npu.service` remains a clean stop and does not trigger recovery.
+
+Operational commands on this configured host:
+
+```bash
+systemctl --user status aceis-npu.service
+journalctl --user -u aceis-npu.service -n 40 --no-pager
+curl --max-time 2 --unix-socket "$XDG_RUNTIME_DIR/aceis-npu/service.sock" http://localhost/health
+# Stop only this optional service when needed.
+systemctl --user stop aceis-npu.service
+```
+
+The source worktree is part of the deployed path. Do not delete/move it or silently switch its revision while the service is in use. A future release should install a versioned immutable application tree before claiming portable packaging.

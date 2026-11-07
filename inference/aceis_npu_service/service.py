@@ -344,14 +344,26 @@ def main() -> None:
     worker = Worker(args.worker.resolve(strict=True), args.sdk.resolve(strict=True),
                     args.xrt.resolve(strict=True), args.model.resolve(strict=True), args.run_dir.resolve(), args.provider)
     server = None
+    monitor_stop = threading.Event()
+    exit_code = 0
     try:
         server = serve(worker, args.socket.absolute())
         socket_identity = args.socket.stat()
+        def monitor() -> None:
+            # Surface owned-worker failure to a bounded external supervisor.
+            while not monitor_stop.wait(0.25):
+                if worker.health()["status"] != "ready":
+                    server.shutdown()
+                    return
+        threading.Thread(target=monitor, daemon=True).start()
         print(json.dumps(worker.health()), flush=True)
         server.serve_forever(poll_interval=0.2)
+        if worker.health()["status"] != "ready":
+            exit_code = 1
     except KeyboardInterrupt:
         pass
     finally:
+        monitor_stop.set()
         if server is not None:
             server.server_close()
             try:
@@ -361,6 +373,8 @@ def main() -> None:
             except FileNotFoundError:
                 pass
         worker.close()
+    if exit_code:
+        raise SystemExit(exit_code)
 
 
 if __name__ == "__main__":

@@ -1,13 +1,13 @@
 # NPU build provenance and future container distribution
 
-Status: **private design and working-host build only**. No registry push, public image, driver installation, device-permission change, or container NPU acceptance has occurred.
+Status: **private design and working-host build only**. No registry push, public image, driver installation, device-permission change, or container NPU acceptance has occurred. A new private user service is deployed and tested separately; existing services remain unchanged.
 
 ## What was actually built
 
 - The new `worker.cpp` was compiled locally with C++17 against the retained SDK's ONNX Runtime C API headers and linked dynamically to its ORT library. The complete command is in `build.sh`; it uses `-O2 -Wall -Wextra -Werror`, a literal `$ORIGIN` RUNPATH, and refuses to replace an existing output. The launcher supplies the exact library order. The final worker was built with Ubuntu g++ 15.2.0-16ubuntu1 and Python adapter syntax/tests ran on Python 3.14.4. Final worker SHA-256: `834acecb5de39577697fb053532b787dcf7c48169cc1956f340e6d142971b120`. It does not statically embed vendor libraries.
 - The Python adapter uses only the standard library. It does not import the vendor Python wheel, so the previous Python 3.14 extension ABI issues are not prerequisites of this C API path.
 - **ORT, the VitisAI EP/compiler, SDK Peano and local XRT were not built from source in this task.** They are retained prebuilt SDK/archive/extracted-package artifacts. A working custom C++ application is not a reproducible source build of the vendor runtime.
-- Local XRT lives outside system packages and is selected per process. System XRT remains installed and unchanged for other work.
+- Local XRT lives outside system packages and is selected per process. The final live worker's `/proc/PID/maps` confirmed actual `libxrt_core.so.2.25.37`, `libxrt_coreutil.so.2.25.37` and `libxrt_driver_xdna.so.2.25.260102.56.release` from the local XRT root, not system XRT 2.21.75 or the 2.19.184 copy found inside the retained voe wheel. Coreutil SHA-256 is `acbc609939c35e9edc0aed3709a0b5bdc6d0b9e5f53e9e6d2e0a94100ada2e97`; XDNA plugin SHA-256 is `f93fa0af14984dbd8105765e8ecd9847ab408eb770d2636aee6d31f8980601d8`. Three installed/retained version families must not be collapsed into one runtime claim. System XRT remains installed and unchanged for other work.
 
 ## Inputs and known provenance
 
