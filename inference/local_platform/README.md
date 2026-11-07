@@ -1,8 +1,10 @@
-# Local inference client (provisional name)
+# Local AI Fabric (LAF) client
 
-A standard-library-only client for the existing guarded GPU Router. It does not
-need Codex CLI, Claude Code, a paid API, AceIS daemon or MCP. The endpoint and unit
-still have their existing compatibility names; no product rename is implied.
+A standard-library-only client for LAF Router, the existing guarded local
+inference service. It does not need Codex CLI, Claude Code, a paid API, AceIS
+daemon or MCP. The existing module paths, endpoints and service units remain
+compatibility identifiers. See [naming and compatibility](naming.md) for the
+agreed names and the changes that still need separate rollout.
 
 Useful now:
 

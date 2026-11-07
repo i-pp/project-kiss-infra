@@ -1,5 +1,5 @@
 [Unit]
-Description=AceIS owned local GPU inference Router
+Description=LAF Router (guarded local GPU inference)
 After=docker.service
 StartLimitIntervalSec=600
 StartLimitBurst=2
