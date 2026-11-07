@@ -1,6 +1,8 @@
-# Local inference v1 contract
+# LAF Router v1 API contract
 
-This documents the product-independent GPU/NPU API. It preserves the GPU v1
+This documents the GPU/NPU API used by Local AI Fabric (LAF). The display name is
+LAF Router; [naming and compatibility](naming.md) records the unchanged technical
+identifiers. The wire contract remains product-independent. It preserves the GPU v1
 contract at PR1 head `b433d4727e99fd69f8857a13d970da314b418720` and adds
 capability discovery plus independent NPU classification. Existing `aceis-*` deployment names
 are compatibility identifiers. Codex, OpenAI and MCP emulation is not required.

@@ -1,8 +1,10 @@
-# Local inference client (provisional name)
+# Local AI Fabric (LAF) client
 
-A standard-library-only client for the existing guarded GPU Router. It does not
-need Codex CLI, Claude Code, a paid API, AceIS daemon or MCP. The endpoint and unit
-still have their existing compatibility names; no product rename is implied.
+A standard-library-only client for LAF Router, the existing guarded local
+inference service. It does not need Codex CLI, Claude Code, a paid API, AceIS
+daemon or MCP. The existing module paths, endpoints and service units remain
+compatibility identifiers. See [naming and compatibility](naming.md) for the
+agreed names and the changes that still need separate rollout.
 
 Useful now:
 
@@ -114,3 +116,16 @@ The Unix-socket unit test needs a host execution context that permits a private
 local socket. The pure validator and repair tests use no model or network.
 See `acceptance-20261107.md` for the separate repair acceptance and limits, and
 `development-scope.md` for the requirements before broader repository/tool access.
+
+## Selected project modules
+
+For manifest-scoped project files and mandatory containerized post-edit tests,
+see [restricted project tools](workspace-client.md). This is a separate opt-in
+client module, not a new server listener, production writeback or arbitrary-shell
+agent. The controlled repository-regression acceptance includes both initial
+framework failures and the final matched120B/Coder Next results.
+
+Correct test-design ability remains unmeasured by the fixed-test repair demo.
+The [test-quality evaluation design](test-quality-evaluation.md) prioritizes
+independent expected values, coverage and mutation detection over speed, as a
+separate follow-up without expanding current P0 permissions.

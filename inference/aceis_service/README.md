@@ -1,4 +1,10 @@
-# AceIS local inference service
+# LAF Router
+
+LAF Router is the guarded local inference service for Local AI Fabric (LAF).
+Its existing `inference.aceis_service` module path, `aceis-inference.service` unit
+and private socket remain compatibility identifiers. See
+[naming and compatibility](../local_platform/naming.md). This documentation
+change does not rename installed units or reconfigure the existing MCP connector.
 
 This service keeps Strata Flash ready and admits at most one Ollama large model:
 Coder Next (48 requested GPU layers) or GPT-OSS 120B (28). It uses existing offline

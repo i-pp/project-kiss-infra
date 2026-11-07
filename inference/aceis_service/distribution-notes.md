@@ -1,7 +1,10 @@
-# Container distribution follow-up (not published)
+# Local AI Fabric container distribution (planned, not published)
 
-The user intends a future, independent local-LLM-plus-NPU development platform
-for free Docker Hub distribution, not publication of AceIS itself. The current
+Local AI Fabric (LAF) is the agreed name for the independent local-LLM-plus-NPU
+development platform intended for future free Docker Hub distribution. The
+agreed service and MCP display names are LAF Router and LAF MCP; see
+[naming and compatibility](../local_platform/naming.md). This is not publication
+of AceIS itself. The current
 AceIS implementation continues separately. This change neither
 publishes an image nor grants release approval. Separate GPU and NPU services
 remain the intended boundary, with a private Router client contract and no public
