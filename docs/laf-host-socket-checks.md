@@ -29,7 +29,7 @@ Do not delete evidence to make a later attempt look like the first run.
 ## Boundaries
 
 - Runtime/test source comes from local Git commit
-  08b4fb61e9d16319fa0e09a77321caa86254a6a0, not a mutable working directory.
+  812ae759d98b023ebda4ce5ddef5689069d94fed, not a mutable working directory.
   The launcher/worker are checked against the explicit runner commit.
 - The exact frozen 39 test IDs use fake providers and temporary private Unix
   sockets. They do not invoke actual LLM, GPU/NPU inference, Docker or services.

@@ -23,7 +23,7 @@ import tempfile
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE_COMMIT = '08b4fb61e9d16319fa0e09a77321caa86254a6a0'
+SOURCE_COMMIT = '812ae759d98b023ebda4ce5ddef5689069d94fed'
 SOURCE_PATHS = (
     'inference/acceptance_container', 'inference/aceis_npu_service',
     'inference/aceis_service', 'inference/core_container',
