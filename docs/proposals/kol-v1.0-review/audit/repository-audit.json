@@ -1,0 +1,89 @@
+{
+  "scope": "Read-only snapshot; absence of a license file is not absence of copyright or proof of ownership.",
+  "repositories": [
+    {
+      "repository": "i-pp/Project-KISS",
+      "url": "https://github.com/i-pp/Project-KISS",
+      "visibility": "public",
+      "default_branch": "main",
+      "api_license": null,
+      "size": 115,
+      "metadata_updated_at": "2026-11-08T00:51:59Z",
+      "observed_at": "2026-11-09",
+      "status": "documentation-only; no license file in complete recursive default-branch tree",
+      "source": "https://api.github.com/repos/i-pp/Project-KISS"
+    },
+    {
+      "repository": "i-pp/AceIS",
+      "url": "https://github.com/i-pp/AceIS",
+      "visibility": "public",
+      "default_branch": "main",
+      "api_license": null,
+      "size": 0,
+      "metadata_updated_at": "2026-11-07T12:39:09Z",
+      "observed_at": "2026-11-09",
+      "status": "empty Git repository; tree API returned 409",
+      "source": "https://api.github.com/repos/i-pp/AceIS"
+    },
+    {
+      "repository": "i-pp/ace",
+      "url": "https://github.com/i-pp/ace",
+      "visibility": "public",
+      "default_branch": "main",
+      "api_license": null,
+      "size": 0,
+      "metadata_updated_at": "2026-11-07T12:39:10Z",
+      "observed_at": "2026-11-09",
+      "status": "empty Git repository; tree API returned 409",
+      "source": "https://api.github.com/repos/i-pp/ace"
+    },
+    {
+      "repository": "i-pp/paul",
+      "url": "https://github.com/i-pp/paul",
+      "visibility": "public",
+      "default_branch": "main",
+      "api_license": null,
+      "size": 0,
+      "metadata_updated_at": "2026-11-07T12:39:11Z",
+      "observed_at": "2026-11-09",
+      "status": "empty Git repository; tree API returned 409",
+      "source": "https://api.github.com/repos/i-pp/paul"
+    },
+    {
+      "repository": "i-pp/gene",
+      "url": "https://github.com/i-pp/gene",
+      "visibility": "public",
+      "default_branch": "main",
+      "api_license": null,
+      "size": 0,
+      "metadata_updated_at": "2026-11-07T12:39:11Z",
+      "observed_at": "2026-11-09",
+      "status": "empty Git repository; tree API returned 409",
+      "source": "https://api.github.com/repos/i-pp/gene"
+    },
+    {
+      "repository": "i-pp/peter",
+      "url": "https://github.com/i-pp/peter",
+      "visibility": "public",
+      "default_branch": "main",
+      "api_license": null,
+      "size": 0,
+      "metadata_updated_at": "2026-11-07T12:39:12Z",
+      "observed_at": "2026-11-09",
+      "status": "empty Git repository; tree API returned 409",
+      "source": "https://api.github.com/repos/i-pp/peter"
+    },
+    {
+      "repository": "i-pp/project-kiss-infra",
+      "url": "https://github.com/i-pp/project-kiss-infra",
+      "visibility": "private",
+      "default_branch": "main",
+      "api_license": null,
+      "size": 966,
+      "metadata_updated_at": "2026-11-07T17:09:03Z",
+      "observed_at": "2026-11-09",
+      "status": "code exists; no license/copying/copyright/notice path in complete recursive default-branch tree",
+      "source": "https://api.github.com/repos/i-pp/project-kiss-infra"
+    }
+  ]
+}

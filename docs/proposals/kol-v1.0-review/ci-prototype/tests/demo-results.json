@@ -1,0 +1,58 @@
+{
+  "errors": [],
+  "inventory": {
+    "documents": {
+      "LICENSES/LicenseRef-KOL-v1.0.txt": "8546e9a7d012eb7c28bff6b0e9bca083a444d719ede7b3672f08cdc5576b707b",
+      "LICENSES/MIT.txt": "02e1bf89370c7628a1dec612a54e85553e94df33eeab7d05b0f90f03a58e5d5b",
+      "NOTICE": "a06f2721a27eb258616615cdf5dfa2abfb4c081df3c201390c36fbc95d4081d9",
+      "policy.json": "2519e5068be82187160fcf61e1c79400949918d46fc382883ec9632a98075c35",
+      "rights/fixture.md": "6f9dd0e8bdc504ca915581e3f72d5a89e81b1126df45ca45155644c8c90bdbde",
+      "third_party/widget/NOTICE": "04c751ac4f933b555a4b9bfe6a55992746b59d4c09fc0e507b0564c917081cc7"
+    },
+    "policy_sha256": "83b27fad640122d70246d3eec01c1f6c8bbe79b5ea905ca7d6ec80f34f4a8426",
+    "schema": 1,
+    "sources": {
+      "legacy/old.c": {
+        "content_sha256": "7ae73079ace2367680d3a32fdad1b9a35046e0001a8d47935283f10d65a46e7c",
+        "copyrights": [
+          "1999 Legacy Fixture"
+        ],
+        "kind": "legacy",
+        "licenses": []
+      },
+      "output/user.c": {
+        "content_sha256": "25e78cc2a800effebedd62c04cc1ecf4454d29aa22fe4a63670365b0565184f9",
+        "copyrights": [
+          "2026 Output User"
+        ],
+        "kind": "acc-output",
+        "licenses": [
+          "MIT"
+        ]
+      },
+      "src/new.c": {
+        "content_sha256": "8d5bb14b0e8058444126b605774e38ed4275232086d795ad592890e78c563ea1",
+        "copyrights": [
+          "2026 Actual Fixture Holder"
+        ],
+        "kind": "first-party",
+        "licenses": [
+          "LicenseRef-KOL-v1.0"
+        ]
+      },
+      "third_party/widget/widget.c": {
+        "content_sha256": "57bc87ce4dc296072a745164e21c6ad70b1650f49d3118e5045d53820169e0d5",
+        "copyrights": [
+          "2026 Synthetic Widget contributors"
+        ],
+        "kind": "third-party",
+        "licenses": [
+          "MIT"
+        ]
+      }
+    }
+  },
+  "not_legal_approval": true,
+  "prototype": true,
+  "status": "pass"
+}

@@ -1,0 +1,25 @@
+{
+  "status": "proposal only; no external writes",
+  "artifacts": [
+    {
+      "path": "AUDIT-AND-MIGRATION.md",
+      "bytes": 14739,
+      "sha256": "34c210215d7fc0ebaed9d9e0e6f32b8451a31b71d7cdbba62d1cb049b49d0a96"
+    },
+    {
+      "path": "Project-KISS-v4-KOL-v1.0-proposed.patch",
+      "bytes": 9927,
+      "sha256": "ad652b865301f9870b6bd880ccddc1541b3d1fe7286c5a81e870ac963cf40e79"
+    },
+    {
+      "path": "patch-verification.json",
+      "bytes": 1006,
+      "sha256": "36cf31c37ee6fb0a8cb1b20280fb6b3077e472bd4cabd1f46ee781bb7cec1f2a"
+    },
+    {
+      "path": "repository-audit.json",
+      "bytes": 3133,
+      "sha256": "7d4f3242483fabaabc27d3387545a9b9503ac3af2796d8ad7ffe07f32103d9b6"
+    }
+  ]
+}
