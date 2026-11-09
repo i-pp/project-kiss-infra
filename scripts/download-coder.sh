@@ -1,4 +1,7 @@
 #!/bin/sh
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 set -eu
 cd -- "$(dirname -- "$0")/.."
 revision=0ca51122012fe4a20dc82988ee58780b008ce4e3

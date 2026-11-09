@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 set -euo pipefail
 [[ $# == 2 ]] || { echo 'Usage: build.sh SDK_ROOT OUTPUT (new file)' >&2; exit 2; }
 SDK=$(realpath -e "$1"); OUT=$(realpath -m "$2")

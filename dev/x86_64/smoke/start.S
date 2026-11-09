@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+// SPDX-License-Identifier: LicenseRef-KOL-v1
+
 // Environment validation ONLY. NOT the AceIS/Abiss boot specification.
 // QEMU Multiboot enters in 32-bit protected mode; this probe switches to long mode.
 .section .multiboot,"a"

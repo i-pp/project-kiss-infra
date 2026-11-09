@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+ * SPDX-License-Identifier: LicenseRef-KOL-v1
+ */
+
 #ifndef VALIDATION_SERIAL_H
 #define VALIDATION_SERIAL_H
 #include <stdint.h>

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 cmake_minimum_required(VERSION 3.20)
 project(kiss_environment_validation LANGUAGES C ASM)
 if(NOT CMAKE_C_COMPILER_VERSION VERSION_EQUAL "21.1.8")

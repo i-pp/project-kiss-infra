@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 # Environment-validation toolchain; not an AceIS/Abiss ABI specification.
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR aarch64)

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+ * SPDX-License-Identifier: LicenseRef-KOL-v1
+ */
+
 #include <stdint.h>
 extern uint64_t kiss_add_u64(uint64_t, uint64_t);
 int validation_api_check(void) {

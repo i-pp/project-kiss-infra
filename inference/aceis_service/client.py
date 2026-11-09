@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Explicit local client for AceIS callers; no fallback or arbitrary URL."""
 import argparse
 import json

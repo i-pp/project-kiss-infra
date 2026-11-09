@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Benign in-container checks performed before model code is accepted."""
 import json
 import os

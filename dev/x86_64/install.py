@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Build the new child only. No LLVM reinstall and no host package changes."""
 import json
 import os

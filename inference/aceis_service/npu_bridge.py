@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Bounded, fail-closed forwarding to the independently owned NPU service."""
 import http.client
 import json

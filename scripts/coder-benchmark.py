@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Benchmark fixed short input and a context-sized input, preserving Phase 2."""
 import argparse
 import datetime

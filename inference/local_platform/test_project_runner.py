@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Pure/mocked regressions only: never launch Docker or project/model code here."""
 import copy
 import hashlib

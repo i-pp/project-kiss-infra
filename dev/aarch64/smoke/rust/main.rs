@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+// SPDX-License-Identifier: LicenseRef-KOL-v1
+
 // Infrastructure validation only. No runtime/ABI for AceIS or Abiss is defined.
 #![no_std]
 #![no_main]

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+// SPDX-License-Identifier: LicenseRef-KOL-v1
+
 // Environment-validation startup only; NOT an AceIS/Abiss implementation.
 .section .text.boot,"ax"
 .global _start

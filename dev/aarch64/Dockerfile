@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 # Parent is LOCAL. scripts/dev-aarch64.py checks its full immutable ID before build.
 FROM project-kiss-code-eval:20261027
 

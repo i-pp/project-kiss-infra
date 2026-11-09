@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+ * SPDX-License-Identifier: LicenseRef-KOL-v1
+ */
+
 /* Environment validation only. Identity-map the low 1GiB; no general runtime. */
 ENTRY(_start32)
 SECTIONS {

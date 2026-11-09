@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+ * SPDX-License-Identifier: LicenseRef-KOL-v1
+ */
+
 /* Independent scalar oracle. This translation unit disables vectorization. */
 #include <stddef.h>
 #include <stdint.h>

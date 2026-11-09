@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+ * SPDX-License-Identifier: LicenseRef-KOL-v1
+ */
+
 // Environment probe only: this is not an AceIS frontend or a custom backend.
 #include <llvm/Config/llvm-config.h>
 #include <llvm/IR/IRBuilder.h>

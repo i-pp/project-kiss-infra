@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """HTTP over an owner-only Unix socket. No TCP listener or new credentials."""
 from __future__ import annotations
 import argparse

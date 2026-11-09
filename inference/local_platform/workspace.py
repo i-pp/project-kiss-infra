@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Client-side file capabilities over a fresh private snapshot, never original writeback."""
 import fnmatch
 import hashlib

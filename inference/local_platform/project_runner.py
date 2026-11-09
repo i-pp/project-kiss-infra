@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Bounded unittest execution in an already-cached, operator-approved Python image.
 
 No shell, pulls, host Python fallback, worktree writeback, or arbitrary command API.

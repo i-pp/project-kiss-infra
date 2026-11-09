@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Agent-authored controls validate the independent harness, never sent to the LLM."""
 from pathlib import Path
 

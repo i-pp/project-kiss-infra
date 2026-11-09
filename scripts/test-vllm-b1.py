@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Run only the B1 project, with host-side monitoring and append-only results.
 
 Run under an existing Docker-authorized, non-root session. No installs, downloads,

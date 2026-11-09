@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+ * SPDX-License-Identifier: LicenseRef-KOL-v1
+ */
+
 /* Validation-only PL011 polling, configuration generated from verified DTB. */
 #include "uart.h"
 #include "uart_config.h"

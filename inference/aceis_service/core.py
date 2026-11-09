@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Bounded single-lane scheduling and fail-closed resource admission."""
 from __future__ import annotations
 import dataclasses

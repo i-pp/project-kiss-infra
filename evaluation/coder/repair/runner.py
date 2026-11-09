@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Trusted container runner. Reuses the unchanged independent coder fixtures."""
 import json
 import os

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+ * SPDX-License-Identifier: LicenseRef-KOL-v1
+ */
+
 // Separate translation unit, built with vectorization disabled. Unsigned wrap is defined.
 #include <stddef.h>
 #include <stdint.h>

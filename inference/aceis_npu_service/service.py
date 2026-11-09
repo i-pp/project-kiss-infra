@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Private Unix-socket HTTP adapter for a persistent, single-session ORT worker."""
 from __future__ import annotations
 

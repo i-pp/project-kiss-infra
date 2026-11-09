@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Offline pinned Strata tokenizer/protocol adapter. No network or tool use."""
 import json
 import os

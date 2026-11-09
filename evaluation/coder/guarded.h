@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+ * SPDX-License-Identifier: LicenseRef-KOL-v1
+ */
+
 #ifndef KISS_GUARDED_H
 #define KISS_GUARDED_H
 #include <assert.h>

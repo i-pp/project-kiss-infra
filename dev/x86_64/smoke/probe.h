@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+ * SPDX-License-Identifier: LicenseRef-KOL-v1
+ */
+
 #ifndef VALIDATION_CPU_PROBE_H
 #define VALIDATION_CPU_PROBE_H
 #include <stdint.h>

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Only service-owned Strata processes and labeled Docker containers are controlled."""
 from __future__ import annotations
 import http.client

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Small pure-function grammar, not a sandbox for arbitrary Python."""
 import ast
 import json

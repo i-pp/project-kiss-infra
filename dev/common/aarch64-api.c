@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+ * SPDX-License-Identifier: LicenseRef-KOL-v1
+ */
+
 // Uses the existing validation startup/UART without modifying those sources.
 #include "uart.h"
 int validation_api_check(void);

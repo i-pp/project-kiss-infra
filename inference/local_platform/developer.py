@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Structured client tools over approved snapshots; project tests require bounded Docker."""
 import argparse
 import json

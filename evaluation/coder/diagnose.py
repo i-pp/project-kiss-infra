@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Supplemental diagnosis only; do not change original sources or first-pass scores."""
 import json
 import os

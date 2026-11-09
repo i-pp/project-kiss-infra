@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Bounded standalone CLI for a private local inference service.
 
 It does not depend on AceIS daemon/MCP and does not expose a network listener.

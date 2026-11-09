@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 # Template only. Review absolute paths and pin a built worker before installation.
 [Unit]
 Description=AceIS optional private RyzenAI classifier

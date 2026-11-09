@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Read GGUF V3 metadata/tensor descriptors only; no tensor data or code execution."""
 import collections
 import json

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+ * SPDX-License-Identifier: LicenseRef-KOL-v1
+ */
+
 #define _POSIX_C_SOURCE 200809L
 #include <assert.h>
 #include <errno.h>

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+// SPDX-License-Identifier: LicenseRef-KOL-v1
+
 mod answer { include!("/work/rust_prefix.rs"); }
 fn reference(xs: &[i32]) -> Option<Vec<i32>> {
     let mut sum=0_i64; let mut out=Vec::new();

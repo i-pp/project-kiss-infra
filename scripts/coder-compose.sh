@@ -1,4 +1,7 @@
 #!/bin/sh
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 set -eu
 cd -- "$(dirname -- "$0")/.."
 export MODEL_FILE=Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf

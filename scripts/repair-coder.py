@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Seven fixed tasks, fresh generation, at most three repairs, independent gates."""
 import datetime
 import hashlib

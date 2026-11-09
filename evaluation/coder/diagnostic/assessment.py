@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Post-hoc evidence only. Its results must never be sent to either model role."""
 import difflib
 import hashlib

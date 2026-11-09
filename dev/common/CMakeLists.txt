@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 cmake_minimum_required(VERSION 3.20)
 project(kiss_llvm_api_validation LANGUAGES C CXX)
 find_package(LLVM 21.1.8 EXACT REQUIRED CONFIG

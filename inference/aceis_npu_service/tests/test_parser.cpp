@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+ * SPDX-License-Identifier: LicenseRef-KOL-v1
+ */
+
 // Test the production worker parser without creating an ORT session/device.
 #define main aceis_worker_main
 #include "../worker.cpp"

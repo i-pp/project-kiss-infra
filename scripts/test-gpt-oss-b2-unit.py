@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Offline tests for safety gates, protected-container refusal and GGUF parsing."""
 import importlib.util
 import json

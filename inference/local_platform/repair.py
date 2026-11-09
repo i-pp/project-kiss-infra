@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """Bounded local pure-function repair loop. No arbitrary commands or repository writes."""
 import argparse
 import ast

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+ * SPDX-License-Identifier: LicenseRef-KOL-v1
+ */
+
 /* Environment validation only. RAM is checked against the emitted DTB. */
 ENTRY(_start)
 MEMORY { RAM (rwx) : ORIGIN = @ORIGIN@, LENGTH = @LENGTH@ }

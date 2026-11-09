@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+# SPDX-License-Identifier: LicenseRef-KOL-v1
+
 """One bounded CPU/NPU comparison with real driver submission evidence.
 
 No SDK staging, installation, reset, service control, download, or implicit retry.

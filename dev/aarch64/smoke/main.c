@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+ * SPDX-License-Identifier: LicenseRef-KOL-v1
+ */
+
 /* Infrastructure smoke test only; no AceIS/Abiss semantics are specified here. */
 #include <stddef.h>
 #include <stdint.h>

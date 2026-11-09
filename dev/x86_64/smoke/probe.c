@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+ * SPDX-License-Identifier: LicenseRef-KOL-v1
+ */
+
 #include <cpuid.h>
 #include "probe.h"
 struct validation_cpu validation_probe(void) {
