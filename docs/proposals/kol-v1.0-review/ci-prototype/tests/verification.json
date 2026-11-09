@@ -1,0 +1,44 @@
+{
+  "checked_at_utc": "2026-11-09T04:19:01.278163+00:00",
+  "python": "3.12.14",
+  "platform": "Linux",
+  "prototype_only": true,
+  "formal_adoption": false,
+  "unit_tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v",
+    "passed": 74,
+    "failed": 0,
+    "log_retention": "Verbose execution log retained locally, not committed under repository policy. See ../../review/INTEGRATION-VERIFICATION.json for the integrated run."
+  },
+  "fixture_source_and_zip": {
+    "status": "pass",
+    "violations": 0,
+    "result": "tests/demo-results.json"
+  },
+  "ast_parse": "pass",
+  "ascii_source": "pass",
+  "independent_technical_review": {
+    "status": "accept-isolated-prototype",
+    "tests_independently_rerun": 74,
+    "blocking_findings_remaining": 0
+  },
+  "not_run": [
+    "GitHub-hosted Actions",
+    "real repository migration",
+    "real AceIS/acc build",
+    "real dependency/SBOM reconciliation",
+    "real distribution artifact audit",
+    "legal ownership or compatibility validation"
+  ],
+  "required_before_activation": [
+    "Owner/legal approval of license and real rights inventory",
+    "Verified build provenance/runtime discovery and real packaging integration",
+    "Externally trusted CI workflow/ruleset and protected governance reviews"
+  ],
+  "external_writes": false,
+  "sha256": {
+    "tools/license_guard.py": "34ef7616783b04cab32b7af1f45afff34cab8c32147d71a91db7a26b110b8c49",
+    "tests/test_license_guard.py": "0dede3e33bd8ae354a0bba63f606ceb01f1aca73f2a5e5377c9ad422e419b6be",
+    "examples/fixture-aceis.zip": "e0ad894e81efd57411b124306b5b824e3cd3ba2ad2b5561784ca704624f518d9"
+  }
+}

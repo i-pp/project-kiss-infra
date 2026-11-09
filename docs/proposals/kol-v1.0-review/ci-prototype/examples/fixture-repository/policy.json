@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "status": "draft-prototype-not-adopted",
+  "licenses": {
+    "LicenseRef-KOL-v1.0": "LICENSES/LicenseRef-KOL-v1.0.txt",
+    "MIT": "LICENSES/MIT.txt"
+  },
+  "scopes": [
+    {
+      "path": "src",
+      "kind": "first-party",
+      "expected_license": "LicenseRef-KOL-v1.0",
+      "copyright_holders": [
+        "Actual Fixture Holder"
+      ],
+      "rights_evidence": {
+        "status": "fixture-only",
+        "record": "rights/fixture.md"
+      }
+    },
+    {
+      "path": "third_party/widget",
+      "kind": "third-party",
+      "expected_license": "MIT",
+      "copyright_holders": [
+        "Synthetic Widget contributors"
+      ],
+      "rights_evidence": {
+        "status": "fixture-only",
+        "record": "rights/fixture.md"
+      },
+      "bundled_in": [
+        "aceis"
+      ],
+      "license_files": [
+        {
+          "source": "LICENSES/MIT.txt",
+          "target": "licenses/widget-MIT.txt"
+        }
+      ],
+      "notice_files": [
+        {
+          "source": "third_party/widget/NOTICE",
+          "target": "notices/widget-NOTICE"
+        }
+      ]
+    },
+    {
+      "path": "legacy",
+      "kind": "legacy",
+      "expected_license": null,
+      "copyright_holders": [
+        "Legacy Fixture"
+      ],
+      "rights_evidence": {
+        "status": "fixture-only",
+        "record": "rights/fixture.md"
+      }
+    },
+    {
+      "path": "output",
+      "kind": "acc-output",
+      "expected_license": "MIT",
+      "copyright_holders": [
+        "Output User"
+      ],
+      "rights_evidence": {
+        "status": "fixture-only",
+        "record": "rights/fixture.md"
+      },
+      "license_origin": "user-choice"
+    }
+  ],
+  "notices": [
+    {
+      "path": "NOTICE",
+      "required_text": [
+        "AceIS",
+        "I-plusplus",
+        "AceIS contributors"
+      ]
+    }
+  ],
+  "protected_files": [
+    "policy.json"
+  ],
+  "excluded_paths": [
+    {
+      "path": "baseline.json",
+      "reason": "Baseline self-comparison is performed by check against the trusted copy."
+    }
+  ],
+  "artifact_payloads": {
+    "aceis": [
+      {
+        "target": "aceis.bin",
+        "scopes": [
+          "src",
+          "third_party/widget"
+        ]
+      }
+    ],
+    "acc-pure-output": [
+      {
+        "target": "main.c",
+        "source": "output/user.c",
+        "scopes": [
+          "output"
+        ]
+      }
+    ]
+  },
+  "distribution": {
+    "aceis": [
+      {
+        "source": "LICENSES/LicenseRef-KOL-v1.0.txt",
+        "target": "LICENSE-KOL-v1.0"
+      },
+      {
+        "source": "NOTICE",
+        "target": "NOTICE"
+      }
+    ],
+    "acc-pure-output": [
+      {
+        "source": "LICENSES/MIT.txt",
+        "target": "USER-LICENSE"
+      }
+    ]
+  }
+}

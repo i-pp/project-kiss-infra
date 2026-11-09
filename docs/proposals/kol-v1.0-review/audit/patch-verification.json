@@ -1,0 +1,25 @@
+{
+  "patch": "Project-KISS-v4-KOL-v1.0-proposed.patch",
+  "application": "isolated temporary copies only; no repository or Space source was changed",
+  "sources": [
+    {
+      "source": "source/Project-KISS/Project-KISS_design_v4_draft.md",
+      "sha256": "a99cbfb1a3d9d49f8fc9a6d379fc7ccafec5464a19c580e6ff84680e9e77fff5",
+      "bytes": 66898,
+      "patch_check": "PASS",
+      "isolated_copy_application": "PASS",
+      "source_unchanged": "PASS"
+    },
+    {
+      "source": "source/Project-KISS_design_v4_draft.md",
+      "sha256": "edc44f7679fd6d8de887c60d2ad4c21ec7c37ae2190fd3a93162bdaba7a25b1c",
+      "bytes": 65497,
+      "patch_check": "PASS",
+      "isolated_copy_application": "PASS",
+      "source_unchanged": "PASS"
+    }
+  ],
+  "license_section_equal_between_v4_copies": true,
+  "scope": "chapter 12 and chapter 17 ADR candidate 11 only",
+  "actual_copyright_declarations_in_source": "none detected by bounded text inspection; existing copyright/contribution design text is retained"
+}
