@@ -46,11 +46,11 @@ def check_resources(s, baseline):
         raise ServiceError('memory PSI full avg10 above 10 percent')
 
 
-def validate_request(body):
+def validate_request(body, models=MODELS):
     if not isinstance(body, dict) or set(body) - {'model', 'messages', 'max_tokens', 'timeout_seconds'}:
         raise ValueError('unknown request fields')
     model = body.get('model')
-    if not isinstance(model, str) or model not in MODELS:
+    if not isinstance(model, str) or model not in models:
         raise ValueError('unknown model')
     messages = body.get('messages')
     if not isinstance(messages, list) or not 1 <= len(messages) <= 32:
@@ -96,6 +96,8 @@ class Job:
 class Controller:
     def __init__(self, backend, read_resources=snapshot, start=True):
         self.backend = backend
+        self.models = frozenset(getattr(backend, 'models', MODELS))
+        self.requires_flash = getattr(backend, 'requires_flash', True)
         self.read_resources = read_resources
         self.baseline = read_resources()
         check_resources(self.baseline, self.baseline)
@@ -120,7 +122,7 @@ class Controller:
                 del self.jobs[key]
 
     def submit(self, body):
-        model, messages, n, timeout = validate_request(body)
+        model, messages, n, timeout = validate_request(body, self.models)
         with self.lock:
             self.prune()
             if self.stop.is_set() or self.fault:
@@ -177,7 +179,7 @@ class Controller:
             try:
                 job = self.queue.get(timeout=.2)
             except queue.Empty:
-                if not self.fault and not self.stop.is_set() and not self.backend.health()['flash_resident']:
+                if self.requires_flash and not self.fault and not self.stop.is_set() and not self.backend.health()['flash_resident']:
                     now = time.monotonic()
                     self.restarts = [t for t in self.restarts if now - t < 600]
                     if len(self.restarts) >= 2:

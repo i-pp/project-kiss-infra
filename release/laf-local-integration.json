@@ -1,0 +1,292 @@
+{
+  "base_commit": "44231510d7d5b85df64bf914c2bee9b160a29f87",
+  "upstream_main_verified": true,
+  "upstream_sync_blocker": null,
+  "scope": "Private delivery prepared on the latest fetched main; prior imports remain historical provenance. No merge, public release or deployment.",
+  "imports": [
+    {
+      "increment": "model-management-v2",
+      "path": "docs/laf-model-management.md",
+      "sha256": "656299a39b0c78299d241d9058060ac21d3f57981e16d3caba0273ebdf05bfff",
+      "previous_sha256": null
+    },
+    {
+      "increment": "model-management-v2",
+      "path": "docs/laf-release-readiness.md",
+      "sha256": "ed690faa76f75b6b20fc234174a64251a7d7aa31d1f1a1ceed26c244d6991b34",
+      "previous_sha256": null
+    },
+    {
+      "increment": "model-management-v2",
+      "path": "inference/local_platform/cli.py",
+      "sha256": "0af18b6d0b1cee682a331044c505347bbf6913c1b4672cbbdf69a3256ad4d54d",
+      "previous_sha256": "b0ea01265e77f12b9883777e89c40deaeb371b612e6aad8af31a84e1d4d59d52"
+    },
+    {
+      "increment": "model-management-v2",
+      "path": "inference/local_platform/model-provenance.json",
+      "sha256": "42fc2457351a8e8a88553cb2ec6234dc583e3e45394655c8edebc956476ec8d4",
+      "previous_sha256": null
+    },
+    {
+      "increment": "model-management-v2",
+      "path": "inference/local_platform/model_management.py",
+      "sha256": "3e62fb74f2050a3c62e373876e5db6e2b7b7793361bf46d5b65b6c4fac083942",
+      "previous_sha256": null
+    },
+    {
+      "increment": "model-management-v2",
+      "path": "inference/local_platform/test_models.py",
+      "sha256": "0a4b5a11c67aa31bae2f391df53b1a1824491e8d0655a14d73964090b7d2ba70",
+      "previous_sha256": null
+    },
+    {
+      "increment": "model-management-v2",
+      "path": "release/laf-readiness.json",
+      "sha256": "24096271a612eb0d038fd4f1384fad880eff6d64e4a05e032d2af115c3f7448c",
+      "previous_sha256": null
+    },
+    {
+      "increment": "model-management-v2",
+      "path": "scripts/check-laf-offline.py",
+      "sha256": "9c9d48bca4a8e5f37db3d14b01c907125fe386f8609d249d0f3415821a23884b",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "docs/laf-acceptance-host-runner.md",
+      "sha256": "fa1c164637fcf301951cb2e2ba970481cae0b231b4058014630d7ef40e8d2a25",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "docs/laf-candidate-profiles.md",
+      "sha256": "e9e4f2ad9d9bff4d625a50ab177d8cd729fdb85883327ebb8d021036f2dc986d",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "docs/laf-core-integration.md",
+      "sha256": "f341bf01037fc918bab87442f1b5c094732c895c7d8a71b48d2ad5f250fd269c",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "docs/laf-host-supervisor.md",
+      "sha256": "ab7229edaa0d3baa60e862f93077a6b7e70aad445af1d9d7c6ceaa46916d1b70",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/acceptance_container/__init__.py",
+      "sha256": "e63282f454943db35b56e4d908d2e9245a39e587e16d83793fbbd3a06e2a1ff9",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/acceptance_container/engine.py",
+      "sha256": "639ec4c32d0352abdbb128470fb5938659e450172dc268ec3306ba724ff3bd5c",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/acceptance_container/run.py",
+      "sha256": "f03e0b0bcad22348e6d9984154b2880851d09c51dd05ff786721b7d7536f285a",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/acceptance_container/test_engine.py",
+      "sha256": "f2980c262c238a5857cfbffb95132cb1d89895ee631d43970f2477ad75725535",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/acceptance_container/test_run.py",
+      "sha256": "d39b2af03c2473e486f24426709a81dd450135257830ec9bf0ad0a3e7b4606ea",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/acceptance_container/test_store.py",
+      "sha256": "21421d0a925cb52c0904790c7e842d5e82284c6370b284284a90479e63df138e",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/container_core_probe.py",
+      "sha256": "76a2d8eb5169a98c2cd4357bb49a9861129d1bfe55cd3eb86606e95ab3389df8",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/core.py",
+      "sha256": "a430cac945bc3f27663508707c72e97e2ecb55da5034804381b41e710ee4bc69",
+      "previous_sha256": "d053fa0ddf0b40d11ee76d8d208328acd32f5e1ff423ce077745ff7237f173b2"
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/core_backends.py",
+      "sha256": "df69e558797988d3aff8e820c380cfdaf594bbc6341297c2714704e1fe2ef4f3",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/core_flash_worker.py",
+      "sha256": "90adc9394ee7535f1665b1b966dd26fa29f63bbc79f01ddc6dd395bf2be11c7f",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/core_server.py",
+      "sha256": "05c2296f65d49f52ad8e6fd9257b082dbf6e7be73216aee3d620a61f51b2b4ca",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/fake_core_worker.py",
+      "sha256": "b365a3e3254d1861a73f799fff31b760284f3da3f6ac08267d1c2dc5071c3b96",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/host_supervisor.py",
+      "sha256": "f68010009e3b1a06d02c838b46d8dc82a714b8d787666429b489173d1a1f2f28",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/lifecycle.py",
+      "sha256": "7150dadb6097c32d4fcfd93ec0b01e5013e189cd6ebfe80b43e20b2a77de336b",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/lifecycle_client.py",
+      "sha256": "5ab4d645ce618e7b86c9871268e89a867bfc78722982f0db338afa8423f8742d",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/lifecycle_host.py",
+      "sha256": "4ec208ea86aa38a977f8f833c150da8b8754094ff0c4dc4b4345716a7dc95df2",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/lifecycle_uds.py",
+      "sha256": "a65fe69e9ef5ca5857b236a54017b2d27f2331a16bc1d95d777e0017bfa9a974",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/server.py",
+      "sha256": "b0a9371726906a5a06595cfa7e6a02b92c64e8f06db8fb88fccb7a749926b302",
+      "previous_sha256": "63cab5e1dc8e0483d81ecabc5aab01c78e9f8b3e0c5943241582b72fd87354b9"
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/test_acceptance_profiles.py",
+      "sha256": "5994a2592abae3e23f13140f65f55332515fcee7ae2ffbc8486bc9ffa5f56ad8",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/test_core_integration.py",
+      "sha256": "5095556ad190ece3a8fe3e8dc87d8ac486e48c000f10b00efbd9ca2eaf479dba",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/test_host_supervisor.py",
+      "sha256": "7d15b8a49d2a0d554bf269ac977d65efa7a59be33e8dae6ce2ea0c62e235ce35",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/test_lifecycle.py",
+      "sha256": "667556f7649950438db6e7e09f2826724a2150540ca70a2da9e0b05f8fce71cd",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/test_lifecycle_uds.py",
+      "sha256": "a21a4f288fa2aa5e9b9f4e8568c125e6cdceddaaed86861c2dcc9229405edb6f",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/aceis_service/test_lifecycle_uds_live.py",
+      "sha256": "af93bfd7bbe2f8f5b5d23a24f40d7ed3bc87a98be04e2980cca1cdaeff62d871",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/core_container/Dockerfile",
+      "sha256": "197e9fd172c58346782e1926e4dddfaacbd35cf2b342ac3da42078a5e9c9dfe5",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/core_container/build.py",
+      "sha256": "f840934398201543ace6e75e3532e90d598a00259e48ca550f6ae10a90f87ef8",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/target_acceptance/__init__.py",
+      "sha256": "27e2323073b8279b9ba0489d5c5244176f964d6f301cb67b2d8f84bb64479496",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/target_acceptance/run.py",
+      "sha256": "31a91e18ad9fdcd193b2a81da6b8859f8e273ff263f035a20ae73a06fa7015e8",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-target-acceptance",
+      "path": "inference/target_acceptance/test_run.py",
+      "sha256": "2c05cf9fb186b587053014d869291cb60517e22d509d5dafa12ae1f31f036a91",
+      "previous_sha256": null
+    },
+    {
+      "increment": "core-build-permission-fix",
+      "path": "inference/core_container/build.py",
+      "sha256": "2ba39dcfc9b543ea300b05d66bfd6e0068297e53d6b9dc92e5973e6ef2bc7ad8",
+      "previous_sha256": "f840934398201543ace6e75e3532e90d598a00259e48ca550f6ae10a90f87ef8"
+    },
+    {
+      "increment": "core-build-permission-fix",
+      "path": "inference/core_container/test_build.py",
+      "sha256": "ca4e3bf1c1e77184b3335ec6f12e803bd34ce22d24894196e50d9f1b55fc4c12",
+      "previous_sha256": null
+    },
+    {
+      "increment": "cli-response-validation",
+      "path": "inference/local_platform/cli.py",
+      "sha256": "a12f19db0687ce5474f488f2e1309d0fdd185364c470bc4628d555a0174a7e98",
+      "previous_sha256": "0af18b6d0b1cee682a331044c505347bbf6913c1b4672cbbdf69a3256ad4d54d"
+    },
+    {
+      "increment": "cli-response-validation",
+      "path": "inference/local_platform/test_cli_responses.py",
+      "sha256": "fda861f55c965d04afe2cbecc48320e80122eb3e76230e88c86983b29f8034e9",
+      "previous_sha256": null
+    },
+    {
+      "increment": "cli-response-validation",
+      "path": "docs/laf-cli-response-validation.md",
+      "sha256": "8f3b42acb441cf275b064cbdc938f199b09f2415570fa9fb250aa03015bca5f6",
+      "previous_sha256": null
+    }
+  ],
+  "additional_local_git_sources": [
+    {
+      "path": "inference/aceis_npu_service",
+      "commit": "09321a0d7b2c3b843f37fb611b4aa0b62a342a5a"
+    }
+  ],
+  "upstream_base_commit": "e7bd7ec22f1855b027dd713118b54b394d7366a5",
+  "prior_local_delivery_commit": "7f92f6d"
+}

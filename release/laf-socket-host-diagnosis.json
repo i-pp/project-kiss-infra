@@ -1,0 +1,54 @@
+{
+  "scope": "evidence-only diagnosis and test-fixture correction; no socket retry",
+  "observed_host_run": {
+    "runner_commit": "d867df71fa74666b95a77cafe682010a304f7dd0",
+    "source_commit": "8fbf5eceb9c7a06498aef8e1153fc5a22b603608",
+    "planned": 39,
+    "executed": 39,
+    "passed": 38,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "process_status": "completed",
+    "child_stop_confirmed": true,
+    "wall_seconds": 18.39914137599999,
+    "selected_suite_passed": false
+  },
+  "failure": "inference.aceis_npu_service.tests.test_service.HttpTests.test_public_parent_refused",
+  "cause": "Worker umask 077 filtered mkdir mode 0755 to 0700. The negative fixture was private, so the unchanged owned-0700 service boundary did not reject it.",
+  "correction": "Explicitly chmod the new fixture directory to 0755, assert that precondition, then assert rejection and absence of a socket.",
+  "socket_free_regression": {
+    "test": "ParentPermissionTests.test_public_parent_fixture_is_independent_of_process_umask",
+    "umasks": [
+      "022",
+      "027",
+      "077"
+    ],
+    "baseline": "reproduced only at 077; listener factory mocked before any socket operation",
+    "fixed": "all three subcases pass",
+    "independent_review": "accepted fixture-only correction; same socket-free test independently passed"
+  },
+  "preserved_evidence_sha256": {
+    "plan.json": "f718c1276f3cfc3912984599f712c6279348f71f3a25d919dd2c92318993c653",
+    "result.json": "25b320e6829d4190a4cf2b9c7e06fefa7ee52e21845f88750d88a7de725abe6a",
+    "tests.log": "da4a48496bcfa1d4e3995ff73f49eea220227692a608156111acebcf064766f5"
+  },
+  "limits": [
+    "Corrected 39-test host execution has not run",
+    "No production source, service, model, authentication or network changes",
+    "No publication or B article activity"
+  ],
+  "corrected_host_run_passed": false,
+  "p0_complete": false,
+  "release_authorized": false,
+  "portable_regression_after_fix": {
+    "planned": 457,
+    "selected": 418,
+    "passed": 418,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "explicitly_unexecuted_private_socket_tests": 39,
+    "full_python_regression_passed": false
+  }
+}
