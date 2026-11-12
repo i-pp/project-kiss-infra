@@ -1,0 +1,488 @@
+{
+  "schema_version": 1,
+  "baseline": {
+    "repository": "i-pp/project-kiss-infra",
+    "commit": "e7bd7ec22f1855b027dd713118b54b394d7366a5"
+  },
+  "files": [
+    {
+      "path": "inference/aceis_npu_service/DISTRIBUTION.md",
+      "sha256": "f60fc48d837d6671b15bee883d0931948b73eb3d97723dc5bdc724bd7c805900",
+      "bytes": 9527
+    },
+    {
+      "path": "inference/aceis_npu_service/README.md",
+      "sha256": "c21172f6dfb66a37868b69fbc06bbde33d85ae5dafe2dab6168a131e77b4844f",
+      "bytes": 14444
+    },
+    {
+      "path": "inference/aceis_npu_service/__init__.py",
+      "sha256": "c9f8c008706133967e89452cda17576dbe65782184b11a6a8387b467ff7849b0",
+      "bytes": 75
+    },
+    {
+      "path": "inference/aceis_npu_service/build.sh",
+      "sha256": "8a0cf0c4cf452d161d1770fffae7c9a47c7c839fd1111d280a169f6e1157beaa",
+      "bytes": 639
+    },
+    {
+      "path": "inference/aceis_npu_service/probe_hardware.py",
+      "sha256": "5bc5b0ff74895ee9f65e8469969737bc7ab48ebb91385173c2efd52c3343601a",
+      "bytes": 3883
+    },
+    {
+      "path": "inference/aceis_npu_service/service.py",
+      "sha256": "31ecfc5983cde8c8c53f60c306ab4595191c80fb7563a554ade91a006018ab23",
+      "bytes": 16665
+    },
+    {
+      "path": "inference/aceis_npu_service/systemd/aceis-npu.service.example",
+      "sha256": "05bb57e3b0a69616ad15a68fb8dd1fce9cf67af3fc5be4887e4648b12756faef",
+      "bytes": 898
+    },
+    {
+      "path": "inference/aceis_npu_service/tests/test_parser.cpp",
+      "sha256": "dcb61c2f09b0262fdf59b8d1300e50c152c0d826e407137917873a57636940d7",
+      "bytes": 654
+    },
+    {
+      "path": "inference/aceis_npu_service/tests/test_service.py",
+      "sha256": "a23a1ddf9d3d9bf6a41268f2eb8d80b86e82c19a598678e6ff0638805afea592",
+      "bytes": 11571
+    },
+    {
+      "path": "inference/aceis_npu_service/verify_trace.py",
+      "sha256": "11d14d2477adfd6844f469d6dcefcf25dfe111518d1ca845d742b89c4fcf1c97",
+      "bytes": 1215
+    },
+    {
+      "path": "inference/aceis_npu_service/worker.cpp",
+      "sha256": "3368f708b6611aff8cc005023d103dfa7d68ba005ab21bbd29fef2b4a5c8b6a9",
+      "bytes": 5814
+    },
+    {
+      "path": "inference/aceis_service/README.md",
+      "sha256": "e69e551a91c4d49baf376ff0a380ce9c524326ba420a64141016dde912cfb72d",
+      "bytes": 9020
+    },
+    {
+      "path": "inference/aceis_service/__init__.py",
+      "sha256": "5590e9e52c200cd818c91017cdd5a708d6a9874f1114194102edfefc944e9630",
+      "bytes": 49
+    },
+    {
+      "path": "inference/aceis_service/acceptance-20261107.md",
+      "sha256": "ee750f31179f2e7a5e89b1184b4f6472b288d50a9ebe7663883f304accf201a4",
+      "bytes": 7411
+    },
+    {
+      "path": "inference/aceis_service/backends.py",
+      "sha256": "83579e677d7c9d533ce2b11c6d7d8ea9149c283c3af0b1f9b58146e9305dc766",
+      "bytes": 17625
+    },
+    {
+      "path": "inference/aceis_service/client.py",
+      "sha256": "badcf97573860c0f210af8c495ba31ec88b51af1e50042b647e153ca5561dd4e",
+      "bytes": 1697
+    },
+    {
+      "path": "inference/aceis_service/config.example.json",
+      "sha256": "be3801b67c7517b638d185b49b511156be0e952d6d385822ddd597a31663817f",
+      "bytes": 967
+    },
+    {
+      "path": "inference/aceis_service/core.py",
+      "sha256": "d053fa0ddf0b40d11ee76d8d208328acd32f5e1ff423ce077745ff7237f173b2",
+      "bytes": 9777
+    },
+    {
+      "path": "inference/aceis_service/distribution-notes.md",
+      "sha256": "68fe6bf07aabe751185cd437cbfd9c8281f95b654a4cde20ced673a444371ca9",
+      "bytes": 2383
+    },
+    {
+      "path": "inference/aceis_service/flash_worker.py",
+      "sha256": "2944cd9ba6928178f078c394ce2ae9095fba51f046a27e40735bd48aae5e06b9",
+      "bytes": 3752
+    },
+    {
+      "path": "inference/aceis_service/npu_bridge.py",
+      "sha256": "b1c81061087744847293b34e84cb3de22d076eff74fa43ff34a099daec944dc7",
+      "bytes": 6150
+    },
+    {
+      "path": "inference/aceis_service/server.py",
+      "sha256": "63cab5e1dc8e0483d81ecabc5aab01c78e9f8b3e0c5943241582b72fd87354b9",
+      "bytes": 12781
+    },
+    {
+      "path": "inference/aceis_service/systemd/aceis-inference.service.example",
+      "sha256": "bedbd715239dc482b6ceff7449199d5a92a987d511c3456c5aef01cc62023966",
+      "bytes": 614
+    },
+    {
+      "path": "inference/aceis_service/test_npu_bridge.py",
+      "sha256": "82dc4ef67212d0ceca2b371cacb86ca9d87fbb80ec9f1ccf6994b294b1a5a2ae",
+      "bytes": 8248
+    },
+    {
+      "path": "inference/aceis_service/test_service.py",
+      "sha256": "6c9dfd3f0e68158799d84d689b0a88692676223a2afa7d4dca5fd08796a655b6",
+      "bytes": 12603
+    },
+    {
+      "path": "inference/local_platform/API.md",
+      "sha256": "28ac3aca4620c1d89451d3d4e748df5d4cb12949b767596bd269fbd2c2c31964",
+      "bytes": 9011
+    },
+    {
+      "path": "inference/local_platform/README.md",
+      "sha256": "72144c567d3e4fba734c71bbafbe964f30b5f256615b2bfabff7a2e5e30a9982",
+      "bytes": 6907
+    },
+    {
+      "path": "inference/local_platform/__init__.py",
+      "sha256": "cc9a3ecf4daed73135055b2b810a400eeba8c937d32c789ba0a9354e92b9d24c",
+      "bytes": 86
+    },
+    {
+      "path": "inference/local_platform/acceptance-20261107.md",
+      "sha256": "3b35aa6d9b2be1e4047ecb02b6870f6e9487725de6db1ceb2850976d91b8b2f4",
+      "bytes": 5123
+    },
+    {
+      "path": "inference/local_platform/advisor_demo.py",
+      "sha256": "9fecc4f75c763e8390eb6745120d53cd27e087632adeffbbb95e91ab734fb0e0",
+      "bytes": 801
+    },
+    {
+      "path": "inference/local_platform/bounded_patch.py",
+      "sha256": "e6325ea988554ec5ecb9337b431ac27e244eea759c7e3f91792eb2be2f93b108",
+      "bytes": 5771
+    },
+    {
+      "path": "inference/local_platform/cli.py",
+      "sha256": "0af18b6d0b1cee682a331044c505347bbf6913c1b4672cbbdf69a3256ad4d54d",
+      "bytes": 11289
+    },
+    {
+      "path": "inference/local_platform/developer.py",
+      "sha256": "2e2e7efc4aeff456fbd683c71bbd9320057accbb85049865459d3d85b73204c5",
+      "bytes": 16017
+    },
+    {
+      "path": "inference/local_platform/development-scope.md",
+      "sha256": "20c912194331e81df49d9eee96db921c635cd34743fbe205c9814286b2cfb210",
+      "bytes": 3302
+    },
+    {
+      "path": "inference/local_platform/examples/calculator.py",
+      "sha256": "b2e6ae9ba399bc963d735c349dc5f3d7dd7bc7ba62a6ad19524547fa933fc45a",
+      "bytes": 59
+    },
+    {
+      "path": "inference/local_platform/examples/cases.json",
+      "sha256": "01eb3951254b9dbdc0052832a61b367529f11397199fef09a975be7c32ed6b7a",
+      "bytes": 241
+    },
+    {
+      "path": "inference/local_platform/examples/cli-regression-task.json",
+      "sha256": "3bb8bd52e1301d1d3140368295f4ecc7fc3d24a39f42827a27ba5e7955f7bb55",
+      "bytes": 1038
+    },
+    {
+      "path": "inference/local_platform/examples/median3-cases.json",
+      "sha256": "1a3a4f641b83ed0abcfde8140c4b519ffe61f98a8fc28d084fe959de5b734913",
+      "bytes": 223
+    },
+    {
+      "path": "inference/local_platform/examples/median3.py",
+      "sha256": "d94dbbaffa91360cad368bdfd8d6554c4c75d407fe77616e4f39f339bfa5aaae",
+      "bytes": 49
+    },
+    {
+      "path": "inference/local_platform/examples/safe_divide-cases.json",
+      "sha256": "c4606a83de74129d64f2653cbcd063c0f0bbc914fa5475ec72a3abe5e219fe82",
+      "bytes": 232
+    },
+    {
+      "path": "inference/local_platform/examples/safe_divide.py",
+      "sha256": "f2b253b03ec390a77352429af594ddd8df5097cd2c59c79e7fd7d2cf4719f5d1",
+      "bytes": 40
+    },
+    {
+      "path": "inference/local_platform/model-provenance.json",
+      "bytes": 5399,
+      "sha256": "42fc2457351a8e8a88553cb2ec6234dc583e3e45394655c8edebc956476ec8d4"
+    },
+    {
+      "path": "inference/local_platform/model_management.py",
+      "sha256": "3e62fb74f2050a3c62e373876e5db6e2b7b7793361bf46d5b65b6c4fac083942",
+      "bytes": 24058
+    },
+    {
+      "path": "inference/local_platform/naming.md",
+      "sha256": "a12cf7e01428495cf2267a82e9de99f59ac474f3b58495cd295c6b499203f075",
+      "bytes": 3884
+    },
+    {
+      "path": "inference/local_platform/npu-api-acceptance-20261107.md",
+      "sha256": "66e0d03d0e9b02242c4d59593a3194f4dcdc0301b4c60c388dada66827c726f3",
+      "bytes": 6255
+    },
+    {
+      "path": "inference/local_platform/project_runner.py",
+      "sha256": "51fbe5309417def92a49a3a617ee0b6ab85c05641c3ae665b95f7f1bbcbde850",
+      "bytes": 37048
+    },
+    {
+      "path": "inference/local_platform/repair.py",
+      "sha256": "ed284413073058c734d549ec29c26c58e5cda383c447bc2519a93d6ad1744207",
+      "bytes": 7910
+    },
+    {
+      "path": "inference/local_platform/test-quality-evaluation.md",
+      "sha256": "ae7ffb27aa8db73b7df66898a6f7aec9aab420cc82fe8cbc521ba1e68db978e0",
+      "bytes": 6358
+    },
+    {
+      "path": "inference/local_platform/test_cli.py",
+      "sha256": "1baff9a67796644303cd83ecec77a9054b781a2eeb1fde544883a76e3bd0b314",
+      "bytes": 6108
+    },
+    {
+      "path": "inference/local_platform/test_developer.py",
+      "sha256": "184b233d9697d27e67a146db526523c9b566ccf32bf81fb51c3c6bd6e2a6234d",
+      "bytes": 9147
+    },
+    {
+      "path": "inference/local_platform/test_models.py",
+      "sha256": "0a4b5a11c67aa31bae2f391df53b1a1824491e8d0655a14d73964090b7d2ba70",
+      "bytes": 22041
+    },
+    {
+      "path": "inference/local_platform/test_project_runner.py",
+      "sha256": "061764e9ca1232e906db1e8dd4e330fcfba88d48e853264d32a1e7ac52760c28",
+      "bytes": 48881
+    },
+    {
+      "path": "inference/local_platform/test_repair.py",
+      "sha256": "0b3bd23e56ae7b90371b0332761384c9974c0ad6e7ca22f66dfec98d14b71caf",
+      "bytes": 5362
+    },
+    {
+      "path": "inference/local_platform/test_runner.py",
+      "sha256": "2200d651ddd6cc4af888be7cd049f6ceb37e1ebdf7357c08a9af66366346b902",
+      "bytes": 1373
+    },
+    {
+      "path": "inference/local_platform/test_workspace.py",
+      "sha256": "44ae910824e194cc3e20091de3108781ce533b43c6a1d38291ba90b0f9394804",
+      "bytes": 7915
+    },
+    {
+      "path": "inference/local_platform/workspace-acceptance-20261107.md",
+      "sha256": "cd3ec2e9207c05fd116c08633d5e938041a76fa3ef62c1d65438ba0c3dd8dbed",
+      "bytes": 9772
+    },
+    {
+      "path": "inference/local_platform/workspace-client.md",
+      "sha256": "4464cbbc4b680255aca2fca179d5ff596dfc1e79dba90946e28d2c6b49238041",
+      "bytes": 7440
+    },
+    {
+      "path": "inference/local_platform/workspace.py",
+      "sha256": "a545e8687eea1fc31893e413faa87ca0dfc2538d604dabd2f0555541551fe569",
+      "bytes": 14856
+    }
+  ],
+  "components": {
+    "laf_source": {
+      "status": "unresolved",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/issues/7"
+      ],
+      "note": "No repository LICENSE found in merged baseline. Owner must select and approve licensing and confirm source provenance; do not invent a grant."
+    },
+    "strata": {
+      "status": "unresolved",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "Exact engine source/binary revision, origin, license and redistribution conditions still required."
+    },
+    "flash_assets": {
+      "status": "unresolved",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "Tokenizer, Flash pack and any GGUF data need separate exact-version rights. Exclude all weights from the proposed source preview."
+    },
+    "ollama": {
+      "status": "unresolved",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/backends.py",
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "Existing local image ID is pinned, but is not a portable registry digest plus reviewed dependency/license inventory."
+    },
+    "large_models": {
+      "status": "unresolved",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "Model manifests, exact quantizations, original source and redistribution rights remain separate from engine licensing."
+    },
+    "npu_sdk": {
+      "status": "unresolved",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_npu_service/DISTRIBUTION.md"
+      ],
+      "note": "AMD wheel metadata MIT labels conflict with embedded AMD EULA references. Runtime/compiler/Peano/XRT/plugin/firmware graph and exact applicable terms require review."
+    },
+    "npu_model": {
+      "status": "unresolved",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_npu_service/DISTRIBUTION.md"
+      ],
+      "note": "No separate quicktest-model redistribution grant was found in bounded inspection; application accuracy also unverified."
+    },
+    "base_image": {
+      "status": "unresolved",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "No proposed LAF distributable base image, immutable registry digest, build recipe or SBOM is accepted yet."
+    }
+  },
+  "gates": {
+    "license_choice": {
+      "status": "not_executed",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/issues/7",
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "Record the owner-approved license for original LAF source and retained notices. Choosing a license is not automated by this preflight."
+    },
+    "source_scope_review": {
+      "status": "not_executed",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/issues/7",
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "Review this explicit source-only inventory; exclude AceIS implementation, private assets, logs, credentials, vendor SDKs and model bytes from any release artifact."
+    },
+    "secret_scan": {
+      "status": "not_executed",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/issues/7",
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "Run and review a scoped secret/private-content scan on the exact proposed artifact and retained history. This checker does not scan contents for secrets."
+    },
+    "technical_review": {
+      "status": "not_executed",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/issues/7",
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "Independent technical review of exact candidate revision and relevant tests; existing historical acceptance is not approval of a new artifact."
+    },
+    "editorial_review": {
+      "status": "not_executed",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/issues/7",
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "Independent reader-value and evidence review of release docs and any article under the accepted, hash-bound Editorial Policy v2."
+    },
+    "claim_scope_review": {
+      "status": "not_executed",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/issues/7",
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "Bind every release claim to actual evidence. No clean-host, remote-PC, general completion-rate, test-authoring-quality or safety-certification claim from current smoke tests."
+    },
+    "lifecycle_boundary": {
+      "status": "not_executed",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/issues/7",
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "Replace Router access to host Docker socket with a narrow separately reviewed supervisor/host boundary before a distributable runtime image. Do not solve by mounting the socket."
+    },
+    "reproducible_build": {
+      "status": "not_executed",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/issues/7",
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "Pin all build inputs and record a reproducible source/build procedure; no external image pull/build has run in this task."
+    },
+    "sbom_scan": {
+      "status": "not_executed",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/issues/7",
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "Produce and inspect SBOM, dependency licenses and security scan for the exact built image; code-file inventory is not an SBOM."
+    },
+    "clean_host": {
+      "status": "not_executed",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/issues/7",
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "Run complete acquisition/setup/start/health/stop/recovery on a separate clean supported host. Existing-machine launcher is not a Quick Start."
+    },
+    "gpu_npu_acceptance": {
+      "status": "not_executed",
+      "evidence": [
+        "https://github.com/i-pp/project-kiss-infra/issues/7",
+        "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/distribution-notes.md"
+      ],
+      "note": "Verify minimal devices/UID/mounts/offline bounds and independent GPU/NPU failures on distributable artifacts without privileged, host networking or security weakening."
+    }
+  },
+  "profiles": {
+    "source_preview": {
+      "components": [
+        "laf_source"
+      ],
+      "gates": [
+        "license_choice",
+        "source_scope_review",
+        "secret_scan",
+        "technical_review",
+        "editorial_review",
+        "claim_scope_review"
+      ]
+    },
+    "container_preview": {
+      "components": [
+        "base_image",
+        "flash_assets",
+        "laf_source",
+        "large_models",
+        "npu_model",
+        "npu_sdk",
+        "ollama",
+        "strata"
+      ],
+      "gates": [
+        "license_choice",
+        "source_scope_review",
+        "secret_scan",
+        "technical_review",
+        "editorial_review",
+        "claim_scope_review",
+        "lifecycle_boundary",
+        "reproducible_build",
+        "sbom_scan",
+        "clean_host",
+        "gpu_npu_acceptance"
+      ]
+    }
+  }
+}

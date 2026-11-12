@@ -163,8 +163,30 @@ class HttpTests(unittest.TestCase):
     def test_public_parent_refused(self):
         d = self.directory / "public"
         d.mkdir(mode=0o755)
+        # mkdir mode is filtered by umask; the negative fixture must be public.
+        d.chmod(0o755)
+        self.assertEqual(stat.S_IMODE(d.stat().st_mode), 0o755)
         with self.assertRaises(ValueError):
             service.serve(self.worker, d / "socket")
+        self.assertFalse((d / "socket").exists())
+
+
+class ParentPermissionTests(unittest.TestCase):
+    def test_public_parent_fixture_is_independent_of_process_umask(self):
+        # Exercise the same HTTP-test method without its socket-creating setUp.
+        # The listener factory must never be reached for an actual 0755 parent.
+        for mask in (0o022, 0o027, 0o077):
+            with self.subTest(umask=oct(mask)), tempfile.TemporaryDirectory() as d:
+                case = HttpTests('test_public_parent_refused')
+                case.directory = Path(d)
+                case.worker = FakeWorker()
+                previous = os.umask(mask)
+                try:
+                    with patch.object(service, 'UnixHTTPServer', side_effect=AssertionError('public parent reached listener')) as listener:
+                        case.test_public_parent_refused()
+                    listener.assert_not_called()
+                finally:
+                    os.umask(previous)
 
 
 class WorkerTests(unittest.TestCase):

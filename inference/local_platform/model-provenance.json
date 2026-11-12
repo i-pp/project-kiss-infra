@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "purpose": "Historical evidence register, not an installable model catalog",
+  "sources": [
+    {
+      "id": "comparison-20261106",
+      "filename": "engine-comparison.json",
+      "sha256": "e22500a7c31f7e2f8b76c951348a135a535d7fd5013f7206059c904e99696644",
+      "source_bytes_verified": true,
+      "verification": "Preserved cloud copy matches exact EVO-X3 prior-research source bytes; no current model weight rehash",
+      "kind": "historical_experiment_summary"
+    },
+    {
+      "id": "router-acceptance-20261107",
+      "url": "https://github.com/i-pp/project-kiss-infra/blob/e7bd7ec22f1855b027dd713118b54b394d7366a5/inference/aceis_service/acceptance-20261107.md",
+      "commit": "e7bd7ec22f1855b027dd713118b54b394d7366a5",
+      "kind": "historical_router_acceptance"
+    },
+    {
+      "id": "next-candidate-review",
+      "filename": "next-llama-source-review.json",
+      "sha256": "a9ecb24c1fb5bc066a8fe1e72fa7fb5df8d7739203dc35e6bf8d82a3e5f1e4af",
+      "source_bytes_verified": true,
+      "kind": "generated_code_review_not_model_provenance"
+    },
+    {
+      "id": "flash-candidate-review",
+      "filename": "flash-source-review.json",
+      "sha256": "5dbf7d5056e85ac3a30f7017f12cf7a4e6e6dff74ecbd3856f691d6cec4eb14f",
+      "source_bytes_verified": true,
+      "kind": "generated_code_review_not_model_provenance"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "flash",
+      "historical_quantization": "GSQ-RCO Q2_0",
+      "historical_asset_revision": "ed59f92082b1e93c0e96d60a8b11aab089b52f09",
+      "revision_source": "comparison-20261106",
+      "upstream_origin_verified": false,
+      "verified_model_source_url": null,
+      "verified_license": null,
+      "verified_license_url": null,
+      "verified_weight_sha256": null,
+      "verified_weight_bytes": null,
+      "verified_engine_manifest_digest": null,
+      "current_full_weight_sha256_recomputed": false,
+      "installable": false,
+      "unresolved": [
+        "Exact upstream acquisition and conversion provenance",
+        "Model license evidence and required user acceptance/authentication",
+        "Per-file weight SHA256 and bytes",
+        "Engine manifest and storage mapping for intended managed endpoint",
+        "Required persistent capacity and artifact compatibility"
+      ]
+    },
+    {
+      "id": "coder-next",
+      "historical_quantization": "Q4_K_M",
+      "historical_asset_revision": "b82fb7382639d97b38fa7672e526c760c2fb358e",
+      "revision_source": "comparison-20261106",
+      "upstream_origin_verified": false,
+      "verified_model_source_url": null,
+      "verified_license": null,
+      "verified_license_url": null,
+      "verified_weight_sha256": null,
+      "verified_weight_bytes": null,
+      "verified_engine_manifest_digest": null,
+      "current_full_weight_sha256_recomputed": false,
+      "installable": false,
+      "unresolved": [
+        "Exact upstream acquisition and conversion provenance",
+        "Model license evidence and required user acceptance/authentication",
+        "Per-file weight SHA256 and bytes",
+        "Engine manifest and storage mapping for intended managed endpoint",
+        "Required persistent capacity and artifact compatibility"
+      ]
+    },
+    {
+      "id": "gpt-oss-120b",
+      "historical_quantization": "MXFP4",
+      "historical_asset_revision": "7200b74bea78b0a2964ef9f3897eefa401e890ff",
+      "revision_source": "comparison-20261106",
+      "upstream_origin_verified": false,
+      "verified_model_source_url": null,
+      "verified_license": null,
+      "verified_license_url": null,
+      "verified_weight_sha256": null,
+      "verified_weight_bytes": null,
+      "verified_engine_manifest_digest": null,
+      "current_full_weight_sha256_recomputed": false,
+      "installable": false,
+      "unresolved": [
+        "Exact upstream acquisition and conversion provenance",
+        "Model license evidence and required user acceptance/authentication",
+        "Per-file weight SHA256 and bytes",
+        "Engine manifest and storage mapping for intended managed endpoint",
+        "Required persistent capacity and artifact compatibility"
+      ]
+    }
+  ],
+  "runtime_identities": [
+    {
+      "name": "Ollama",
+      "version": "0.40.15",
+      "kind": "runtime_image",
+      "digest": "sha256:d4ae7c574945c7432c8c02ae63fa81ad555854d9fcbc29d02542a4dd69833a85",
+      "source": "router-acceptance-20261107",
+      "is_model_weight_or_manifest_digest": false
+    },
+    {
+      "name": "Strata",
+      "version": "0.1.52 HIP",
+      "kind": "runtime_executable",
+      "sha256": "d236d8829e682c26571ae8734fb2b69b8f1abf9c728dbb2e990aa21686d1071c",
+      "source": "router-acceptance-20261107",
+      "is_model_weight_or_manifest_digest": false
+    }
+  ],
+  "limits": [
+    "Source-byte identity validates which prior report was read, not truth or current validity of every claim",
+    "Historical model asset revisions are not independently verified upstream repository identities",
+    "The AWQ4 revision c92cabfad08cadb011dc169cabb3e6da621b0719 must not be transferred to Q4_K_M",
+    "Runtime image, executable, experiment evidence and model manifest digests are different identities",
+    "Approximately 112 GB combined private imports is not per-model weight size or a minimum-capacity specification",
+    "This register does not change the fail-closed built-in install catalog"
+  ]
+}

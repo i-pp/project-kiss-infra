@@ -26,6 +26,7 @@ The current compatibility transport is the existing owner-only Router socket.
 import argparse
 import http.client
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -36,6 +37,7 @@ import time
 
 MODELS = ['flash', 'coder-next', 'gpt-oss-120b']
 MAX_RESPONSE = 2 * 1024**2
+MAX_JSON_DEPTH = 64
 
 
 class ClientError(Exception):
@@ -71,6 +73,47 @@ def checked_socket(path):
     return path
 
 
+def response_json(raw):
+    """Decode the UTF-8 wire contract without ambiguous keys or non-finite values."""
+    def pairs(items):
+        result = {}
+        for key, value in items:
+            if key in result:
+                raise ValueError('duplicate JSON key')
+            result[key] = value
+        return result
+    def constant(_):
+        raise ValueError('non-finite JSON number')
+    def number(value):
+        result = float(value)
+        if not math.isfinite(result):
+            raise ValueError('non-finite JSON number')
+        return result
+    try:
+        # Bound nesting before decoding, including Python versions with iterative parsers.
+        depth = 0
+        quoted = escaped = False
+        for byte in raw:
+            if quoted:
+                if escaped: escaped = False
+                elif byte == 92: escaped = True
+                elif byte == 34: quoted = False
+            elif byte == 34: quoted = True
+            elif byte in (123, 91):
+                depth += 1
+                if depth > MAX_JSON_DEPTH:
+                    raise ValueError('JSON nesting exceeds bound')
+            elif byte in (125, 93):
+                depth -= 1
+        out = json.loads(raw.decode('utf-8'), object_pairs_hook=pairs,
+                         parse_constant=constant, parse_float=number)
+    except (ValueError, RecursionError):
+        raise ClientError('invalid service JSON response') from None
+    if not isinstance(out, dict):
+        raise ClientError('invalid service response')
+    return out
+
+
 def request(path, method, route, body=None, timeout=3):
     conn = Connection(checked_socket(path),timeout=timeout)
     try:
@@ -80,9 +123,7 @@ def request(path, method, route, body=None, timeout=3):
         raw = response.read(MAX_RESPONSE + 1)
         if len(raw) > MAX_RESPONSE:
             raise ClientError('response exceeds bound')
-        out = json.loads(raw)
-        if not isinstance(out, dict):
-            raise ClientError('invalid service response')
+        out = response_json(raw)
         if response.status >= 400:
             raise ClientError(str(out.get('error') or 'service unavailable'))
         return out
@@ -96,6 +137,20 @@ def job_id(value):
     return value
 
 
+def checked_job(out, identifier, model=None):
+    if (not isinstance(out, dict) or out.get('id') != identifier
+            or out.get('model') not in MODELS
+            or model is not None and out.get('model') != model):
+        raise ClientError('job identity mismatch', identifier)
+    if out.get('status') not in ['queued','running','completed','failed','cancelled']:
+        raise ClientError('unknown job state', identifier)
+    if out.get('status') == 'completed':
+        generated = out.get('result')
+        if not isinstance(generated,dict) or not isinstance(generated.get('content'),str):
+            raise ClientError('invalid completion', identifier)
+    return out
+
+
 def ask(path, model, text, max_tokens=512, timeout=180, call=request, sleep=time.sleep):
     if model not in MODELS or type(max_tokens) is not int or not 1 <= max_tokens <= 1024:
         raise ClientError('invalid model/output bound')
@@ -103,6 +158,8 @@ def ask(path, model, text, max_tokens=512, timeout=180, call=request, sleep=time
         raise ClientError('timeout must be1..300')
     if not isinstance(text, str) or not text.strip() or len(text.encode()) > 8192:
         raise ClientError('input must be1..8192 UTF-8 bytes and fit the server context budget')
+    if len(text.encode("utf-8")) + 64 + max_tokens + 256 > 8192:
+        raise ClientError('input exceeds server context budget')
     body = {'model':model,'messages':[{'role':'user','content':text}],
             'max_tokens':max_tokens,'timeout_seconds':timeout}
     # A submission failure might follow accepted work. Never replay it.
@@ -116,13 +173,10 @@ def ask(path, model, text, max_tokens=512, timeout=180, call=request, sleep=time
     try:
         while time.monotonic() - start < timeout + 5:
             out = call(path,'GET','/v1/jobs/'+identifier)
-            if out.get('id') != identifier or out.get('model') != model:
-                raise ClientError('job identity mismatch')
+            checked_job(out, identifier, model)
             status = out.get('status')
             if status == 'completed':
                 generated = out.get('result')
-                if not isinstance(generated,dict) or not isinstance(generated.get('content'),str):
-                    raise ClientError('invalid completion')
                 return {'model':model,'job_id':identifier,'status':'completed',
                         'content':generated['content'],'finish_reason':generated.get('finish_reason'),
                         'prompt_tokens':generated.get('prompt_tokens'),
@@ -147,11 +201,18 @@ def ask(path, model, text, max_tokens=512, timeout=180, call=request, sleep=time
 
 
 def main(argv=None):
+    # Model storage/lifecycle is opt-in and independent of Router generation.
+    actual = list(sys.argv[1:] if argv is None else argv)
+    if actual and actual[0] == 'model':
+        from .model_management import main as model_main
+        return model_main(actual[1:])
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--socket',default=os.environ.get('LOCAL_INFERENCE_SOCKET',
         '/run/user/'+str(os.getuid())+'/aceis-inference/service.sock'),
         help='operator-chosen existing private UDS; no TCP or credentials created')
     sub=p.add_subparsers(dest='command',required=True)
+    model=sub.add_parser('model',help='persistent catalog/install/list/remove/inspect; use model --help',add_help=False)
+    model.add_argument('model_args',nargs=argparse.REMAINDER)
     sub.add_parser('status')
     sub.add_parser('models')
     sub.add_parser('capabilities')
@@ -168,6 +229,9 @@ def main(argv=None):
     q.add_argument('--max-tokens',type=int,default=512);q.add_argument('--timeout',type=int,default=180)
     q.add_argument('--output',help='create a new JSON file; never overwrite')
     args=p.parse_args(argv)
+    if args.command=='model':
+        from .model_management import main as model_main
+        return model_main(args.model_args)
     if args.command=='repair':
         from .repair import main as repair_main
         return repair_main(['--socket',args.socket,'--source',args.source,'--cases',args.cases,
@@ -176,10 +240,15 @@ def main(argv=None):
         if args.command=='status':
             out=request(args.socket,'GET','/health')
             # Keep endpoint paths, container IDs and private telemetry out of CLI status.
+            gpu, npu = out.get('gpu',{}), out.get('npu',{})
+            if not isinstance(gpu,dict) or not isinstance(npu,dict):
+                raise ClientError('invalid service health response')
             out={'status':out.get('status'),'models':MODELS,
-                 'flash_resident':out.get('gpu',{}).get('flash_resident'),
-                 'selected_model':out.get('gpu',{}).get('ollama_selected'),
-                 'queue_depth':out.get('queue_depth'),'npu_status':out.get('npu',{}).get('status')}
+                 'flash_resident':gpu.get('flash_resident'),
+                 'selected_model':gpu.get('ollama_selected'),
+                 'queue_depth':out.get('queue_depth'),'npu_status':npu.get('status')}
+            from .model_management import local_status
+            out['model_storage']=local_status()
         elif args.command=='classify':
             with open(args.input,'rb') as f:data=f.read(100001)
             if len(data)>100000:raise ClientError('classification input exceeds bound')
@@ -196,6 +265,7 @@ def main(argv=None):
         elif args.command=='get':
             identifier=job_id(args.job_id)
             raw=request(args.socket,'GET','/v1/jobs/'+identifier)
+            checked_job(raw, identifier)
             out={k:raw.get(k) for k in ['id','model','status','error']}
             generated=raw.get('result')
             if isinstance(generated,dict):
@@ -204,6 +274,8 @@ def main(argv=None):
         elif args.command=='cancel':
             identifier=job_id(args.job_id)
             raw=request(args.socket,'DELETE','/v1/jobs/'+identifier)
+            if raw.get('status') != 'cancellation_requested':
+                raise ClientError('invalid cancellation acknowledgement', identifier)
             out={'job_id':identifier,'status':raw.get('status'),'stop_confirmed':False,'automatic_retry':False}
         else:
             if args.output and os.path.lexists(args.output):
@@ -220,7 +292,7 @@ def main(argv=None):
         return 0
     except (ClientError,OSError,ValueError,http.client.HTTPException) as exc:
         print(json.dumps({'status':'error_or_uncertain','error':str(exc)[:180],
-                          'job_id':getattr(exc,'job_id',None) or (locals().get('out') or {}).get('job_id'),
+                          'job_id':getattr(exc,'job_id',None) or locals().get('identifier') or (locals().get('out') or {}).get('job_id'),
                           'automatic_retry':False}),file=sys.stderr)
         return 1
     except KeyboardInterrupt as exc:

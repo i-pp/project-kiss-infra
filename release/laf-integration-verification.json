@@ -1,0 +1,263 @@
+{
+  "scope": "local integrated Python software; not P0/public-release readiness",
+  "local_base_commit": "44231510d7d5b85df64bf914c2bee9b160a29f87",
+  "python_version": "3.14.4",
+  "portable": {
+    "planned": 441,
+    "selected": 402,
+    "tests_run": 402,
+    "failure_events": 0,
+    "error_events": 0,
+    "skipped": 0,
+    "selected_suite_passed": true,
+    "full_python_regression_passed": false,
+    "unexecuted": [
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_npu_service.tests.test_service.HttpTests.test_busy_and_unavailable"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_npu_service.tests.test_service.HttpTests.test_classify"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_npu_service.tests.test_service.HttpTests.test_existing_socket_not_removed"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_npu_service.tests.test_service.HttpTests.test_invalid_body"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_npu_service.tests.test_service.HttpTests.test_not_ready"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_npu_service.tests.test_service.HttpTests.test_origin_rejected"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_npu_service.tests.test_service.HttpTests.test_public_parent_refused"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_npu_service.tests.test_service.HttpTests.test_socket_private"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_acceptance_profiles.CandidateEntryTest.test_real_entry_http_catalog_readiness_job_switch_and_shutdown"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_core_integration.CoreEntryLiveTest.test_opt_in_core_entry_uses_controller_and_preserves_http_api"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_host_supervisor.SupervisorTest.test_real_socket_lanes"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_lifecycle_uds_live.RealUnixTest.test_cancel_lane_survives_saturated_start_workers"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_lifecycle_uds_live.RealUnixTest.test_client_wrong_expected_uid_rejected_before_mutation"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_lifecycle_uds_live.RealUnixTest.test_io_timeout_is_unknown_not_automatic_retry"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_lifecycle_uds_live.RealUnixTest.test_preexisting_endpoint_is_never_replaced"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_lifecycle_uds_live.RealUnixTest.test_real_peer_authenticated_controller_and_host_telemetry"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_lifecycle_uds_live.RealUnixTest.test_server_rejects_wrong_peer_uid_before_dispatch"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_lifecycle_uds_live.RealUnixTest.test_socket_modes_and_cleanup_identity"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_npu_bridge.BridgeTest.test_busy_and_error_no_retry"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_npu_bridge.BridgeTest.test_compact_boundary_rounds_to_float32_without_body_growth"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_npu_bridge.BridgeTest.test_deadline_closes_connection_does_not_retry"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_npu_bridge.BridgeTest.test_malformed_output_fails_closed"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_npu_bridge.BridgeTest.test_oversized_upstream_fails_closed"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_npu_bridge.BridgeTest.test_private_mode_and_absent_endpoint"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_npu_bridge.BridgeTest.test_real_private_http_one_attempt"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_npu_bridge.BridgeTest.test_truncated_or_duplicate_framing_fails_closed"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_npu_bridge.ClassificationHTTPTest.test_bad_classification_is_400"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_npu_bridge.ClassificationHTTPTest.test_capabilities_preserve_gpu_models_and_separate_npu"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_npu_bridge.ClassificationHTTPTest.test_classification_success_separate_from_gpu_lane"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_npu_bridge.ClassificationHTTPTest.test_empty_origin_is_rejected"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_npu_bridge.ClassificationHTTPTest.test_npu_outage_keeps_gpu_ready_and_serving"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_npu_bridge.ClassificationHTTPTest.test_only_classification_gets_larger_body"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_npu_bridge.ClassificationHTTPTest.test_proxy_slot_rejects_concurrent_request"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_service.HTTPTest.test_async_lifecycle"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_service.HTTPTest.test_bad_payload_and_unknown_routes"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_service.HTTPTest.test_health_and_models"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_service.HTTPTest.test_origin_and_foreign_host_rejected"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.aceis_service.test_service.HTTPTest.test_sync_lifecycle"
+      },
+      {
+        "reason": "explicit portable subset: private Unix socket required",
+        "test": "inference.local_platform.test_cli.TestCLI.test_private_socket_boundary"
+      }
+    ]
+  },
+  "initial_full_attempt": {
+    "planned": 430,
+    "tests_run": 430,
+    "passed": 391,
+    "assertion_failures": 0,
+    "environmental_errors": 39,
+    "skipped": 0,
+    "cause": "AF_UNIX socket creation denied; not retried"
+  },
+  "independent_technical_review": "accepted local source-integration scope; independent portable rerun exit 0",
+  "python_310_grammar_files": 64,
+  "python_310_runtime_tested": false,
+  "local_laf_document_links": "no missing file targets",
+  "diff_whitespace_check": "passed",
+  "upstream_synchronized": false,
+  "live_services_changed": false,
+  "published": false,
+  "p0_complete": false,
+  "release_authorized": false,
+  "remaining": [
+    "upstream synchronization",
+    "current-tree runtime/model container acceptance",
+    "native NPU/runtime checks",
+    "physical second-PC E2E",
+    "license/ownership and dependency redistribution",
+    "SBOM and security/private-data review",
+    "clean-host installation",
+    "Owner approval for exact external delivery"
+  ],
+  "host_runner_increment": {
+    "planned": 456,
+    "selected": 417,
+    "tests_run": 417,
+    "error_events": 0,
+    "failure_events": 0,
+    "skipped": 0,
+    "selected_suite_passed": true,
+    "full_python_regression_passed": false,
+    "preparation_review": "accepted; independent 15 pure/mocked selftests passed",
+    "actual_39_socket_tests_executed": false,
+    "source_snapshot_commit": "8fbf5eceb9c7a06498aef8e1153fc5a22b603608",
+    "wall_limit_seconds": 120
+  },
+  "restored_execution": {
+    "tested_source_commit": "13e93aad820b42af713d80e9b2d3be8b51755222",
+    "python_version": "3.14.4",
+    "full_python": {
+      "planned": 457,
+      "selected": 457,
+      "tests_run": 457,
+      "failure_events": 0,
+      "error_events": 0,
+      "skipped": 0,
+      "full_python_regression_passed": true,
+      "unexecuted": []
+    },
+    "frozen_socket_run": {
+      "source_commit": "08b4fb61e9d16319fa0e09a77321caa86254a6a0",
+      "runner_commit": "13e93aad820b42af713d80e9b2d3be8b51755222",
+      "selected_suite_passed": true,
+      "tests_run": 39,
+      "failure_events": 0,
+      "error_events": 0,
+      "skipped": 0,
+      "child_stop_confirmed": true,
+      "snapshot_unchanged_at_endpoints": true
+    },
+    "source_image": {
+      "image_id": "sha256:8316685e60ee98c6aa02673eb7653fd4aa98c623496e8d911ef98941463ba70e",
+      "result": "PASS_UNPRIVILEGED_SOURCE_PREFLIGHT",
+      "base": "project-kiss-code-eval@sha256:d7db62585e135c5ef03be789fbf042ffebae4caa8482dd7aeb1d8e3b4cf0026c",
+      "ten_source_files_verified": 10,
+      "uid": 1000,
+      "gid": 1000,
+      "scope": "source readability/hash/compile/import only; no runtime/model or redistribution acceptance",
+      "daemon_egress_independently_instrumented": false
+    },
+    "independent_evidence_review": "accepted; 457 unique full-suite IDs, exact 39 socket IDs and 67 source fingerprints verified against Git",
+    "evidence_sha256": {
+      "full_python_report": "04ea62aac60618f07971a5e3a3cf3c3a55460b88eded1e5e434bb0797afe7778",
+      "full_python_log": "69c75f662b93cda9abad157b2d52cb2005474abc449838d65c13c32d3d0ce2a5",
+      "socket_result": "0af1964862cd2bde46d54514ed2a0624233ad13b816fcdfb7bb54b9b67b415d5",
+      "source_image_preflight": "5f262f6258a929cb23028ec37c92a2a77afefa52a77bff41b4670d43e74ed8e3"
+    },
+    "live_services_changed": false,
+    "model_actions_performed": false,
+    "upstream_synchronized": false,
+    "p0_complete": false,
+    "release_authorized": false
+  }
+}

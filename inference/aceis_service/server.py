@@ -34,7 +34,6 @@ import stat
 import struct
 import threading
 import time
-from .backends import Backends
 from .core import Controller, MODELS, ServiceError
 from .npu_bridge import classify as npu_classify, NPUUnavailable, NPUBusy, MAX_BODY as NPU_MAX_BODY, MODEL as NPU_MODEL
 
@@ -140,21 +139,22 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 health = ctl.backend.health()
                 with ctl.lock:
                     active_id = ctl.active.id if ctl.active else None
-                self.response(200 if not ctl.stop.is_set() and not ctl.fault and health['flash_resident'] else 503,
-                              {'status': 'ready' if not ctl.stop.is_set() and not ctl.fault and health['flash_resident'] else 'not_ready',
+                ready = not ctl.stop.is_set() and not ctl.fault and health.get('ready', health.get('flash_resident', False))
+                self.response(200 if ready else 503,
+                              {'status': 'ready' if ready else 'not_ready',
                                'fault': ctl.fault, 'resources': ctl.latest, 'gpu': health,
                                'queue_depth': ctl.queue.qsize(), 'active': active_id,
                                'npu': npu_health(self.server.config.get('npu_socket'))})
             elif self.path == '/v1/capabilities':
                 self.response(200, {'api_version':1, 'transport':'owner-only Unix socket',
-                    'gpu':{'models':sorted(MODELS),'max_concurrent_generation':1,
+                    'gpu':{'models':sorted(ctl.models),'max_concurrent_generation':1,
                            'context_limit':8192,'max_output_tokens':1024},
                     'npu':{'configured':bool(self.server.config.get('npu_socket')),
                            'model':NPU_MODEL,'input_shape':[1,3,32,32],'input_elements':3072,
                            'input_dtype':'float32','output_classes':10,'max_concurrent_classification':1,
                            'max_request_bytes':NPU_MAX_BODY,'application_accuracy_verified':False}})
             elif self.path == '/v1/models':
-                self.response(200, {'models': sorted(MODELS), 'context_limit': 8192,
+                self.response(200, {'models': sorted(ctl.models), 'context_limit': 8192,
                                     'max_output_tokens': 1024, 'max_large_models_loaded': 1})
             elif self.path.startswith('/v1/jobs/'):
                 with ctl.lock:
@@ -236,6 +236,8 @@ def private_dir(path):
 
 
 def main():
+    # Host-only legacy backend is not imported by the Core image entrypoint.
+    from .backends import Backends
     p = argparse.ArgumentParser()
     p.add_argument('--config', required=True)
     p.add_argument('--prepare-models', action='store_true')
