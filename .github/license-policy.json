@@ -1,0 +1,587 @@
+{
+  "schema": 1,
+  "licenses": {
+    "LicenseRef-KOL-v1": {
+      "path": "LICENSE",
+      "sha256": "df951a913ed6f5fe319b9e1b1a3cc2b6e396ea65b9d1687b9f735bd8f117ea9c"
+    }
+  },
+  "notice": {
+    "path": "NOTICE",
+    "required_text": [
+      "I-plusplus Inc."
+    ]
+  },
+  "rules": [
+    {
+      "paths": [
+        ".github/workflows/minimum-ci.yml",
+        ".gitignore",
+        "compose.yaml",
+        "dev/aarch64/.dockerignore",
+        "dev/aarch64/Dockerfile",
+        "dev/aarch64/compose.yaml",
+        "dev/aarch64/install.py",
+        "dev/aarch64/rust-toolchain.toml",
+        "dev/aarch64/smoke/CMakeLists.txt",
+        "dev/aarch64/smoke/link.ld.in",
+        "dev/aarch64/smoke/main.c",
+        "dev/aarch64/smoke/reference.c",
+        "dev/aarch64/smoke/rust/Cargo.toml",
+        "dev/aarch64/smoke/rust/main.rs",
+        "dev/aarch64/smoke/simd.c",
+        "dev/aarch64/smoke/start.S",
+        "dev/aarch64/smoke/uart.c",
+        "dev/aarch64/smoke/uart.h",
+        "dev/aarch64/toolchain.cmake",
+        "dev/common/CMakeLists.txt",
+        "dev/common/aarch64-api.c",
+        "dev/common/api-check.c",
+        "dev/common/llvm-api-smoke.cpp",
+        "dev/common/reference.c",
+        "dev/x86_64/.dockerignore",
+        "dev/x86_64/Dockerfile",
+        "dev/x86_64/compose.yaml",
+        "dev/x86_64/install.py",
+        "dev/x86_64/smoke/bare.c",
+        "dev/x86_64/smoke/link.ld",
+        "dev/x86_64/smoke/native.c",
+        "dev/x86_64/smoke/probe.c",
+        "dev/x86_64/smoke/probe.h",
+        "dev/x86_64/smoke/serial.c",
+        "dev/x86_64/smoke/serial.h",
+        "dev/x86_64/smoke/simd-check.c",
+        "dev/x86_64/smoke/simd.c",
+        "dev/x86_64/smoke/start.S",
+        "evaluation/coder/Dockerfile",
+        "evaluation/coder/aapcs_check.S",
+        "evaluation/coder/arm_test.c",
+        "evaluation/coder/c_parse_test.cpp",
+        "evaluation/coder/cpp_alias_test.cpp",
+        "evaluation/coder/diagnose.py",
+        "evaluation/coder/diagnostic/assessment.py",
+        "evaluation/coder/diagnostic/diagnosis.py",
+        "evaluation/coder/diagnostic/test_diagnosis.py",
+        "evaluation/coder/guarded.h",
+        "evaluation/coder/make-controls.py",
+        "evaluation/coder/posix_write_test.c",
+        "evaluation/coder/repair/feedback.py",
+        "evaluation/coder/repair/isolation_probe.py",
+        "evaluation/coder/repair/runner.py",
+        "evaluation/coder/repair/sandbox.py",
+        "evaluation/coder/repair/test_feedback.py",
+        "evaluation/coder/run-tests.py",
+        "evaluation/coder/rust_prefix_test.rs",
+        "inference/aceis_npu_service/__init__.py",
+        "inference/aceis_npu_service/build.sh",
+        "inference/aceis_npu_service/probe_hardware.py",
+        "inference/aceis_npu_service/service.py",
+        "inference/aceis_npu_service/systemd/aceis-npu.service.example",
+        "inference/aceis_npu_service/tests/test_parser.cpp",
+        "inference/aceis_npu_service/tests/test_service.py",
+        "inference/aceis_npu_service/verify_trace.py",
+        "inference/aceis_npu_service/worker.cpp",
+        "inference/aceis_service/__init__.py",
+        "inference/aceis_service/backends.py",
+        "inference/aceis_service/client.py",
+        "inference/aceis_service/core.py",
+        "inference/aceis_service/flash_worker.py",
+        "inference/aceis_service/npu_bridge.py",
+        "inference/aceis_service/server.py",
+        "inference/aceis_service/systemd/aceis-inference.service.example",
+        "inference/aceis_service/test_npu_bridge.py",
+        "inference/aceis_service/test_service.py",
+        "inference/gpt-oss-b2/compose.yaml",
+        "inference/gpt-oss-b2/inspect-gguf.py",
+        "inference/local_platform/__init__.py",
+        "inference/local_platform/advisor_demo.py",
+        "inference/local_platform/bounded_patch.py",
+        "inference/local_platform/cli.py",
+        "inference/local_platform/developer.py",
+        "inference/local_platform/examples/calculator.py",
+        "inference/local_platform/examples/median3.py",
+        "inference/local_platform/examples/safe_divide.py",
+        "inference/local_platform/project_runner.py",
+        "inference/local_platform/repair.py",
+        "inference/local_platform/test_cli.py",
+        "inference/local_platform/test_developer.py",
+        "inference/local_platform/test_project_runner.py",
+        "inference/local_platform/test_repair.py",
+        "inference/local_platform/test_runner.py",
+        "inference/local_platform/test_workspace.py",
+        "inference/local_platform/workspace.py",
+        "inference/vllm-b1/compose.yaml",
+        "inference/vllm-b1/gpu-check.py",
+        "scripts/benchmark.py",
+        "scripts/check-gpu.sh",
+        "scripts/check-repair-isolation.py",
+        "scripts/check-repair-runner.py",
+        "scripts/coder-benchmark.py",
+        "scripts/coder-compose.sh",
+        "scripts/compose.sh",
+        "scripts/dev-aarch64.py",
+        "scripts/dev-aarch64.sh",
+        "scripts/dev-x86_64.py",
+        "scripts/dev-x86_64.sh",
+        "scripts/download-coder.sh",
+        "scripts/download-gpt-oss.py",
+        "scripts/download-model.sh",
+        "scripts/download-vllm-b1-model.py",
+        "scripts/generate-coder-evaluation.py",
+        "scripts/gpt-oss-compose.sh",
+        "scripts/measure-coder-contexts.sh",
+        "scripts/repair-coder-diagnostic.py",
+        "scripts/repair-coder.py",
+        "scripts/test-coder-output.sh",
+        "scripts/test-dev-aarch64.py",
+        "scripts/test-dev-targets.py",
+        "scripts/test-gpt-oss-b2-unit.py",
+        "scripts/test-gpt-oss-b2.py",
+        "scripts/test-vllm-b1-unit.py",
+        "scripts/test-vllm-b1.py",
+        "scripts/vllm-compose.sh",
+        "docs/license-evidence-scope.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "spdx",
+      "header_markers": [
+        "KISS Open License Version 1.0 (KOL-v1)",
+        "SPDX-FileCopyrightText: 2026 I-plusplus Inc.",
+        "SPDX-License-Identifier: LicenseRef-KOL-v1",
+        "Distributed modifications must be identified",
+        "WITHOUT WARRANTY OR LIABILITY",
+        "See the accompanying LICENSE file"
+      ]
+    },
+    {
+      "paths": [
+        "AGENTS.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "AGENTS.md.license"
+    },
+    {
+      "paths": [
+        "AGENTS.md.license",
+        "LICENSING.md",
+        "README.md.license",
+        "dev/aarch64/smoke/README.md.license",
+        "dev/aarch64/versions.lock.json.license",
+        "dev/x86_64/smoke/README.md.license",
+        "dev/x86_64/versions.lock.json.license",
+        "docs/dev-aarch64.md.license",
+        "docs/dev-targets.md.license",
+        "docs/feedback-filter-assembler-plan.md.license",
+        "docs/feedback-filter-assembler-results.md.license",
+        "docs/gpt-oss-b2.md.license",
+        "docs/repair-loop-v2-analysis.md.license",
+        "docs/repair-loop-v2-comparison.md.license",
+        "docs/vllm-b1.md.license",
+        "evaluation/coder/README.md.license",
+        "evaluation/coder/diagnostic/README.md.license",
+        "evaluation/coder/model.json.license",
+        "evaluation/coder/repair/README.md.license",
+        "evaluation/coder/tasks.json.license",
+        "inference/aceis_npu_service/DISTRIBUTION.md.license",
+        "inference/aceis_npu_service/README.md.license",
+        "inference/aceis_service/README.md.license",
+        "inference/aceis_service/acceptance-20261107.md.license",
+        "inference/aceis_service/config.example.json.license",
+        "inference/aceis_service/distribution-notes.md.license",
+        "inference/gpt-oss-b2/versions.lock.json.license",
+        "inference/local_platform/API.md.license",
+        "inference/local_platform/README.md.license",
+        "inference/local_platform/acceptance-20261107.md.license",
+        "inference/local_platform/development-scope.md.license",
+        "inference/local_platform/examples/cases.json.license",
+        "inference/local_platform/examples/cli-regression-task.json.license",
+        "inference/local_platform/examples/median3-cases.json.license",
+        "inference/local_platform/examples/safe_divide-cases.json.license",
+        "inference/local_platform/naming.md.license",
+        "inference/local_platform/npu-api-acceptance-20261107.md.license",
+        "inference/local_platform/test-quality-evaluation.md.license",
+        "inference/local_platform/workspace-acceptance-20261107.md.license",
+        "inference/local_platform/workspace-client.md.license",
+        "inference/vllm-b1/versions.lock.json.license"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "spdx"
+    },
+    {
+      "paths": [
+        "LICENSE",
+        "LICENSES/LicenseRef-KOL-v1.txt",
+        "NOTICE",
+        ".github/license-policy.json"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root"
+    },
+    {
+      "paths": [
+        "README.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "README.md.license"
+    },
+    {
+      "paths": [
+        "dev/aarch64/smoke/README.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "dev/aarch64/smoke/README.md.license"
+    },
+    {
+      "paths": [
+        "dev/aarch64/smoke/rust/Cargo.lock"
+      ],
+      "kind": "generated_metadata",
+      "format": "toml",
+      "evidence": "docs/license-evidence-scope.md",
+      "reason": "Generated dependency or protocol inventory; no dependency implementation bundled",
+      "origin": "Cargo"
+    },
+    {
+      "paths": [
+        "dev/aarch64/versions.lock.json"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "dev/aarch64/versions.lock.json.license"
+    },
+    {
+      "paths": [
+        "dev/x86_64/smoke/README.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "dev/x86_64/smoke/README.md.license"
+    },
+    {
+      "paths": [
+        "dev/x86_64/versions.lock.json"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "dev/x86_64/versions.lock.json.license"
+    },
+    {
+      "paths": [
+        "docs/dev-aarch64.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "docs/dev-aarch64.md.license"
+    },
+    {
+      "paths": [
+        "docs/dev-targets.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "docs/dev-targets.md.license"
+    },
+    {
+      "paths": [
+        "docs/feedback-filter-assembler-plan.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "docs/feedback-filter-assembler-plan.md.license"
+    },
+    {
+      "paths": [
+        "docs/feedback-filter-assembler-results.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "docs/feedback-filter-assembler-results.md.license"
+    },
+    {
+      "paths": [
+        "docs/gpt-oss-b2.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "docs/gpt-oss-b2.md.license"
+    },
+    {
+      "paths": [
+        "docs/repair-loop-v2-analysis.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "docs/repair-loop-v2-analysis.md.license"
+    },
+    {
+      "paths": [
+        "docs/repair-loop-v2-comparison.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "docs/repair-loop-v2-comparison.md.license"
+    },
+    {
+      "paths": [
+        "docs/vllm-b1.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "docs/vllm-b1.md.license"
+    },
+    {
+      "paths": [
+        "evaluation/coder/README.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "evaluation/coder/README.md.license"
+    },
+    {
+      "paths": [
+        "evaluation/coder/diagnostic/README.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "evaluation/coder/diagnostic/README.md.license"
+    },
+    {
+      "paths": [
+        "evaluation/coder/model.json"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "evaluation/coder/model.json.license"
+    },
+    {
+      "paths": [
+        "evaluation/coder/repair/README.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "evaluation/coder/repair/README.md.license"
+    },
+    {
+      "paths": [
+        "evaluation/coder/tasks.json"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "evaluation/coder/tasks.json.license"
+    },
+    {
+      "paths": [
+        "inference/aceis_npu_service/DISTRIBUTION.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/aceis_npu_service/DISTRIBUTION.md.license"
+    },
+    {
+      "paths": [
+        "inference/aceis_npu_service/README.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/aceis_npu_service/README.md.license"
+    },
+    {
+      "paths": [
+        "inference/aceis_service/README.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/aceis_service/README.md.license"
+    },
+    {
+      "paths": [
+        "inference/aceis_service/acceptance-20261107.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/aceis_service/acceptance-20261107.md.license"
+    },
+    {
+      "paths": [
+        "inference/aceis_service/config.example.json"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/aceis_service/config.example.json.license"
+    },
+    {
+      "paths": [
+        "inference/aceis_service/distribution-notes.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/aceis_service/distribution-notes.md.license"
+    },
+    {
+      "paths": [
+        "inference/gpt-oss-b2/versions.lock.json"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/gpt-oss-b2/versions.lock.json.license"
+    },
+    {
+      "paths": [
+        "inference/local_platform/API.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/local_platform/API.md.license"
+    },
+    {
+      "paths": [
+        "inference/local_platform/README.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/local_platform/README.md.license"
+    },
+    {
+      "paths": [
+        "inference/local_platform/acceptance-20261107.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/local_platform/acceptance-20261107.md.license"
+    },
+    {
+      "paths": [
+        "inference/local_platform/development-scope.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/local_platform/development-scope.md.license"
+    },
+    {
+      "paths": [
+        "inference/local_platform/examples/cases.json"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/local_platform/examples/cases.json.license"
+    },
+    {
+      "paths": [
+        "inference/local_platform/examples/cli-regression-task.json"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/local_platform/examples/cli-regression-task.json.license"
+    },
+    {
+      "paths": [
+        "inference/local_platform/examples/median3-cases.json"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/local_platform/examples/median3-cases.json.license"
+    },
+    {
+      "paths": [
+        "inference/local_platform/examples/safe_divide-cases.json"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/local_platform/examples/safe_divide-cases.json.license"
+    },
+    {
+      "paths": [
+        "inference/local_platform/naming.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/local_platform/naming.md.license"
+    },
+    {
+      "paths": [
+        "inference/local_platform/npu-api-acceptance-20261107.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/local_platform/npu-api-acceptance-20261107.md.license"
+    },
+    {
+      "paths": [
+        "inference/local_platform/test-quality-evaluation.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/local_platform/test-quality-evaluation.md.license"
+    },
+    {
+      "paths": [
+        "inference/local_platform/workspace-acceptance-20261107.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/local_platform/workspace-acceptance-20261107.md.license"
+    },
+    {
+      "paths": [
+        "inference/local_platform/workspace-client.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/local_platform/workspace-client.md.license"
+    },
+    {
+      "paths": [
+        "inference/vllm-b1/versions.lock.json"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root",
+      "evidence": "inference/vllm-b1/versions.lock.json.license"
+    }
+  ]
+}
