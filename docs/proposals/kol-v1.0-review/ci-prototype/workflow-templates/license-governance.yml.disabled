@@ -1,0 +1,45 @@
+# DRAFT ONLY: deliberately inactive outside .github/workflows and with .disabled suffix.
+# The example assumes this package is reviewed into license-governance/ first.
+# Fixture checks do not enable KOL on any existing repository.
+name: KOL governance prototype
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fixture-governance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read candidate without retaining credentials
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          path: candidate
+          persist-credentials: false
+      - name: Read trusted base, not candidate scanner or policy
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.event.pull_request.base.sha || github.sha }}
+          path: trusted
+          persist-credentials: false
+      - name: Test trusted prototype
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python3 -m unittest discover -s trusted/license-governance/tests -v
+      - name: Compare candidate fixture source and package against trusted baseline
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: >-
+          python3 trusted/license-governance/tools/license_guard.py check
+          --root candidate/license-governance/examples/fixture-repository
+          --policy trusted/license-governance/examples/fixture-repository/policy.json
+          --baseline trusted/license-governance/examples/trusted-baseline.json
+          --candidate-baseline baseline.json
+          --artifact candidate/license-governance/examples/fixture-aceis.zip
+          --artifact-kind aceis
+# Production integration needs an approved real rights inventory and baseline,
+# protected owner review, and a separate trusted build/artifact provenance gate.
+# A candidate-controlled workflow can disable/spoof its own status. Require an
+# organization ruleset workflow or equivalent trusted external enforcement.
+# Never use pull_request_target to execute candidate-controlled code.

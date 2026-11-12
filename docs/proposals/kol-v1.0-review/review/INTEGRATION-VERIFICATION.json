@@ -1,0 +1,68 @@
+{
+  "checked_at_utc": "2026-11-09T04:23:41.688078+00:00",
+  "status": "pass for isolated private draft preparation",
+  "python": "3.12.14",
+  "repository": "i-pp/project-kiss-infra",
+  "repository_visibility": "private",
+  "base_commit": "e7bd7ec22f1855b027dd713118b54b394d7366a5",
+  "base_tree": "dc7662a122c8783ca5763b7da4e1d645b2063406",
+  "allowed_new_subtree": "docs/proposals/kol-v1.0-review/",
+  "existing_files_changed": false,
+  "source_manifests": {
+    "license_pack": "pass; 11 indexed files plus manifest",
+    "audit": "pass; 4 indexed artifacts",
+    "ci_prototype": "pass; 21 indexed files before log omission"
+  },
+  "source_legal_pack_byte_preserved": true,
+  "ci_functional_files_byte_preserved": true,
+  "ci_packaging_changes": [
+    "Omit verbose tests/latest-results.log under target no-logs policy",
+    "Note local log retention in tests/verification.json and docs/CI-REVIEW.md",
+    "Regenerate copied CI manifest for delivered files"
+  ],
+  "unit_tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v",
+    "working_directory": "ci-prototype/",
+    "passed": 74,
+    "failed": 0,
+    "exit_code": 0,
+    "verbose_log_retention": "local only; not part of the repository proposal"
+  },
+  "fixture_source_and_zip_check": {
+    "status": "pass",
+    "violations": 0,
+    "exit_code": 0
+  },
+  "v4_patch_reverification": {
+    "sources": 2,
+    "git_apply_check": "pass",
+    "isolated_copy_application": "pass",
+    "originals_unchanged": true,
+    "originals_imported": false
+  },
+  "python_ast_parse": "pass",
+  "logs_caches_git_metadata_in_proposal": false,
+  "active_workflow_added": false,
+  "independent_component_reviews": {
+    "drafting_and_japanese_parity": "see license/review/DRAFTING-REVIEW.md",
+    "technical": "see ci-prototype/docs/CI-REVIEW.md; 74 tests independently rerun"
+  },
+  "independent_integration_review": {
+    "status": "accepted for isolated private draft",
+    "scope": "technical packaging and editorial review; not legal approval",
+    "record": "INDEPENDENT-INTEGRATION-REVIEW.md",
+    "independently_rerun_tests": 74,
+    "blocking_findings": 0
+  },
+  "not_run": [
+    "GitHub-hosted Actions",
+    "real AceIS/acc build",
+    "real distribution audit",
+    "complete dependency/SBOM and rights review",
+    "legal enforceability or compatibility assessment"
+  ],
+  "formal_adoption": false,
+  "existing_code_relicensing": false,
+  "public_release": false,
+  "merge_authorized": false
+}

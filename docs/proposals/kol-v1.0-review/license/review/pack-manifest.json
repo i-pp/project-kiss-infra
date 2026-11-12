@@ -1,0 +1,296 @@
+{
+  "pack_status": "unadopted private review candidate",
+  "adoption_or_publication_performed": false,
+  "license_identifier": "LicenseRef-KOL-v1.0",
+  "identifier_status": "user-defined SPDX LicenseRef; not a registered SPDX License List identifier",
+  "legal_review_status": "qualified counsel review required; no enforceability or compatibility opinion",
+  "independent_assistant_review_status": "completed drafting consistency review; see review/DRAFTING-REVIEW.md; qualified counsel review remains required",
+  "proposed_instrument_extraction": {
+    "rule": "text between review markers, trimmed, with one final LF; not an approved operative license",
+    "sha256": "9e78f86d9413cb093ee0008d0bedee05de2b1270ca651e7e19fa0a9f7c49a186"
+  },
+  "files": [
+    {
+      "path": "ACC-OUTPUT-POLICY.md",
+      "bytes": 4211,
+      "sha256": "99fe7cfc14925cd18084e85f77ec4dfd8e56db778ee3952431cd46d937e74ac1"
+    },
+    {
+      "path": "ACEIS-NOTICE.md",
+      "bytes": 4156,
+      "sha256": "ca7ca2d7af4e0024ea7aa850d35c81106615b5d78512b18c06082cf3c2126579"
+    },
+    {
+      "path": "APACHE-2.0-COMPARISON.md",
+      "bytes": 5984,
+      "sha256": "adca9076aaee228986fb87b1029c995145d642b910ffaadb7942df101b522a91"
+    },
+    {
+      "path": "CONTRIBUTOR-POLICY.md",
+      "bytes": 3960,
+      "sha256": "bbeaabda179f18204c98129952b7c23556506c2750efd9b5fdff99e9e1989e96"
+    },
+    {
+      "path": "KOL-POLICY.md",
+      "bytes": 8348,
+      "sha256": "3207568936f4dbc0482add3ead982126b96b3fe1e3311869230b686cfef7c438"
+    },
+    {
+      "path": "KOL-v1-JA.md",
+      "bytes": 12755,
+      "sha256": "60108a823e364b5eff873a2b0b4dbb1ccefd7f84fca85a12b0bab7e71618186f"
+    },
+    {
+      "path": "LICENSE-KOL-v1.0",
+      "bytes": 10372,
+      "sha256": "83d378bbf3d9549fc98c5a4ab0786f305d7fd90cede657809f9c019f7d09ed22"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2975,
+      "sha256": "f20720cac236302ba1762b0f71d18fb98e5c629b44ae4a83b9f735271f2074d7"
+    },
+    {
+      "path": "THIRD-PARTY-POLICY.md",
+      "bytes": 4432,
+      "sha256": "3115ef5a3fde38c5e7ebb21bc9daf994a33d7486aa8fc68c9e57d9c388793780"
+    },
+    {
+      "path": "review/DRAFTING-REVIEW.md",
+      "bytes": 3963,
+      "sha256": "16f766621446f61ed20c9956970f1a1d68c59425b7a5195e1e4dff1ed35483fc"
+    },
+    {
+      "path": "review/OWNER-DECISIONS.md",
+      "bytes": 5126,
+      "sha256": "dae5bc866405e0a907a0bec39809d0f2ea8c785e2e725cab7a9e2cc309c9b823"
+    }
+  ],
+  "drafting_checks": [
+    {
+      "check": "required file LICENSE-KOL-v1.0",
+      "passed": true
+    },
+    {
+      "check": "required file KOL-v1-JA.md",
+      "passed": true
+    },
+    {
+      "check": "required file KOL-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "required file ACEIS-NOTICE.md",
+      "passed": true
+    },
+    {
+      "check": "required file ACC-OUTPUT-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "required file CONTRIBUTOR-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "required file THIRD-PARTY-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "eleven numbered English sections",
+      "passed": true
+    },
+    {
+      "check": "eleven Japanese reference sections",
+      "passed": true
+    },
+    {
+      "check": "English candidate is ASCII",
+      "passed": true
+    },
+    {
+      "check": "review marker only one pair",
+      "passed": true
+    },
+    {
+      "check": "all required operational policies marked candidate",
+      "passed": true
+    },
+    {
+      "check": "Japanese reference nonauthoritative label",
+      "passed": true
+    },
+    {
+      "check": "no operative LICENSES path",
+      "passed": true
+    },
+    {
+      "check": "exact requested SPDX reference present",
+      "passed": true
+    },
+    {
+      "check": "no alternate identifier introduced",
+      "passed": true
+    },
+    {
+      "check": "conditional corporate header preserved",
+      "passed": true
+    },
+    {
+      "check": "copyright and output permission need qualifiers",
+      "passed": true
+    },
+    {
+      "check": "principal grantor explicit",
+      "passed": true
+    },
+    {
+      "check": "patent only termination explicit",
+      "passed": true
+    },
+    {
+      "check": "mandatory credit present",
+      "passed": true
+    },
+    {
+      "check": "no runtime exception explicit",
+      "passed": true
+    },
+    {
+      "check": "file ends in newline ACC-OUTPUT-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "no trailing whitespace ACC-OUTPUT-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "no internal citation token ACC-OUTPUT-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "file ends in newline THIRD-PARTY-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "no trailing whitespace THIRD-PARTY-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "no internal citation token THIRD-PARTY-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "file ends in newline APACHE-2.0-COMPARISON.md",
+      "passed": true
+    },
+    {
+      "check": "no trailing whitespace APACHE-2.0-COMPARISON.md",
+      "passed": true
+    },
+    {
+      "check": "no internal citation token APACHE-2.0-COMPARISON.md",
+      "passed": true
+    },
+    {
+      "check": "file ends in newline KOL-v1-JA.md",
+      "passed": true
+    },
+    {
+      "check": "no trailing whitespace KOL-v1-JA.md",
+      "passed": true
+    },
+    {
+      "check": "no internal citation token KOL-v1-JA.md",
+      "passed": true
+    },
+    {
+      "check": "file ends in newline ACEIS-NOTICE.md",
+      "passed": true
+    },
+    {
+      "check": "no trailing whitespace ACEIS-NOTICE.md",
+      "passed": true
+    },
+    {
+      "check": "no internal citation token ACEIS-NOTICE.md",
+      "passed": true
+    },
+    {
+      "check": "file ends in newline CONTRIBUTOR-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "no trailing whitespace CONTRIBUTOR-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "no internal citation token CONTRIBUTOR-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "file ends in newline README.md",
+      "passed": true
+    },
+    {
+      "check": "no trailing whitespace README.md",
+      "passed": true
+    },
+    {
+      "check": "no internal citation token README.md",
+      "passed": true
+    },
+    {
+      "check": "file ends in newline KOL-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "no trailing whitespace KOL-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "no internal citation token KOL-POLICY.md",
+      "passed": true
+    },
+    {
+      "check": "file ends in newline LICENSE-KOL-v1.0",
+      "passed": true
+    },
+    {
+      "check": "no trailing whitespace LICENSE-KOL-v1.0",
+      "passed": true
+    },
+    {
+      "check": "no internal citation token LICENSE-KOL-v1.0",
+      "passed": true
+    },
+    {
+      "check": "file ends in newline review/OWNER-DECISIONS.md",
+      "passed": true
+    },
+    {
+      "check": "no trailing whitespace review/OWNER-DECISIONS.md",
+      "passed": true
+    },
+    {
+      "check": "no internal citation token review/OWNER-DECISIONS.md",
+      "passed": true
+    },
+    {
+      "check": "file ends in newline review/DRAFTING-REVIEW.md",
+      "passed": true
+    },
+    {
+      "check": "no trailing whitespace review/DRAFTING-REVIEW.md",
+      "passed": true
+    },
+    {
+      "check": "no internal citation token review/DRAFTING-REVIEW.md",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Checks validate selected drafting properties and byte identity only, not legal sufficiency or complete semantic parity.",
+    "No repository ownership or actual compiler output inventory is certified.",
+    "No repository file, operative license, header or package metadata was changed by this drafting task."
+  ]
+}
