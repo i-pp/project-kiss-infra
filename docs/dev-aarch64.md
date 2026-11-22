@@ -1,3 +1,10 @@
+<!--
+File: docs/dev-aarch64.md
+SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+SPDX-License-Identifier: LicenseRef-KOL-v1
+Scope: This notice applies only to the project-authored metadata or documentation in this exact file. External material it describes retains its separate terms.
+-->
+
 # AArch64開発環境 Phase 1
 
 2026-10-27に構築・実機検証。既存の`project-kiss-code-eval:20261027`を共通の親に、開発用子イメージを1つ追加した。ホストのパッケージ、sysroot、ROCm、Docker設定は変更していない。

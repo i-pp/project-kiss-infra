@@ -17,11 +17,13 @@ or an exact-path accompanying `.license` file. The rightsholder for Yuji-created
 project files in this scope is I-plusplus Inc. A root LICENSE does not change
 the terms of every file, dependency, linked project or future contribution.
 
-This change identifies 164 existing project-authored files from revision
-`e7bd7ec22f1855b027dd713118b54b394d7366a5`: 124 source/configuration files
-carry short SPDX headers, and 29 Markdown documents plus 11 JSON metadata files
-have accompanying notices. The original bytes of those documents and metadata
-are preserved, including dated engineering evidence and model-license fields.
+The original rollout identified 164 project-authored files from revision
+`e7bd7ec22f1855b027dd713118b54b394d7366a5`: 124 source/configuration files had
+short SPDX headers, and 29 Markdown documents plus 11 JSON metadata files had
+accompanying notices. The 29 Markdown notices now appear in the documents
+themselves, preserving their original contents and the exact notice scope.
+The 11 strict JSON files retain their matching notices and original bytes,
+including model-license fields.
 
 The generated file `dev/aarch64/smoke/rust/Cargo.lock` is unchanged.
 It contains Cargo-generated package metadata, not vendored package source.

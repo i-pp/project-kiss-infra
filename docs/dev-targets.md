@@ -1,3 +1,10 @@
+<!--
+File: docs/dev-targets.md
+SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+SPDX-License-Identifier: LicenseRef-KOL-v1
+Scope: This notice applies only to the project-authored metadata or documentation in this exact file. External material it describes retains its separate terms.
+-->
+
 # x86-64 / AArch64開発環境 Phase 2C
 
 2026-10-27に構築・実行。LLVM 21の共通C++ APIから両ターゲットのELFオブジェクトを生成し、リンク・実行できる最小経路を確認した。AceISのフロントエンド、独自バックエンド、正式ブート仕様の完成を意味しない。

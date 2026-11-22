@@ -1,3 +1,10 @@
+<!--
+File: AGENTS.md
+SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+SPDX-License-Identifier: LicenseRef-KOL-v1
+Scope: This notice applies only to the project-authored metadata or documentation in this exact file. External material it describes retains its separate terms.
+-->
+
 # Project-KISS 開発ルール
 
 このディレクトリをプロジェクトルートとし、以下の原則をすべての作業に適用する。

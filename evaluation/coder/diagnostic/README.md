@@ -1,3 +1,10 @@
+<!--
+File: evaluation/coder/diagnostic/README.md
+SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+SPDX-License-Identifier: LicenseRef-KOL-v1
+Scope: This notice applies only to the project-authored metadata or documentation in this exact file. External material it describes retains its separate terms.
+-->
+
 # Repair Loop v2 — 診断分離方式
 
 入口は `scripts/repair-coder-diagnostic.py`。既存 `scripts/repair-coder.py` を変更せず、そのAPI呼出し・固定情報・隔離実行・診断フィルター・ハッシュ検査を再利用する。

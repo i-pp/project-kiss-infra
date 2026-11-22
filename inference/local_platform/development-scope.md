@@ -1,3 +1,10 @@
+<!--
+File: inference/local_platform/development-scope.md
+SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+SPDX-License-Identifier: LicenseRef-KOL-v1
+Scope: This notice applies only to the project-authored metadata or documentation in this exact file. External material it describes retains its separate terms.
+-->
+
 # Extending from pure functions to real development tasks
 
 The current repair client completes small pure-function tasks against declarative

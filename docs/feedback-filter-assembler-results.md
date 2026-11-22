@@ -1,3 +1,10 @@
+<!--
+File: docs/feedback-filter-assembler-results.md
+SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+SPDX-License-Identifier: LicenseRef-KOL-v1
+Scope: This notice applies only to the project-authored metadata or documentation in this exact file. External material it describes retains its separate terms.
+-->
+
 # GNU assembler feedbackフィルター：比較結果の確定
 
 2026-10-28 JST。**診断抽出改善はPASS、コード修正成功率改善は未確認**。

@@ -1,3 +1,10 @@
+<!--
+File: docs/vllm-b1.md
+SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+SPDX-License-Identifier: LicenseRef-KOL-v1
+Scope: This notice applies only to the project-authored metadata or documentation in this exact file. External material it describes retains its separate terms.
+-->
+
 # vLLM Phase B1：gfx1151 最小実機検証
 
 2026-10-28 JST。対象は EVO-X3 / Radeon 8060S gfx1151。**GPU推論、localhost API、再起動はPASS**。
