@@ -160,9 +160,7 @@
         "LICENSING.md",
         "README.md",
         "dev/aarch64/smoke/README.md",
-        "dev/aarch64/versions.lock.json.license",
         "dev/x86_64/smoke/README.md",
-        "dev/x86_64/versions.lock.json.license",
         "docs/dev-aarch64.md",
         "docs/dev-targets.md",
         "docs/feedback-filter-assembler-plan.md",
@@ -173,30 +171,21 @@
         "docs/vllm-b1.md",
         "evaluation/coder/README.md",
         "evaluation/coder/diagnostic/README.md",
-        "evaluation/coder/model.json.license",
         "evaluation/coder/repair/README.md",
-        "evaluation/coder/tasks.json.license",
         "inference/aceis_npu_service/DISTRIBUTION.md",
         "inference/aceis_npu_service/README.md",
         "inference/aceis_service/README.md",
         "inference/aceis_service/acceptance-20261107.md",
-        "inference/aceis_service/config.example.json.license",
         "inference/aceis_service/distribution-notes.md",
-        "inference/gpt-oss-b2/versions.lock.json.license",
         "inference/local_platform/API.md",
         "inference/local_platform/README.md",
         "inference/local_platform/acceptance-20261107.md",
         "inference/local_platform/development-scope.md",
-        "inference/local_platform/examples/cases.json.license",
-        "inference/local_platform/examples/cli-regression-task.json.license",
-        "inference/local_platform/examples/median3-cases.json.license",
-        "inference/local_platform/examples/safe_divide-cases.json.license",
         "inference/local_platform/naming.md",
         "inference/local_platform/npu-api-acceptance-20261107.md",
         "inference/local_platform/test-quality-evaluation.md",
         "inference/local_platform/workspace-acceptance-20261107.md",
-        "inference/local_platform/workspace-client.md",
-        "inference/vllm-b1/versions.lock.json.license"
+        "inference/local_platform/workspace-client.md"
       ],
       "kind": "first_party",
       "license": "LicenseRef-KOL-v1",
@@ -230,7 +219,7 @@
       "kind": "first_party",
       "license": "LicenseRef-KOL-v1",
       "header": "root",
-      "evidence": "dev/aarch64/versions.lock.json.license"
+      "evidence": "LICENSING.md"
     },
     {
       "paths": [
@@ -239,7 +228,7 @@
       "kind": "first_party",
       "license": "LicenseRef-KOL-v1",
       "header": "root",
-      "evidence": "dev/x86_64/versions.lock.json.license"
+      "evidence": "LICENSING.md"
     },
     {
       "paths": [
@@ -248,7 +237,7 @@
       "kind": "first_party",
       "license": "LicenseRef-KOL-v1",
       "header": "root",
-      "evidence": "evaluation/coder/model.json.license"
+      "evidence": "LICENSING.md"
     },
     {
       "paths": [
@@ -257,7 +246,7 @@
       "kind": "first_party",
       "license": "LicenseRef-KOL-v1",
       "header": "root",
-      "evidence": "evaluation/coder/tasks.json.license"
+      "evidence": "LICENSING.md"
     },
     {
       "paths": [
@@ -266,7 +255,7 @@
       "kind": "first_party",
       "license": "LicenseRef-KOL-v1",
       "header": "root",
-      "evidence": "inference/aceis_service/config.example.json.license"
+      "evidence": "LICENSING.md"
     },
     {
       "paths": [
@@ -275,7 +264,7 @@
       "kind": "first_party",
       "license": "LicenseRef-KOL-v1",
       "header": "root",
-      "evidence": "inference/gpt-oss-b2/versions.lock.json.license"
+      "evidence": "LICENSING.md"
     },
     {
       "paths": [
@@ -284,7 +273,7 @@
       "kind": "first_party",
       "license": "LicenseRef-KOL-v1",
       "header": "root",
-      "evidence": "inference/local_platform/examples/cases.json.license"
+      "evidence": "LICENSING.md"
     },
     {
       "paths": [
@@ -293,7 +282,7 @@
       "kind": "first_party",
       "license": "LicenseRef-KOL-v1",
       "header": "root",
-      "evidence": "inference/local_platform/examples/cli-regression-task.json.license"
+      "evidence": "LICENSING.md"
     },
     {
       "paths": [
@@ -302,7 +291,7 @@
       "kind": "first_party",
       "license": "LicenseRef-KOL-v1",
       "header": "root",
-      "evidence": "inference/local_platform/examples/median3-cases.json.license"
+      "evidence": "LICENSING.md"
     },
     {
       "paths": [
@@ -311,7 +300,7 @@
       "kind": "first_party",
       "license": "LicenseRef-KOL-v1",
       "header": "root",
-      "evidence": "inference/local_platform/examples/safe_divide-cases.json.license"
+      "evidence": "LICENSING.md"
     },
     {
       "paths": [
@@ -320,7 +309,7 @@
       "kind": "first_party",
       "license": "LicenseRef-KOL-v1",
       "header": "root",
-      "evidence": "inference/vllm-b1/versions.lock.json.license"
+      "evidence": "LICENSING.md"
     }
   ]
 }
