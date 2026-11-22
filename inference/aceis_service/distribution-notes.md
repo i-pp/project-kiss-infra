@@ -1,3 +1,10 @@
+<!--
+File: inference/aceis_service/distribution-notes.md
+SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+SPDX-License-Identifier: LicenseRef-KOL-v1
+Scope: This notice applies only to the project-authored metadata or documentation in this exact file. External material it describes retains its separate terms.
+-->
+
 # Local AI Fabric container distribution (planned, not published)
 
 Local AI Fabric (LAF) is the agreed name for the independent local-LLM-plus-NPU

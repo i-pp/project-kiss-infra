@@ -1,3 +1,10 @@
+<!--
+File: inference/local_platform/workspace-client.md
+SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+SPDX-License-Identifier: LicenseRef-KOL-v1
+Scope: This notice applies only to the project-authored metadata or documentation in this exact file. External material it describes retains its separate terms.
+-->
+
 # Restricted project tools for the local client
 
 The client can now read selected project files, propose a small text edit and run

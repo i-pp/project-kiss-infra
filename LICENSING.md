@@ -13,15 +13,17 @@ SPDX License List entry or an OSI approval.
 ## First-party scope
 
 KOL applies only to first-party material expressly identified by an SPDX header
-or an exact-path accompanying `.license` file. The rightsholder for Yuji-created
+or by path in the strict JSON notices below. The rightsholder for Yuji-created
 project files in this scope is I-plusplus Inc. A root LICENSE does not change
 the terms of every file, dependency, linked project or future contribution.
 
-This change identifies 164 existing project-authored files from revision
-`e7bd7ec22f1855b027dd713118b54b394d7366a5`: 124 source/configuration files
-carry short SPDX headers, and 29 Markdown documents plus 11 JSON metadata files
-have accompanying notices. The original bytes of those documents and metadata
-are preserved, including dated engineering evidence and model-license fields.
+The original rollout identified 164 project-authored files from revision
+`e7bd7ec22f1855b027dd713118b54b394d7366a5`: 124 source/configuration files had
+short SPDX headers, and 29 Markdown documents plus 11 JSON metadata files had
+accompanying notices. The 29 Markdown notices now appear in the documents
+themselves, preserving their original contents and the exact notice scope.
+The 11 strict JSON files retain their original bytes, including model-license
+fields; their notices are now recorded by exact path in this guide.
 
 The generated file `dev/aarch64/smoke/rust/Cargo.lock` is unchanged.
 It contains Cargo-generated package metadata, not vendored package source.
@@ -29,9 +31,36 @@ This change makes no new copyright assertion or licensing determination about
 that generated metadata. The project-authored `Cargo.toml` is marked separately.
 
 The license instrument is reproduced without an added header or altered clause.
-NOTICE, this guide, and the accompanying file notices are project licensing
-materials. Future files and outside contributions require accurate ownership
+NOTICE and this guide are project licensing materials. Future files and outside
+contributions require accurate ownership
 and applicable license notices before KOL is applied.
+
+## Exact-path notices for strict JSON
+
+The following existing notices moved from individual companion files without
+changing the covered scope or the terms of KISS Open License Version 1.0
+(`LicenseRef-KOL-v1`). These declarations apply only to the files listed here,
+not to every JSON file or to the repository as a whole. For these JSON files,
+this section fulfills the exact-path notice described in [NOTICE](NOTICE);
+the notice now appears here instead of in an accompanying file.
+
+| Repository-relative file | SPDX-FileCopyrightText | SPDX-License-Identifier |
+| --- | --- | --- |
+| `dev/aarch64/versions.lock.json` | 2026 I-plusplus Inc. | `LicenseRef-KOL-v1` |
+| `dev/x86_64/versions.lock.json` | 2026 I-plusplus Inc. | `LicenseRef-KOL-v1` |
+| `evaluation/coder/model.json` | 2026 I-plusplus Inc. | `LicenseRef-KOL-v1` |
+| `evaluation/coder/tasks.json` | 2026 I-plusplus Inc. | `LicenseRef-KOL-v1` |
+| `inference/aceis_service/config.example.json` | 2026 I-plusplus Inc. | `LicenseRef-KOL-v1` |
+| `inference/gpt-oss-b2/versions.lock.json` | 2026 I-plusplus Inc. | `LicenseRef-KOL-v1` |
+| `inference/local_platform/examples/cases.json` | 2026 I-plusplus Inc. | `LicenseRef-KOL-v1` |
+| `inference/local_platform/examples/cli-regression-task.json` | 2026 I-plusplus Inc. | `LicenseRef-KOL-v1` |
+| `inference/local_platform/examples/median3-cases.json` | 2026 I-plusplus Inc. | `LicenseRef-KOL-v1` |
+| `inference/local_platform/examples/safe_divide-cases.json` | 2026 I-plusplus Inc. | `LicenseRef-KOL-v1` |
+| `inference/vllm-b1/versions.lock.json` | 2026 I-plusplus Inc. | `LicenseRef-KOL-v1` |
+
+Scope: This notice applies only to the project-authored metadata or documentation in this exact file. External material it describes retains its separate terms. This scope applies individually to each row.
+When an already-cleared JSON file is added or renamed, update this exact-path
+list and the CI license policy together.
 
 ## Separate third-party material
 
@@ -60,10 +89,10 @@ license its output or require credit; copied or embedded covered material
 retains its applicable terms.
 
 For a file that supports comments, retain the short SPDX pair in supported
-comment syntax. Keep interpreter shebangs first. For commentless formats or
-byte-preserved evidence, keep the matching exact-path `.license` file alongside
-the covered file. Do not add a different license to an upstream payload merely
-because a wrapper or build script uses it.
+comment syntax. Keep interpreter shebangs first. For the strict JSON files
+listed above, retain the exact-path declaration in this guide without modifying
+the JSON. Do not add a different license to an upstream payload merely because
+a wrapper or build script uses it.
 
 This change adds licensing information only. It does not update an existing
 deployment, publish this private repository, or establish legal enforceability,

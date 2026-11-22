@@ -1,3 +1,10 @@
+<!--
+File: inference/local_platform/test-quality-evaluation.md
+SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+SPDX-License-Identifier: LicenseRef-KOL-v1
+Scope: This notice applies only to the project-authored metadata or documentation in this exact file. External material it describes retains its separate terms.
+-->
+
 # Evaluate correct test design before speed
 
 The user's primary criterion is the ability to create **correct tests**. Task

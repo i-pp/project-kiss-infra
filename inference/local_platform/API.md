@@ -1,3 +1,10 @@
+<!--
+File: inference/local_platform/API.md
+SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+SPDX-License-Identifier: LicenseRef-KOL-v1
+Scope: This notice applies only to the project-authored metadata or documentation in this exact file. External material it describes retains its separate terms.
+-->
+
 # LAF Router v1 API contract
 
 This documents the GPU/NPU API used by Local AI Fabric (LAF). The display name is

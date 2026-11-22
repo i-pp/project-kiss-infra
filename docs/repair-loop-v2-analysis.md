@@ -1,3 +1,10 @@
+<!--
+File: docs/repair-loop-v2-analysis.md
+SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+SPDX-License-Identifier: LicenseRef-KOL-v1
+Scope: This notice applies only to the project-authored metadata or documentation in this exact file. External material it describes retains its separate terms.
+-->
+
 # Repair Loop v2 — Phase A: baseline 20候補の分析
 
 対象は `logs/repair/20261027T084214958944Z/` の `report.json`、各候補ソース、`verification.json`、`feedback.txt`、`api.json`。

@@ -1,3 +1,10 @@
+<!--
+File: dev/x86_64/smoke/README.md
+SPDX-FileCopyrightText: 2026 I-plusplus Inc.
+SPDX-License-Identifier: LicenseRef-KOL-v1
+Scope: This notice applies only to the project-authored metadata or documentation in this exact file. External material it describes retains its separate terms.
+-->
+
 # Environment validation only
 
 The Multiboot header, protected-to-long-mode transition, identity page tables,
